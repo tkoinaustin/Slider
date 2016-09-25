@@ -9,18 +9,12 @@
 import UIKit
 
 class SliderViewController: UIViewController {
-  
+    
   @IBOutlet weak var supermanImageView: UIImageView! { didSet {
+    let pan = UIPanGestureRecognizer(target: self, action: #selector(pan(_:)))
+    supermanImageView.addGestureRecognizer(pan)
   }}
   
-  override func viewDidLoad() {
-    let pan = UIPanGestureRecognizer(target: self, action: #selector(pan(_:)))
-    pan.delegate = self
-    view.addGestureRecognizer(pan)
-  }
-}
-
-extension SliderViewController: UIGestureRecognizerDelegate {
   func pan(_ panRecognizer: UIPanGestureRecognizer) {
     guard let panView = supermanImageView else { return }
     
@@ -29,5 +23,7 @@ extension SliderViewController: UIGestureRecognizerDelegate {
     
     panRecognizer.setTranslation(CGPoint(x: 0, y: 0), in: view)
   }
+  
+  
   
 }
