@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="t83-vZ-Ygp">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Intro View Controller-->
+        <scene sceneID="O8h-mT-pfx">
+            <objects>
+                <viewController id="t83-vZ-Ygp" customClass="IntroViewController" customModule="Slider" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xkk-5A-Z9R"/>
+                        <viewControllerLayoutGuide type="bottom" id="KBA-Jv-TkA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jxc-6N-BhN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="superman" translatesAutoresizingMaskIntoConstraints="NO" id="1R1-BV-M0N">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="DtL-4R-64l"/>
+                                    <constraint firstAttribute="height" constant="160" id="w4I-eE-Anp"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="44J-51-1Kz">
+                                <state key="normal" title="Get 'er done!"/>
+                                <connections>
+                                    <segue destination="lx3-cj-XZz" kind="show" id="ouX-Ll-J5O"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="1R1-BV-M0N" firstAttribute="centerY" secondItem="jxc-6N-BhN" secondAttribute="centerY" id="7tY-JG-t2Z"/>
+                            <constraint firstItem="1R1-BV-M0N" firstAttribute="centerX" secondItem="jxc-6N-BhN" secondAttribute="centerX" id="NC3-12-2cZ"/>
+                            <constraint firstItem="44J-51-1Kz" firstAttribute="centerX" secondItem="jxc-6N-BhN" secondAttribute="centerX" id="Tgh-d4-8jD"/>
+                            <constraint firstItem="44J-51-1Kz" firstAttribute="centerY" secondItem="jxc-6N-BhN" secondAttribute="centerY" id="z11-wq-why"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="continueButton" destination="44J-51-1Kz" id="GSi-3K-2KB"/>
+                        <outlet property="logoView" destination="1R1-BV-M0N" id="vcO-MY-A8Z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yg0-Va-1pW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="258" y="-4"/>
+        </scene>
+        <!--Slider-->
+        <scene sceneID="cEk-qB-HJT">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Slider" id="lx3-cj-XZz" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FEX-5p-tUx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="991" y="-4"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="superman" width="1275" height="850"/>
+    </resources>
+</document>
