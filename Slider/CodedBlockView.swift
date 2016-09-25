@@ -38,6 +38,15 @@ class CodedBlockView: UIView {
     imageView.image = UIImage(named: "superman")
   }
   
+  static func get(parent: UIView) -> CodedBlockView {
+    let frame = CGRect(x: 0, y: 0, width: 256, height: 176)
+    let block = CodedBlockView.init(frame: frame)
+    block.center = CGPoint(x: 187, y: 100)
+    parent.addSubview(block)
+
+    return block
+  }
+  
   func pan(_ panRecognizer: UIPanGestureRecognizer) {
     
     let translation = panRecognizer.translation(in: self)

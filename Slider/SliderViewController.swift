@@ -20,6 +20,8 @@ class SliderViewController: UIViewController {
     let image = CodedBlockView.init(frame: frame)
     image.center = view.center
     view.addSubview(image)
+    
+    let _ = CodedBlockView.get(parent: self.view)
   }
   
   func pan(_ panRecognizer: UIPanGestureRecognizer) {
