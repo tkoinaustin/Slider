@@ -7,33 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		83740BA01D97297000306D3B /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83740B9F1D97297000306D3B /* Intro.storyboard */; };
-		83740BA21D97299600306D3B /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83740BA11D97299600306D3B /* IntroViewController.swift */; };
-		83740BA41D9762C500306D3B /* SliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83740BA31D9762C500306D3B /* SliderViewController.swift */; };
-		83740BA61D97637600306D3B /* Slider.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83740BA51D97637600306D3B /* Slider.storyboard */; };
-		83740BA81D98276000306D3B /* BlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83740BA71D98276000306D3B /* BlockView.swift */; };
-		83740BAA1D98292000306D3B /* BlockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83740BA91D98292000306D3B /* BlockView.xib */; };
+		834CDD981D9B5AA1002CB6DD /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 834CDD961D9B5AA1002CB6DD /* Intro.storyboard */; };
+		834CDD991D9B5AA1002CB6DD /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834CDD971D9B5AA1002CB6DD /* IntroViewController.swift */; };
+		834CDD9C1D9B5AB5002CB6DD /* Slider.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 834CDD9A1D9B5AB5002CB6DD /* Slider.storyboard */; };
+		834CDD9D1D9B5AB5002CB6DD /* SliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834CDD9B1D9B5AB5002CB6DD /* SliderViewController.swift */; };
+		834CDDA11D9B5ADF002CB6DD /* BlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834CDD9E1D9B5ADF002CB6DD /* BlockView.swift */; };
+		834CDDA21D9B5ADF002CB6DD /* BlockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 834CDD9F1D9B5ADF002CB6DD /* BlockView.xib */; };
+		834CDDA31D9B5ADF002CB6DD /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834CDDA01D9B5ADF002CB6DD /* NibLoadable.swift */; };
+		834CDDA51D9B5BB3002CB6DD /* CodedBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834CDDA41D9B5BB3002CB6DD /* CodedBlockView.swift */; };
 		83AB62651D97106D00E61AB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AB62641D97106D00E61AB7 /* AppDelegate.swift */; };
 		83AB626C1D97106D00E61AB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83AB626B1D97106D00E61AB7 /* Assets.xcassets */; };
 		83AB626F1D97106D00E61AB7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83AB626D1D97106D00E61AB7 /* LaunchScreen.storyboard */; };
-		83D862DE1D9835A600212E60 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D862DD1D9835A500212E60 /* NibLoadable.swift */; };
-		83D862E01D984D3000212E60 /* CodedBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D862DF1D984D3000212E60 /* CodedBlockView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		83740B9F1D97297000306D3B /* Intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
-		83740BA11D97299600306D3B /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
-		83740BA31D9762C500306D3B /* SliderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderViewController.swift; sourceTree = "<group>"; };
-		83740BA51D97637600306D3B /* Slider.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Slider.storyboard; sourceTree = "<group>"; };
-		83740BA71D98276000306D3B /* BlockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockView.swift; sourceTree = "<group>"; };
-		83740BA91D98292000306D3B /* BlockView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlockView.xib; sourceTree = "<group>"; };
+		834CDD961D9B5AA1002CB6DD /* Intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Intro.storyboard; path = Intro/Intro.storyboard; sourceTree = "<group>"; };
+		834CDD971D9B5AA1002CB6DD /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntroViewController.swift; path = Intro/IntroViewController.swift; sourceTree = "<group>"; };
+		834CDD9A1D9B5AB5002CB6DD /* Slider.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Slider.storyboard; path = Slider/Slider.storyboard; sourceTree = "<group>"; };
+		834CDD9B1D9B5AB5002CB6DD /* SliderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SliderViewController.swift; path = Slider/SliderViewController.swift; sourceTree = "<group>"; };
+		834CDD9E1D9B5ADF002CB6DD /* BlockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlockView.swift; path = Block/BlockView.swift; sourceTree = "<group>"; };
+		834CDD9F1D9B5ADF002CB6DD /* BlockView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BlockView.xib; path = Block/BlockView.xib; sourceTree = "<group>"; };
+		834CDDA01D9B5ADF002CB6DD /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NibLoadable.swift; path = Block/NibLoadable.swift; sourceTree = "<group>"; };
+		834CDDA41D9B5BB3002CB6DD /* CodedBlockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CodedBlockView.swift; path = Block/CodedBlockView.swift; sourceTree = "<group>"; };
+		834CDDA61D9B5C2F002CB6DD /* BlockViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlockViewModel.swift; path = Block/BlockViewModel.swift; sourceTree = "<group>"; };
 		83AB62611D97106D00E61AB7 /* Slider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83AB62641D97106D00E61AB7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83AB626B1D97106D00E61AB7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		83AB626E1D97106D00E61AB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83AB62701D97106D00E61AB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		83D862DD1D9835A500212E60 /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
-		83D862DF1D984D3000212E60 /* CodedBlockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodedBlockView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +48,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		834CDD921D9B5A1A002CB6DD /* Block */ = {
+			isa = PBXGroup;
+			children = (
+				834CDDA41D9B5BB3002CB6DD /* CodedBlockView.swift */,
+				834CDD9E1D9B5ADF002CB6DD /* BlockView.swift */,
+				834CDD9F1D9B5ADF002CB6DD /* BlockView.xib */,
+				834CDDA01D9B5ADF002CB6DD /* NibLoadable.swift */,
+				834CDDA61D9B5C2F002CB6DD /* BlockViewModel.swift */,
+			);
+			name = Block;
+			sourceTree = "<group>";
+		};
+		834CDD931D9B5A32002CB6DD /* Grid */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Grid;
+			sourceTree = "<group>";
+		};
+		834CDD941D9B5A3B002CB6DD /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				834CDD961D9B5AA1002CB6DD /* Intro.storyboard */,
+				834CDD971D9B5AA1002CB6DD /* IntroViewController.swift */,
+			);
+			name = Intro;
+			sourceTree = "<group>";
+		};
+		834CDD951D9B5A43002CB6DD /* Slider */ = {
+			isa = PBXGroup;
+			children = (
+				834CDD9A1D9B5AB5002CB6DD /* Slider.storyboard */,
+				834CDD9B1D9B5AB5002CB6DD /* SliderViewController.swift */,
+			);
+			name = Slider;
+			sourceTree = "<group>";
+		};
 		83AB62581D97106A00E61AB7 = {
 			isa = PBXGroup;
 			children = (
@@ -66,18 +104,14 @@
 		83AB62631D97106D00E61AB7 /* Slider */ = {
 			isa = PBXGroup;
 			children = (
+				834CDD941D9B5A3B002CB6DD /* Intro */,
+				834CDD951D9B5A43002CB6DD /* Slider */,
+				834CDD931D9B5A32002CB6DD /* Grid */,
+				834CDD921D9B5A1A002CB6DD /* Block */,
 				83AB62641D97106D00E61AB7 /* AppDelegate.swift */,
 				83AB626B1D97106D00E61AB7 /* Assets.xcassets */,
 				83AB62701D97106D00E61AB7 /* Info.plist */,
 				83AB626D1D97106D00E61AB7 /* LaunchScreen.storyboard */,
-				83740BA11D97299600306D3B /* IntroViewController.swift */,
-				83740B9F1D97297000306D3B /* Intro.storyboard */,
-				83740BA31D9762C500306D3B /* SliderViewController.swift */,
-				83740BA51D97637600306D3B /* Slider.storyboard */,
-				83740BA71D98276000306D3B /* BlockView.swift */,
-				83740BA91D98292000306D3B /* BlockView.xib */,
-				83D862DD1D9835A500212E60 /* NibLoadable.swift */,
-				83D862DF1D984D3000212E60 /* CodedBlockView.swift */,
 			);
 			path = Slider;
 			sourceTree = "<group>";
@@ -144,9 +178,9 @@
 			files = (
 				83AB626F1D97106D00E61AB7 /* LaunchScreen.storyboard in Resources */,
 				83AB626C1D97106D00E61AB7 /* Assets.xcassets in Resources */,
-				83740BA01D97297000306D3B /* Intro.storyboard in Resources */,
-				83740BAA1D98292000306D3B /* BlockView.xib in Resources */,
-				83740BA61D97637600306D3B /* Slider.storyboard in Resources */,
+				834CDD981D9B5AA1002CB6DD /* Intro.storyboard in Resources */,
+				834CDDA21D9B5ADF002CB6DD /* BlockView.xib in Resources */,
+				834CDD9C1D9B5AB5002CB6DD /* Slider.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,11 +191,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83D862E01D984D3000212E60 /* CodedBlockView.swift in Sources */,
-				83740BA81D98276000306D3B /* BlockView.swift in Sources */,
-				83740BA41D9762C500306D3B /* SliderViewController.swift in Sources */,
-				83740BA21D97299600306D3B /* IntroViewController.swift in Sources */,
-				83D862DE1D9835A600212E60 /* NibLoadable.swift in Sources */,
+				834CDDA51D9B5BB3002CB6DD /* CodedBlockView.swift in Sources */,
+				834CDDA11D9B5ADF002CB6DD /* BlockView.swift in Sources */,
+				834CDD9D1D9B5AB5002CB6DD /* SliderViewController.swift in Sources */,
+				834CDD991D9B5AA1002CB6DD /* IntroViewController.swift in Sources */,
+				834CDDA31D9B5ADF002CB6DD /* NibLoadable.swift in Sources */,
 				83AB62651D97106D00E61AB7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

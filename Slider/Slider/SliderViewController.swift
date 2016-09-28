@@ -18,7 +18,7 @@ class SliderViewController: UIViewController {
   override func viewDidLoad() {
     let frame = CGRect(x: 0, y: 0, width: 256, height: 176)
     let image = CodedBlockView.init(frame: frame)
-    image.center = view.center
+    image.center = CGPoint(x: view.center.x, y: view.center.y + 75)
     view.addSubview(image)
     
     let _ = CodedBlockView.get(parent: self.view)
