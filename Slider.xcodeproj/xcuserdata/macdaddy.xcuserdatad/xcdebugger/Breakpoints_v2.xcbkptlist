@@ -19,5 +19,131 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Slider/Block/BlockViewModel.swift"
+            timestampString = "497360139.663553"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "canMove(direction:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SliderTests/GridViewModelTests.swift"
+            timestampString = "497140930.305403"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "testSetNeighbors()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SliderTests.GridViewModelTests.testSetNeighbors () -&gt; ()"
+                  moduleName = "SliderTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macdaddy/Dropbox/Documents/Xcode8/Slider/SliderTests/GridViewModelTests.swift"
+                  timestampString = "497122476.444493"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "1200">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SliderTests.GridViewModelTests.(testSetNeighbors () -&gt; ()).(implicit closure #10)"
+                  moduleName = "SliderTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macdaddy/Dropbox/Documents/Xcode8/Slider/SliderTests/GridViewModelTests.swift"
+                  timestampString = "497122476.447444"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "26">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SliderTests.GridViewModelTests.(testSetNeighbors () -&gt; ()).(implicit closure #11)"
+                  moduleName = "SliderTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macdaddy/Dropbox/Documents/Xcode8/Slider/SliderTests/GridViewModelTests.swift"
+                  timestampString = "497122476.449929"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "8">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SliderTests.GridViewModelTests.(testSetNeighbors () -&gt; ()).(implicit closure #12)"
+                  moduleName = "SliderTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macdaddy/Dropbox/Documents/Xcode8/Slider/SliderTests/GridViewModelTests.swift"
+                  timestampString = "497122476.45314"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Slider/Block/NibLoadable.swift"
+            timestampString = "497145699.554136"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "get()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Slider/GameBoard/GameBoardViewController.swift"
+            timestampString = "497322777.265206"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

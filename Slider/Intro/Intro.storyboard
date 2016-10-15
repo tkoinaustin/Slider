@@ -48,10 +48,10 @@
             </objects>
             <point key="canvasLocation" x="258" y="-4"/>
         </scene>
-        <!--Slider-->
+        <!--GameBoard-->
         <scene sceneID="cEk-qB-HJT">
             <objects>
-                <viewControllerPlaceholder storyboardName="Slider" id="lx3-cj-XZz" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="GameBoard" id="lx3-cj-XZz" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FEX-5p-tUx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="991" y="-4"/>

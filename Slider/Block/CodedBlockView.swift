@@ -11,22 +11,14 @@ import UIKit
 class CodedBlockView: UIView {
   
   var imageView = UIImageView()
+  var viewModel: BlockViewModel!
 
   public override init(frame: CGRect) {
     super.init(frame: frame)
-    setup()
-  }
-  
-  required init?(coder aDecoder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
-  
-  func setup() {
-    self.addSubview(imageView)
-    
     let pan = UIPanGestureRecognizer(target: self, action: #selector(pan(_:)))
     self.addGestureRecognizer(pan)
     
+    self.addSubview(imageView)
     imageView.translatesAutoresizingMaskIntoConstraints = false
     let margins = layoutMarginsGuide
     
@@ -35,13 +27,23 @@ class CodedBlockView: UIView {
     imageView.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
     imageView.trailingAnchor.constraint(equalTo:margins.trailingAnchor).isActive = true
     
-    imageView.image = UIImage(named: "superman")
+    imageView.image = UIImage(named: "superman1")
   }
   
-  static func get(parent: UIView) -> CodedBlockView {
-    let frame = CGRect(x: 0, y: 0, width: 256, height: 176)
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
+  static func get(parent: UIView, grid: GridViewModel, index: Int) -> CodedBlockView {
+    let frame = CGRect(x: 0, y: 0, width: 128, height: 88)
     let block = CodedBlockView.init(frame: frame)
-    block.center = CGPoint(x: 187, y: 100)
+    block.viewModel = grid.block(index)
+    block.viewModel.updateUI = { _ in
+      block.center = block.viewModel.center
+    }
+    block.center = block.viewModel.center
+    block.bounds = block.viewModel.bounds
+    
     parent.addSubview(block)
 
     return block
@@ -50,8 +52,17 @@ class CodedBlockView: UIView {
   func pan(_ panRecognizer: UIPanGestureRecognizer) {
     
     let translation = panRecognizer.translation(in: self)
-    center = CGPoint(x: center.x + translation.x, y: center.y + translation.y)
     
+    switch panRecognizer.state {
+    case .began:
+      viewModel.start(at: center)
+    case .changed:
+      viewModel.moving(amount: translation)
+    default:
+      viewModel.finished()
+    }
+
+    self.center = viewModel.center
     panRecognizer.setTranslation(CGPoint(x: 0, y: 0), in: self)
   }
 }

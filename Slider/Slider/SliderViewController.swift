@@ -9,6 +9,8 @@
 import UIKit
 
 class SliderViewController: UIViewController {
+  
+  var grid = GridViewModel()
     
   @IBOutlet weak var supermanImageView: UIImageView! { didSet {
     let pan = UIPanGestureRecognizer(target: self, action: #selector(pan(_:)))
@@ -21,7 +23,7 @@ class SliderViewController: UIViewController {
     image.center = CGPoint(x: view.center.x, y: view.center.y + 75)
     view.addSubview(image)
     
-    let _ = CodedBlockView.get(parent: self.view)
+    let _ = CodedBlockView.get(parent: self.view, grid: grid, index: 1)
   }
   
   func pan(_ panRecognizer: UIPanGestureRecognizer) {
