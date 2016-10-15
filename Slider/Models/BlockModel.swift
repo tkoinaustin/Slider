@@ -13,6 +13,7 @@ class BlockModel: Hashable {
   var index: Int!
   var type: BlockType!
   var origin = Coordinate(row:0, col:0)
+  weak var viewModel: BlockViewModel!
   private var neighbors: [Direction: Set<BlockModel>]!
   private var blockLogic = BlockModelLogic()
 
@@ -25,6 +26,14 @@ class BlockModel: Hashable {
     return index
   }
   
+  func moveByAmount(direction: Direction, amount: CGPoint) {
+    viewModel.moveByAmount(direction: direction, amount: amount)
+  }
+  
+  func updateUI() {
+    viewModel.updateUI()
+  }
+
 //   this needs to be moved to the Model classes
 //  func canMove(direction: Direction) -> Bool {
 //    guard let blocks = neighbors[direction] else { print("guard failed"); return false }

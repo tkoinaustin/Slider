@@ -10,26 +10,26 @@ import UIKit
 
 class GameBoardViewController: UIViewController {
   
-  var grid = GridViewModel()
+  var game = GameViewModel()
 
-  @IBOutlet weak var gridView: UIView!
+  @IBOutlet weak var gameView: UIView!
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     
-    grid.load(size: gridView.frame.size)
+    game.load(size: gameView.frame.size)
     
-    let _ = CodedBlockView.get(parent: gridView, grid: grid, index: 1)
-    let _ = CodedBlockView.get(parent: gridView, grid: grid, index: 2)
-    let _ = CodedBlockView.get(parent: gridView, grid: grid, index: 3)
-    let _ = CodedBlockView.get(parent: gridView, grid: grid, index: 4)
-    let _ = CodedBlockView.get(parent: gridView, grid: grid, index: 5)
-    let _ = CodedBlockView.get(parent: gridView, grid: grid, index: 6)
-    let _ = CodedBlockView.get(parent: gridView, grid: grid, index: 7)
-    let _ = CodedBlockView.get(parent: gridView, grid: grid, index: 8)
-    let _ = CodedBlockView.get(parent: gridView, grid: grid, index: 9)
-    let _ = CodedBlockView.get(parent: gridView, grid: grid, index: 10)
-    let _ = CodedBlockView.get(parent: gridView, grid: grid, index: 11)
+    let _ = CodedBlockView.get(parent: gameView, game: game, index: 1)
+    let _ = CodedBlockView.get(parent: gameView, game: game, index: 2)
+    let _ = CodedBlockView.get(parent: gameView, game: game, index: 3)
+    let _ = CodedBlockView.get(parent: gameView, game: game, index: 4)
+    let _ = CodedBlockView.get(parent: gameView, game: game, index: 5)
+    let _ = CodedBlockView.get(parent: gameView, game: game, index: 6)
+    let _ = CodedBlockView.get(parent: gameView, game: game, index: 7)
+    let _ = CodedBlockView.get(parent: gameView, game: game, index: 8)
+    let _ = CodedBlockView.get(parent: gameView, game: game, index: 9)
+    let _ = CodedBlockView.get(parent: gameView, game: game, index: 10)
+    let _ = CodedBlockView.get(parent: gameView, game: game, index: 11)
   }
   
   override func didReceiveMemoryWarning() {

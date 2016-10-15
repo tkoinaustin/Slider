@@ -101,6 +101,7 @@ class GameModel {
         case (true, true): blockType = .big
         }
         
+        block.origin = Coordinate(row: row, col: col)
         block.type = blockType
       }
     }

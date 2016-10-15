@@ -31,7 +31,9 @@ class BlockViewModel: Hashable {
 
   var center: CGPoint!
   var bounds: CGRect!
-  var canvas: CGSize!
+  var canvas: CGSize! { didSet {
+    bounds = setBounds()
+  }}
   
   var direction: Direction?
   var startingCenter: CGPoint?
@@ -43,15 +45,7 @@ class BlockViewModel: Hashable {
   
   var type: BlockType = .small { didSet {
     guard let _ = canvas else { return }
-    var wide = canvas.width / 4
-    var tall = canvas.height / 5
-    switch type {
-    case .wide: wide *= 2
-    case .tall: tall *= 2
-    case .big: wide *= 2; tall *= 2
-    case .small: break
-    }
-    bounds = CGRect(x: 0, y: 0, width: wide, height: tall)
+    bounds = setBounds()
   }}
   
   var coordinates: String {
@@ -90,6 +84,18 @@ class BlockViewModel: Hashable {
   
   func placeBlock(point: CGPoint) {
     center = CGPoint(x: point.x * canvas.width, y: point.y * canvas.height)
+  }
+  
+  private func setBounds() -> CGRect {
+    var wide = canvas.width / 4
+    var tall = canvas.height / 5
+    switch type {
+    case .wide: wide *= 2
+    case .tall: tall *= 2
+    case .big: wide *= 2; tall *= 2
+    case .small: break
+    }
+    return CGRect(x: 0, y: 0, width: wide, height: tall)
   }
   
   func start(at: CGPoint) {
@@ -154,7 +160,7 @@ class BlockViewModel: Hashable {
     print("block \(index!) origin: (\(origin.row),\(origin.col)))")
   }
 
-  private func moveByAmount(direction: Direction, amount: CGPoint) {
+  func moveByAmount(direction: Direction, amount: CGPoint) {
     // canMove needs to be GameModel
     guard canMove(direction, index!) else { return }
 
@@ -165,7 +171,8 @@ class BlockViewModel: Hashable {
       center = CGPoint(x: center.x + amount.x, y: center.y)
     }
     // this needs to be moved up to GridViewModel and GameModel
-    for neighbor in neighbors[direction]! {
+    guard let neighbors = model.neighbors(direction: direction) else { return }
+    for neighbor in neighbors {
       neighbor.moveByAmount(direction: direction, amount: amount)
       neighbor.updateUI()
 //      print("neighbor \(neighbor.index!) moving \(amount)")

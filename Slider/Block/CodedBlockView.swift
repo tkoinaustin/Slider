@@ -34,10 +34,10 @@ class CodedBlockView: UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
-  static func get(parent: UIView, grid: GridViewModel, index: Int) -> CodedBlockView {
+  static func get(parent: UIView, game: GameViewModel, index: Int) -> CodedBlockView {
     let frame = CGRect(x: 0, y: 0, width: 128, height: 88)
     let block = CodedBlockView.init(frame: frame)
-    block.viewModel = grid.block(index)
+    block.viewModel = game.block(index)
     block.viewModel.updateUI = { _ in
       block.center = block.viewModel.center
     }
