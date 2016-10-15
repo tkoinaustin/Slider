@@ -12,7 +12,7 @@ import XCTest
 class BlockViewModelTests: XCTestCase {
   
   let gridLayout = [[2,2,3,4],[1,1,0,4],[1,1,8,0],[5,7,9,11],[5,10,6,6]]
-  let grid = GridViewModel()
+  let grid = GameViewModel()
   var block: BlockViewModel!
 
     override func setUp() {

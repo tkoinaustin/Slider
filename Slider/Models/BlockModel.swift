@@ -22,6 +22,13 @@ class BlockModel: Hashable {
     resetNeighbors()
   }
   
+  init(model: BlockModel) {
+    index = model.index!
+    type = model.type!
+    origin = model.origin
+    resetNeighbors()
+  }
+
   var hashValue: Int {
     return index
   }
@@ -33,31 +40,12 @@ class BlockModel: Hashable {
   func updateUI() {
     viewModel.updateUI()
   }
-
-//   this needs to be moved to the Model classes
-//  func canMove(direction: Direction) -> Bool {
-//    guard let blocks = neighbors[direction] else { print("guard failed"); return false }
-//    if blocks.count == 0 { print("no neighbors"); return false }
-//    
-//    for block in blocks {
-//      if block.index == EmptySpace {
-//        print("empty space")
-//        /* move legal, check other blocks */
-//      } else if !block.canMove(direction: direction) {
-//        print("checking block \(block.index)")
-//        return false
-//      }
-//    }
-//    
-//    return true
-//  }
-  
  
   func resetNeighbors() {
     neighbors = [.up: Set<BlockModel>(), .right: Set<BlockModel>(), .down: Set<BlockModel>(), .left: Set<BlockModel>()]
   }
   
-  func neighbors(direction: Direction) -> Set<BlockModel>? {
+  func neighbors(_ direction: Direction) -> Set<BlockModel>? {
     guard let blocks = neighbors[direction] else { return nil }
     return blocks
   }
@@ -70,7 +58,7 @@ class BlockModel: Hashable {
     neighbors[direction]?.insert(block)
   }
   
-  func updateForDirection(direction: Direction) {
+  func updateForDirection(_ direction: Direction) {
     if canMove(direction: direction) {
       blockLogic.move(block: self, direction: direction)
     }

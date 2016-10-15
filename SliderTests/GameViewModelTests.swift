@@ -1,6 +1,6 @@
 //
-//  GridViewModelTests.swift
-//  Grid
+//  GameViewModelTests.swift
+//  Game
 //
 //  Created by Tom Nelson on 9/27/16.
 //  Copyright © 2016 Tom Nelson. All rights reserved.
@@ -9,20 +9,22 @@
 import XCTest
 @testable import Slider
 
-class GridViewModelTests: XCTestCase {
+class GameViewModelTests: XCTestCase {
   
   let gridLayout = [[2,2,3,4],[1,1,0,4],[1,1,8,0],[5,7,9,11],[5,10,6,6]]
   let gridLayout1 = [[2,2,3,0],[1,1,0,4],[1,1,8,4],[5,7,9,11],[5,10,6,6]]
   
   func testInit() {
-    let grid = GridViewModel()
-    XCTAssertNotNil(grid, "Grid object not created")
+    let game = GameViewModel()
+    XCTAssertNotNil(game, "Grid object not created")
   }
   
   func testInitBlocks() {
-    let grid = GridViewModel()
-    grid.initBlocks(grid: gridLayout)
-    XCTAssertTrue(grid.count > 0, "Blocks were not initialized")
+    let game = GameViewModel()
+    game.load(size: CGSize.zero)
+
+//    grid.initBlocks(grid: gridLayout)
+    XCTAssertTrue(game.count > 0, "Blocks were not initialized")
   }
   
 //  func testBlockOrder() {

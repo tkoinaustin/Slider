@@ -99,4 +99,28 @@ class GameModelLogic {
     }
   }
  
+  func rebuildGrid(grid: [[Int]], blocks: [BlockModel]) -> [[Int]] {
+      var gridLayout = GridConstants.blankLayout
+    
+      for block in blocks {
+        gridLayout[block.origin.row][block.origin.col] = block.index
+        print("gridLayout[\(block.origin.row)][\(block.origin.col)] = \(block.index!)")
+        
+        switch block.type! {
+        case .small:
+          continue
+        case .wide:
+          gridLayout[block.origin.row][block.origin.col+1] = block.index
+        case .tall:
+          gridLayout[block.origin.row+1][block.origin.col] = block.index
+        case .big:
+          gridLayout[block.origin.row][block.origin.col+1] = block.index
+          gridLayout[block.origin.row+1][block.origin.col] = block.index
+          gridLayout[block.origin.row+1][block.origin.col+1] = block.index
+        }
+      }
+    
+    return gridLayout
+    }
+
 }

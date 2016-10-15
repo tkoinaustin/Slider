@@ -11,8 +11,11 @@ import UIKit
 class BlockModelLogic {
   
   func canMove(block: BlockModel, direction: Direction) -> Bool {
-    guard let blocks = block.neighbors(direction: direction) else { print("guard failed"); return false }
-    if blocks.count == 0 { print("no neighbors"); return false }
+    guard let blocks = block.neighbors(direction) else { print("guard failed"); return false }
+    if blocks.count == 0 {
+      print("no neighbors");
+      return false
+    }
     
     for block in blocks {
       if block.index == EmptySpace {
@@ -29,7 +32,7 @@ class BlockModelLogic {
 
   func move(block: BlockModel, direction: Direction) {
     updateOrigin(block: block, direction: direction)
-    guard let neighboringBlocks = block.neighbors(direction: direction) else { return }
+    guard let neighboringBlocks = block.neighbors(direction) else { return }
     
     for neighbor in neighboringBlocks {
       guard neighbor.index != EmptySpace else { continue }
@@ -39,7 +42,7 @@ class BlockModelLogic {
   
   private func updateOrigin(block: BlockModel, direction: Direction) {
     guard block.index != EmptySpace else { return }
-    guard let _ = block.neighbors(direction: direction) else { return }
+    guard let _ = block.neighbors(direction) else { return }
     
     switch direction {
     case .up:

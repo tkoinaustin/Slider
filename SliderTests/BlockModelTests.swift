@@ -28,20 +28,20 @@ class BlockModelTests: XCTestCase {
   //  [5, 10, 6, 6]
   func testNeighbors() {
     block = grid.block(9)
-    XCTAssert(block.neighbors(direction: .up)! == Set([grid.block(8)!]), "neighbor failed")
-    XCTAssert(block.neighbors(direction: .down)! == Set([grid.block(6)!]), "neighbor failed")
-    XCTAssert(block.neighbors(direction: .left) == Set([grid.block(7)!]), "neighbor failed")
-    XCTAssert(block.neighbors(direction: .right) == Set([grid.block(11)!]), "neighbor failed")
+    XCTAssert(block.neighbors(.up)! == Set([grid.block(8)!]), "neighbor failed")
+    XCTAssert(block.neighbors(.down)! == Set([grid.block(6)!]), "neighbor failed")
+    XCTAssert(block.neighbors(.left) == Set([grid.block(7)!]), "neighbor failed")
+    XCTAssert(block.neighbors(.right) == Set([grid.block(11)!]), "neighbor failed")
     block = grid.block(1)
-    XCTAssert(block.neighbors(direction: .up) == Set([grid.block(2)!]), "neighbor failed")
-    XCTAssert(block.neighbors(direction: .down) == Set([grid.block(5)!,grid.block(7)!]), "neighbor failed")
-    XCTAssert(block.neighbors(direction: .left) == Set(), "neighbor failed")
-    XCTAssert(block.neighbors(direction: .right) == Set([grid.block(0)!,grid.block(8)!]), "neighbor failed")
+    XCTAssert(block.neighbors(.up) == Set([grid.block(2)!]), "neighbor failed")
+    XCTAssert(block.neighbors(.down) == Set([grid.block(5)!,grid.block(7)!]), "neighbor failed")
+    XCTAssert(block.neighbors(.left) == Set(), "neighbor failed")
+    XCTAssert(block.neighbors(.right) == Set([grid.block(0)!,grid.block(8)!]), "neighbor failed")
     block = grid.block(2)
-    XCTAssert(block.neighbors(direction: .up) == Set(), "neighbor failed")
-    XCTAssert(block.neighbors(direction: .down) == Set([grid.block(1)!]), "neighbor failed")
-    XCTAssert(block.neighbors(direction: .left) == Set(), "neighbor failed")
-    XCTAssert(block.neighbors(direction: .right) == Set([grid.block(3)!]), "neighbor failed")
+    XCTAssert(block.neighbors(.up) == Set(), "neighbor failed")
+    XCTAssert(block.neighbors(.down) == Set([grid.block(1)!]), "neighbor failed")
+    XCTAssert(block.neighbors(.left) == Set(), "neighbor failed")
+    XCTAssert(block.neighbors(.right) == Set([grid.block(3)!]), "neighbor failed")
   }
   
   func testCanMove() {

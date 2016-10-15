@@ -41,7 +41,7 @@ class BlockViewModel: Hashable {
   var moveFinished: (() -> ()) = {}
   var updateUI: (() -> ()) = {}
   var notifyDirection: ((_: Direction, _: Int) -> ()) = {_,_ in }
-  var canMove: ((_: Direction, _: Int) -> (Bool))! // = {_,_ -> Bool in }
+//  var canMove: ((_: Direction, _: Int) -> (Bool))! // = {_,_ -> Bool in }
   
   var type: BlockType = .small { didSet {
     guard let _ = canvas else { return }
@@ -72,6 +72,8 @@ class BlockViewModel: Hashable {
     index = model.index!
     type = model.type!
     origin = model.origin
+    self.model = model
+    model.viewModel = self
   }
   
   var hashValue: Int {
@@ -109,7 +111,7 @@ class BlockViewModel: Hashable {
       moveByAmount(direction: travelDirection, amount: amount)
     } else {
       if let dir = setDirection(x: amount.x, y: amount.y){
-        guard canMove(dir, index!) else { return }
+        guard canMove(direction: dir) else { return }
         
         print("----- direction was set to \(dir) ------")
         self.direction = dir
@@ -121,7 +123,7 @@ class BlockViewModel: Hashable {
   func finished() {
     guard let direction = direction else { return }
     
-    if canMove(direction, index!) {
+    if canMove(direction: direction) {
       setFinalPosition(direction: direction)
     }
     self.direction = nil
@@ -130,18 +132,20 @@ class BlockViewModel: Hashable {
   }
   
   func setFinalPosition(direction: Direction) {
-    for neighbor in neighbors[direction]! {
-      guard neighbor.index != EmptySpace else { continue }
-      neighbor.setFinalPosition(direction: direction)
-    }
     updateOrigin(direction: direction)
     placeBlock(point: GridConstants.blockCenter(row: origin.row, col: origin.col, type: type))
     updateUI()
+    
+    guard let neighbors = model.neighbors(direction) else { return }
+    for neighbor in neighbors {
+      guard neighbor.index != EmptySpace else { continue }
+      neighbor.viewModel.setFinalPosition(direction: direction)
+    }
   }
   
   func updateOrigin(direction: Direction) {
     guard index != EmptySpace else { return }
-    guard let _ = neighbors[direction] else { return }
+    guard let _ = model.neighbors(direction) else { return }
     
     switch direction {
     case .up:
@@ -162,7 +166,7 @@ class BlockViewModel: Hashable {
 
   func moveByAmount(direction: Direction, amount: CGPoint) {
     // canMove needs to be GameModel
-    guard canMove(direction, index!) else { return }
+    guard canMove(direction: direction) else { return }
 
     switch direction {
     case .up, .down:
@@ -171,12 +175,16 @@ class BlockViewModel: Hashable {
       center = CGPoint(x: center.x + amount.x, y: center.y)
     }
     // this needs to be moved up to GridViewModel and GameModel
-    guard let neighbors = model.neighbors(direction: direction) else { return }
+    guard let neighbors = model.neighbors(direction) else { return }
     for neighbor in neighbors {
       neighbor.moveByAmount(direction: direction, amount: amount)
       neighbor.updateUI()
 //      print("neighbor \(neighbor.index!) moving \(amount)")
     }
+  }
+  
+  func canMove(direction: Direction) -> Bool {
+    return model.canMove(direction: direction)
   }
   
   private func setDirection(x: CGFloat, y: CGFloat) -> Direction? {
@@ -191,48 +199,6 @@ class BlockViewModel: Hashable {
     // this info need to go to GameModel
   }
 
-//  func neighbors(direction: Direction) -> Set<BlockViewModel>? {
-//    guard let blocks = neighbors[direction] else { return nil }
-//    return blocks
-//  }
-  
-  // this needs to be moved to the Model classes
-//  func canMove(direction: Direction) -> Bool {
-//    guard let blocks = neighbors[direction] else { print("guard failed"); return false }
-//    if blocks.count == 0 { print("no neighbors"); return false }
-//    
-//    for block in blocks {
-//      if block.index == EmptySpace {
-//        print("empty space")
-//        /* move legal, check other blocks */
-//      } else if !block.canMove(direction: direction) {
-//        print("checking block \(block.index)")
-//        return false
-//      }
-//    }
-//    
-//    return true
-//  }
-  
-//  func canMove(direction: Direction, amount: MoveDistance) -> MoveDistance {
-//    guard let blocks = neighbors[direction] else { print("guard failed"); return .none }
-//    if blocks.count == 0 { print("no neighbors"); return .none }
-//    var distance = amount
-//    
-//    for block in blocks {
-//      if block.index == EmptySpace {
-//        print("empty space")
-//        distance = amount == .none ? .one : .two
-//        /* move legal, check other blocks */
-//      } else if block.canMove(direction: direction, amount: distance) == .none {
-//        print("checking block \(block.index)")
-//        return .none
-//      }
-//    }
-//    
-//    return distance
-//  }
-//  
   func addNeighbor(direction: Direction, block: BlockViewModel) {
     neighbors[direction]?.insert(block)
   }

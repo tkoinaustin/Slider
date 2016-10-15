@@ -20,7 +20,7 @@ class GameModel {
   private var oneMoveBoard: [[Int]]?
   private var twoMoveBoard: [[Int]]?
   private var gameBoardBlocks = [BlockModel]()
-  private var oneMoveBlocks: [BlockModel]!
+  private var oneMoveBlocks = [BlockModel]()
   private var twoMoveBlocks: [BlockModel]!
   private var gameLogic = GameModelLogic()
   
@@ -44,8 +44,19 @@ class GameModel {
     gameLogic.setNeighbors(grid: grid, blocks: gameBoardBlocks)
   }
   
-  func setGameboardsForMove(direction: Direction, block: Int) {
+  func setGameboardsForMove(_ direction: Direction, _ index: Int) {
     // Do the stuff here to calculate oneMoveBoard, twoMoveBoard, etc
+    for block in gameBoardBlocks {
+      oneMoveBlocks.append(BlockModel(model: block))
+    }
+    gameLogic.setNeighbors(grid: gameBoard!, blocks: oneMoveBlocks)
+    oneMoveBlocks[index].updateForDirection(direction)
+    oneMoveBoard = gameLogic.rebuildGrid(grid: gameBoard, blocks: oneMoveBlocks)
+    gameLogic.setNeighbors(grid: oneMoveBoard!, blocks: oneMoveBlocks)
+    print("\ngame grid: ")
+    print(dumpGrid(grid: gameBoard))
+    print("\none move grid: ")
+    print(dumpGrid(grid: oneMoveBoard!))
   }
   
   func buildOneMoveGrid(block: Int, direction: Direction) {
@@ -111,7 +122,20 @@ class GameModel {
   
   func updateGridForSingleMove() {
     gameBoard = oneMoveBoard
+    gameLogic.setNeighbors(grid: gameBoard, blocks: gameBoardBlocks)
     oneMoveBoard = nil
     twoMoveBoard = nil
   }
+  
+  func dumpGrid(grid: [[Int]]) -> String {
+    var  desc = ""
+    for row in 0..<Rows {
+      for col in 0..<Columns {
+        desc += "[\(grid[row][col])]"// + col == Columns - 1 ? "\n" : ", "
+        desc += col == Columns - 1 ? "\n" : ", "
+      }
+    }
+    return desc
+  }
+
 }

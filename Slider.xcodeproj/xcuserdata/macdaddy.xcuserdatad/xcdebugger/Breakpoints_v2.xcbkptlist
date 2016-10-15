@@ -42,12 +42,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SliderTests/GridViewModelTests.swift"
-            timestampString = "498226449.812264"
+            timestampString = "498259260.466307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "GridViewModelTests"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "GameViewModelTests"
             landmarkType = "3">
             <Locations>
                <Location
@@ -132,7 +132,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Slider/GameBoard/GameBoardViewController.swift"
@@ -164,7 +164,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Slider/Block/BlockViewModel.swift"
@@ -200,11 +200,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Slider/Models/GameModel.swift"
-            timestampString = "498228476.673718"
+            timestampString = "498243238.268993"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
             landmarkName = "initBlocks(grid:)"
             landmarkType = "7">
          </BreakpointContent>
