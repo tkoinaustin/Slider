@@ -10,6 +10,7 @@ import UIKit
 
 class GameBoardViewController: UIViewController {
   
+  private var gridLayout = [[2,2,3,4],[1,1,0,4],[1,1,8,0],[5,7,9,11],[5,10,6,6]]
   var game = GameViewModel()
 
   @IBOutlet weak var gameView: UIView!
@@ -17,7 +18,7 @@ class GameBoardViewController: UIViewController {
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     
-    game.load(size: gameView.frame.size)
+    game.load(gameboard: gridLayout, size: gameView.frame.size)
     
     let _ = CodedBlockView.get(parent: gameView, game: game, index: 1)
     let _ = CodedBlockView.get(parent: gameView, game: game, index: 2)

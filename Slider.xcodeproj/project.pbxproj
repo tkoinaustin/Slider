@@ -12,6 +12,7 @@
 		834CDDA51D9B5BB3002CB6DD /* CodedBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834CDDA41D9B5BB3002CB6DD /* CodedBlockView.swift */; };
 		834CDDA81D9B6466002CB6DD /* BlockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834CDDA61D9B5C2F002CB6DD /* BlockViewModel.swift */; };
 		834CDDBB1D9B6AF1002CB6DD /* GameViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834CDDBA1D9B6AF1002CB6DD /* GameViewModelTests.swift */; };
+		835DD0CC1DB31703002CFF8E /* GameModelLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835DD0CB1DB31703002CFF8E /* GameModelLogicTests.swift */; };
 		8373AC9D1DA141FE004C4541 /* BlockViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8373AC9C1DA141FE004C4541 /* BlockViewModelTests.swift */; };
 		83A6A8131DA4819600D56DE7 /* GameBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83A6A8121DA4819600D56DE7 /* GameBoard.storyboard */; };
 		83A6A8151DA4835B00D56DE7 /* GameBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A6A8141DA4835B00D56DE7 /* GameBoardViewController.swift */; };
@@ -48,6 +49,7 @@
 		834CDDB01D9B6A63002CB6DD /* SliderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SliderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		834CDDB41D9B6A66002CB6DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		834CDDBA1D9B6AF1002CB6DD /* GameViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewModelTests.swift; sourceTree = "<group>"; };
+		835DD0CB1DB31703002CFF8E /* GameModelLogicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModelLogicTests.swift; sourceTree = "<group>"; };
 		8373AC9C1DA141FE004C4541 /* BlockViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockViewModelTests.swift; sourceTree = "<group>"; };
 		83A6A8121DA4819600D56DE7 /* GameBoard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = GameBoard.storyboard; path = GameBoard/GameBoard.storyboard; sourceTree = "<group>"; };
 		83A6A8141DA4835B00D56DE7 /* GameBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameBoardViewController.swift; path = GameBoard/GameBoardViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			children = (
 				834CDDBA1D9B6AF1002CB6DD /* GameViewModelTests.swift */,
 				CBC922931DB0304F00132C91 /* GameModelTests.swift */,
+				835DD0CB1DB31703002CFF8E /* GameModelLogicTests.swift */,
 				8373AC9C1DA141FE004C4541 /* BlockViewModelTests.swift */,
 				CBC922951DB03FCE00132C91 /* BlockModelTests.swift */,
 				CBC9229B1DB1422600132C91 /* BlockModelLogicTests.swift */,
@@ -299,6 +302,7 @@
 				CBC9229C1DB1422600132C91 /* BlockModelLogicTests.swift in Sources */,
 				CBC922961DB03FCE00132C91 /* BlockModelTests.swift in Sources */,
 				CBC922941DB0304F00132C91 /* GameModelTests.swift in Sources */,
+				835DD0CC1DB31703002CFF8E /* GameModelLogicTests.swift in Sources */,
 				CBA63BFB1DA9E73F004C0EE6 /* ConstantsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,6 +8,9 @@
 
 import UIKit
 
+
+let EmptySpace = 0
+
 class GridConstants {
   static let blankLayout = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
   

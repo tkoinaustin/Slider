@@ -13,7 +13,7 @@ class BlockModelLogic {
   func canMove(block: BlockModel, direction: Direction) -> Bool {
     guard let blocks = block.neighbors(direction) else { print("guard failed"); return false }
     if blocks.count == 0 {
-      print("no neighbors");
+//      print("no neighbors");
       return false
     }
     
@@ -26,7 +26,7 @@ class BlockModelLogic {
         return false
       }
     }
-    print("block \(block.index!) can move \(direction)")
+//    print("block \(block.index!) can move \(direction)")
     return true
   }
 

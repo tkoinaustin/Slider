@@ -34,7 +34,13 @@ class BlockModel: Hashable {
   }
   
   func moveByAmount(direction: Direction, amount: CGPoint) {
+    guard canMove(direction: direction) else { return }
     viewModel.moveByAmount(direction: direction, amount: amount)
+    
+    guard let neighbors = neighbors(direction) else { return }
+    for neighbor in neighbors {
+      neighbor.moveByAmount(direction: direction, amount: amount)
+    }
   }
   
   func updateUI() {
@@ -49,16 +55,16 @@ class BlockModel: Hashable {
     guard let blocks = neighbors[direction] else { return nil }
     return blocks
   }
-
-  func canMove(direction: Direction) -> Bool {
-    return blockLogic.canMove(block: self, direction: direction)
-  }
   
   func addNeighbor(direction: Direction, block: BlockModel) {
     neighbors[direction]?.insert(block)
   }
   
-  func updateForDirection(_ direction: Direction) {
+  func canMove(direction: Direction) -> Bool {
+    return blockLogic.canMove(block: self, direction: direction)
+  }
+  
+  func move(_ direction: Direction) {
     if canMove(direction: direction) {
       blockLogic.move(block: self, direction: direction)
     }

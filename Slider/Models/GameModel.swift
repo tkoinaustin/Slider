@@ -33,8 +33,12 @@ class GameModel {
     
     return gameBoardBlocks[index]
   }
+  
+  func allBlocks() -> [BlockModel] {
+    return gameBoardBlocks
+  }
 
-  init(gameBoard: [[Int]]) {
+  init(_ gameBoard: [[Int]]) {
     self.gameBoard = gameBoard
     gameBoardBlocks = initBlocks(grid: gameBoard)
     setNeighbors(grid: gameBoard)
@@ -50,21 +54,13 @@ class GameModel {
       oneMoveBlocks.append(BlockModel(model: block))
     }
     gameLogic.setNeighbors(grid: gameBoard!, blocks: oneMoveBlocks)
-    oneMoveBlocks[index].updateForDirection(direction)
-    oneMoveBoard = gameLogic.rebuildGrid(grid: gameBoard, blocks: oneMoveBlocks)
+    oneMoveBlocks[index].move(direction)
+    oneMoveBoard = gameLogic.makeGameboard(blocks: oneMoveBlocks)
     gameLogic.setNeighbors(grid: oneMoveBoard!, blocks: oneMoveBlocks)
     print("\ngame grid: ")
-    print(dumpGrid(grid: gameBoard))
+    print(printGameboard(grid: gameBoard))
     print("\none move grid: ")
-    print(dumpGrid(grid: oneMoveBoard!))
-  }
-  
-  func buildOneMoveGrid(block: Int, direction: Direction) {
-    
-  }
-  
-  func buildTwoMoveGrid(block: Int, direction: Direction) {
-    
+    print(printGameboard(grid: oneMoveBoard!))
   }
   
   func blockOrigin(block: Int) -> (Coordinate)? {
@@ -75,11 +71,7 @@ class GameModel {
     }
     return nil
   }
-  
-  func isMoveLegal(block: Int, direction: Direction) -> Bool {
-    return false
-  }
-  
+
   private func initBlocks(grid: [[Int]]) -> [BlockModel] {
     var indices = Set<Int>()
     for row in 0..<Rows {
@@ -127,7 +119,7 @@ class GameModel {
     twoMoveBoard = nil
   }
   
-  func dumpGrid(grid: [[Int]]) -> String {
+  func printGameboard(grid: [[Int]]) -> String {
     var  desc = ""
     for row in 0..<Rows {
       for col in 0..<Columns {

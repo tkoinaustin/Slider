@@ -13,8 +13,6 @@ let Columns = 4
 
 class GameViewModel {
   
-  private var gridLayout = [[2,2,3,4],[1,1,0,4],[1,1,8,0],[5,7,9,11],[5,10,6,6]]
-
   private var blocks = [BlockViewModel]()
   private var size: CGSize!
   private var game: GameModel!
@@ -23,10 +21,10 @@ class GameViewModel {
     return blocks.count
   }
   
-  func load(size: CGSize) {
-    game = GameModel(gameBoard: gridLayout)
+  func load(gameboard: [[Int]], size: CGSize) {
+    game = GameModel(gameboard)
     self.size = size
-    initBlocks(grid: gridLayout)
+    initBlocks(grid: gameboard)
   }
   
   func block(_ index: Int) -> BlockViewModel {

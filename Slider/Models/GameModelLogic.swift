@@ -19,7 +19,7 @@ class GameModelLogic {
     for row in 0..<Rows {
       for col in 0..<Columns {
         let block = blocks[grid[row][col]]
-        print ("block \(block.index)")
+//        print ("block \(block.index)")
         
         if let neighbor = topNeighbor(grid: grid, blocks: blocks, row: row, col: col) {
           if block.index != EmptySpace && block.index != neighbor.index {
@@ -99,12 +99,12 @@ class GameModelLogic {
     }
   }
  
-  func rebuildGrid(grid: [[Int]], blocks: [BlockModel]) -> [[Int]] {
+  func makeGameboard(blocks: [BlockModel]) -> [[Int]] {
       var gridLayout = GridConstants.blankLayout
     
       for block in blocks {
         gridLayout[block.origin.row][block.origin.col] = block.index
-        print("gridLayout[\(block.origin.row)][\(block.origin.col)] = \(block.index!)")
+//        print("gridLayout[\(block.origin.row)][\(block.origin.col)] = \(block.index!)")
         
         switch block.type! {
         case .small:

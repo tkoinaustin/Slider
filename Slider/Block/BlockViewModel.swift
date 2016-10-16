@@ -16,18 +16,11 @@ enum BlockType {
   case small, wide, tall, big
 }
 
-enum MoveDistance {
-  case none, one, two
-}
-
-let EmptySpace = 0
-
-
 class BlockViewModel: Hashable {
   var index: Int!
-  var neighbors: [Direction: Set<BlockViewModel>]!
   var origin = Coordinate(row:0, col:0)
   var model: BlockModel!
+  var direction: Direction?
 
   var center: CGPoint!
   var bounds: CGRect!
@@ -35,13 +28,10 @@ class BlockViewModel: Hashable {
     bounds = setBounds()
   }}
   
-  var direction: Direction?
-  var startingCenter: CGPoint?
 
   var moveFinished: (() -> ()) = {}
   var updateUI: (() -> ()) = {}
   var notifyDirection: ((_: Direction, _: Int) -> ()) = {_,_ in }
-//  var canMove: ((_: Direction, _: Int) -> (Bool))! // = {_,_ -> Bool in }
   
   var type: BlockType = .small { didSet {
     guard let _ = canvas else { return }
@@ -62,11 +52,6 @@ class BlockViewModel: Hashable {
     }
     return rtn
   }
-
-  init(index: Int){
-    self.index = index
-    resetNeighbors()
-  }
   
   init(model: BlockModel) {
     index = model.index!
@@ -78,10 +63,6 @@ class BlockViewModel: Hashable {
   
   var hashValue: Int {
     return index
-  }
-  
-  func resetNeighbors() {
-    neighbors = [.up: Set<BlockViewModel>(), .right: Set<BlockViewModel>(), .down: Set<BlockViewModel>(), .left: Set<BlockViewModel>()]
   }
   
   func placeBlock(point: CGPoint) {
@@ -101,14 +82,12 @@ class BlockViewModel: Hashable {
   }
   
   func start(at: CGPoint) {
-    startingCenter = at
     //maybe here we should check for legal directions, touch down
-    
   }
   
   func moving(amount: CGPoint) {
     if let travelDirection = direction {
-      moveByAmount(direction: travelDirection, amount: amount)
+      model.moveByAmount(direction: travelDirection, amount: amount)
     } else {
       if let dir = setDirection(x: amount.x, y: amount.y){
         guard canMove(direction: dir) else { return }
@@ -165,22 +144,13 @@ class BlockViewModel: Hashable {
   }
 
   func moveByAmount(direction: Direction, amount: CGPoint) {
-    // canMove needs to be GameModel
-    guard canMove(direction: direction) else { return }
-
     switch direction {
     case .up, .down:
       center = CGPoint(x: center.x, y: center.y + amount.y)
     case .left, .right:
       center = CGPoint(x: center.x + amount.x, y: center.y)
     }
-    // this needs to be moved up to GridViewModel and GameModel
-    guard let neighbors = model.neighbors(direction) else { return }
-    for neighbor in neighbors {
-      neighbor.moveByAmount(direction: direction, amount: amount)
-      neighbor.updateUI()
-//      print("neighbor \(neighbor.index!) moving \(amount)")
-    }
+    updateUI()
   }
   
   func canMove(direction: Direction) -> Bool {
@@ -195,14 +165,7 @@ class BlockViewModel: Hashable {
     } else {
       return y > 0 ? .down : .up
     }
-    // direction is set, update models with new knowledge
-    // this info need to go to GameModel
   }
-
-  func addNeighbor(direction: Direction, block: BlockViewModel) {
-    neighbors[direction]?.insert(block)
-  }
-  
 }
 
 extension BlockViewModel: Equatable { }

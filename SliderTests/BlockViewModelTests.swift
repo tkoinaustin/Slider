@@ -12,13 +12,17 @@ import XCTest
 class BlockViewModelTests: XCTestCase {
   
   let gridLayout = [[2,2,3,4],[1,1,0,4],[1,1,8,0],[5,7,9,11],[5,10,6,6]]
-  let grid = GameViewModel()
+  let game = GameViewModel()
   var block: BlockViewModel!
+  
+  func testInitBlocks() {
+    let game = GameModel(gridLayout)
+    XCTAssertTrue(game.blockCount > 0, "Blocks were not initialized")
+  }
 
     override func setUp() {
-        super.setUp()
-      grid.initBlocks(grid: gridLayout)
-//      grid.setNeighbors(grid: gridLayout)
+      super.setUp()
+      game.load(gameboard: gridLayout, size: CGSize.zero)
     }
   
   //  [2, 2,  3, 4]
@@ -26,39 +30,24 @@ class BlockViewModelTests: XCTestCase {
   //  [1, 1,  8, 0]
   //  [5, 7,  9, 11]
   //  [5, 10, 6, 6]
-//  func testNeighbors() {
-//    block = grid.block(9)
-//    XCTAssert(block.neighbors(direction: .up) == Set([grid.block(8)]), "neighbor failed")
-//    XCTAssert(block.neighbors(direction: .down) == Set([grid.block(6)]), "neighbor failed")
-//    XCTAssert(block.neighbors(direction: .left) == Set([grid.block(7)]), "neighbor failed")
-//    XCTAssert(block.neighbors(direction: .right) == Set([grid.block(11)]), "neighbor failed")
-//    block = grid.block(1)
-//    XCTAssert(block.neighbors(direction: .up) == Set([grid.block(2)]), "neighbor failed")
-//    XCTAssert(block.neighbors(direction: .down) == Set([grid.block(5),grid.block(7)]), "neighbor failed")
-//    XCTAssert(block.neighbors(direction: .left) == Set(), "neighbor fa iled")
-//    XCTAssert(block.neighbors(direction: .right) == Set([grid.block(0),grid.block(8)]), "neighbor failed")
-//    block = grid.block(2)
-//    XCTAssert(block.neighbors(direction: .up) == Set(), "neighbor failed")
-//    XCTAssert(block.neighbors(direction: .down) == Set([grid.block(1)]), "neighbor failed")
-//    XCTAssert(block.neighbors(direction: .left) == Set(), "neighbor failed")
-//    XCTAssert(block.neighbors(direction: .right) == Set([grid.block(3)]), "neighbor failed")
-//  }
-//    
-//  func testFinished() {
-//    block = grid.block(4)
-//    block.direction = .down
-//    block.finished()
-//    XCTAssert(block.originRow == 1, "Block 4 didn't move")
-//  }
-//  
-//  func testFinished1() {
-//    block = grid.block(6)
-//    block.direction = .up
-//    block.finished()
-//    XCTAssert(block.originRow == 3, "Block 6 didn't move")
-//    XCTAssert(grid.block(9).originRow == 2, "Block 9 didn't move")
-//    XCTAssert(grid.block(11).originRow == 2, "Block 11 didn't move")
-//    XCTAssert(grid.block(8).originRow == 1, "Block 8 didn't move")
-//    XCTAssert(grid.block(4).originRow == 0, "Block 4 didn't move")
-//  }
+  
+  func testBlockCanMove() {
+    var block = game.block(1)
+    XCTAssertTrue(block.canMove(direction: .right), "Block 1 should be able to not move right")
+    XCTAssertFalse(block.canMove(direction: .up), "Block 1 should not be able to move up")
+    XCTAssertFalse(block.canMove(direction: .down), "Block 1 should not be able to move down")
+    XCTAssertFalse(block.canMove(direction: .left), "Block 1 should not be able to move left")
+
+    block = game.block(8)
+    XCTAssertTrue(block.canMove(direction: .right), "Block 8 should be able to not move right")
+    XCTAssertTrue(block.canMove(direction: .up), "Block 8 should be able to move up")
+    XCTAssertFalse(block.canMove(direction: .down), "Block 8 should not be able to move down")
+    XCTAssertFalse(block.canMove(direction: .left), "Block 8 should not be able to move left")
+
+    block = game.block(6)
+    XCTAssertFalse(block.canMove(direction: .right), "Block 6 should not be able to not move right")
+    XCTAssertTrue(block.canMove(direction: .up), "Block 6 should be able to move up")
+    XCTAssertFalse(block.canMove(direction: .down), "Block 6 should not be able to move down")
+    XCTAssertFalse(block.canMove(direction: .left), "Block 6 should not be able to move left")
+  }
 }

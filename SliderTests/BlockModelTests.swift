@@ -18,7 +18,7 @@ class BlockModelTests: XCTestCase {
   
   override func setUp() {
     super.setUp()
-    grid = GameModel(gameBoard: gridLayout)
+    grid = GameModel(gridLayout)
   }
   
   //  [2, 2,  3, 4]
@@ -70,21 +70,33 @@ class BlockModelTests: XCTestCase {
     XCTAssertFalse(block.canMove(direction: .right), "block 6 should not be able to move right")
   }
   
-//  func testFinished() {
-//    block = grid.block(4)
-//    block.direction = .down
-//    block.finished()
-//    XCTAssert(block.originRow == 1, "Block 4 didn't move")
-//  }
-//  
-//  func testFinished1() {
-//    block = grid.block(6)
-//    block.direction = .up
-//    block.finished()
-//    XCTAssert(block.originRow == 3, "Block 6 didn't move")
-//    XCTAssert(grid.block(9).originRow == 2, "Block 9 didn't move")
-//    XCTAssert(grid.block(11).originRow == 2, "Block 11 didn't move")
-//    XCTAssert(grid.block(8).originRow == 1, "Block 8 didn't move")
-//    XCTAssert(grid.block(4).originRow == 0, "Block 4 didn't move")
-//  }
+  func testResetNeighbors() {
+    block = grid.block(9)
+    block.resetNeighbors()
+    XCTAssertTrue(block.neighbors(.up) == Set<BlockModel>(), "Neighbors should be empty")
+    XCTAssertTrue(block.neighbors(.down) == Set<BlockModel>(), "Neighbors should be empty")
+    XCTAssertTrue(block.neighbors(.left) == Set<BlockModel>(), "Neighbors should be empty")
+    XCTAssertTrue(block.neighbors(.right) == Set<BlockModel>(), "Neighbors should be empty")
+  }
+  
+  //  [2, 2,  3, 4]
+  //  [1, 1,  0, 4]
+  //  [1, 1,  8, 0]
+  //  [5, 7,  9, 11]
+  //  [5, 10, 6, 6]
+  
+  func testMove() {
+    block = grid.block(8)
+    block.move(.up)
+    XCTAssertTrue(block.origin.row == 1, "block 8 did not move up")
+  }
+  
+  func testMove1() {
+    block = grid.block(6)
+    block.move(.up)
+    XCTAssertTrue(block.origin.row == 3, "block 6 did not move up")
+    XCTAssertTrue(grid.block(9)?.origin.row == 2, "block 9 did not move up")
+    XCTAssertTrue(grid.block(11)?.origin.row == 2, "block 11 did not move up")
+    XCTAssertTrue(grid.block(8)?.origin.row == 1, "block 8 did not move up")
+  }
 }
