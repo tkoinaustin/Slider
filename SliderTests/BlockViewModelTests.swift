@@ -33,21 +33,21 @@ class BlockViewModelTests: XCTestCase {
   
   func testBlockCanMove() {
     var block = game.block(1)
-    XCTAssertTrue(block.canMove(direction: .right), "Block 1 should be able to not move right")
-    XCTAssertFalse(block.canMove(direction: .up), "Block 1 should not be able to move up")
-    XCTAssertFalse(block.canMove(direction: .down), "Block 1 should not be able to move down")
-    XCTAssertFalse(block.canMove(direction: .left), "Block 1 should not be able to move left")
+    XCTAssertTrue(block.model.canMove(direction: .right), "Block 1 should be able to not move right")
+    XCTAssertFalse(block.model.canMove(direction: .up), "Block 1 should not be able to move up")
+    XCTAssertFalse(block.model.canMove(direction: .down), "Block 1 should not be able to move down")
+    XCTAssertFalse(block.model.canMove(direction: .left), "Block 1 should not be able to move left")
 
     block = game.block(8)
-    XCTAssertTrue(block.canMove(direction: .right), "Block 8 should be able to not move right")
-    XCTAssertTrue(block.canMove(direction: .up), "Block 8 should be able to move up")
-    XCTAssertFalse(block.canMove(direction: .down), "Block 8 should not be able to move down")
-    XCTAssertFalse(block.canMove(direction: .left), "Block 8 should not be able to move left")
+    XCTAssertTrue(block.model.canMove(direction: .right), "Block 8 should be able to not move right")
+    XCTAssertTrue(block.model.canMove(direction: .up), "Block 8 should be able to move up")
+    XCTAssertFalse(block.model.canMove(direction: .down), "Block 8 should not be able to move down")
+    XCTAssertFalse(block.model.canMove(direction: .left), "Block 8 should not be able to move left")
 
     block = game.block(6)
-    XCTAssertFalse(block.canMove(direction: .right), "Block 6 should not be able to not move right")
-    XCTAssertTrue(block.canMove(direction: .up), "Block 6 should be able to move up")
-    XCTAssertFalse(block.canMove(direction: .down), "Block 6 should not be able to move down")
-    XCTAssertFalse(block.canMove(direction: .left), "Block 6 should not be able to move left")
+    XCTAssertFalse(block.model.canMove(direction: .right), "Block 6 should not be able to not move right")
+    XCTAssertTrue(block.model.canMove(direction: .up), "Block 6 should be able to move up")
+    XCTAssertFalse(block.model.canMove(direction: .down), "Block 6 should not be able to move down")
+    XCTAssertFalse(block.model.canMove(direction: .left), "Block 6 should not be able to move left")
   }
 }

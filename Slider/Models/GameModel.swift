@@ -50,6 +50,7 @@ class GameModel {
   
   func setGameboardsForMove(_ direction: Direction, _ index: Int) {
     // Do the stuff here to calculate oneMoveBoard, twoMoveBoard, etc
+    oneMoveBlocks.removeAll()
     for block in gameBoardBlocks {
       oneMoveBlocks.append(BlockModel(model: block))
     }
