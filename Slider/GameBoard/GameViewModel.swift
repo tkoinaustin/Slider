@@ -42,7 +42,7 @@ class GameViewModel {
         if let size = size { block.canvas = size }
         else { block.canvas = CGSize(width: 320, height: 400) }
         
-        block.placeBlock(point: GridConstants.blockCenter(row: block.origin.row, col: block.origin.col, type: block.type))
+        block.placeBlock(point: GridConstants.blockCenter(row: block.model.origin.row, col: block.model.origin.col, type: block.type))
         
         block.notifyDirection = { direction, index in
           assert(self.game != nil, "GameModel not set!")
@@ -63,28 +63,7 @@ class GameViewModel {
   
     func placeAllBlocks() {
       for block in blocks {
-        block.placeBlock(point: GridConstants.blockCenter(row: block.origin.row, col: block.origin.col, type: block.type))
+        block.placeBlock(point: GridConstants.blockCenter(row: block.model.origin.row, col: block.model.origin.col, type: block.type))
       }
     }
-
-//  func rebuildGrid() {
-//    gridLayout = GridConstants.blankLayout
-//    for block in blocks {
-//      gridLayout[block.origin.row][block.origin.col] = block.index
-//      print("gridLayout[\(block.origin.row)][\(block.origin.col)] = \(block.index!)")
-//      
-//      switch block.type {
-//      case .small:
-//        continue
-//      case .wide:
-//        gridLayout[block.origin.row][block.origin.col+1] = block.index
-//      case .tall:
-//        gridLayout[block.origin.row+1][block.origin.col] = block.index
-//      case .big:
-//        gridLayout[block.origin.row][block.origin.col+1] = block.index
-//        gridLayout[block.origin.row+1][block.origin.col] = block.index
-//        gridLayout[block.origin.row+1][block.origin.col+1] = block.index
-//      }
-//    }
-//  }
 }

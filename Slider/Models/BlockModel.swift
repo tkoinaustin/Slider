@@ -43,10 +43,54 @@ class BlockModel: Hashable {
     }
   }
   
-  func updateUI() {
+  func setFinalPosition(_ direction: Direction) {
+    updateOrigin(direction)
+    viewModel.placeBlock(point: GridConstants.blockCenter(row: origin.row, col: origin.col, type: type))
     viewModel.updateUI()
+    
+    guard let neighbors = neighbors(direction) else { return }
+    for neighbor in neighbors {
+      guard neighbor.index != EmptySpace else { continue }
+      neighbor.setFinalPosition(direction)
+    }
   }
- 
+  
+  func updateOrigin(_ direction: Direction) {
+    guard index != EmptySpace else { return }
+    guard let _ = neighbors(direction) else { return }
+    
+    switch direction {
+    case .up:
+      origin.row -= 1
+      assert(origin.row >= 0, "row < 0")
+    case .down:
+      origin.row += 1
+      assert(origin.row < Rows, "row > Rows")
+    case .left:
+      origin.col -= 1
+      assert(origin.col >= 0,  "col < 0")
+    case .right:
+      origin.col += 1
+      assert(origin.col < Columns," col > Columns")
+    }
+    print("updated block \(index!) origin to: (\(origin.row),\(origin.col)))")
+  }
+  
+  var coordinates: String {
+    var rtn: String = "\nblock \(index!):\n"
+    switch type! {
+    case .small:
+      rtn += "[\(origin.row),\(origin.col)]"
+    case .wide:
+      rtn += "[\(origin.row),\(origin.col))] [\(origin.row),\(origin.col)+1)]"
+    case .tall:
+      rtn += "[\(origin.row),\(origin.col))]\n[\(origin.row+1),\(origin.col))]"
+    case .big:
+      rtn += "[\(origin.row),\(origin.col))] [\(origin.row),\(origin.col)+1)]\n[\(origin.row+1),\(origin.col))] [\(origin.row+1),\(origin.col)+1)]"
+    }
+    return rtn
+  }
+
   func resetNeighbors() {
     neighbors = [.up: Set<BlockModel>(), .right: Set<BlockModel>(), .down: Set<BlockModel>(), .left: Set<BlockModel>()]
   }

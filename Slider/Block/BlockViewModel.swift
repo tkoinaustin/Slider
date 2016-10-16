@@ -16,9 +16,8 @@ enum BlockType {
   case small, wide, tall, big
 }
 
-class BlockViewModel: Hashable {
+class BlockViewModel {
   var index: Int!
-  var origin = Coordinate(row:0, col:0)
   var model: BlockModel!
   var direction: Direction?
 
@@ -38,31 +37,11 @@ class BlockViewModel: Hashable {
     bounds = setBounds()
   }}
   
-  var coordinates: String {
-    var rtn: String = "\nblock \(index!):\n"
-    switch type {
-    case .small:
-      rtn += "[\(origin.row),\(origin.col)]"
-    case .wide:
-      rtn += "[\(origin.row),\(origin.col))] [\(origin.row),\(origin.col)+1)]"
-    case .tall:
-      rtn += "[\(origin.row),\(origin.col))]\n[\(origin.row+1),\(origin.col))]"
-    case .big:
-      rtn += "[\(origin.row),\(origin.col))] [\(origin.row),\(origin.col)+1)]\n[\(origin.row+1),\(origin.col))] [\(origin.row+1),\(origin.col)+1)]"
-    }
-    return rtn
-  }
-  
   init(model: BlockModel) {
     index = model.index!
     type = model.type!
-    origin = model.origin
     self.model = model
     model.viewModel = self
-  }
-  
-  var hashValue: Int {
-    return index
   }
   
   func placeBlock(point: CGPoint) {
@@ -90,7 +69,7 @@ class BlockViewModel: Hashable {
       model.moveByAmount(direction: travelDirection, amount: amount)
     } else {
       if let dir = setDirection(x: amount.x, y: amount.y){
-        guard canMove(direction: dir) else { return }
+        guard model.canMove(direction: dir) else { return }
         
         print("----- direction was set to \(dir) ------")
         self.direction = dir
@@ -102,47 +81,13 @@ class BlockViewModel: Hashable {
   func finished() {
     guard let direction = direction else { return }
     
-    if canMove(direction: direction) {
-      setFinalPosition(direction: direction)
+    if model.canMove(direction: direction) {
+      model.setFinalPosition(direction)
     }
     self.direction = nil
-    print("----- finished ------")
     moveFinished()
   }
   
-  func setFinalPosition(direction: Direction) {
-    updateOrigin(direction: direction)
-    placeBlock(point: GridConstants.blockCenter(row: origin.row, col: origin.col, type: type))
-    updateUI()
-    
-    guard let neighbors = model.neighbors(direction) else { return }
-    for neighbor in neighbors {
-      guard neighbor.index != EmptySpace else { continue }
-      neighbor.viewModel.setFinalPosition(direction: direction)
-    }
-  }
-  
-  func updateOrigin(direction: Direction) {
-    guard index != EmptySpace else { return }
-    guard let _ = model.neighbors(direction) else { return }
-    
-    switch direction {
-    case .up:
-      origin.row -= 1
-      assert(origin.row >= 0, "row < 0")
-    case .down:
-      origin.row += 1
-      assert(origin.row < Rows, "row > Rows")
-    case .left:
-      origin.col -= 1
-      assert(origin.col >= 0,  "col < 0")
-    case .right:
-      origin.col += 1
-      assert(origin.col < Columns," col > Columns")
-    }
-    print("block \(index!) origin: (\(origin.row),\(origin.col)))")
-  }
-
   func moveByAmount(direction: Direction, amount: CGPoint) {
     switch direction {
     case .up, .down:
@@ -152,11 +97,7 @@ class BlockViewModel: Hashable {
     }
     updateUI()
   }
-  
-  func canMove(direction: Direction) -> Bool {
-    return model.canMove(direction: direction)
-  }
-  
+
   private func setDirection(x: CGFloat, y: CGFloat) -> Direction? {
     let threshhold: CGFloat = 2
     guard abs(x) > threshhold || abs(y) > threshhold else { return nil }
@@ -166,9 +107,4 @@ class BlockViewModel: Hashable {
       return y > 0 ? .down : .up
     }
   }
-}
-
-extension BlockViewModel: Equatable { }
-func == (lhs: BlockViewModel, rhs: BlockViewModel) -> Bool {
-  return lhs.index == rhs.index
 }
