@@ -58,10 +58,20 @@ class GameModel {
     oneMoveBlocks[index].move(direction)
     oneMoveBoard = gameLogic.makeGameboard(blocks: oneMoveBlocks)
     gameLogic.setNeighbors(grid: oneMoveBoard!, blocks: oneMoveBlocks)
-    print("\ngame grid: ")
-    print(printGameboard(grid: gameBoard))
-    print("\none move grid: ")
-    print(printGameboard(grid: oneMoveBoard!))
+  }
+  
+  func showGameboardsForMove(_ start: UILabel, _ finish: UILabel) {
+    var msg = "current grid: \n"
+    msg += printGameboard(grid: gameBoard)
+    start.text = msg
+    
+    msg = "next move grid: \n"
+    if let _ = oneMoveBoard {
+      msg += printGameboard(grid: oneMoveBoard!)
+    } else {
+      msg = "next move grid: nil "
+    }
+    finish.text = msg
   }
   
   func blockOrigin(block: Int) -> (Coordinate)? {

@@ -16,15 +16,19 @@ class GameViewModel {
   private var blocks = [BlockViewModel]()
   private var size: CGSize!
   private var game: GameModel!
+  private var start: UILabel!
+  private var finish: UILabel!
 
   var count: Int {
     return blocks.count
   }
   
-  func load(gameboard: [[Int]], size: CGSize) {
+  func load(gameboard: [[Int]], size: CGSize, start: UILabel, finish: UILabel) {
     game = GameModel(gameboard)
     self.size = size
     initBlocks(grid: gameboard)
+    self.start = start
+    self.finish = finish
   }
   
   func block(_ index: Int) -> BlockViewModel {
@@ -47,6 +51,7 @@ class GameViewModel {
         block.notifyDirection = { direction, index in
           assert(self.game != nil, "GameModel not set!")
           self.game.setGameboardsForMove(direction, index)
+          self.game.showGameboardsForMove(self.start, self.finish)
         }
 
         block.moveFinished = { _ in
