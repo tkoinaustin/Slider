@@ -73,32 +73,7 @@ class GameModelLogic {
     let index = grid[row][col+1]
     return blocks[index]
   }
- 
-  private func leadingEdges(block: BlockModel,
-                            direction: Direction,
-                            coordinate: Coordinate) -> [Coordinate]? {
-    let row = coordinate.row
-    let col = coordinate.col
-    
-    switch (direction, block.type!) {
-    case (.up, .small),(.up, .tall): return [coordinate]
-    case (.up, .wide),(.up, .big): return [coordinate, Coordinate(row: row, col: col+1)]
-      
-    case (.down, .small): return [coordinate]
-    case (.down, .tall): return [Coordinate(row: row+1, col: col)]
-    case (.down, .wide): return [coordinate, Coordinate(row: row, col: col+1)]
-    case (.down, .big): return [ Coordinate(row: row+1, col: col), Coordinate(row: row+1, col: col+1)]
-      
-    case (.left, .small),(.left, .wide): return [coordinate]
-    case (.left, .tall),(.left, .big): return [coordinate, Coordinate(row: row+1, col: col)]
-      
-    case (.right, .small): return [coordinate]
-    case (.right, .wide): return [Coordinate(row: row, col: col+1)]
-    case (.right, .tall): return [coordinate, Coordinate(row: row+1, col: col)]
-    case (.right, .big): return [ Coordinate(row: row, col: col+1), Coordinate(row: row+1, col: col+1)]
-    }
-  }
- 
+  
   func makeGameboard(blocks: [BlockModel]) -> [[Int]] {
       var gridLayout = GridConstants.blankLayout
     

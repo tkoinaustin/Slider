@@ -16,6 +16,7 @@ class GameBoardViewController: UIViewController {
   @IBOutlet weak var gameView: UIView!
   @IBOutlet weak var startingBoard: UILabel!
   @IBOutlet weak var finishingBoard: UILabel!
+  @IBOutlet weak var twoMoveBoard: UILabel!
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
@@ -23,7 +24,8 @@ class GameBoardViewController: UIViewController {
     game.load(gameboard: gridLayout,
               size: gameView.frame.size,
               start: startingBoard,
-              finish: finishingBoard)
+              finish: finishingBoard,
+              twoMove: twoMoveBoard)
     
     let _ = CodedBlockView.get(parent: gameView, game: game, index: 1)
     let _ = CodedBlockView.get(parent: gameView, game: game, index: 2)

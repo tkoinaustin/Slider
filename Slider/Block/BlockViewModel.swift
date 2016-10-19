@@ -16,19 +16,22 @@ enum BlockType {
   case small, wide, tall, big
 }
 
+enum Board {
+  case game, oneMove, twoMove
+}
+
 class BlockViewModel {
   var index: Int!
   var model: BlockModel!
   var direction: Direction?
 
-  var center: CGPoint!
+  private(set) var center: CGPoint!
+  var startingCenter: CGPoint!
   var bounds: CGRect!
   var canvas: CGSize! { didSet {
     bounds = setBounds()
   }}
   
-
-  var moveFinished: (() -> ()) = {}
   var updateUI: (() -> ()) = {}
   var notifyDirection: ((_: Direction, _: Int) -> ()) = {_,_ in }
   
@@ -48,25 +51,14 @@ class BlockViewModel {
     center = CGPoint(x: point.x * canvas.width, y: point.y * canvas.height)
   }
   
-  private func setBounds() -> CGRect {
-    var wide = canvas.width / 4
-    var tall = canvas.height / 5
-    switch type {
-    case .wide: wide *= 2
-    case .tall: tall *= 2
-    case .big: wide *= 2; tall *= 2
-    case .small: break
-    }
-    return CGRect(x: 0, y: 0, width: wide, height: tall)
-  }
-  
   func start(at: CGPoint) {
-    //maybe here we should check for legal directions, touch down
+    startingCenter = at
+    print("starting at: \(at)")
   }
   
   func moving(amount: CGPoint) {
-    if let travelDirection = direction {
-      model.moveByAmount(direction: travelDirection, amount: amount)
+    if let direction = direction {
+      model.moveBy(amount, direction)
     } else {
       if let dir = setDirection(x: amount.x, y: amount.y){
         guard model.canMove(direction: dir) else { return }
@@ -85,16 +77,11 @@ class BlockViewModel {
       model.setFinalPosition(direction)
     }
     self.direction = nil
-    moveFinished()
+//    model.moveFinished()
   }
   
-  func moveByAmount(direction: Direction, amount: CGPoint) {
-    switch direction {
-    case .up, .down:
-      center = CGPoint(x: center.x, y: center.y + amount.y)
-    case .left, .right:
-      center = CGPoint(x: center.x + amount.x, y: center.y)
-    }
+  func setCenter(newCenter: CGPoint) {
+    center = newCenter
     updateUI()
   }
 
@@ -106,5 +93,19 @@ class BlockViewModel {
     } else {
       return y > 0 ? .down : .up
     }
+  }
+  
+  private func setBounds() -> CGRect {
+    var wide: CGFloat = canvas.width / 4
+    var tall: CGFloat = canvas.height / 5
+    model.ppb = wide
+    
+    switch type {
+    case .wide: wide *= 2
+    case .tall: tall *= 2
+    case .big: wide *= 2; tall *= 2
+    case .small: break
+    }
+    return CGRect(x: 0, y: 0, width: wide, height: tall)
   }
 }

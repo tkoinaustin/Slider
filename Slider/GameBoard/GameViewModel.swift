@@ -18,17 +18,19 @@ class GameViewModel {
   private var game: GameModel!
   private var start: UILabel!
   private var finish: UILabel!
+  private var twoMove: UILabel!
 
   var count: Int {
     return blocks.count
   }
   
-  func load(gameboard: [[Int]], size: CGSize, start: UILabel, finish: UILabel) {
+  func load(gameboard: [[Int]], size: CGSize, start: UILabel, finish: UILabel, twoMove: UILabel) {
     game = GameModel(gameboard)
     self.size = size
     initBlocks(grid: gameboard)
     self.start = start
     self.finish = finish
+    self.twoMove = twoMove
   }
   
   func block(_ index: Int) -> BlockViewModel {
@@ -50,16 +52,24 @@ class GameViewModel {
         
         block.notifyDirection = { direction, index in
           assert(self.game != nil, "GameModel not set!")
-          self.game.setGameboardsForMove(direction, index)
-          self.game.showGameboardsForMove(self.start, self.finish)
+          self.game.setOutcomesForMove(direction, index)
+          self.game.showGameboardsForMove(self.start, self.finish, self.twoMove)
+          self.game.setMinMaxMove(direction)
         }
 
-        block.moveFinished = { _ in
-          // these will be routed to GameModel.logic and performed there
+        block.model.moveFinished = { board in
+          self.game.updateGameboardForMove(board)
+          self.game.updateBlockOriginsForMove(board)
+          self.game.resetDoubleMoveLegal()
+          self.game.showGameboardsForCompletion(self.start, self.finish, self.twoMove)
           self.placeAllBlocks()
-          self.game.updateGridForSingleMove()
-//          self.setNeighbors(grid: self.gridLayout)
         }
+        
+        block.model.changeNeighborhood = { board in
+          if board == .game { return self.game.setNeighborsForGameGrid() }
+          else { return self.game.setNeighborsForOneMoveGrid() }
+        }
+
         
         blocks.append(block)
       }

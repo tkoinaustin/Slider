@@ -13,9 +13,21 @@ class BlockModel: Hashable {
   var index: Int!
   var type: BlockType!
   var origin = Coordinate(row:0, col:0)
+  var doubleMoveLegal = false
+  var inDoubleMove = false
+  var ppb: CGFloat!  // pixels per block, ie, how far a block can travel in one move
+  
   weak var viewModel: BlockViewModel!
+  var startingCenter = CGPoint(x:0, y:0)
+  var currentOffset = CGPoint(x:0, y:0)
+  var minOffset = CGPoint(x:0, y:0)
+  var maxOffset = CGPoint(x:0, y:0)
+  
   private var neighbors: [Direction: Set<BlockModel>]!
   private var blockLogic = BlockModelLogic()
+
+  var moveFinished: ((Board) -> ()) = {_ in }
+  var changeNeighborhood: ((Board) -> ()) = {_ in }
 
   init(index: Int) {
     self.index = index
@@ -33,26 +45,87 @@ class BlockModel: Hashable {
     return index
   }
   
-  func moveByAmount(direction: Direction, amount: CGPoint) {
+  func moveBy(_ amount: CGPoint,_ direction: Direction) {
     guard canMove(direction: direction) else { return }
-    viewModel.moveByAmount(direction: direction, amount: amount)
     
+    updateCurrentOffset(direction, amount)
+    viewModel.setCenter(newCenter: currentOffset)
+
     guard let neighbors = neighbors(direction) else { return }
     for neighbor in neighbors {
-      neighbor.moveByAmount(direction: direction, amount: amount)
+//      print("block \(index!) amount \(amount)")
+      neighbor.moveBy(amount, direction)
+    }
+    
+    checkForDoubleMoveChange(direction)
+  }
+  
+  func checkForDoubleMoveChange(_ direction: Direction) {
+    if !doubleMoveLegal { return }
+    guard let ppb = ppb else { return }
+    
+    switch direction {
+    case .up:
+      if currentOffset.y <= startingCenter.y - ppb && !inDoubleMove {
+        self.inDoubleMove = true
+        updateOrigin(.up)
+        changeNeighborhood(.oneMove)
+      }
+      if currentOffset.y >= startingCenter.y + ppb && inDoubleMove {
+        self.inDoubleMove = false
+        updateOrigin(.down)
+        changeNeighborhood(.game)
+      }
+    case .down:
+      if currentOffset.y >= startingCenter.y + ppb && !inDoubleMove {
+        self.inDoubleMove = true
+        updateOrigin(.down)
+        changeNeighborhood(.oneMove)
+      }
+      if currentOffset.y <= startingCenter.y - ppb && inDoubleMove {
+        self.inDoubleMove = false
+        updateOrigin(.up)
+        changeNeighborhood(.game)
+      }
+    case .left:
+      if currentOffset.x <= startingCenter.x - ppb && !inDoubleMove {
+        self.inDoubleMove = true
+        changeNeighborhood(.oneMove)
+      }
+      if currentOffset.x >= startingCenter.x + ppb && inDoubleMove {
+        self.inDoubleMove = false
+        changeNeighborhood(.game)
+      }
+    case .right:
+      if currentOffset.x >= startingCenter.x + ppb && !inDoubleMove {
+        self.inDoubleMove = true
+        changeNeighborhood(.oneMove)
+      }
+      if currentOffset.x <= startingCenter.x - ppb && inDoubleMove {
+        self.inDoubleMove = false
+        changeNeighborhood(.game)
+      }
+    }
+  }
+
+  func updateCurrentOffset(_ direction: Direction, _ amount: CGPoint) {
+    // here we need to check if we switched to a double move
+    switch direction {
+    case .up, .down:
+      currentOffset.y += amount.y
+      currentOffset.y = min(currentOffset.y, maxOffset.y)
+      currentOffset.y = max(currentOffset.y, minOffset.y)
+    case .left, .right:
+      currentOffset.x += amount.x
+      currentOffset.x = min(currentOffset.x, maxOffset.x)
+      currentOffset.x = max(currentOffset.x, minOffset.x)
     }
   }
   
+  // need to figure out how in double move gets set when double move legal is false
   func setFinalPosition(_ direction: Direction) {
-    updateOrigin(direction)
-    viewModel.placeBlock(point: GridConstants.blockCenter(row: origin.row, col: origin.col, type: type))
+    moveFinished(inDoubleMove && doubleMoveLegal ? .oneMove : .game)
     viewModel.updateUI()
-    
-    guard let neighbors = neighbors(direction) else { return }
-    for neighbor in neighbors {
-      guard neighbor.index != EmptySpace else { continue }
-      neighbor.setFinalPosition(direction)
-    }
   }
   
   func updateOrigin(_ direction: Direction) {
@@ -73,22 +146,7 @@ class BlockModel: Hashable {
       origin.col += 1
       assert(origin.col < Columns," col > Columns")
     }
-    print("updated block \(index!) origin to: (\(origin.row),\(origin.col)))")
-  }
-  
-  var coordinates: String {
-    var rtn: String = "\nblock \(index!):\n"
-    switch type! {
-    case .small:
-      rtn += "[\(origin.row),\(origin.col)]"
-    case .wide:
-      rtn += "[\(origin.row),\(origin.col))] [\(origin.row),\(origin.col)+1)]"
-    case .tall:
-      rtn += "[\(origin.row),\(origin.col))]\n[\(origin.row+1),\(origin.col))]"
-    case .big:
-      rtn += "[\(origin.row),\(origin.col))] [\(origin.row),\(origin.col)+1)]\n[\(origin.row+1),\(origin.col))] [\(origin.row+1),\(origin.col)+1)]"
-    }
-    return rtn
+    print("BlockModel updated block \(index!) origin to: (\(origin.row),\(origin.col))")
   }
 
   func resetNeighbors() {
@@ -109,10 +167,42 @@ class BlockModel: Hashable {
   }
   
   func move(_ direction: Direction) {
-    if canMove(direction: direction) {
-      blockLogic.move(block: self, direction: direction)
+    updateOrigin(direction)
+    guard let neighboringBlocks = neighbors(direction) else { return }
+    
+    for neighbor in neighboringBlocks {
+      guard neighbor.index != EmptySpace else { continue }
+      neighbor.move(direction)
     }
   }
+  
+  func setMinMaxMove(_ direction: Direction) {
+    var center = viewModel.center!
+    currentOffset = center
+    startingCenter = center
+    
+    let allowedMovement: CGFloat = doubleMoveLegal ? 2 * ppb : ppb
+    
+    switch direction {
+    case .up:
+      maxOffset = center
+      center.y -= allowedMovement
+      minOffset = center
+    case .down:
+      minOffset = center
+      center.y += allowedMovement
+      maxOffset = center
+    case .left:
+      maxOffset = center
+      center.x -= allowedMovement
+      minOffset = center
+    case .right:
+      minOffset = center
+      center.x += allowedMovement
+      maxOffset = center
+    }
+  }
+
 }
 
 extension BlockModel: Equatable { }

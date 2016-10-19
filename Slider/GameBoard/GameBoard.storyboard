@@ -27,35 +27,45 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQb-NP-bWL">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2M-aA-KTV">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rwe-ba-wKR">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="f2M-aA-KTV" firstAttribute="trailing" secondItem="tVV-JY-VtE" secondAttribute="trailingMargin" id="2mm-rS-n02"/>
                             <constraint firstItem="bie-Xn-ZpF" firstAttribute="leading" secondItem="tVV-JY-VtE" secondAttribute="leadingMargin" id="B9r-9Q-V8n"/>
                             <constraint firstItem="GQb-NP-bWL" firstAttribute="top" secondItem="bie-Xn-ZpF" secondAttribute="bottom" constant="30" id="Ezq-Ik-WVt"/>
                             <constraint firstItem="f2M-aA-KTV" firstAttribute="top" secondItem="bie-Xn-ZpF" secondAttribute="bottom" constant="30" id="GJq-zi-pN9"/>
                             <constraint firstItem="bie-Xn-ZpF" firstAttribute="top" secondItem="f1l-yQ-djv" secondAttribute="bottom" id="KSF-A3-gWB"/>
-                            <constraint firstItem="f2M-aA-KTV" firstAttribute="leading" secondItem="GQb-NP-bWL" secondAttribute="trailing" constant="30" id="Nka-x2-7td"/>
+                            <constraint firstItem="f2M-aA-KTV" firstAttribute="leading" secondItem="GQb-NP-bWL" secondAttribute="trailing" id="Nka-x2-7td"/>
+                            <constraint firstItem="f2M-aA-KTV" firstAttribute="width" secondItem="GQb-NP-bWL" secondAttribute="width" id="WJO-EF-pdd"/>
                             <constraint firstItem="zGg-GE-j6X" firstAttribute="top" secondItem="GQb-NP-bWL" secondAttribute="bottom" constant="20" id="bS7-MB-ZHq"/>
+                            <constraint firstItem="Rwe-ba-wKR" firstAttribute="width" secondItem="GQb-NP-bWL" secondAttribute="width" id="dH8-Hi-Cwq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Rwe-ba-wKR" secondAttribute="trailing" id="h5Q-T7-y6T"/>
                             <constraint firstItem="GQb-NP-bWL" firstAttribute="leading" secondItem="tVV-JY-VtE" secondAttribute="leadingMargin" id="jHg-jI-za5"/>
-                            <constraint firstItem="f2M-aA-KTV" firstAttribute="width" secondItem="GQb-NP-bWL" secondAttribute="width" id="odL-sK-3fs"/>
+                            <constraint firstItem="Rwe-ba-wKR" firstAttribute="top" secondItem="bie-Xn-ZpF" secondAttribute="bottom" constant="30" id="jSR-4s-qI3"/>
                             <constraint firstItem="zGg-GE-j6X" firstAttribute="top" secondItem="f2M-aA-KTV" secondAttribute="bottom" constant="20" id="syJ-kN-EDZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bie-Xn-ZpF" secondAttribute="trailing" id="xK5-Ef-e3O"/>
+                            <constraint firstItem="Rwe-ba-wKR" firstAttribute="leading" secondItem="f2M-aA-KTV" secondAttribute="trailing" id="yrn-kR-toO"/>
+                            <constraint firstItem="zGg-GE-j6X" firstAttribute="top" secondItem="Rwe-ba-wKR" secondAttribute="bottom" constant="20" id="zdP-dP-ppt"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="finishingBoard" destination="f2M-aA-KTV" id="WO1-XC-iWC"/>
                         <outlet property="gameView" destination="bie-Xn-ZpF" id="0jk-XO-QcT"/>
                         <outlet property="startingBoard" destination="GQb-NP-bWL" id="HXB-uj-LqK"/>
+                        <outlet property="twoMoveBoard" destination="Rwe-ba-wKR" id="MlH-k8-yEb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vBl-Y0-wiX" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -17,11 +17,12 @@ struct Coordinate {
 class GameModel {
   
   private var gameBoard: [[Int]]!
+  private var startingBoard: [[Int]]!
   private var oneMoveBoard: [[Int]]?
   private var twoMoveBoard: [[Int]]?
   private var gameBoardBlocks = [BlockModel]()
   private var oneMoveBlocks = [BlockModel]()
-  private var twoMoveBlocks: [BlockModel]!
+  private var twoMoveBlocks = [BlockModel]()
   private var gameLogic = GameModelLogic()
   
   var blockCount: Int {
@@ -44,12 +45,27 @@ class GameModel {
     setNeighbors(grid: gameBoard)
   }
   
+  func setMinMaxMove(_ direction: Direction) {
+    for block in gameBoardBlocks {
+      block.setMinMaxMove(direction)
+    }
+  }
+  
+  func setNeighborsForGameGrid() {
+    print("----- setNeighborsForGameGrid -----")
+    setNeighbors(grid: gameBoard)
+  }
+  
+  func setNeighborsForOneMoveGrid() {
+    print("----- setNeighborsForOneMoveGrid -----")
+    setNeighbors(grid: oneMoveBoard!)
+  }
+  
   func setNeighbors(grid: [[Int]]) {
     gameLogic.setNeighbors(grid: grid, blocks: gameBoardBlocks)
   }
   
-  func setGameboardsForMove(_ direction: Direction, _ index: Int) {
-    // Do the stuff here to calculate oneMoveBoard, twoMoveBoard, etc
+  func setOutcomesForMove(_ direction: Direction, _ index: Int) {
     oneMoveBlocks.removeAll()
     for block in gameBoardBlocks {
       oneMoveBlocks.append(BlockModel(model: block))
@@ -58,20 +74,26 @@ class GameModel {
     oneMoveBlocks[index].move(direction)
     oneMoveBoard = gameLogic.makeGameboard(blocks: oneMoveBlocks)
     gameLogic.setNeighbors(grid: oneMoveBoard!, blocks: oneMoveBlocks)
-  }
-  
-  func showGameboardsForMove(_ start: UILabel, _ finish: UILabel) {
-    var msg = "current grid: \n"
-    msg += printGameboard(grid: gameBoard)
-    start.text = msg
     
-    msg = "next move grid: \n"
-    if let _ = oneMoveBoard {
-      msg += printGameboard(grid: oneMoveBoard!)
-    } else {
-      msg = "next move grid: nil "
+    twoMoveBlocks.removeAll()
+    twoMoveBoard = nil
+    
+    guard oneMoveBlocks[index].canMove(direction: direction) else { return }
+    // double move legal
+    
+    for block in oneMoveBlocks {
+      twoMoveBlocks.append(BlockModel(model: block))
     }
-    finish.text = msg
+    gameLogic.setNeighbors(grid: oneMoveBoard!, blocks: twoMoveBlocks)
+    twoMoveBlocks[index].move(direction)
+    twoMoveBoard = gameLogic.makeGameboard(blocks: twoMoveBlocks)
+    gameLogic.setNeighbors(grid: twoMoveBoard!, blocks: twoMoveBlocks)
+
+    print("setting double move legal true for all blocks")
+    for block in gameBoardBlocks {
+      block.doubleMoveLegal = true
+    }
+//    block(index)!.doubleMoveLegal = true
   }
   
   func blockOrigin(block: Int) -> (Coordinate)? {
@@ -123,11 +145,25 @@ class GameModel {
     return blocks
   }
   
-  func updateGridForSingleMove() {
-    gameBoard = oneMoveBoard
+  func updateGameboardForMove(_ board: Board) {
+    gameBoard =  board == .game ? oneMoveBoard : twoMoveBoard
     gameLogic.setNeighbors(grid: gameBoard, blocks: gameBoardBlocks)
     oneMoveBoard = nil
     twoMoveBoard = nil
+  }
+  
+  func resetDoubleMoveLegal() {
+    print("setting double move legal to false for all blocks")
+    for block in gameBoardBlocks {
+      block.doubleMoveLegal = false
+    }
+  }
+  
+  func updateBlockOriginsForMove(_ board: Board){
+    let source = board == .game ? oneMoveBlocks : twoMoveBlocks
+    for idx in 1..<source.count {
+      gameBoardBlocks[idx].origin = source[idx].origin
+    }
   }
   
   func printGameboard(grid: [[Int]]) -> String {
@@ -139,6 +175,50 @@ class GameModel {
       }
     }
     return desc
+  }
+  
+  func showGameboardsForCompletion(_ start: UILabel, _ finish: UILabel, _ twoMove: UILabel) {
+    var msg = "current grid: \n"
+    msg += printGameboard(grid: gameBoard)
+    start.text = msg
+    
+    msg = "single move grid: \n"
+    if let oneMoveBoard = oneMoveBoard {
+      msg += printGameboard(grid: oneMoveBoard)
+    } else {
+      msg = "next move grid:  "
+    }
+    finish.text = msg
+    
+    msg = "double move grid: \n"
+    if let twoMoveBoard = twoMoveBoard {
+      msg += printGameboard(grid: twoMoveBoard)
+    } else {
+      msg = "two move board:\n double move not legal"
+    }
+    twoMove.text = msg
+  }
+
+  func showGameboardsForMove(_ start: UILabel, _ finish: UILabel, _ twoMove: UILabel) {
+    var msg = "current grid: \n"
+    msg += printGameboard(grid: gameBoard)
+    start.text = msg
+    
+    msg = "single move grid: \n"
+    if let oneMoveBoard = oneMoveBoard {
+      msg += printGameboard(grid: oneMoveBoard)
+    } else {
+      msg = "next move grid:  "
+    }
+    finish.text = msg
+    
+    msg = "double move grid: \n"
+    if let twoMoveBoard = twoMoveBoard {
+      msg += printGameboard(grid: twoMoveBoard)
+    } else {
+      msg = "two move board:\n double move not legal"
+    }
+    twoMove.text = msg
   }
 
 }

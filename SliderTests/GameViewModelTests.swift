@@ -21,7 +21,12 @@ class GameViewModelTests: XCTestCase {
   
   func testInitBlocks() {
     let game = GameViewModel()
-    game.load(gameboard: gridLayout, size: CGSize.zero)
+    game.load(gameboard: gridLayout,
+              size: CGSize.zero,
+              start: UILabel(),
+              finish: UILabel(),
+              twoMove: UILabel()
+              )
 
     XCTAssertTrue(game.count > 0, "Blocks were not initialized")
   }

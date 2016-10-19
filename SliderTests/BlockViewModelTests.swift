@@ -22,7 +22,13 @@ class BlockViewModelTests: XCTestCase {
 
     override func setUp() {
       super.setUp()
-      game.load(gameboard: gridLayout, size: CGSize.zero)
+      game.load(gameboard: gridLayout,
+                size: CGSize.zero,
+                start: UILabel(),
+                finish: UILabel(),
+                twoMove: UILabel()
+      )
+
     }
   
   //  [2, 2,  3, 4]

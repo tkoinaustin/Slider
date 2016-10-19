@@ -35,15 +35,15 @@ class CodedBlockView: UIView {
   }
   
   static func get(parent: UIView, game: GameViewModel, index: Int) -> CodedBlockView {
-    let frame = CGRect(x: 0, y: 0, width: 128, height: 88)
-    let block = CodedBlockView.init(frame: frame)
+    let block = CodedBlockView.init(frame: CGRect.zero)
+    
     block.viewModel = game.block(index)
-    block.viewModel.updateUI = { _ in
-      block.center = block.viewModel.center
-    }
     block.center = block.viewModel.center
     block.bounds = block.viewModel.bounds
     
+    block.viewModel.updateUI = { _ in
+      block.center = block.viewModel.center
+    }
     parent.addSubview(block)
 
     return block
@@ -51,18 +51,18 @@ class CodedBlockView: UIView {
   
   func pan(_ panRecognizer: UIPanGestureRecognizer) {
     
-    let translation = panRecognizer.translation(in: self)
+    let translation = panRecognizer.translation(in: superview)
     
     switch panRecognizer.state {
     case .began:
       viewModel.start(at: center)
     case .changed:
+//      print("trans: \(translation)")
       viewModel.moving(amount: translation)
     default:
       viewModel.finished()
     }
 
-    self.center = viewModel.center
-    panRecognizer.setTranslation(CGPoint(x: 0, y: 0), in: self)
+    panRecognizer.setTranslation(CGPoint(x: 0, y: 0), in: superview)
   }
 }
