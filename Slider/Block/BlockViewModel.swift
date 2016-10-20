@@ -26,7 +26,7 @@ enum BlockType {
 }
 
 enum Board {
-  case game, zeroMove, oneMove, twoMove
+  case moveZeroSpaces, moveOneSpace, moveTwoSpaces
 }
 
 class BlockViewModel {

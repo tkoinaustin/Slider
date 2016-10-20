@@ -120,7 +120,7 @@ class BlockModel: Hashable {
   
   // need to figure out how in double move gets set when double move legal is false
   func setFinalPosition(_ direction: Direction) {
-    moveFinished(inDoubleMove && doubleMoveLegal ? .oneMove : .game)
+    moveFinished(inDoubleMove && doubleMoveLegal ? .moveOneSpace : .moveZeroSpaces)
     viewModel.updateUI()
   }
   

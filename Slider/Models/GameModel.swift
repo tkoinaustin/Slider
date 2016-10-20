@@ -154,7 +154,7 @@ class GameModel {
   }
   
   func updateGameboardForMove(_ board: Board) {
-    gameBoard =  board == .game ? oneMoveBoard : twoMoveBoard
+    gameBoard =  board == .moveZeroSpaces ? oneMoveBoard : twoMoveBoard
     gameLogic.setNeighbors(grid: gameBoard, blocks: gameBoardBlocks)
     oneMoveBoard = nil
     twoMoveBoard = nil
@@ -174,7 +174,7 @@ class GameModel {
   }
   
   func updateBlockOriginsForMove(_ board: Board){
-    let source = board == .game ? oneMoveBlocks : twoMoveBlocks
+    let source = board == .moveZeroSpaces ? oneMoveBlocks : twoMoveBlocks
     for idx in 1..<source.count {
       gameBoardBlocks[idx].origin = source[idx].origin
     }

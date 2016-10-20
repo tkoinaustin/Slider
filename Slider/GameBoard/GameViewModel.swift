@@ -67,7 +67,7 @@ class GameViewModel {
         }
         
         block.model.changeNeighborhood = { board in
-          if board == .game { return self.game.setNeighborsForGameGrid() }
+          if board == .moveZeroSpaces { return self.game.setNeighborsForGameGrid() }
           else { return self.game.setNeighborsForOneMoveGrid() }
         }
 

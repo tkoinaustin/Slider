@@ -43,11 +43,11 @@ class BlockModelLogic {
     
     if currentOffset.y <= startingCenter.y - ppb && !inDoubleMove {
       dblMove = true
-      board = .oneMove
+      board = .moveOneSpace
     }
-    if currentOffset.y >= startingCenter.y + ppb && inDoubleMove {
+    if currentOffset.y >= startingCenter.y - ppb && inDoubleMove {
       dblMove = false
-      board = .game
+      board = .moveZeroSpaces
     }
     
     return (dblMove, board)
@@ -58,11 +58,11 @@ class BlockModelLogic {
     
     if currentOffset.y >= startingCenter.y + ppb && !inDoubleMove {
       dblMove = true
-      board = .oneMove
+      board = .moveOneSpace
     }
-    if currentOffset.y <= startingCenter.y - ppb && inDoubleMove {
+    if currentOffset.y <= startingCenter.y + ppb && inDoubleMove {
       dblMove = false
-      board = .game
+      board = .moveZeroSpaces
     }
     
     return (dblMove, board)
@@ -73,11 +73,11 @@ class BlockModelLogic {
     
     if currentOffset.x <= startingCenter.x - ppb && !inDoubleMove {
       dblMove = true
-      board = .oneMove
+      board = .moveOneSpace
     }
-    if currentOffset.x >= startingCenter.x + ppb && inDoubleMove {
+    if currentOffset.x >= startingCenter.x - ppb && inDoubleMove {
       dblMove = false
-      board = .game
+      board = .moveZeroSpaces
     }
     
     return (dblMove, board)
@@ -88,11 +88,11 @@ class BlockModelLogic {
     
     if currentOffset.x >= startingCenter.x + ppb && !inDoubleMove {
       dblMove = true
-      board = .oneMove
+      board = .moveOneSpace
     }
-    if currentOffset.x <= startingCenter.x - ppb && inDoubleMove {
+    if currentOffset.x <= startingCenter.x + ppb && inDoubleMove {
       dblMove = false
-      board = .game
+      board = .moveZeroSpaces
     }
     
     return (dblMove, board)
