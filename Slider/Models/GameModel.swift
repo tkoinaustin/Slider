@@ -61,11 +61,21 @@ class GameModel {
     setNeighbors(grid: oneMoveBoard!)
   }
   
+  func setNeighborhoodForGrid(_ board: Board) {
+    switch board {
+    case .moveZeroSpaces:
+      gameLogic.setNeighbors(grid: zeroMoveBoard, blocks: gameBoardBlocks)
+    default:
+      gameLogic.setNeighbors(grid: oneMoveBoard!, blocks: gameBoardBlocks)
+    }
+  }
   func setNeighbors(grid: [[Int]]) {
     gameLogic.setNeighbors(grid: grid, blocks: gameBoardBlocks)
   }
   
   func setOutcomesForMove(_ direction: Direction, _ index: Int) {
+    zeroMoveBoard = gameBoard
+    
     oneMoveBlocks.removeAll()
     for block in gameBoardBlocks {
       oneMoveBlocks.append(BlockModel(model: block))
