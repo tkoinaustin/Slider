@@ -18,6 +18,7 @@ class BlockModel: Hashable {
 
   var doubleMoveLegal = false
   var inDoubleMove = false
+  var board: Board = .moveZeroSpaces
   var ppb: CGFloat!  // pixels per block, ie, how far a block can travel in one move
   
   var startingCenter = CGPoint(x:0, y:0)
@@ -87,21 +88,24 @@ class BlockModel: Hashable {
   func checkForDoubleMoveChange(_ direction: Direction) {
     if !doubleMoveLegal { return }
     guard let ppb = ppb else { return }
-    var dblMove: Bool?, board: Board?
+    var dblMove: Bool?, changedBoard: Board?
     
     switch direction {
     case .up:
-      (dblMove, board) = blockLogic.checkForUpDoubleMove(currentOffset, startingCenter, inDoubleMove, ppb)
+      (dblMove, changedBoard) = blockLogic.checkForUpDoubleMove(currentOffset, startingCenter, board, inDoubleMove, ppb)
     case .down:
-      (dblMove, board) = blockLogic.checkForDownDoubleMove(currentOffset, startingCenter, inDoubleMove, ppb)
+      (dblMove, changedBoard) = blockLogic.checkForDownDoubleMove(currentOffset, startingCenter, board, inDoubleMove, ppb)
     case .left:
-      (dblMove, board) = blockLogic.checkForLeftDoubleMove(currentOffset, startingCenter, inDoubleMove, ppb)
+      (dblMove, changedBoard) = blockLogic.checkForLeftDoubleMove(currentOffset, startingCenter, board, inDoubleMove, ppb)
     case .right:
-      (dblMove, board) = blockLogic.checkForRightDoubleMove(currentOffset, startingCenter, inDoubleMove, ppb)
+      (dblMove, changedBoard) = blockLogic.checkForRightDoubleMove(currentOffset, startingCenter, board, inDoubleMove, ppb)
     }
     
     if let dblMove = dblMove { inDoubleMove = dblMove }
-    if let board = board { changeNeighborhood(board) }
+    if let changedBoard = changedBoard {
+      changeNeighborhood(changedBoard)
+      board = changedBoard
+    }
   }
 
   func updateCurrentOffset(_ direction: Direction, _ amount: CGPoint) {

@@ -38,14 +38,14 @@ class BlockModelLogic {
     }
   }
 
-  func checkForUpDoubleMove(_ currentOffset: CGPoint, _ startingCenter: CGPoint, _ inDoubleMove: Bool, _ ppb: CGFloat) -> (Bool?, Board?) {
+  func checkForUpDoubleMove(_ currentOffset: CGPoint, _ startingCenter: CGPoint, _ board: Board, _ inDoubleMove: Bool, _ ppb: CGFloat) -> (Bool?, Board?) {
     var dblMove: Bool?, board: Board?
     
-    if currentOffset.y <= startingCenter.y - ppb && !inDoubleMove {
+    if currentOffset.y <= startingCenter.y - ppb && board != .moveTwoSpaces {
       dblMove = true
       board = .moveTwoSpaces
     }
-    if currentOffset.y >= startingCenter.y - ppb && inDoubleMove {
+    if currentOffset.y >= startingCenter.y - ppb && board == .moveTwoSpaces {
       dblMove = false
       board = .moveOneSpace
     }
@@ -53,14 +53,14 @@ class BlockModelLogic {
     return (dblMove, board)
   }
   
-  func checkForDownDoubleMove(_ currentOffset: CGPoint, _ startingCenter: CGPoint, _ inDoubleMove: Bool, _ ppb: CGFloat) -> (Bool?, Board?) {
+  func checkForDownDoubleMove(_ currentOffset: CGPoint, _ startingCenter: CGPoint, _ board: Board, _ inDoubleMove: Bool, _ ppb: CGFloat) -> (Bool?, Board?) {
     var dblMove: Bool?, board: Board?
     
-    if currentOffset.y >= startingCenter.y + ppb && !inDoubleMove {
+    if currentOffset.y >= startingCenter.y + ppb && board != .moveTwoSpaces {
       dblMove = true
       board = .moveTwoSpaces
     }
-    if currentOffset.y <= startingCenter.y + ppb && inDoubleMove {
+    if currentOffset.y <= startingCenter.y + ppb && board == .moveTwoSpaces {
       dblMove = false
       board = .moveOneSpace
     }
@@ -68,14 +68,14 @@ class BlockModelLogic {
     return (dblMove, board)
   }
   
-  func checkForLeftDoubleMove(_ currentOffset: CGPoint, _ startingCenter: CGPoint, _ inDoubleMove: Bool, _ ppb: CGFloat) -> (Bool?, Board?) {
+  func checkForLeftDoubleMove(_ currentOffset: CGPoint, _ startingCenter: CGPoint, _ board: Board, _ inDoubleMove: Bool, _ ppb: CGFloat) -> (Bool?, Board?) {
     var dblMove: Bool?, board: Board?
     
-    if currentOffset.x <= startingCenter.x - ppb && !inDoubleMove {
+    if currentOffset.x <= startingCenter.x - ppb && board != .moveTwoSpaces {
       dblMove = true
       board = .moveOneSpace
     }
-    if currentOffset.x >= startingCenter.x - ppb && inDoubleMove {
+    if currentOffset.x >= startingCenter.x - ppb && board == .moveTwoSpaces {
       dblMove = false
       board = .moveZeroSpaces
     }
@@ -83,14 +83,14 @@ class BlockModelLogic {
     return (dblMove, board)
   }
   
-  func checkForRightDoubleMove(_ currentOffset: CGPoint, _ startingCenter: CGPoint, _ inDoubleMove: Bool, _ ppb: CGFloat) -> (Bool?, Board?) {
+  func checkForRightDoubleMove(_ currentOffset: CGPoint, _ startingCenter: CGPoint, _ board: Board, _ inDoubleMove: Bool, _ ppb: CGFloat) -> (Bool?, Board?) {
     var dblMove: Bool?, board: Board?
     
-    if currentOffset.x >= startingCenter.x + ppb && !inDoubleMove {
+    if currentOffset.x >= startingCenter.x + ppb && board != .moveTwoSpaces {
       dblMove = true
       board = .moveOneSpace
     }
-    if currentOffset.x <= startingCenter.x + ppb && inDoubleMove {
+    if currentOffset.x <= startingCenter.x + ppb && board == .moveTwoSpaces {
       dblMove = false
       board = .moveZeroSpaces
     }
