@@ -43,11 +43,11 @@ class BlockModelLogic {
     
     if currentOffset.y <= startingCenter.y - ppb && !inDoubleMove {
       dblMove = true
-      board = .moveOneSpace
+      board = .moveTwoSpaces
     }
     if currentOffset.y >= startingCenter.y - ppb && inDoubleMove {
       dblMove = false
-      board = .moveZeroSpaces
+      board = .moveOneSpace
     }
     
     return (dblMove, board)
@@ -58,11 +58,11 @@ class BlockModelLogic {
     
     if currentOffset.y >= startingCenter.y + ppb && !inDoubleMove {
       dblMove = true
-      board = .moveOneSpace
+      board = .moveTwoSpaces
     }
     if currentOffset.y <= startingCenter.y + ppb && inDoubleMove {
       dblMove = false
-      board = .moveZeroSpaces
+      board = .moveOneSpace
     }
     
     return (dblMove, board)
