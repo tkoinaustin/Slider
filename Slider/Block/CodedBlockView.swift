@@ -40,6 +40,10 @@ class CodedBlockView: UIView {
     block.viewModel = game.block(index)
     block.center = block.viewModel.center
     block.bounds = block.viewModel.bounds
+    let label = UILabel(frame: CGRect(x: 20, y: 10, width: 20, height: 20))
+    label.text = index.description
+    label.textColor = UIColor.white
+    block.addSubview(label)
     
     block.viewModel.updateUI = { _ in
       block.center = block.viewModel.center
