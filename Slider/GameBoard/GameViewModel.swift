@@ -50,7 +50,7 @@ class GameViewModel {
         
         block.placeBlock(point: GridConstants.blockCenter(row: block.model.origin.row, col: block.model.origin.col, type: block.type))
         
-        block.notifyDirection = { direction, index in
+        block.model.setGameplayForDirection = { direction, index in
           assert(self.game != nil, "GameModel not set!")
           self.game.setOutcomesForMove(direction, index)
           self.game.showGameboardsForMove(self.start, self.finish, self.twoMove)
@@ -61,7 +61,8 @@ class GameViewModel {
           self.game.updateGameboardForMove(board)
           self.game.updateBlockOriginsForMove(board)
           self.game.resetDoubleMoveLegal()
-          self.game.showGameboardsForCompletion(self.start, self.finish, self.twoMove)
+          self.game.resetInDoubleMove()
+//          self.game.showGameboardsForCompletion(self.start, self.finish, self.twoMove)
           self.placeAllBlocks()
         }
         
@@ -70,7 +71,6 @@ class GameViewModel {
           else { return self.game.setNeighborsForOneMoveGrid() }
         }
 
-        
         blocks.append(block)
       }
     }
@@ -79,6 +79,7 @@ class GameViewModel {
     func placeAllBlocks() {
       for block in blocks {
         block.placeBlock(point: GridConstants.blockCenter(row: block.model.origin.row, col: block.model.origin.col, type: block.type))
+        block.updateUI()
       }
     }
 }

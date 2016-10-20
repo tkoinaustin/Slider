@@ -10,6 +10,15 @@ import UIKit
 
 enum Direction {
   case up, right, down, left
+  
+  func opposite() -> Direction {
+    switch self {
+    case .up: return .down
+    case .down: return .up
+    case .left: return .right
+    case .right: return .left
+    }
+  }
 }
 
 enum BlockType {
@@ -17,7 +26,7 @@ enum BlockType {
 }
 
 enum Board {
-  case game, oneMove, twoMove
+  case game, zeroMove, oneMove, twoMove
 }
 
 class BlockViewModel {
@@ -33,7 +42,7 @@ class BlockViewModel {
   }}
   
   var updateUI: (() -> ()) = {}
-  var notifyDirection: ((_: Direction, _: Int) -> ()) = {_,_ in }
+//  var notifyDirection: ((_: Direction, _: Int) -> ()) = {_,_ in }
   
   var type: BlockType = .small { didSet {
     guard let _ = canvas else { return }
@@ -51,48 +60,9 @@ class BlockViewModel {
     center = CGPoint(x: point.x * canvas.width, y: point.y * canvas.height)
   }
   
-  func start(at: CGPoint) {
-    startingCenter = at
-    print("starting at: \(at)")
-  }
-  
-  func moving(amount: CGPoint) {
-    if let direction = direction {
-      model.moveBy(amount, direction)
-    } else {
-      if let dir = setDirection(x: amount.x, y: amount.y){
-        guard model.canMove(direction: dir) else { return }
-        
-        print("----- direction was set to \(dir) ------")
-        self.direction = dir
-        notifyDirection(dir, self.index!)
-      }
-    }
-  }
-
-  func finished() {
-    guard let direction = direction else { return }
-    
-    if model.canMove(direction: direction) {
-      model.setFinalPosition(direction)
-    }
-    self.direction = nil
-//    model.moveFinished()
-  }
-  
   func setCenter(newCenter: CGPoint) {
     center = newCenter
     updateUI()
-  }
-
-  private func setDirection(x: CGFloat, y: CGFloat) -> Direction? {
-    let threshhold: CGFloat = 2
-    guard abs(x) > threshhold || abs(y) > threshhold else { return nil }
-    if abs(x) > abs(y) {
-      return x > 0 ? .right : .left
-    } else {
-      return y > 0 ? .down : .up
-    }
   }
   
   private func setBounds() -> CGRect {

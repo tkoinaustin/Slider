@@ -55,12 +55,11 @@ class CodedBlockView: UIView {
     
     switch panRecognizer.state {
     case .began:
-      viewModel.start(at: center)
+      break
     case .changed:
-//      print("trans: \(translation)")
-      viewModel.moving(amount: translation)
+      viewModel.model.moving(amount: translation)
     default:
-      viewModel.finished()
+      viewModel.model.finished()
     }
 
     panRecognizer.setTranslation(CGPoint(x: 0, y: 0), in: superview)

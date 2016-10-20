@@ -17,7 +17,7 @@ struct Coordinate {
 class GameModel {
   
   private var gameBoard: [[Int]]!
-  private var startingBoard: [[Int]]!
+  private var zeroMoveBoard: [[Int]]!
   private var oneMoveBoard: [[Int]]?
   private var twoMoveBoard: [[Int]]?
   private var gameBoardBlocks = [BlockModel]()
@@ -79,7 +79,7 @@ class GameModel {
     twoMoveBoard = nil
     
     guard oneMoveBlocks[index].canMove(direction: direction) else { return }
-    // double move legal
+    // double move is legal so calculate double game board
     
     for block in oneMoveBlocks {
       twoMoveBlocks.append(BlockModel(model: block))
@@ -89,13 +89,21 @@ class GameModel {
     twoMoveBoard = gameLogic.makeGameboard(blocks: twoMoveBlocks)
     gameLogic.setNeighbors(grid: twoMoveBoard!, blocks: twoMoveBlocks)
 
-    print("setting double move legal true for all blocks")
-    for block in gameBoardBlocks {
-      block.doubleMoveLegal = true
-    }
-//    block(index)!.doubleMoveLegal = true
+    print("setting double move legal true for block \(index)")
+    
+    block(index)!.doubleMoveLegal = true
+    guard block(index)?.neighbors(direction)?.count == 1 else { return }
+    guard let neighbor = block(index)?.neighbors(direction)?.first else { return }
+    guard neighbor.index != EmptySpace else { return }
+    neighbor.doubleMoveLegal = true
+    print("setting double move legal true for block \(neighbor.index!)")
+
+    guard let secondNeighbor = block(neighbor.index)?.neighbors(direction)?.first else { return }
+    guard secondNeighbor.index != EmptySpace else { return }
+    secondNeighbor.doubleMoveLegal = true
+    print("setting double move legal true for block \(secondNeighbor.index!)")
   }
-  
+
   func blockOrigin(block: Int) -> (Coordinate)? {
     for row in 0..<Rows {
       for col in 0..<Columns {
@@ -159,6 +167,12 @@ class GameModel {
     }
   }
   
+  func resetInDoubleMove() {
+    for block in gameBoardBlocks {
+      block.inDoubleMove = false
+    }
+  }
+  
   func updateBlockOriginsForMove(_ board: Board){
     let source = board == .game ? oneMoveBlocks : twoMoveBlocks
     for idx in 1..<source.count {
@@ -178,11 +192,11 @@ class GameModel {
   }
   
   func showGameboardsForCompletion(_ start: UILabel, _ finish: UILabel, _ twoMove: UILabel) {
-    var msg = "current grid: \n"
+    var msg = "gameboard: \n"
     msg += printGameboard(grid: gameBoard)
     start.text = msg
     
-    msg = "single move grid: \n"
+    msg = "single move: \n"
     if let oneMoveBoard = oneMoveBoard {
       msg += printGameboard(grid: oneMoveBoard)
     } else {
@@ -190,7 +204,7 @@ class GameModel {
     }
     finish.text = msg
     
-    msg = "double move grid: \n"
+    msg = "double move: \n"
     if let twoMoveBoard = twoMoveBoard {
       msg += printGameboard(grid: twoMoveBoard)
     } else {

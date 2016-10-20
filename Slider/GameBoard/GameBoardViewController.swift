@@ -10,7 +10,7 @@ import UIKit
 
 class GameBoardViewController: UIViewController {
   
-  private var gridLayout = [[2,2,3,4],[1,1,0,4],[1,1,8,0],[5,7,9,11],[5,10,6,6]]
+  private var gridLayout = [[2,2,3,4],[1,1,0,4],[1,1,8,0],[5,7,9,11],[5,10,6,12]]
   var game = GameViewModel()
 
   @IBOutlet weak var gameView: UIView!
@@ -38,6 +38,7 @@ class GameBoardViewController: UIViewController {
     let _ = CodedBlockView.get(parent: gameView, game: game, index: 9)
     let _ = CodedBlockView.get(parent: gameView, game: game, index: 10)
     let _ = CodedBlockView.get(parent: gameView, game: game, index: 11)
+    let _ = CodedBlockView.get(parent: gameView, game: game, index: 12)
   }
   
   override func didReceiveMemoryWarning() {
