@@ -39,63 +39,63 @@ class BlockModelLogic {
   }
 
   func checkForUpDoubleMove(_ currentOffset: CGPoint, _ startingCenter: CGPoint, _ board: Board, _ inDoubleMove: Bool, _ ppb: CGFloat) -> (Bool?, Board?) {
-    var dblMove: Bool?, board: Board?
+    var dblMove: Bool?, changedBoard: Board?
     
     if currentOffset.y <= startingCenter.y - ppb && board != .moveTwoSpaces {
       dblMove = true
-      board = .moveTwoSpaces
+      changedBoard = .moveTwoSpaces
     }
     if currentOffset.y >= startingCenter.y - ppb && board == .moveTwoSpaces {
       dblMove = false
-      board = .moveOneSpace
+      changedBoard = .moveOneSpace
     }
     
-    return (dblMove, board)
+    return (dblMove, changedBoard)
   }
   
   func checkForDownDoubleMove(_ currentOffset: CGPoint, _ startingCenter: CGPoint, _ board: Board, _ inDoubleMove: Bool, _ ppb: CGFloat) -> (Bool?, Board?) {
-    var dblMove: Bool?, board: Board?
+    var dblMove: Bool?, changedBoard: Board?
     
     if currentOffset.y >= startingCenter.y + ppb && board != .moveTwoSpaces {
       dblMove = true
-      board = .moveTwoSpaces
+      changedBoard = .moveTwoSpaces
     }
     if currentOffset.y <= startingCenter.y + ppb && board == .moveTwoSpaces {
       dblMove = false
-      board = .moveOneSpace
+      changedBoard = .moveOneSpace
     }
     
-    return (dblMove, board)
+    return (dblMove, changedBoard)
   }
   
   func checkForLeftDoubleMove(_ currentOffset: CGPoint, _ startingCenter: CGPoint, _ board: Board, _ inDoubleMove: Bool, _ ppb: CGFloat) -> (Bool?, Board?) {
-    var dblMove: Bool?, board: Board?
+    var dblMove: Bool?, changedBoard: Board?
     
     if currentOffset.x <= startingCenter.x - ppb && board != .moveTwoSpaces {
       dblMove = true
-      board = .moveOneSpace
+      changedBoard = .moveOneSpace
     }
     if currentOffset.x >= startingCenter.x - ppb && board == .moveTwoSpaces {
       dblMove = false
-      board = .moveZeroSpaces
+      changedBoard = .moveZeroSpaces
     }
     
-    return (dblMove, board)
+    return (dblMove, changedBoard)
   }
   
   func checkForRightDoubleMove(_ currentOffset: CGPoint, _ startingCenter: CGPoint, _ board: Board, _ inDoubleMove: Bool, _ ppb: CGFloat) -> (Bool?, Board?) {
-    var dblMove: Bool?, board: Board?
+    var dblMove: Bool?, changedBoard: Board?
     
     if currentOffset.x >= startingCenter.x + ppb && board != .moveTwoSpaces {
       dblMove = true
-      board = .moveOneSpace
+      changedBoard = .moveOneSpace
     }
     if currentOffset.x <= startingCenter.x + ppb && board == .moveTwoSpaces {
       dblMove = false
-      board = .moveZeroSpaces
+      changedBoard = .moveZeroSpaces
     }
     
-    return (dblMove, board)
+    return (dblMove, changedBoard)
   }
 
 }

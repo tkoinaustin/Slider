@@ -103,6 +103,7 @@ class BlockModel: Hashable {
     
     if let dblMove = dblMove { inDoubleMove = dblMove }
     if let changedBoard = changedBoard {
+      print("\(direction) changeNeighborhood: \(changedBoard)")
       changeNeighborhood(changedBoard)
       board = changedBoard
     }
