@@ -52,17 +52,11 @@ class GameViewModel {
         
         block.model.setGameplayForDirection = { direction, index in
           assert(self.game != nil, "GameModel not set!")
-          self.game.setOutcomesForMove(direction, index)
-          self.game.showGameboardsForMove(self.start, self.finish, self.twoMove)
-          self.game.setMinMaxMove(direction)
+          self.game.setGameplayForDirection(direction, index, start: self.start, oneMove: self.finish, twoMove: self.twoMove)
         }
 
         block.model.moveFinished = { board in
-          self.game.updateGameboardForMove(board)
-          self.game.updateBlockOriginsForMove(board)
-          self.game.resetDoubleMoveLegal()
-          self.game.resetInDoubleMove()
-//          self.game.showGameboardsForCompletion(self.start, self.finish, self.twoMove)
+          self.game.moveFinished(finalBoard: board)
           self.placeAllBlocks()
         }
         

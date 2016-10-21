@@ -13,12 +13,20 @@ class BlockModel: Hashable {
   var index: Int!
   var type: BlockType!
   var origin = Coordinate(row:0, col:0)
-  var direction: Direction?
+  var direction: Direction? { didSet {
+    if let direction = direction {
+      print("------ direction changed to \(direction)")
+    } else {
+      print("------ direction changed to nil")
+    }
+    }}
   weak var viewModel: BlockViewModel!
 
   var doubleMoveLegal = false
   var inDoubleMove = false
-  var board: Board = .moveZeroSpaces
+  var board: Board = .moveZeroSpaces { didSet {
+    print("\(index!) board changed to \(board)")
+    }}
   var ppb: CGFloat!  // pixels per block, ie, how far a block can travel in one move
   
   var startingCenter = CGPoint(x:0, y:0)
@@ -77,8 +85,12 @@ class BlockModel: Hashable {
   }
   
   func finished() {
-    guard let direction = direction else { return }
-    
+    guard let direction = direction else {
+      print("in finished and direction is nil ****************")
+      return
+    }
+    print("------ finished direction is \(direction)")
+
     if canMove(direction: direction) {
       setFinalPosition(direction)
     }
@@ -102,10 +114,13 @@ class BlockModel: Hashable {
     }
     
     if let dblMove = dblMove { inDoubleMove = dblMove }
+    
     if let changedBoard = changedBoard {
       print("\(direction) changeNeighborhood: \(changedBoard)")
-      changeNeighborhood(changedBoard)
       board = changedBoard
+      
+//      guard changedBoard != .moveTwoSpaces else { return }
+      changeNeighborhood(changedBoard)
     }
   }
 
@@ -125,6 +140,7 @@ class BlockModel: Hashable {
   
   // need to figure out how in double move gets set when double move legal is false
   func setFinalPosition(_ direction: Direction) {
+    print("---- set Final Position \(board)")
     moveFinished(inDoubleMove && doubleMoveLegal ? .moveTwoSpaces : .moveOneSpace)
     viewModel.updateUI()
   }

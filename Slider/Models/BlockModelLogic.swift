@@ -49,7 +49,13 @@ class BlockModelLogic {
       dblMove = false
       changedBoard = .moveOneSpace
     }
-    
+//    if currentOffset.y >= startingCenter.y && board == .moveOneSpace {
+//      changedBoard = .moveZeroSpaces
+//    }
+//    if currentOffset.y < startingCenter.y && board == .moveZeroSpaces {
+//      changedBoard = .moveOneSpace
+//    }
+
     return (dblMove, changedBoard)
   }
   
@@ -64,7 +70,13 @@ class BlockModelLogic {
       dblMove = false
       changedBoard = .moveOneSpace
     }
-    
+//    if currentOffset.y <= startingCenter.y && board == .moveOneSpace {
+//      changedBoard = .moveZeroSpaces
+//    }
+//    if currentOffset.y > startingCenter.y && board == .moveZeroSpaces {
+//      changedBoard = .moveOneSpace
+//    }
+
     return (dblMove, changedBoard)
   }
   
