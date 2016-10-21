@@ -32,7 +32,6 @@ enum Board {
 class BlockViewModel {
   var index: Int!
   var model: BlockModel!
-  var direction: Direction?
 
   private(set) var center: CGPoint!
   var startingCenter: CGPoint!
@@ -42,7 +41,6 @@ class BlockViewModel {
   }}
   
   var updateUI: (() -> ()) = {}
-//  var notifyDirection: ((_: Direction, _: Int) -> ()) = {_,_ in }
   
   var type: BlockType = .small { didSet {
     guard let _ = canvas else { return }

@@ -54,9 +54,9 @@ class GameModel {
   func moveFinished(finalBoard board: Board) {
     updateBlockOriginsForBoard(board)
     updateGameboardForMove(board)
-//  self.game.updateBlockOriginsForMove(board)
     resetDoubleMoveLegal()
     resetInDoubleMove()
+    setNeighbors(grid: gameBoard)
   }
   
   private func setMinMaxMove(_ direction: Direction) {
