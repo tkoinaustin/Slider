@@ -62,8 +62,10 @@ class CodedBlockView: UIView {
       break
     case .changed:
       viewModel.model.moving(amount: translation)
-    default:
+    case .ended:
       viewModel.model.finished()
+    default:
+      print("pan recognizer indeterminate state")
     }
 
     panRecognizer.setTranslation(CGPoint(x: 0, y: 0), in: superview)

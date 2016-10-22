@@ -13,7 +13,7 @@ class BlockModel: Hashable {
   var index: Int!
   var type: BlockType!
   var origin = Coordinate(row:0, col:0)
-  var direction: Direction? { didSet {
+  private var direction: Direction? { didSet {
     if let direction = direction {
       print("------ direction changed to \(direction)")
     } else {
@@ -26,7 +26,7 @@ class BlockModel: Hashable {
   var inDoubleMove = false
   var board: Board = .moveZeroSpaces { didSet {
     print("\(index!) board changed to \(board)")
-    }}
+  }}
   var ppb: CGFloat!  // pixels per block, ie, how far a block can travel in one move
   
   var startingCenter = CGPoint(x:0, y:0)
@@ -97,75 +97,6 @@ class BlockModel: Hashable {
     self.direction = nil
   }
 
-  func checkForDoubleMoveChange(_ direction: Direction) {
-    if !doubleMoveLegal { return }
-    guard let ppb = ppb else { return }
-    var dblMove: Bool?, changedBoard: Board?
-    
-    switch direction {
-    case .up:
-      (dblMove, changedBoard) = blockLogic.checkForUpDoubleMove(currentOffset, startingCenter, board, inDoubleMove, ppb)
-    case .down:
-      (dblMove, changedBoard) = blockLogic.checkForDownDoubleMove(currentOffset, startingCenter, board, inDoubleMove, ppb)
-    case .left:
-      (dblMove, changedBoard) = blockLogic.checkForLeftDoubleMove(currentOffset, startingCenter, board, inDoubleMove, ppb)
-    case .right:
-      (dblMove, changedBoard) = blockLogic.checkForRightDoubleMove(currentOffset, startingCenter, board, inDoubleMove, ppb)
-    }
-    
-    if let dblMove = dblMove { inDoubleMove = dblMove }
-    
-    if let changedBoard = changedBoard {
-      print("\(direction) changeNeighborhood: \(changedBoard)")
-      board = changedBoard
-      
-//      guard changedBoard != .moveTwoSpaces else { return }
-      changeNeighborhood(changedBoard)
-    }
-  }
-
-  func updateCurrentOffset(_ direction: Direction, _ amount: CGPoint) {
-    // here we need to check if we switched to a double move
-    switch direction {
-    case .up, .down:
-      currentOffset.y += amount.y
-      currentOffset.y = min(currentOffset.y, maxOffset.y)
-      currentOffset.y = max(currentOffset.y, minOffset.y)
-    case .left, .right:
-      currentOffset.x += amount.x
-      currentOffset.x = min(currentOffset.x, maxOffset.x)
-      currentOffset.x = max(currentOffset.x, minOffset.x)
-    }
-  }
-  
-  // need to figure out how in double move gets set when double move legal is false
-  func setFinalPosition(_ direction: Direction) {
-    print("---- set Final Position \(board)")
-    moveFinished(inDoubleMove && doubleMoveLegal ? .moveTwoSpaces : .moveOneSpace)
-    viewModel.updateUI()
-  }
-  
-  func updateOrigin(_ direction: Direction) {
-    guard index != EmptySpace else { return }
-    guard let _ = neighbors(direction) else { return }
-    
-    switch direction {
-    case .up:
-      origin.row -= 1
-      assert(origin.row >= 0, "row < 0")
-    case .down:
-      origin.row += 1
-      assert(origin.row < Rows, "row > Rows")
-    case .left:
-      origin.col -= 1
-      assert(origin.col >= 0,  "col < 0")
-    case .right:
-      origin.col += 1
-      assert(origin.col < Columns," col > Columns")
-    }
-    print("BlockModel updated block \(index!) origin to: (\(origin.row),\(origin.col))")
-  }
-
   func resetNeighbors() {
     neighbors = [.up: Set<BlockModel>(), .right: Set<BlockModel>(), .down: Set<BlockModel>(), .left: Set<BlockModel>()]
   }
@@ -218,6 +149,76 @@ class BlockModel: Hashable {
       center.x += allowedMovement
       maxOffset = center
     }
+  }
+  
+  private func checkForDoubleMoveChange(_ direction: Direction) {
+    if !doubleMoveLegal { return }
+    guard let ppb = ppb else { return }
+    var dblMove: Bool?, changedBoard: Board?
+    
+    switch direction {
+    case .up:
+      (dblMove, changedBoard) = blockLogic.checkForUpDoubleMove(currentOffset, startingCenter, board, inDoubleMove, ppb)
+    case .down:
+      (dblMove, changedBoard) = blockLogic.checkForDownDoubleMove(currentOffset, startingCenter, board, inDoubleMove, ppb)
+    case .left:
+      (dblMove, changedBoard) = blockLogic.checkForLeftDoubleMove(currentOffset, startingCenter, board, inDoubleMove, ppb)
+    case .right:
+      (dblMove, changedBoard) = blockLogic.checkForRightDoubleMove(currentOffset, startingCenter, board, inDoubleMove, ppb)
+    }
+    
+    if let dblMove = dblMove { inDoubleMove = dblMove }
+    
+    if let changedBoard = changedBoard {
+      print("\(direction) changeNeighborhood: \(changedBoard)")
+      board = changedBoard
+      
+      //      guard changedBoard != .moveTwoSpaces else { return }
+      changeNeighborhood(changedBoard)
+    }
+  }
+  
+  private func updateCurrentOffset(_ direction: Direction, _ amount: CGPoint) {
+    // here we need to check if we switched to a double move
+    switch direction {
+    case .up, .down:
+      currentOffset.y += amount.y
+      currentOffset.y = min(currentOffset.y, maxOffset.y)
+      currentOffset.y = max(currentOffset.y, minOffset.y)
+    case .left, .right:
+      currentOffset.x += amount.x
+      currentOffset.x = min(currentOffset.x, maxOffset.x)
+      currentOffset.x = max(currentOffset.x, minOffset.x)
+    }
+  }
+  
+  // need to figure out how in double move gets set when double move legal is false
+  private func setFinalPosition(_ direction: Direction) {
+    print("---- set Final Position \(board)")
+//    moveFinished(board)
+    moveFinished(inDoubleMove && doubleMoveLegal ? .moveTwoSpaces : .moveOneSpace)
+    viewModel.updateUI()
+  }
+  
+  private func updateOrigin(_ direction: Direction) {
+    guard index != EmptySpace else { return }
+    guard let _ = neighbors(direction) else { return }
+    
+    switch direction {
+    case .up:
+      origin.row -= 1
+      assert(origin.row >= 0, "row < 0")
+    case .down:
+      origin.row += 1
+      assert(origin.row < Rows, "row > Rows")
+    case .left:
+      origin.col -= 1
+      assert(origin.col >= 0,  "col < 0")
+    case .right:
+      origin.col += 1
+      assert(origin.col < Columns," col > Columns")
+    }
+    print("BlockModel updated block \(index!) origin to: (\(origin.row),\(origin.col))")
   }
 
 }

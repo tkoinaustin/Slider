@@ -53,7 +53,7 @@ class GameModel {
   
   func moveFinished(finalBoard board: Board) {
     updateBlockOriginsForBoard(board)
-    updateGameboardForMove(board)
+    updateGameboardForFinishPosition(board)
     resetDoubleMoveLegal()
     resetInDoubleMove()
     setNeighbors(grid: gameBoard)
@@ -69,7 +69,7 @@ class GameModel {
     switch board {
     case .moveZeroSpaces:
       gameLogic.setNeighbors(grid: zeroMoveBoard, blocks: gameBoardBlocks)
-    default:
+    case .moveOneSpace, .moveTwoSpaces:
       gameLogic.setNeighbors(grid: oneMoveBoard!, blocks: gameBoardBlocks)
     }
   }
@@ -170,8 +170,15 @@ class GameModel {
     return blocks
   }
   
-  private func updateGameboardForMove(_ board: Board) {
-    gameBoard =  board == .moveOneSpace ? oneMoveBoard : twoMoveBoard
+  private func updateGameboardForFinishPosition(_ board: Board) {
+    print("update GAMEBOARD For Finish Position \(board) *******")
+    switch board {
+    case .moveZeroSpaces: gameBoard = oneMoveBoard
+    case .moveOneSpace: gameBoard = oneMoveBoard
+    case .moveTwoSpaces: gameBoard = twoMoveBoard
+    }
+
+//    gameBoard =  board == .moveOneSpace ? oneMoveBoard : twoMoveBoard
     gameLogic.setNeighbors(grid: gameBoard, blocks: gameBoardBlocks)
     oneMoveBoard = nil
     twoMoveBoard = nil
