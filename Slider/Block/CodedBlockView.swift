@@ -61,7 +61,7 @@ class CodedBlockView: UIView {
     case .began:
       break
     case .changed:
-      viewModel.model.moving(amount: translation)
+      viewModel.model.blockMovedBy(translation, viewModel.index)
     case .ended:
       viewModel.model.finished()
     default:

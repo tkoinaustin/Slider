@@ -51,7 +51,7 @@ class GameViewModel {
         block.placeBlock(point: GridConstants.blockCenter(row: block.model.origin.row, col: block.model.origin.col, type: block.type))
         
         block.model.setGameplayForDirection = { (direction, index) -> Bool in
-          self.game.setGameplayForDirection(direction, index, start: self.start, oneMove: self.finish, twoMove: self.twoMove)
+          self.game.setGameplayForDirection(direction, index) //, start: self.start, oneMove: self.finish, twoMove: self.twoMove)
         }
 
         block.model.moveFinished = { board in

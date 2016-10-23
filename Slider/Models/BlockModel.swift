@@ -40,6 +40,7 @@ class BlockModel: Hashable {
   var moveFinished: ((Board) -> ()) = {_ in }
   var changeNeighborhood: ((Board) -> ()) = {_ in }
   var setGameplayForDirection: ((_: Direction, _: Int) -> (Bool)) = {_,_ in return false}
+  var blockMovedBy: ((_: CGPoint, _: Int) -> ()) = { _,_ in }
 
   init(index: Int) {
     self.index = index
@@ -73,15 +74,15 @@ class BlockModel: Hashable {
   }
 
   func moveBy(_ amount: CGPoint,_ direction: Direction) {
-    guard canMove(direction: direction) else { return }
+//    guard canMove(direction: direction) else { return }
     
     updateCurrentOffset(direction, amount)
     viewModel.setCenter(newCenter: currentOffset)
 
-    guard let neighbors = neighbors(direction) else { return }
-    for neighbor in neighbors {
-      neighbor.moveBy(amount, direction)
-    }
+//    guard let neighbors = neighbors(direction) else { return }
+//    for neighbor in neighbors {
+//      neighbor.moveBy(amount, direction)
+//    }
     
     checkForDoubleMoveChange(direction)
   }
@@ -175,7 +176,6 @@ class BlockModel: Hashable {
       print("\(direction) changeNeighborhood: \(changedBoard)")
       board = changedBoard
       
-      //      guard changedBoard != .moveTwoSpaces else { return }
       changeNeighborhood(changedBoard)
     }
   }

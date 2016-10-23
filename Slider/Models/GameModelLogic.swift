@@ -12,7 +12,7 @@ class GameModelLogic {
   
   func newGridForMove(_ grid: [[Int]], _ block: Int, _ direction: Direction) -> [[Int]]? {
     // clone grid
-    var newGrid1 = grid
+    var newGrid = grid
     // find one, two or four coordinates
     var blockCoords = [Coordinate]()
     for row in 0..<Rows {
@@ -27,11 +27,11 @@ class GameModelLogic {
       let startingCoords = findStart(blockCoords, direction)
       // for each starting coordinate, move in direction and replace with 0
       for coordinate in startingCoords {
-        guard let newGrid = move(block, coordinate, direction, replaceWith: 0, grid: newGrid1) else { return nil }
-        newGrid1 = newGrid
+        guard let nextNewGrid = move(block, coordinate, direction, replaceWith: 0, grid: newGrid) else { return nil }
+        newGrid = nextNewGrid
       }
     
-    return newGrid1
+    return newGrid
   }
   
   func findStart(_ blocks: [Coordinate], _ direction: Direction) -> [Coordinate] {
@@ -106,6 +106,16 @@ class GameModelLogic {
     return nil
   }
   
+  func setDirection(x: CGFloat, y: CGFloat) -> Direction? {
+    let threshhold: CGFloat = 2
+    guard abs(x) > threshhold || abs(y) > threshhold else { return nil }
+    if abs(x) > abs(y) {
+      return x > 0 ? .right : .left
+    } else {
+      return y > 0 ? .down : .up
+    }
+  }
+
   func setNeighbors(grid: [[Int]], blocks: [BlockModel]) {
     guard blocks.count > 0 else { return }
     

@@ -43,7 +43,9 @@ class GameModel {
   private var twoMoveBlocks = [BlockModel]()
   private var oneMoveBlocksNew = [Int]()
   private var twoMoveBlocksNew = [Int]()
+  private var movingBlocks = [Int]()
   private var gameLogic = GameModelLogic()
+  private var direction: Direction?
   
   var blockCount: Int {
     return gameBoardBlocks.count
@@ -65,12 +67,31 @@ class GameModel {
     setNeighbors(grid: gameBoard)
   }
   
-  func setGameplayForDirection(_ direction: Direction, _ index: Int, start: UILabel, oneMove: UILabel, twoMove: UILabel) -> Bool {
+  func setGameplayForDirection(_ direction: Direction, _ index: Int/*, start: UILabel, oneMove: UILabel, twoMove: UILabel*/) -> Bool {
     let canMove = setOutcomesForMove(direction, index)
     if !canMove { return false }
-    showGameboardsForMove(start, oneMove, twoMove)
+//    showGameboardsForMove(start, oneMove, twoMove)
     setMinMaxMove(direction)
     return true
+  }
+  
+  func moving(amount: CGPoint, index: Int) {
+    if let direction = direction {
+      moveBy(amount, direction)
+    } else {
+      if let dir = gameLogic.setDirection(x: amount.x, y: amount.y){
+        if setGameplayForDirection(dir, index) {
+          self.direction = dir
+        }
+        
+      }
+    }
+  }
+
+  func moveBy(_ amount: CGPoint, _ direction: Direction) {
+    for index in movingBlocks {
+      block(index)?.moveBy(amount, direction)
+    }
   }
   
   func moveFinished(finalBoard board: Board) {
@@ -109,6 +130,7 @@ class GameModel {
     guard let oneMoveBoard = gameLogic.newGridForMove(zeroMoveBoard, index, direction) else { return false}
     self.oneMoveBoard = oneMoveBoard
     oneMoveBlocksNew = blocksThatMoved(startGrid: zeroMoveBoard, endGrid: oneMoveBoard)
+    movingBlocks = oneMoveBlocksNew
     
     guard let twoMoveBoard = gameLogic.newGridForMove(oneMoveBoard, index, direction) else { return true }
     self.twoMoveBoard = twoMoveBoard
@@ -211,6 +233,10 @@ class GameModel {
         
         block.origin = Coordinate(row: row, col: col)
         block.type = blockType
+        
+        block.blockMovedBy = { amount, index in
+          self.moving(amount: amount, index: index)
+        }
       }
     }
     
