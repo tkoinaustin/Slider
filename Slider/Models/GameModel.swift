@@ -12,6 +12,24 @@ struct Coordinate {
   var row: Int
   var col: Int
   
+  func move(_ direction: Direction) -> Coordinate? {
+    
+    switch direction {
+    case .up:
+      if self.row == 0 { return nil }
+      return Coordinate(row:self.row - 1, col:self.col)
+    case .down:
+      if self.row == Rows - 1 { return nil }
+      return Coordinate(row:self.row + 1, col:self.col)
+    case .left:
+      if self.col == 0 { return nil }
+      return Coordinate(row:self.row, col:self.col - 1)
+    case .right:
+      if self.col == Columns - 1 { return nil }
+      return Coordinate(row:self.row, col:self.col + 1)
+    }
+  }
+  
 }
 
 class GameModel {
@@ -74,7 +92,7 @@ class GameModel {
     }
   }
   
-  private func setNeighbors(grid: [[Int]]) {
+  func setNeighbors(grid: [[Int]]) {
     gameLogic.setNeighbors(grid: grid, blocks: gameBoardBlocks)
   }
   
@@ -236,7 +254,7 @@ class GameModel {
     twoMove.text = msg
   }
   
-  private func printGameboard(grid: [[Int]]) -> String {
+  func printGameboard(grid: [[Int]]) -> String {
     var  desc = ""
     for row in 0..<Rows {
       for col in 0..<Columns {
