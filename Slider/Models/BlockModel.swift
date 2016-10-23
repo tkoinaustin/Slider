@@ -39,7 +39,7 @@ class BlockModel: Hashable {
 
   var moveFinished: ((Board) -> ()) = {_ in }
   var changeNeighborhood: ((Board) -> ()) = {_ in }
-  var setGameplayForDirection: ((_: Direction, _: Int) -> ()) = {_,_ in }
+  var setGameplayForDirection: ((_: Direction, _: Int) -> (Bool)) = {_,_ in return false}
 
   init(index: Int) {
     self.index = index
@@ -62,10 +62,12 @@ class BlockModel: Hashable {
       moveBy(amount, direction)
     } else {
       if let dir = blockLogic.setDirection(x: amount.x, y: amount.y){
-        guard canMove(direction: dir) else { return }
+//        guard canMove(direction: dir) else { return }
+//        self.direction = dir
+          if setGameplayForDirection(dir, self.index!) {
+            self.direction = dir
+          }
         
-        self.direction = dir
-        setGameplayForDirection(dir, self.index!)
       }
     }
   }
