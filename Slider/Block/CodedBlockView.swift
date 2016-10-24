@@ -61,9 +61,9 @@ class CodedBlockView: UIView {
     case .began:
       break
     case .changed:
-      viewModel.model.blockMovedBy(translation, viewModel.index)
+      viewModel.model.blockMovedBy(translation)
     case .ended:
-      viewModel.model.finished()
+      viewModel.model.blockModelMoveFinished()
     default:
       print("pan recognizer indeterminate state")
     }

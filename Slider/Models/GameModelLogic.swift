@@ -11,10 +11,9 @@ import UIKit
 class GameModelLogic {
   
   func newGridForMove(_ grid: [[Int]], _ block: Int, _ direction: Direction) -> [[Int]]? {
-    // clone grid
     var newGrid = grid
-    // find one, two or four coordinates
     var blockCoords = [Coordinate]()
+    
     for row in 0..<Rows {
       for col in 0..<Columns {
         if grid[row][col] == block {
@@ -22,14 +21,12 @@ class GameModelLogic {
         }
       }
     }
+    let startingCoords = findStart(blockCoords, direction)
     
-      // determine starting coordinates based on direction
-      let startingCoords = findStart(blockCoords, direction)
-      // for each starting coordinate, move in direction and replace with 0
-      for coordinate in startingCoords {
-        guard let nextNewGrid = move(block, coordinate, direction, replaceWith: 0, grid: newGrid) else { return nil }
-        newGrid = nextNewGrid
-      }
+    for coordinate in startingCoords {
+      guard let nextNewGrid = move(block, coordinate, direction, replaceWith: 0, grid: newGrid) else { return nil }
+      newGrid = nextNewGrid
+    }
     
     return newGrid
   }
@@ -115,92 +112,4 @@ class GameModelLogic {
       return y > 0 ? .down : .up
     }
   }
-
-  func setNeighbors(grid: [[Int]], blocks: [BlockModel]) {
-    guard blocks.count > 0 else { return }
-    
-    for block in blocks { block.resetNeighbors() }
-    
-    for row in 0..<Rows {
-      for col in 0..<Columns {
-        let block = blocks[grid[row][col]]
-//        print ("block \(block.index)")
-        
-        if let neighbor = topNeighbor(grid: grid, blocks: blocks, row: row, col: col) {
-          if block.index != EmptySpace && block.index != neighbor.index {
-            block.addNeighbor(direction: .up, block: neighbor)
-          }
-        }
-        if let neighbor = bottomNeighbor(grid: grid, blocks: blocks, row: row, col: col) {
-          if block.index != EmptySpace && block.index != neighbor.index {
-            block.addNeighbor(direction: .down, block: neighbor)
-            
-          }
-        }
-        if let neighbor = leftNeighbor(grid: grid, blocks: blocks, row: row, col: col) {
-          if block.index != EmptySpace && block.index != neighbor.index {
-            block.addNeighbor(direction: .left, block: neighbor)
-          }
-        }
-        if let neighbor = rightNeighbor(grid: grid, blocks: blocks, row: row, col: col) {
-          if block.index != EmptySpace && block.index != neighbor.index {
-            block.addNeighbor(direction: .right, block: neighbor)
-          }
-        }
-      }
-    }
-  }
-  
-  private func topNeighbor(grid: [[Int]], blocks: [BlockModel], row: Int, col: Int) -> BlockModel? {
-    guard row > 0 else { return nil }
-    
-    let index = grid[row-1][col]
-    return blocks[index]
-  }
-  
-  private func bottomNeighbor(grid: [[Int]], blocks: [BlockModel], row: Int, col: Int) -> BlockModel? {
-    guard row < Rows-1 else { return nil }
-    
-    let index = grid[row+1][col]
-    return blocks[index]
-  }
-  
-  private func leftNeighbor(grid: [[Int]], blocks: [BlockModel], row: Int, col: Int) -> BlockModel? {
-    guard col > 0 else { return nil }
-    
-    let index = grid[row][col-1]
-    return blocks[index]
-  }
-  
-  private func rightNeighbor(grid: [[Int]], blocks: [BlockModel], row: Int, col: Int) -> BlockModel? {
-    guard col < Columns-1 else { return nil }
-    
-    let index = grid[row][col+1]
-    return blocks[index]
-  }
-  
-  func makeGameboard(blocks: [BlockModel]) -> [[Int]] {
-      var gridLayout = GridConstants.blankLayout
-    
-      for block in blocks {
-        gridLayout[block.origin.row][block.origin.col] = block.index
-//        print("gridLayout[\(block.origin.row)][\(block.origin.col)] = \(block.index!)")
-        
-        switch block.type! {
-        case .small:
-          continue
-        case .wide:
-          gridLayout[block.origin.row][block.origin.col+1] = block.index
-        case .tall:
-          gridLayout[block.origin.row+1][block.origin.col] = block.index
-        case .big:
-          gridLayout[block.origin.row][block.origin.col+1] = block.index
-          gridLayout[block.origin.row+1][block.origin.col] = block.index
-          gridLayout[block.origin.row+1][block.origin.col+1] = block.index
-        }
-      }
-    
-    return gridLayout
-    }
-
 }

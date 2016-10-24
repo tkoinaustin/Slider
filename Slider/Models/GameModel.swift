@@ -32,21 +32,34 @@ struct Coordinate {
   
 }
 
+enum Board {
+  case moveZeroSpaces, moveOneSpace, moveTwoSpaces
+}
+
 class GameModel {
   
   private var gameBoard: [[Int]]!
+  
   private var zeroMoveBoard: [[Int]]!
   private var oneMoveBoard: [[Int]]?
   private var twoMoveBoard: [[Int]]?
+  
   private var gameBoardBlocks = [BlockModel]()
-  private var oneMoveBlocks = [BlockModel]()
-  private var twoMoveBlocks = [BlockModel]()
-  private var oneMoveBlocksNew = [Int]()
-  private var twoMoveBlocksNew = [Int]()
+  
+  private var oneMoveBlocks = [Int]()
+  private var twoMoveBlocks = [Int]()
   private var movingBlocks = [Int]()
+  
   private var gameLogic = GameModelLogic()
   private var direction: Direction?
+  private var board: Board = .moveOneSpace
   
+  var start: UILabel!
+  var finish: UILabel!
+  var twoMove: UILabel!
+  
+  var gameViewModelUpdateUI: (() -> ()) = { _ in }
+
   var blockCount: Int {
     return gameBoardBlocks.count
   }
@@ -64,141 +77,8 @@ class GameModel {
   init(_ gameBoard: [[Int]]) {
     self.gameBoard = gameBoard
     gameBoardBlocks = initBlocks(grid: gameBoard)
-    setNeighbors(grid: gameBoard)
   }
   
-  func setGameplayForDirection(_ direction: Direction, _ index: Int/*, start: UILabel, oneMove: UILabel, twoMove: UILabel*/) -> Bool {
-    let canMove = setOutcomesForMove(direction, index)
-    if !canMove { return false }
-//    showGameboardsForMove(start, oneMove, twoMove)
-    setMinMaxMove(direction)
-    return true
-  }
-  
-  func moving(amount: CGPoint, index: Int) {
-    if let direction = direction {
-      moveBy(amount, direction)
-    } else {
-      if let dir = gameLogic.setDirection(x: amount.x, y: amount.y){
-        if setGameplayForDirection(dir, index) {
-          self.direction = dir
-        }
-        
-      }
-    }
-  }
-
-  func moveBy(_ amount: CGPoint, _ direction: Direction) {
-    for index in movingBlocks {
-      block(index)?.moveBy(amount, direction)
-    }
-  }
-  
-  func moveFinished(finalBoard board: Board) {
-    updateBlockOriginsForBoard(board)
-    updateGameboardForFinishPosition(board)
-    resetDoubleMoveLegal()
-    resetInDoubleMove()
-    setNeighbors(grid: gameBoard)
-  }
-  
-  private func setMinMaxMove(_ direction: Direction) {
-    for block in gameBoardBlocks {
-      block.setMinMaxMove(direction)
-    }
-  }
-  
-  func setNeighborhoodForGrid(_ board: Board) {
-    switch board {
-    case .moveZeroSpaces:
-      gameLogic.setNeighbors(grid: zeroMoveBoard, blocks: gameBoardBlocks)
-    case .moveOneSpace, .moveTwoSpaces:
-      gameLogic.setNeighbors(grid: oneMoveBoard!, blocks: gameBoardBlocks)
-    }
-  }
-  
-  func setNeighbors(grid: [[Int]]) {
-    gameLogic.setNeighbors(grid: grid, blocks: gameBoardBlocks)
-  }
-  
-  // Set the three grids, zero, one and two moveGrid
-  private func setOutcomesForMove(_ direction: Direction, _ index: Int) -> Bool {
-    print("setOutcomesForMove block \(index) \(direction)")
-    
-    zeroMoveBoard = gameBoard
-    
-    guard let oneMoveBoard = gameLogic.newGridForMove(zeroMoveBoard, index, direction) else { return false}
-    self.oneMoveBoard = oneMoveBoard
-    oneMoveBlocksNew = blocksThatMoved(startGrid: zeroMoveBoard, endGrid: oneMoveBoard)
-    movingBlocks = oneMoveBlocksNew
-    
-    guard let twoMoveBoard = gameLogic.newGridForMove(oneMoveBoard, index, direction) else { return true }
-    self.twoMoveBoard = twoMoveBoard
-    twoMoveBlocksNew = blocksThatMoved(startGrid: oneMoveBoard, endGrid: twoMoveBoard)
-    
-//    oneMoveBlocks.removeAll()
-//    for block in gameBoardBlocks {
-//      oneMoveBlocks.append(BlockModel(model: block))
-//    }
-//    gameLogic.setNeighbors(grid: gameBoard!, blocks: oneMoveBlocks)
-//    oneMoveBlocks[index].move(direction)
-//    oneMoveBoard = gameLogic.makeGameboard(blocks: oneMoveBlocks)
-//    gameLogic.setNeighbors(grid: oneMoveBoard!, blocks: oneMoveBlocks)
-//    
-//    twoMoveBlocks.removeAll()
-//    twoMoveBoard = nil
-//    
-//    guard oneMoveBlocks[index].canMove(direction: direction) else { return }
-//    // double move is legal so calculate double game board
-//    
-//    for block in oneMoveBlocks {
-//      twoMoveBlocks.append(BlockModel(model: block))
-//    }
-//    gameLogic.setNeighbors(grid: oneMoveBoard!, blocks: twoMoveBlocks)
-//    twoMoveBlocks[index].move(direction)
-//    twoMoveBoard = gameLogic.makeGameboard(blocks: twoMoveBlocks)
-//    gameLogic.setNeighbors(grid: twoMoveBoard!, blocks: twoMoveBlocks)
-
-    print("setting double move legal true for block \(index)")
-    
-    block(index)!.doubleMoveLegal = true
-    guard block(index)?.neighbors(direction)?.count == 1 else { return true }
-    guard let neighbor = block(index)?.neighbors(direction)?.first else { return true }
-    guard neighbor.index != EmptySpace else { return true }
-    neighbor.doubleMoveLegal = true
-    print("setting double move legal true for block \(neighbor.index!)")
-
-    guard let secondNeighbor = block(neighbor.index)?.neighbors(direction)?.first else { return true }
-    guard secondNeighbor.index != EmptySpace else { return true }
-    secondNeighbor.doubleMoveLegal = true
-    print("setting double move legal true for block \(secondNeighbor.index!)")
-    
-    return true
-  }
-
-  private func blockOrigin(block: Int) -> (Coordinate)? {
-    for row in 0..<Rows {
-      for col in 0..<Columns {
-        if gameBoard[row][col] == block { return (Coordinate(row: row, col: col)) }
-      }
-    }
-    return nil
-  }
-  
-  private func blocksThatMoved(startGrid: [[Int]], endGrid: [[Int]]) -> [Int] {
-    var indices = Set<Int>()
-    for row in 0..<Rows {
-      for col in 0..<Columns {
-        if startGrid[row][col] != endGrid[row][col] {
-          indices.insert(endGrid[row][col])
-        }
-      }
-    }
-    indices.remove(0)
-    
-    return Array(indices)
-  }
-
   private func initBlocks(grid: [[Int]]) -> [BlockModel] {
     var indices = Set<Int>()
     for row in 0..<Rows {
@@ -234,8 +114,17 @@ class GameModel {
         block.origin = Coordinate(row: row, col: col)
         block.type = blockType
         
-        block.blockMovedBy = { amount, index in
+        block.blockModelUpdateGameboard = { board in
+          self.updateGameboard(board)
+        }
+        
+        block.blockModelBlockMovedBy = { amount, index in
           self.moving(amount: amount, index: index)
+        }
+        block.blockModelMoveFinished = { _ in
+          self.gameModelMoveFinished(finalBoard: self.board)
+          self.direction = nil
+          self.board = .moveOneSpace
         }
       }
     }
@@ -243,42 +132,54 @@ class GameModel {
     return blocks
   }
   
+  func updateGameboard(_ board: Board) {
+    print("updateGameboard \(board)")
+    self.board = board
+    switch board {
+    case .moveTwoSpaces: movingBlocks = twoMoveBlocks
+    case .moveOneSpace,
+         .moveZeroSpaces: movingBlocks = oneMoveBlocks
+    }
+  }
+  
+  func moving(amount: CGPoint, index: Int) {
+    if let direction = direction { // move by amount in direction if direction is set
+      moveBy(amount, direction)
+    } else { //set game boards and direction
+      if let dir = gameLogic.setDirection(x: amount.x, y: amount.y){
+        if setGameplayForDirection(dir, index) {
+          self.direction = dir
+        }
+      }
+    }
+  }
+
+  func moveBy(_ amount: CGPoint, _ direction: Direction) {
+    for index in movingBlocks {
+      block(index)?.moveBy(amount, direction)
+    }
+  }
+  
+  func gameModelMoveFinished(finalBoard board: Board) {
+    updateGameboardForFinishPosition(board)
+    updateBlockOriginsForBoard(gameBoard)
+    resetBlocks()
+    gameViewModelUpdateUI()
+  }
+  
   private func updateGameboardForFinishPosition(_ board: Board) {
     print("update GAMEBOARD For Finish Position \(board) *******")
     switch board {
-    case .moveZeroSpaces: gameBoard = oneMoveBoard
+    case .moveZeroSpaces: gameBoard = zeroMoveBoard
     case .moveOneSpace: gameBoard = oneMoveBoard
     case .moveTwoSpaces: gameBoard = twoMoveBoard
     }
-
-//    gameBoard =  board == .moveOneSpace ? oneMoveBoard : twoMoveBoard
-    gameLogic.setNeighbors(grid: gameBoard, blocks: gameBoardBlocks)
+    
     oneMoveBoard = nil
     twoMoveBoard = nil
   }
   
-  private func resetDoubleMoveLegal() {
-    print("setting double move legal to false for all blocks")
-    for block in gameBoardBlocks {
-      block.doubleMoveLegal = false
-    }
-  }
-  
-  private func resetInDoubleMove() {
-    for block in gameBoardBlocks {
-      block.inDoubleMove = false
-    }
-  }
-  
-  private func updateBlockOriginsForBoard(_ board: Board){
-    var gameboard: [[Int]]!
-    
-    switch board {
-    case .moveZeroSpaces: gameboard = zeroMoveBoard
-    case .moveOneSpace: gameboard = oneMoveBoard
-    case .moveTwoSpaces: gameboard = twoMoveBoard
-    }
-    
+  private func updateBlockOriginsForBoard(_ gameboard: [[Int]]){
     for row in (0..<Rows).reversed() {
       for col in (0..<Columns).reversed() {
         gameBoardBlocks[gameboard[row][col]].origin = Coordinate(row: row, col: col)
@@ -286,7 +187,80 @@ class GameModel {
     }
   }
   
-  // through away code, diagnostics to show grids on main UI for debugging
+  private func resetBlocks() {
+    print("resetting double move legal and in double move to false for all blocks")
+    for block in gameBoardBlocks {
+      block.doubleMoveLegal = false
+      block.inDoubleMove = false
+    }
+  }
+  
+  func setGameplayForDirection(_ direction: Direction, _ index: Int) -> Bool {
+    let canMove = setOutcomesForMove(direction, index)
+    if !canMove { return false }
+    showGameboardsForMove(start, finish, twoMove)
+    setMinMaxMove(direction)
+    return true
+  }
+
+  private func setMinMaxMove(_ direction: Direction) {
+    for block in gameBoardBlocks {
+      block.setMinMaxMove(direction)
+    }
+  }
+  
+  // Set the three grids, zero, one and two moveGrid
+  private func setOutcomesForMove(_ direction: Direction, _ index: Int) -> Bool {
+    guard self.direction == nil else { return true }
+
+    print("setOutcomesForMove block \(index) \(direction)")
+    
+    zeroMoveBoard = gameBoard
+    
+    guard let oneMoveBoard = gameLogic.newGridForMove(zeroMoveBoard, index, direction) else { return false}
+    self.oneMoveBoard = oneMoveBoard
+    oneMoveBlocks = blocksThatMoved(startGrid: zeroMoveBoard, endGrid: oneMoveBoard)
+    movingBlocks = oneMoveBlocks
+    print("oneMoveBlocks \(oneMoveBlocks)")
+    
+    guard let twoMoveBoard = gameLogic.newGridForMove(oneMoveBoard, index, direction) else { return true }
+    self.twoMoveBoard = twoMoveBoard
+    twoMoveBlocks = blocksThatMoved(startGrid: oneMoveBoard, endGrid: twoMoveBoard)
+    print("twoMoveBlocks \(twoMoveBlocks)")
+
+    for index in twoMoveBlocks {
+      if oneMoveBlocks.contains(index) {
+        block(index)?.doubleMoveLegal = true
+      }
+    }
+    
+    return true
+  }
+
+  private func blockOrigin(block: Int) -> (Coordinate)? {
+    for row in 0..<Rows {
+      for col in 0..<Columns {
+        if gameBoard[row][col] == block { return (Coordinate(row: row, col: col)) }
+      }
+    }
+    return nil
+  }
+  // logic
+  private func blocksThatMoved(startGrid: [[Int]], endGrid: [[Int]]) -> [Int] {
+    var indices = Set<Int>()
+    for row in 0..<Rows {
+      for col in 0..<Columns {
+        if startGrid[row][col] != endGrid[row][col] {
+          indices.insert(endGrid[row][col])
+        }
+      }
+    }
+    indices.remove(0)
+    
+    return Array(indices)
+  }
+  
+  // throw away code, diagnostics to show grids on main UI for debugging
   private func showGameboardsForMove(_ start: UILabel, _ oneMove: UILabel, _ twoMove: UILabel) {
     var msg = "current grid: \n"
     msg += printGameboard(grid: gameBoard)

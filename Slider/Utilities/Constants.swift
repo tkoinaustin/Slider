@@ -34,5 +34,4 @@ class GridConstants {
     }
     return CGPoint(x: x, y: y)
   }
-
 }

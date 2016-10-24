@@ -25,10 +25,6 @@ enum BlockType {
   case small, wide, tall, big
 }
 
-enum Board {
-  case moveZeroSpaces, moveOneSpace, moveTwoSpaces
-}
-
 class BlockViewModel {
   var index: Int!
   var model: BlockModel!

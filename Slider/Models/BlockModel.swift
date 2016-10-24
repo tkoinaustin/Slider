@@ -34,97 +34,34 @@ class BlockModel: Hashable {
   var minOffset = CGPoint(x:0, y:0)
   var maxOffset = CGPoint(x:0, y:0)
   
-  private var neighbors: [Direction: Set<BlockModel>]!
   private var blockLogic = BlockModelLogic()
 
-  var moveFinished: ((Board) -> ()) = {_ in }
-  var changeNeighborhood: ((Board) -> ()) = {_ in }
-  var setGameplayForDirection: ((_: Direction, _: Int) -> (Bool)) = {_,_ in return false}
-  var blockMovedBy: ((_: CGPoint, _: Int) -> ()) = { _,_ in }
+  var blockModelUpdateGameboard: ((Board) -> ()) = {_ in }
+  var blockModelBlockMovedBy: ((_: CGPoint, _: Int) -> ()) = { _,_ in }
+  var blockModelMoveFinished: (() -> ()) = { }
 
   init(index: Int) {
     self.index = index
-    resetNeighbors()
   }
   
   init(model: BlockModel) {
     index = model.index!
     type = model.type!
     origin = model.origin
-    resetNeighbors()
   }
 
   var hashValue: Int {
     return index
   }
   
-  func moving(amount: CGPoint) {
-    if let direction = direction {
-      moveBy(amount, direction)
-    } else {
-      if let dir = blockLogic.setDirection(x: amount.x, y: amount.y){
-//        guard canMove(direction: dir) else { return }
-//        self.direction = dir
-          if setGameplayForDirection(dir, self.index!) {
-            self.direction = dir
-          }
-        
-      }
-    }
+  func blockMovedBy(_ amount: CGPoint) {
+    blockModelBlockMovedBy(amount, index)
   }
-
+  
   func moveBy(_ amount: CGPoint,_ direction: Direction) {
-//    guard canMove(direction: direction) else { return }
-    
     updateCurrentOffset(direction, amount)
     viewModel.setCenter(newCenter: currentOffset)
-
-//    guard let neighbors = neighbors(direction) else { return }
-//    for neighbor in neighbors {
-//      neighbor.moveBy(amount, direction)
-//    }
-    
     checkForDoubleMoveChange(direction)
-  }
-  
-  func finished() {
-    guard let direction = direction else {
-      print("in finished and direction is nil ****************")
-      return
-    }
-    print("------ finished direction is \(direction)")
-
-    if canMove(direction: direction) {
-      setFinalPosition(direction)
-    }
-    self.direction = nil
-  }
-
-  func resetNeighbors() {
-    neighbors = [.up: Set<BlockModel>(), .right: Set<BlockModel>(), .down: Set<BlockModel>(), .left: Set<BlockModel>()]
-  }
-  
-  func neighbors(_ direction: Direction) -> Set<BlockModel>? {
-    guard let blocks = neighbors[direction] else { return nil }
-    return blocks
-  }
-  
-  func addNeighbor(direction: Direction, block: BlockModel) {
-    neighbors[direction]?.insert(block)
-  }
-  
-  func canMove(direction: Direction) -> Bool {
-    return blockLogic.canMove(block: self, direction: direction)
-  }
-  
-  func move(_ direction: Direction) {
-    updateOrigin(direction)
-    guard let neighboringBlocks = neighbors(direction) else { return }
-    
-    for neighbor in neighboringBlocks {
-      guard neighbor.index != EmptySpace else { continue }
-      neighbor.move(direction)
-    }
   }
   
   func setMinMaxMove(_ direction: Direction) {
@@ -155,33 +92,34 @@ class BlockModel: Hashable {
   }
   
   private func checkForDoubleMoveChange(_ direction: Direction) {
-    if !doubleMoveLegal { return }
+//    if !doubleMoveLegal { return }
     guard let ppb = ppb else { return }
     var dblMove: Bool?, changedBoard: Board?
     
     switch direction {
     case .up:
-      (dblMove, changedBoard) = blockLogic.checkForUpDoubleMove(currentOffset, startingCenter, board, inDoubleMove, ppb)
+      (dblMove, changedBoard) = blockLogic.checkForUpGameboardChange(currentOffset, startingCenter, board, doubleMoveLegal, inDoubleMove, ppb)
     case .down:
-      (dblMove, changedBoard) = blockLogic.checkForDownDoubleMove(currentOffset, startingCenter, board, inDoubleMove, ppb)
+      (dblMove, changedBoard) = blockLogic.checkForDownGameboardChange(currentOffset, startingCenter, board, doubleMoveLegal, inDoubleMove, ppb)
     case .left:
-      (dblMove, changedBoard) = blockLogic.checkForLeftDoubleMove(currentOffset, startingCenter, board, inDoubleMove, ppb)
+      (dblMove, changedBoard) = blockLogic.checkForLeftGameboardChange(currentOffset, startingCenter, board, doubleMoveLegal, inDoubleMove, ppb)
     case .right:
-      (dblMove, changedBoard) = blockLogic.checkForRightDoubleMove(currentOffset, startingCenter, board, inDoubleMove, ppb)
+      (dblMove, changedBoard) = blockLogic.checkForRightGameboardChange(currentOffset, startingCenter, board, doubleMoveLegal, inDoubleMove, ppb)
     }
     
     if let dblMove = dblMove { inDoubleMove = dblMove }
     
     if let changedBoard = changedBoard {
-      print("\(direction) changeNeighborhood: \(changedBoard)")
+      print("\(direction) blockModelUpdateGameboard: \(changedBoard)")
       board = changedBoard
       
-      changeNeighborhood(changedBoard)
+      blockModelUpdateGameboard(changedBoard)
     }
   }
   
   private func updateCurrentOffset(_ direction: Direction, _ amount: CGPoint) {
     // here we need to check if we switched to a double move
+//    print("updateCurrentOffset \(index) \(direction) \(amount)")
     switch direction {
     case .up, .down:
       currentOffset.y += amount.y
@@ -194,17 +132,8 @@ class BlockModel: Hashable {
     }
   }
   
-  // need to figure out how in double move gets set when double move legal is false
-  private func setFinalPosition(_ direction: Direction) {
-    print("---- set Final Position \(board)")
-//    moveFinished(board)
-    moveFinished(inDoubleMove && doubleMoveLegal ? .moveTwoSpaces : .moveOneSpace)
-    viewModel.updateUI()
-  }
-  
   private func updateOrigin(_ direction: Direction) {
     guard index != EmptySpace else { return }
-    guard let _ = neighbors(direction) else { return }
     
     switch direction {
     case .up:

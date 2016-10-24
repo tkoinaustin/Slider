@@ -16,9 +16,6 @@ class GameViewModel {
   private var blocks = [BlockViewModel]()
   private var size: CGSize!
   private var game: GameModel!
-  private var start: UILabel!
-  private var finish: UILabel!
-  private var twoMove: UILabel!
 
   var count: Int {
     return blocks.count
@@ -28,9 +25,12 @@ class GameViewModel {
     game = GameModel(gameboard)
     self.size = size
     initBlocks(grid: gameboard)
-    self.start = start
-    self.finish = finish
-    self.twoMove = twoMove
+    game.start = start
+    game.finish = finish
+    game.twoMove = twoMove
+    game.gameViewModelUpdateUI = {
+      self.placeAllBlocks()
+    }
   }
   
   func block(_ index: Int) -> BlockViewModel {
@@ -49,26 +49,13 @@ class GameViewModel {
         else { block.canvas = CGSize(width: 320, height: 400) }
         
         block.placeBlock(point: GridConstants.blockCenter(row: block.model.origin.row, col: block.model.origin.col, type: block.type))
-        
-        block.model.setGameplayForDirection = { (direction, index) -> Bool in
-          self.game.setGameplayForDirection(direction, index) //, start: self.start, oneMove: self.finish, twoMove: self.twoMove)
-        }
-
-        block.model.moveFinished = { board in
-          self.game.moveFinished(finalBoard: board)
-          self.placeAllBlocks()
-        }
-        
-        block.model.changeNeighborhood = { board in
-          self.game.setNeighborhoodForGrid(board)
-        }
-
         blocks.append(block)
       }
     }
   }
   
     func placeAllBlocks() {
+      print("----- placeAllBlocks -----")
       for block in blocks {
         block.placeBlock(point: GridConstants.blockCenter(row: block.model.origin.row, col: block.model.origin.col, type: block.type))
         block.updateUI()
