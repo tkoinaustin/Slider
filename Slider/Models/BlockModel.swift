@@ -118,8 +118,6 @@ class BlockModel: Hashable {
   }
   
   private func updateCurrentOffset(_ direction: Direction, _ amount: CGPoint) {
-    // here we need to check if we switched to a double move
-//    print("updateCurrentOffset \(index) \(direction) \(amount)")
     switch direction {
     case .up, .down:
       currentOffset.y += amount.y

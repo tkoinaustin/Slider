@@ -52,6 +52,7 @@ class GameModel {
   
   private var gameLogic = GameModelLogic()
   private var direction: Direction?
+  private var notThisDirection: Direction?
   private var board: Board = .moveOneSpace
   
   var start: UILabel!
@@ -121,7 +122,13 @@ class GameModel {
         block.blockModelBlockMovedBy = { amount, index in
           self.moving(amount: amount, index: index)
         }
+        
         block.blockModelMoveFinished = { _ in
+          guard self.direction != nil else {
+            self.board = .moveOneSpace
+            return
+          }
+          
           self.gameModelMoveFinished(finalBoard: self.board)
           self.direction = nil
           self.board = .moveOneSpace
@@ -161,6 +168,7 @@ class GameModel {
   }
   
   func gameModelMoveFinished(finalBoard board: Board) {
+    notThisDirection = nil
     updateGameboardForFinishPosition(board)
     updateBlockOriginsForBoard(gameBoard)
     resetBlocks()
@@ -197,7 +205,11 @@ class GameModel {
   
   func setGameplayForDirection(_ direction: Direction, _ index: Int) -> Bool {
     let canMove = setOutcomesForMove(direction, index)
-    if !canMove { return false }
+    if !canMove {
+      notThisDirection = direction
+      return false
+    }
+    
     showGameboardsForMove(start, finish, twoMove)
     setMinMaxMove(direction)
     return true
@@ -212,6 +224,7 @@ class GameModel {
   // Set the three grids, zero, one and two moveGrid
   private func setOutcomesForMove(_ direction: Direction, _ index: Int) -> Bool {
     guard self.direction == nil else { return true }
+    guard notThisDirection != direction else { return false }
 
     print("setOutcomesForMove block \(index) \(direction)")
     
