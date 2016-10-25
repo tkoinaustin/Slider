@@ -37,7 +37,7 @@ class BlockModel: Hashable {
   private var blockLogic = BlockModelLogic()
 
   var blockModelUpdateGameboard: ((Board) -> ()) = {_ in }
-  var blockModelBlockMovedBy: ((_: CGPoint, _: Int) -> ()) = { _,_ in }
+  var blockModelBlockMovedBy: ((_: CGPoint, _: Int) -> (Direction?)) = { _,_ in return nil}
   var blockModelMoveFinished: (() -> ()) = { }
 
   init(index: Int) {
@@ -55,13 +55,14 @@ class BlockModel: Hashable {
   }
   
   func blockMovedBy(_ amount: CGPoint) {
-    blockModelBlockMovedBy(amount, index)
+    if let direction = blockModelBlockMovedBy(amount, index) {
+      checkForDoubleMoveChange(direction)
+    }
   }
   
   func moveBy(_ amount: CGPoint,_ direction: Direction) {
     updateCurrentOffset(direction, amount)
     viewModel.setCenter(newCenter: currentOffset)
-    checkForDoubleMoveChange(direction)
   }
   
   func setMinMaxMove(_ direction: Direction) {

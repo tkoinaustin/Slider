@@ -119,8 +119,8 @@ class GameModel {
           self.updateGameboard(board)
         }
         
-        block.blockModelBlockMovedBy = { amount, index in
-          self.moving(amount: amount, index: index)
+        block.blockModelBlockMovedBy = { amount, index -> Direction? in
+          return self.moving(amount: amount, index: index)
         }
         
         block.blockModelMoveFinished = { _ in
@@ -149,16 +149,22 @@ class GameModel {
     }
   }
   
-  func moving(amount: CGPoint, index: Int) {
+  func moving(amount: CGPoint, index: Int) -> Direction? {
     if let direction = direction { // move by amount in direction if direction is set
       moveBy(amount, direction)
+      
+      return direction
     } else { //set game boards and direction
       if let dir = gameLogic.setDirection(x: amount.x, y: amount.y){
         if setGameplayForDirection(dir, index) {
           self.direction = dir
+          
+          return direction
         }
       }
     }
+    
+    return nil
   }
 
   func moveBy(_ amount: CGPoint, _ direction: Direction) {
