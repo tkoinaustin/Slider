@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		833B250B1DC5089A00601358 /* PuzzleListDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833B250A1DC5089A00601358 /* PuzzleListDataProvider.swift */; };
 		834CDD981D9B5AA1002CB6DD /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 834CDD961D9B5AA1002CB6DD /* Intro.storyboard */; };
 		834CDD991D9B5AA1002CB6DD /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834CDD971D9B5AA1002CB6DD /* IntroViewController.swift */; };
 		834CDDA51D9B5BB3002CB6DD /* CodedBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834CDDA41D9B5BB3002CB6DD /* CodedBlockView.swift */; };
@@ -20,7 +21,7 @@
 		83AB626C1D97106D00E61AB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83AB626B1D97106D00E61AB7 /* Assets.xcassets */; };
 		83AB626F1D97106D00E61AB7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83AB626D1D97106D00E61AB7 /* LaunchScreen.storyboard */; };
 		83BE867C1DB2669500D51EA1 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BE867B1DB2669500D51EA1 /* GameViewModel.swift */; };
-		CB0CB5ED1DC2B774002811E4 /* PuzzleListCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0CB5EC1DC2B774002811E4 /* PuzzleListCellTableViewCell.swift */; };
+		CB0CB5ED1DC2B774002811E4 /* PuzzleListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0CB5EC1DC2B774002811E4 /* PuzzleListCell.swift */; };
 		CB4E7E631DC03AFE009D48F1 /* MasterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4E7E621DC03AFE009D48F1 /* MasterModel.swift */; };
 		CB4E7E651DC0D5F9009D48F1 /* Puzzles.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4E7E641DC0D5F9009D48F1 /* Puzzles.swift */; };
 		CB5870921DAF170B00D1EEE9 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5870911DAF170B00D1EEE9 /* GameModel.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		833B250A1DC5089A00601358 /* PuzzleListDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PuzzleListDataProvider.swift; path = Views/PuzzleList/PuzzleListDataProvider.swift; sourceTree = "<group>"; };
 		834CDD961D9B5AA1002CB6DD /* Intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Intro.storyboard; path = Intro/Intro.storyboard; sourceTree = "<group>"; };
 		834CDD971D9B5AA1002CB6DD /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntroViewController.swift; path = Intro/IntroViewController.swift; sourceTree = "<group>"; };
 		834CDDA41D9B5BB3002CB6DD /* CodedBlockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CodedBlockView.swift; path = Block/CodedBlockView.swift; sourceTree = "<group>"; };
@@ -65,7 +67,7 @@
 		83AB626E1D97106D00E61AB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83AB62701D97106D00E61AB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83BE867B1DB2669500D51EA1 /* GameViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameViewModel.swift; path = GameBoard/GameViewModel.swift; sourceTree = "<group>"; };
-		CB0CB5EC1DC2B774002811E4 /* PuzzleListCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PuzzleListCellTableViewCell.swift; path = Views/PuzzleList/PuzzleListCellTableViewCell.swift; sourceTree = "<group>"; };
+		CB0CB5EC1DC2B774002811E4 /* PuzzleListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PuzzleListCell.swift; path = Views/PuzzleList/PuzzleListCell.swift; sourceTree = "<group>"; };
 		CB4E7E621DC03AFE009D48F1 /* MasterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MasterModel.swift; path = Models/MasterModel.swift; sourceTree = "<group>"; };
 		CB4E7E641DC0D5F9009D48F1 /* Puzzles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Puzzles.swift; path = Models/Puzzles.swift; sourceTree = "<group>"; };
 		CB5870911DAF170B00D1EEE9 /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameModel.swift; path = Models/GameModel.swift; sourceTree = "<group>"; };
@@ -205,7 +207,8 @@
 			children = (
 				CB5FA34A1DC1647F003B19E0 /* PuzzleList.storyboard */,
 				CB5FA34C1DC1654A003B19E0 /* PuzzleListViewController.swift */,
-				CB0CB5EC1DC2B774002811E4 /* PuzzleListCellTableViewCell.swift */,
+				833B250A1DC5089A00601358 /* PuzzleListDataProvider.swift */,
+				CB0CB5EC1DC2B774002811E4 /* PuzzleListCell.swift */,
 			);
 			name = PuzzleList;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				CBA63BF91DA9D8F4004C0EE6 /* Constants.swift in Sources */,
 				834CDDA51D9B5BB3002CB6DD /* CodedBlockView.swift in Sources */,
 				83BE867C1DB2669500D51EA1 /* GameViewModel.swift in Sources */,
+				833B250B1DC5089A00601358 /* PuzzleListDataProvider.swift in Sources */,
 				CB5870941DAFA82800D1EEE9 /* BlockModel.swift in Sources */,
 				83A6A8151DA4835B00D56DE7 /* GameBoardViewController.swift in Sources */,
 				CB5FA34D1DC1654A003B19E0 /* PuzzleListViewController.swift in Sources */,
@@ -353,7 +357,7 @@
 				CBC9229A1DB0693C00132C91 /* BlockModelLogic.swift in Sources */,
 				834CDD991D9B5AA1002CB6DD /* IntroViewController.swift in Sources */,
 				83AB62651D97106D00E61AB7 /* AppDelegate.swift in Sources */,
-				CB0CB5ED1DC2B774002811E4 /* PuzzleListCellTableViewCell.swift in Sources */,
+				CB0CB5ED1DC2B774002811E4 /* PuzzleListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
