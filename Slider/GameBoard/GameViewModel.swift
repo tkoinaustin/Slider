@@ -8,15 +8,17 @@
 
 import UIKit
 
+// swiftlint:disable variable_name
 let Rows = 5
 let Columns = 4
+// swiftlint:enable variable_name
 
 class GameViewModel {
   
   private var blocks = [BlockViewModel]()
   private var size: CGSize!
   private var game: GameModel!
-
+  
   var count: Int {
     return blocks.count
   }
@@ -48,17 +50,21 @@ class GameViewModel {
         if let size = size { block.canvas = size }
         else { block.canvas = CGSize(width: 320, height: 400) }
         
-        block.placeBlock(point: GridConstants.blockCenter(row: block.model.origin.row, col: block.model.origin.col, type: block.type))
+        block.placeBlock(point: GridConstants.blockCenter(row: block.model.origin.row,
+                                                          col: block.model.origin.col,
+                                                          type: block.type))
         blocks.append(block)
       }
     }
   }
   
-    func placeAllBlocks() {
-      print("----- placeAllBlocks -----")
-      for block in blocks {
-        block.placeBlock(point: GridConstants.blockCenter(row: block.model.origin.row, col: block.model.origin.col, type: block.type))
-        block.updateUI()
-      }
+  func placeAllBlocks() {
+    print("----- placeAllBlocks -----")
+    for block in blocks {
+      block.placeBlock(point: GridConstants.blockCenter(row: block.model.origin.row,
+                                                        col: block.model.origin.col,
+                                                        type: block.type))
+      block.updateUI()
     }
+  }
 }

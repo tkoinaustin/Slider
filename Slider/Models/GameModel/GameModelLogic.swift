@@ -9,7 +9,20 @@
 import UIKit
 
 class GameModelLogic {
-  
+  func blocksThatMoved(startGrid: [[Int]], endGrid: [[Int]]) -> [Int] {
+    var indices = Set<Int>()
+    for row in 0..<Rows {
+      for col in 0..<Columns {
+        if startGrid[row][col] != endGrid[row][col] {
+          indices.insert(endGrid[row][col])
+        }
+      }
+    }
+    indices.remove(0)
+    
+    return Array(indices)
+  }
+
   func newGridForMove(_ grid: [[Int]], _ block: Int, _ direction: Direction) -> [[Int]]? {
     var newGrid = grid
     var blockCoords = [Coordinate]()
@@ -24,7 +37,8 @@ class GameModelLogic {
     let startingCoords = findStart(blockCoords, direction)
     
     for coordinate in startingCoords {
-      guard let nextNewGrid = move(block, coordinate, direction, replaceWith: 0, grid: newGrid) else { return nil }
+      guard let nextNewGrid = move(block, coordinate, direction, replaceWith: 0, grid: newGrid)
+        else { return nil }
       newGrid = nextNewGrid
     }
     
@@ -54,7 +68,11 @@ class GameModelLogic {
     }
   }
   
-  func move(_ index: Int, _ coordinate: Coordinate, _ direction: Direction, replaceWith: Int, grid: [[Int]]) -> [[Int]]? {
+  func move(_ index: Int,
+            _ coordinate: Coordinate,
+            _ direction: Direction,
+            replaceWith: Int,
+            grid: [[Int]]) -> [[Int]]? {
     guard let newCoords = coordinate.move(direction) else { return nil }
     
     var newGrid = grid
@@ -67,14 +85,20 @@ class GameModelLogic {
     }
     
     if let doublewide = coordinateForDoublewide(newCoords, direction, grid) {
-      guard let doublewideGrid = move(newIndex, doublewide, direction, replaceWith:0, grid: newGrid) else { return nil }
+      guard let doublewideGrid = move(newIndex,
+                                      doublewide,
+                                      direction,
+                                      replaceWith:0,
+                                      grid: newGrid) else { return nil }
       newGrid = doublewideGrid
     }
     
     return move(newIndex, newCoords, direction, replaceWith: index, grid: newGrid)
   }
   
-  func coordinateForDoublewide(_ coordinate: Coordinate, _ direction: Direction, _ grid: [[Int]]) -> Coordinate? {
+  func coordinateForDoublewide(_ coordinate: Coordinate,
+                               _ direction: Direction,
+                               _ grid: [[Int]]) -> Coordinate? {
     let index = grid[coordinate.row][coordinate.col]
     
     switch direction {
@@ -102,8 +126,9 @@ class GameModelLogic {
     
     return nil
   }
-  
+  // swiftlint:disable variable_name
   func setDirection(x: CGFloat, y: CGFloat) -> Direction? {
+    // swiftlint:enable variable_name
     let threshhold: CGFloat = 2
     guard abs(x) > threshhold || abs(y) > threshhold else { return nil }
     if abs(x) > abs(y) {

@@ -9,14 +9,15 @@
 import UIKit
 
 class GameBoardViewController: UIViewController {
-  
+  // swiftlint:disable comma
   private var gridLayout = [[2,2,3,4],[1,1,0,4],[1,1,8,0],[5,7,9,11],[5,10,6,12]]
+  // swiftlint:enable comma
   var game = GameViewModel()
 
-  @IBOutlet weak var gameView: UIView!
-  @IBOutlet weak var startingBoard: UILabel!
-  @IBOutlet weak var finishingBoard: UILabel!
-  @IBOutlet weak var twoMoveBoard: UILabel!
+  @IBOutlet private weak var gameView: UIView!
+  @IBOutlet private weak var startingBoard: UILabel!
+  @IBOutlet private weak var finishingBoard: UILabel!
+  @IBOutlet private weak var twoMoveBoard: UILabel!
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)

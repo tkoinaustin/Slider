@@ -15,6 +15,7 @@ struct Gameboard {
 }
 
 class Puzzles {
+  // swiftlint:disable comma
   private var gridLayout0 = [[2,3,4,5],[2,3,4,5],[7,8,6,6],[1,1,0,0],[1,1,9,10]]
   private var gridLayout1 = [[2,3,4,5],[2,3,4,5],[7,8,0,0],[1,1,6,6],[1,1,9,10]]
   private var gridLayout2 = [[2,3,4,5],[2,3,4,5],[0,0,7,8],[1,1,6,6],[1,1,9,10]]
@@ -22,12 +23,12 @@ class Puzzles {
   private var gridLayout4 = [[2,3,4,5],[2,3,4,5],[1,1,7,8],[1,1,6,6],[9,0,0,10]]
   private var gridLayout5 = [[2,3,4,5],[2,3,4,5],[1,1,7,8],[1,1,6,6],[9,10,0,0]]
   
-  
   private var gridLayout6 = [[2,1,1,3],[2,1,1,3],[4,5,5,6],[4,7,8,6],[9,0,0,10]]
   private var gridLayout7 = [[2,1,1,3],[2,1,1,3],[4,5,5,6],[4,0,0,6],[9,7,8,10]]
   private var gridLayout8 = [[2,5,5,3],[2,1,1,3],[4,1,1,6],[4,7,8,6],[9,0,0,10]]
   private var gridLayout9 = [[2,7,8,3],[2,5,5,3],[4,1,1,6],[4,1,1,6],[9,0,0,10]]
-  
+  // swiftlint:enable comma
+
   var gameboards: [[[Int]]]?
   
   init () {

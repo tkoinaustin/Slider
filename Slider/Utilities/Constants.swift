@@ -8,14 +8,15 @@
 
 import UIKit
 
-
-let EmptySpace = 0
+let emptySpace = 0
 
 class GridConstants {
+  // swiftlint:disable comma
   static let blankLayout = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
-  
-  static private let colCenters:[CGFloat] = [0.125, 0.375, 0.625, 0.875]
-  static private let rowCenters:[CGFloat] = [0.1, 0.3, 0.5, 0.7, 0.9]
+  // swiftlint:enable comma
+
+  static private let colCenters: [CGFloat] = [0.125, 0.375, 0.625, 0.875]
+  static private let rowCenters: [CGFloat] = [0.1, 0.3, 0.5, 0.7, 0.9]
   
   static func blockCenter(row: Int, col: Int, type: BlockType) -> CGPoint {
     var x = colCenters[col]

@@ -9,7 +9,9 @@
 import UIKit
 
 class BlockModelLogic {
+  // swiftlint:disable variable_name
   func setDirection(x: CGFloat, y: CGFloat) -> Direction? {
+    // swiftlint:enable variable_name
     let threshhold: CGFloat = 2
     guard abs(x) > threshhold || abs(y) > threshhold else { return nil }
     if abs(x) > abs(y) {
@@ -23,7 +25,6 @@ class BlockModelLogic {
                                  _ startingCenter: CGPoint,
                                  _ board: Board,
                                  _ doubleMoveLegal: Bool,
-                                 _ inDoubleMove: Bool,
                                  _ ppb: CGFloat) -> (Bool?, Board?) {
     var dblMove: Bool?, changedBoard: Board?
     
@@ -45,7 +46,11 @@ class BlockModelLogic {
     return (dblMove, changedBoard)
   }
   
-  func checkForDownGameboardChange(_ currentOffset: CGPoint, _ startingCenter: CGPoint, _ board: Board, _ doubleMoveLegal: Bool, _ inDoubleMove: Bool, _ ppb: CGFloat) -> (Bool?, Board?) {
+  func checkForDownGameboardChange(_ currentOffset: CGPoint,
+                                   _ startingCenter: CGPoint,
+                                   _ board: Board,
+                                   _ doubleMoveLegal: Bool,
+                                   _ ppb: CGFloat) -> (Bool?, Board?) {
     var dblMove: Bool?, changedBoard: Board?
     
     if doubleMoveLegal && currentOffset.y >= startingCenter.y + ppb && board != .moveTwoSpaces {
@@ -66,7 +71,11 @@ class BlockModelLogic {
     return (dblMove, changedBoard)
   }
   
-  func checkForLeftGameboardChange(_ currentOffset: CGPoint, _ startingCenter: CGPoint, _ board: Board, _ doubleMoveLegal: Bool, _ inDoubleMove: Bool, _ ppb: CGFloat) -> (Bool?, Board?) {
+  func checkForLeftGameboardChange(_ currentOffset: CGPoint,
+                                   _ startingCenter: CGPoint,
+                                   _ board: Board,
+                                   _ doubleMoveLegal: Bool,
+                                   _ ppb: CGFloat) -> (Bool?, Board?) {
     var dblMove: Bool?, changedBoard: Board?
     
     if doubleMoveLegal && currentOffset.x <= startingCenter.x - ppb && board != .moveTwoSpaces {
@@ -87,7 +96,11 @@ class BlockModelLogic {
     return (dblMove, changedBoard)
   }
   
-  func checkForRightGameboardChange(_ currentOffset: CGPoint, _ startingCenter: CGPoint, _ board: Board, _ doubleMoveLegal: Bool, _ inDoubleMove: Bool, _ ppb: CGFloat) -> (Bool?, Board?) {
+  func checkForRightGameboardChange(_ currentOffset: CGPoint,
+                                    _ startingCenter: CGPoint,
+                                    _ board: Board,
+                                    _ doubleMoveLegal: Bool,
+                                    _ ppb: CGFloat) -> (Bool?, Board?) {
     var dblMove: Bool?, changedBoard: Board?
     
     if doubleMoveLegal && currentOffset.x >= startingCenter.x + ppb && board != .moveTwoSpaces {

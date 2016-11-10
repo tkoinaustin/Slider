@@ -37,7 +37,7 @@ class BlockModel: Hashable {
   private var blockLogic = BlockModelLogic()
 
   var blockModelUpdateGameboard: ((Board) -> ()) = {_ in }
-  var blockModelBlockMovedBy: ((_: CGPoint, _: Int) -> (Direction?)) = { _,_ in return nil}
+  var blockModelBlockMovedBy: ((_: CGPoint, _: Int) -> (Direction?)) = { _, _ in return nil}
   var blockModelMoveFinished: (() -> ()) = { }
 
   init(index: Int) {
@@ -60,12 +60,13 @@ class BlockModel: Hashable {
     }
   }
   
-  func moveBy(_ amount: CGPoint,_ direction: Direction) {
+  func moveBy(_ amount: CGPoint, _ direction: Direction) {
     updateCurrentOffset(direction, amount)
     viewModel.setCenter(newCenter: currentOffset)
   }
-  
+  // swiftlint:disable function_body_length
   func setMinMaxMove(_ direction: Direction) {
+    // swiftlint:enable function_body_length
     var center = viewModel.center!
     currentOffset = center
     startingCenter = center
@@ -99,13 +100,21 @@ class BlockModel: Hashable {
     
     switch direction {
     case .up:
-      (dblMove, changedBoard) = blockLogic.checkForUpGameboardChange(currentOffset, startingCenter, board, doubleMoveLegal, inDoubleMove, ppb)
+      (dblMove, changedBoard) = blockLogic.checkForUpGameboardChange(
+        currentOffset, startingCenter, board, doubleMoveLegal, ppb
+      )
     case .down:
-      (dblMove, changedBoard) = blockLogic.checkForDownGameboardChange(currentOffset, startingCenter, board, doubleMoveLegal, inDoubleMove, ppb)
+      (dblMove, changedBoard) = blockLogic.checkForDownGameboardChange(
+        currentOffset, startingCenter, board, doubleMoveLegal, ppb
+      )
     case .left:
-      (dblMove, changedBoard) = blockLogic.checkForLeftGameboardChange(currentOffset, startingCenter, board, doubleMoveLegal, inDoubleMove, ppb)
+      (dblMove, changedBoard) = blockLogic.checkForLeftGameboardChange(
+        currentOffset, startingCenter, board, doubleMoveLegal, ppb
+      )
     case .right:
-      (dblMove, changedBoard) = blockLogic.checkForRightGameboardChange(currentOffset, startingCenter, board, doubleMoveLegal, inDoubleMove, ppb)
+      (dblMove, changedBoard) = blockLogic.checkForRightGameboardChange(
+        currentOffset, startingCenter, board, doubleMoveLegal, ppb
+      )
     }
     
     if let dblMove = dblMove { inDoubleMove = dblMove }
@@ -132,7 +141,7 @@ class BlockModel: Hashable {
   }
   
   private func updateOrigin(_ direction: Direction) {
-    guard index != EmptySpace else { return }
+    guard index != emptySpace else { return }
     
     switch direction {
     case .up:
@@ -143,10 +152,10 @@ class BlockModel: Hashable {
       assert(origin.row < Rows, "row > Rows")
     case .left:
       origin.col -= 1
-      assert(origin.col >= 0,  "col < 0")
+      assert(origin.col >= 0, "col < 0")
     case .right:
       origin.col += 1
-      assert(origin.col < Columns," col > Columns")
+      assert(origin.col < Columns, " col > Columns")
     }
     print("BlockModel updated block \(index!) origin to: (\(origin.row),\(origin.col))")
   }

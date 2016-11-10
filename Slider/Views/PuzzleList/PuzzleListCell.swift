@@ -49,7 +49,8 @@ class PuzzleListCell: UITableViewCell {
   
   private func setupConstraints() {
     completedLabel.centerYAnchor.constraint(equalTo:self.centerYAnchor).isActive = true
-    completedLabel.trailingAnchor.constraint(equalTo:self.trailingAnchor, constant: -8).isActive = true
+    completedLabel.trailingAnchor.constraint(equalTo:self.trailingAnchor, constant: -8)
+      .isActive = true
     
     puzzleLabel.centerYAnchor.constraint(equalTo:self.centerYAnchor).isActive = true
     puzzleLabel.leadingAnchor.constraint(equalTo:self.leadingAnchor, constant: 8).isActive = true

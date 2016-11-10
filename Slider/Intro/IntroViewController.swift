@@ -10,8 +10,8 @@ import UIKit
 
 class IntroViewController: UIViewController {
   
-  @IBOutlet weak var logoView: UIImageView!
-  @IBOutlet weak var continueButton: UIButton!
+  @IBOutlet private weak var logoView: UIImageView!
+  @IBOutlet private weak var continueButton: UIButton!
   
   override func viewDidLoad() {
     let height = view.frame.height
