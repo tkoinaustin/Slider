@@ -1,5 +1,5 @@
 //
-//  GameViewModel.swift
+//  GameboardViewModel.swift
 //  Slider
 //
 //  Created by Mac Daddy on 9/27/16.
@@ -13,11 +13,12 @@ let Rows = 5
 let Columns = 4
 // swiftlint:enable variable_name
 
-class GameViewModel {
+class GameboardViewModel {
   
   private var blocks = [BlockViewModel]()
   private var size: CGSize!
   private var game: GameModel!
+  var controlBar: ControlBarViewModel!
   
   var count: Int {
     return blocks.count

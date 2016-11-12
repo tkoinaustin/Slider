@@ -34,7 +34,7 @@ class CodedBlockView: UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
-  static func get(parent: UIView, game: GameViewModel, index: Int) -> CodedBlockView {
+  static func get(parent: UIView, game: GameboardViewModel, index: Int) -> CodedBlockView {
     let block = CodedBlockView.init(frame: CGRect.zero)
     
     block.viewModel = game.block(index)

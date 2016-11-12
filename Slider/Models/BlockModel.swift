@@ -29,12 +29,16 @@ class BlockModel: Hashable {
   }}
   var ppb: CGFloat!  // pixels per block, ie, how far a block can travel in one move
   
-  var startingCenter = CGPoint(x:0, y:0)
-  var currentOffset = CGPoint(x:0, y:0)
-  var minOffset = CGPoint(x:0, y:0)
-  var maxOffset = CGPoint(x:0, y:0)
+  fileprivate var startingCenter = CGPoint(x:0, y:0)
+  fileprivate var currentOffset = CGPoint(x:0, y:0)
+  fileprivate var minOffset = CGPoint(x:0, y:0)
+  fileprivate var maxOffset = CGPoint(x:0, y:0)
   
-  private var blockLogic = BlockModelLogic()
+  fileprivate var blockLogic = BlockModelLogic()
+  
+  var hashValue: Int {
+    return index
+  }
 
   var blockModelUpdateGameboard: ((Board) -> ()) = {_ in }
   var blockModelBlockMovedBy: ((_: CGPoint, _: Int) -> (Direction?)) = { _, _ in return nil}
@@ -48,10 +52,6 @@ class BlockModel: Hashable {
     index = model.index!
     type = model.type!
     origin = model.origin
-  }
-
-  var hashValue: Int {
-    return index
   }
   
   func blockMovedBy(_ amount: CGPoint) {
@@ -94,7 +94,6 @@ class BlockModel: Hashable {
   }
   
   private func checkForDoubleMoveChange(_ direction: Direction) {
-//    if !doubleMoveLegal { return }
     guard let ppb = ppb else { return }
     var dblMove: Bool?, changedBoard: Board?
     

@@ -11,7 +11,7 @@ import XCTest
 
 class GameModelLogicTests: XCTestCase {
     
-  
+  // swiftlint:disable comma
   let gameLayout = [[2,2,3,4],[1,1,0,4],[1,1,8,0],[5,7,9,11],[5,10,6,6]]
   var game: GameModel!
   var block: BlockModel!
@@ -29,15 +29,13 @@ class GameModelLogicTests: XCTestCase {
   //  [5, 10, 6, 6]
   
   func testNewGridForUpMove4() {
-    print(game.printGameboard(grid: gameLayout))
     let newGame =  logic.newGridForMove(gameLayout, 1, .up)
     XCTAssertNil(newGame)
   }
   
   func testNewGridForUpMove3() {
-    print(game.printGameboard(grid: gameLayout))
     let newGame =  logic.newGridForMove(gameLayout, 6, .up)
-    XCTAssertTrue((newGame?[0])! == [2,2,3,4], "grids don't match")//,[1,1,0,4],[1,1,8,0],[5,7,9,11],[5,10,6,6]]
+    XCTAssertTrue((newGame?[0])! == [2,2,3,4], "grids don't match")
     XCTAssertTrue((newGame?[1])! == [1,1,8,4], "grids don't match")
     XCTAssertTrue((newGame?[2])! == [1,1,9,11], "grids don't match")
     XCTAssertTrue((newGame?[3])! == [5,7,6,6], "grids don't match")
@@ -45,27 +43,24 @@ class GameModelLogicTests: XCTestCase {
   }
   
   func testNewGridForUpMove2() {
-    print(game.printGameboard(grid: gameLayout))
     let newGame =  logic.newGridForMove(gameLayout, 11, .up)
-    XCTAssertTrue((newGame?[0])! == [2,2,3,4], "grids don't match")//,[1,1,0,4],[1,1,8,0],[5,7,9,11],[5,10,6,6]]
+    XCTAssertTrue((newGame?[0])! == [2,2,3,4], "grids don't match")
     XCTAssertTrue((newGame?[1])! == [1,1,0,4], "grids don't match")
     XCTAssertTrue((newGame?[2])! == [1,1,8,11], "grids don't match")
     XCTAssertTrue((newGame?[3])! == [5,7,9,0], "grids don't match")
   }
   
   func testNewGridForUpMove1() {
-    print(game.printGameboard(grid: gameLayout))
     let newGame =  logic.newGridForMove(gameLayout, 8, .up)
-    XCTAssertTrue((newGame?[0])! == [2,2,3,4], "grids don't match")//,[1,1,0,4],[1,1,8,0],[5,7,9,11],[5,10,6,6]]
+    XCTAssertTrue((newGame?[0])! == [2,2,3,4], "grids don't match")
     XCTAssertTrue((newGame?[1])! == [1,1,8,4], "grids don't match")
     XCTAssertTrue((newGame?[2])! == [1,1,0,0], "grids don't match")
 
   }
   
   func testNewGridForUpMove() {
-    print(game.printGameboard(grid: gameLayout))
     let newGame =  logic.newGridForMove(gameLayout, 9, .up)
-    XCTAssertTrue((newGame?[0])! == [2,2,3,4], "grids don't match")//,[1,1,0,4],[1,1,8,0],[5,7,9,11],[5,10,6,6]]
+    XCTAssertTrue((newGame?[0])! == [2,2,3,4], "grids don't match")
     XCTAssertTrue((newGame?[1])! == [1,1,8,4], "grids don't match")
     XCTAssertTrue((newGame?[2])! == [1,1,9,0], "grids don't match")
     XCTAssertTrue((newGame?[3])! == [5,7,0,11], "grids don't match")
@@ -79,9 +74,8 @@ class GameModelLogicTests: XCTestCase {
   //  [10,5, 0, 6]
   
   func testNewGridForRightMove2() {
-    print(game.printGameboard(grid: gameLayout1))
     let newGame =  logic.newGridForMove(gameLayout1, 7, .right)
-    XCTAssertTrue((newGame?[0])! == [2,2,3,4], "grids don't match")//,[1,1,0,4],[1,1,8,0],[5,7,9,11],[5,10,6,6]]
+    XCTAssertTrue((newGame?[0])! == [2,2,3,4], "grids don't match")
     XCTAssertTrue((newGame?[1])! == [1,1,0,4], "grids don't match")
     XCTAssertTrue((newGame?[2])! == [1,1,8,11], "grids don't match")
     XCTAssertTrue((newGame?[3])! == [0,7,5,9], "grids don't match")
@@ -89,9 +83,8 @@ class GameModelLogicTests: XCTestCase {
   }
   
   func testNewGridForRightMove1() {
-    print(game.printGameboard(grid: gameLayout1))
     let newGame =  logic.newGridForMove(gameLayout1, 5, .right)
-    XCTAssertTrue((newGame?[0])! == [2,2,3,4], "grids don't match")//,[1,1,0,4],[1,1,8,0],[5,7,9,11],[5,10,6,6]]
+    XCTAssertTrue((newGame?[0])! == [2,2,3,4], "grids don't match")
     XCTAssertTrue((newGame?[1])! == [1,1,0,4], "grids don't match")
     XCTAssertTrue((newGame?[2])! == [1,1,8,11], "grids don't match")
     XCTAssertTrue((newGame?[3])! == [7,0,5,9], "grids don't match")
@@ -99,9 +92,8 @@ class GameModelLogicTests: XCTestCase {
   }
   
   func testNewGridForRightMove() {
-    print(game.printGameboard(grid: gameLayout1))
     let newGame =  logic.newGridForMove(gameLayout1, 9, .right)
-    XCTAssertTrue((newGame?[0])! == [2,2,3,4], "grids don't match")//,[1,1,0,4],[1,1,8,0],[5,7,9,11],[5,10,6,6]]
+    XCTAssertTrue((newGame?[0])! == [2,2,3,4], "grids don't match")
     XCTAssertTrue((newGame?[1])! == [1,1,0,4], "grids don't match")
     XCTAssertTrue((newGame?[2])! == [1,1,8,11], "grids don't match")
     XCTAssertTrue((newGame?[3])! == [7,5,0,9], "grids don't match")

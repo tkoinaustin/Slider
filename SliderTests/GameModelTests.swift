@@ -11,6 +11,7 @@ import XCTest
 
 class GameModelTests: XCTestCase {
     
+  // swiftlint:disable comma
   let gridLayout = [[2,2,3,4],[1,1,0,4],[1,1,8,0],[5,7,9,11],[5,10,6,6]]
   let gridLayout1 = [[2,2,3,0],[1,1,0,4],[1,1,8,4],[5,7,9,11],[5,10,6,6]]
   
@@ -22,8 +23,9 @@ class GameModelTests: XCTestCase {
   func testBlockOrder() {
     let game = GameModel(gridLayout)
     
-    for i in 0..<game.blockCount{
-      XCTAssertEqual(i, game.block(i)?.index, "Block \(game.block(i)?.index) not in correct order, it is at index \(i)")
+    for i in 0..<game.blockCount {
+      XCTAssertEqual(i, game.block(i)?.index,
+                     "Block \(game.block(i)?.index) not in correct order, it is at index \(i)")
     }
   }
   
