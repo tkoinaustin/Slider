@@ -25,6 +25,7 @@
 		837137781DD8A1F5003AD379 /* GridModelLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837137731DD8A1F5003AD379 /* GridModelLogic.swift */; };
 		837137791DD8A1F5003AD379 /* GridModelUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837137741DD8A1F5003AD379 /* GridModelUtility.swift */; };
 		8371377B1DD8A52E003AD379 /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8371377A1DD8A52E003AD379 /* HistoryModel.swift */; };
+		8371377E1DD8E144003AD379 /* Archiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8371377D1DD8E144003AD379 /* Archiver.swift */; };
 		8373AC9D1DA141FE004C4541 /* BlockViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8373AC9C1DA141FE004C4541 /* BlockViewModelTests.swift */; };
 		83AB62651D97106D00E61AB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AB62641D97106D00E61AB7 /* AppDelegate.swift */; };
 		83AB626C1D97106D00E61AB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83AB626B1D97106D00E61AB7 /* Assets.xcassets */; };
@@ -78,6 +79,7 @@
 		837137731DD8A1F5003AD379 /* GridModelLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridModelLogic.swift; path = Models/Grid/GridModelLogic.swift; sourceTree = "<group>"; };
 		837137741DD8A1F5003AD379 /* GridModelUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridModelUtility.swift; path = Models/Grid/GridModelUtility.swift; sourceTree = "<group>"; };
 		8371377A1DD8A52E003AD379 /* HistoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryModel.swift; path = Models/HistoryModel.swift; sourceTree = "<group>"; };
+		8371377D1DD8E144003AD379 /* Archiver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Archiver.swift; path = Store/Archiver.swift; sourceTree = "<group>"; };
 		8373AC9C1DA141FE004C4541 /* BlockViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockViewModelTests.swift; sourceTree = "<group>"; };
 		83AB62611D97106D00E61AB7 /* Slider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83AB62641D97106D00E61AB7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -182,6 +184,14 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
+		8371377C1DD8E11A003AD379 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				8371377D1DD8E144003AD379 /* Archiver.swift */,
+			);
+			name = Store;
+			sourceTree = "<group>";
+		};
 		83AB62581D97106A00E61AB7 = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +213,7 @@
 		83AB62631D97106D00E61AB7 /* Slider */ = {
 			isa = PBXGroup;
 			children = (
+				8371377C1DD8E11A003AD379 /* Store */,
 				CB5870901DAEE53A00D1EEE9 /* Models */,
 				837137611DD89A21003AD379 /* ViewControllers */,
 				83BE867D1DB267EA00D51EA1 /* Views */,
@@ -438,6 +449,7 @@
 				837137761DD8A1F5003AD379 /* GridModel.swift in Sources */,
 				8371376F1DD89CED003AD379 /* BlockModelLogic.swift in Sources */,
 				833B250B1DC5089A00601358 /* PuzzleListDataProvider.swift in Sources */,
+				8371377E1DD8E144003AD379 /* Archiver.swift in Sources */,
 				8371375B1DD89843003AD379 /* BlockViewModel.swift in Sources */,
 				CB04A41C1DD4C879007BE787 /* Board.swift in Sources */,
 				8371375C1DD89843003AD379 /* CodedBlockView.swift in Sources */,
