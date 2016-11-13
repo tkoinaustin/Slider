@@ -1,5 +1,5 @@
 //
-//  GameModelUtility.swift
+//  GameboardModelUtility.swift
 //  Slider
 //
 //  Created by Tom Nelson on 11/10/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameModelUtility {
+class GameboardModelUtility {
   // throw away code, diagnostics to show grids on main UI for debugging
   static func showBoard(board: Board, grid: [[Int]]?) -> String {
     var msg: String
@@ -17,7 +17,7 @@ class GameModelUtility {
     case .moveOneSpace: msg = "single move: \n"
     case .moveTwoSpaces: msg = "double move: \n"
     }
-    if let grid = grid { msg += GameModelUtility.printGameboard(grid: grid) }
+    if let grid = grid { msg += GameboardModelUtility.printGameboard(grid: grid) }
     
     return msg
   }

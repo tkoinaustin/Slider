@@ -18,7 +18,7 @@ class BlockViewModelTests: XCTestCase {
   var block: BlockViewModel!
   
   func testInitBlocks() {
-    let game = GameModel(gridLayout)
+    let game = GameboardModel(gridLayout)
     XCTAssertTrue(game.blockCount > 0, "Blocks were not initialized")
   }
 

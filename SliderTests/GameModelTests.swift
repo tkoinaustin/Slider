@@ -16,12 +16,12 @@ class GameModelTests: XCTestCase {
   let gridLayout1 = [[2,2,3,0],[1,1,0,4],[1,1,8,4],[5,7,9,11],[5,10,6,6]]
   
   func testInitBlocks() {
-    let game = GameModel(gridLayout)
+    let game = GameboardModel(gridLayout)
     XCTAssertTrue(game.blockCount > 0, "Blocks were not initialized")
   }
   
   func testBlockOrder() {
-    let game = GameModel(gridLayout)
+    let game = GameboardModel(gridLayout)
     
     for i in 0..<game.blockCount {
       XCTAssertEqual(i, game.block(i)?.index,
