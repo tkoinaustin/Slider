@@ -17,12 +17,12 @@ class GameViewModelTests: XCTestCase {
   // swiftlint:enable comma
 
   func testInit() {
-    let game = GameViewModel()
+    let game = GameboardViewModel()
     XCTAssertNotNil(game, "Grid object not created")
   }
   
   func testInitBlocks() {
-    let game = GameViewModel()
+    let game = GameboardViewModel()
     game.load(gameboard: gridLayout,
               size: CGSize.zero,
               start: UILabel(),
