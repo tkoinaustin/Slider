@@ -1,5 +1,5 @@
 //
-//  GameboardModelInitialization.swift
+//  GridModelInitialization.swift
 //  Slider
 //
 //  Created by Tom Nelson on 11/10/16.
@@ -7,7 +7,7 @@
 //
 
 import UIKit
-class GameboardModelInitialization {
+class GridModelInitialization {
   func initBlocks(grid: [[Int]]) -> [BlockModel] {
     let indices = uniqueIndices(grid)
     

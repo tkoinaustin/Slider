@@ -14,7 +14,7 @@ class GameboardViewController: UIViewController {
   // swiftlint:enable comma
   var gameboard = GameboardViewModel()
 
-  @IBOutlet private weak var gameView: UIView!
+  @IBOutlet private weak var gridView: UIView!
   @IBOutlet private weak var startingBoard: UILabel!
   @IBOutlet private weak var finishingBoard: UILabel!
   @IBOutlet private weak var twoMoveBoard: UILabel!
@@ -26,23 +26,23 @@ class GameboardViewController: UIViewController {
     super.viewDidAppear(animated)
     
     gameboard.load(gameboard: gridLayout,
-              size: gameView.frame.size,
+              size: gridView.frame.size,
               start: startingBoard,
               finish: finishingBoard,
               twoMove: twoMoveBoard)
     
-    let _ = CodedBlockView.get(parent: gameView, game: gameboard, index: 1)
-    let _ = CodedBlockView.get(parent: gameView, game: gameboard, index: 2)
-    let _ = CodedBlockView.get(parent: gameView, game: gameboard, index: 3)
-    let _ = CodedBlockView.get(parent: gameView, game: gameboard, index: 4)
-    let _ = CodedBlockView.get(parent: gameView, game: gameboard, index: 5)
-    let _ = CodedBlockView.get(parent: gameView, game: gameboard, index: 6)
-    let _ = CodedBlockView.get(parent: gameView, game: gameboard, index: 7)
-    let _ = CodedBlockView.get(parent: gameView, game: gameboard, index: 8)
-    let _ = CodedBlockView.get(parent: gameView, game: gameboard, index: 9)
-    let _ = CodedBlockView.get(parent: gameView, game: gameboard, index: 10)
-    let _ = CodedBlockView.get(parent: gameView, game: gameboard, index: 11)
-    let _ = CodedBlockView.get(parent: gameView, game: gameboard, index: 12)
+    let _ = CodedBlockView.get(parent: gridView, game: gameboard, index: 1)
+    let _ = CodedBlockView.get(parent: gridView, game: gameboard, index: 2)
+    let _ = CodedBlockView.get(parent: gridView, game: gameboard, index: 3)
+    let _ = CodedBlockView.get(parent: gridView, game: gameboard, index: 4)
+    let _ = CodedBlockView.get(parent: gridView, game: gameboard, index: 5)
+    let _ = CodedBlockView.get(parent: gridView, game: gameboard, index: 6)
+    let _ = CodedBlockView.get(parent: gridView, game: gameboard, index: 7)
+    let _ = CodedBlockView.get(parent: gridView, game: gameboard, index: 8)
+    let _ = CodedBlockView.get(parent: gridView, game: gameboard, index: 9)
+    let _ = CodedBlockView.get(parent: gridView, game: gameboard, index: 10)
+    let _ = CodedBlockView.get(parent: gridView, game: gameboard, index: 11)
+    let _ = CodedBlockView.get(parent: gridView, game: gameboard, index: 12)
   }
   
   override func didReceiveMemoryWarning() {

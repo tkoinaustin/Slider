@@ -17,7 +17,7 @@ class GameboardViewModel {
   
   private var blocks = [BlockViewModel]()
   private var size: CGSize!
-  private var game: GameboardModel!
+  private var game: GridModel!
   var controlBar: ControlBarViewModel!
   
   var count: Int {
@@ -25,7 +25,7 @@ class GameboardViewModel {
   }
   
   func load(gameboard: [[Int]], size: CGSize, start: UILabel, finish: UILabel, twoMove: UILabel) {
-    game = GameboardModel(gameboard)
+    game = GridModel(gameboard)
     self.size = size
     initBlocks(grid: gameboard)
     game.start = start

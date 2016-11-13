@@ -1,5 +1,5 @@
 //
-//  GameboardModelLogic.swift
+//  GridModelLogic.swift
 //  Slider
 //
 //  Created by Tom Nelson on 10/13/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameboardModelLogic {
+class GridModelLogic {
   func blocksThatMoved(startGrid: [[Int]], endGrid: [[Int]]) -> [Int] {
     var indices = Set<Int>()
     for row in 0..<Rows {

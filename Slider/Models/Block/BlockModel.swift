@@ -40,7 +40,7 @@ class BlockModel: Hashable {
     return index
   }
 
-  var blockModelUpdateGameboard: ((Board) -> ()) = {_ in }
+  var blockModelUpdateGrid: ((Board) -> ()) = {_ in }
   var blockModelBlockMovedBy: ((_: CGPoint, _: Int) -> (Direction?)) = { _, _ in return nil}
   var blockModelMoveFinished: (() -> ()) = { }
 
@@ -122,7 +122,7 @@ class BlockModel: Hashable {
       print("\(direction) blockModelUpdateGameboard: \(changedBoard)")
       board = changedBoard
       
-      blockModelUpdateGameboard(changedBoard)
+      blockModelUpdateGrid(changedBoard)
     }
   }
   

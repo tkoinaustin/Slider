@@ -13,13 +13,13 @@ class GameModelLogicTests: XCTestCase {
     
   // swiftlint:disable comma
   let gameLayout = [[2,2,3,4],[1,1,0,4],[1,1,8,0],[5,7,9,11],[5,10,6,6]]
-  var game: GameboardModel!
+  var game: GridModel!
   var block: BlockModel!
-  let logic = GameboardModelLogic()
+  let logic = GridModelLogic()
   
   override func setUp() {
     super.setUp()
-    game = GameboardModel(gameLayout)
+    game = GridModel(gameLayout)
   }
   
   //  [2, 2,  3, 4]
