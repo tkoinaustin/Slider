@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		833B250B1DC5089A00601358 /* PuzzleListDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833B250A1DC5089A00601358 /* PuzzleListDataProvider.swift */; };
-		834CDD981D9B5AA1002CB6DD /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 834CDD961D9B5AA1002CB6DD /* Intro.storyboard */; };
-		834CDD991D9B5AA1002CB6DD /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834CDD971D9B5AA1002CB6DD /* IntroViewController.swift */; };
 		834CDDBB1D9B6AF1002CB6DD /* GameViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834CDDBA1D9B6AF1002CB6DD /* GameViewModelTests.swift */; };
 		835DD0CC1DB31703002CFF8E /* GameModelLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835DD0CB1DB31703002CFF8E /* GameModelLogicTests.swift */; };
 		837137511DD7E6FD003AD379 /* Gameboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8371374E1DD7E6FD003AD379 /* Gameboard.storyboard */; };
@@ -19,6 +17,8 @@
 		837137581DD897BB003AD379 /* BlockModelLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837137561DD897BB003AD379 /* BlockModelLogic.swift */; };
 		8371375B1DD89843003AD379 /* BlockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837137591DD89843003AD379 /* BlockViewModel.swift */; };
 		8371375C1DD89843003AD379 /* CodedBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8371375A1DD89843003AD379 /* CodedBlockView.swift */; };
+		8371375F1DD899E9003AD379 /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8371375D1DD899E9003AD379 /* Intro.storyboard */; };
+		837137601DD899E9003AD379 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8371375E1DD899E9003AD379 /* IntroViewController.swift */; };
 		8373AC9D1DA141FE004C4541 /* BlockViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8373AC9C1DA141FE004C4541 /* BlockViewModelTests.swift */; };
 		83AB62651D97106D00E61AB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AB62641D97106D00E61AB7 /* AppDelegate.swift */; };
 		83AB626C1D97106D00E61AB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83AB626B1D97106D00E61AB7 /* Assets.xcassets */; };
@@ -58,8 +58,6 @@
 
 /* Begin PBXFileReference section */
 		833B250A1DC5089A00601358 /* PuzzleListDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PuzzleListDataProvider.swift; path = Views/PuzzleList/PuzzleListDataProvider.swift; sourceTree = "<group>"; };
-		834CDD961D9B5AA1002CB6DD /* Intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Intro.storyboard; path = Intro/Intro.storyboard; sourceTree = "<group>"; };
-		834CDD971D9B5AA1002CB6DD /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntroViewController.swift; path = Intro/IntroViewController.swift; sourceTree = "<group>"; };
 		834CDDB01D9B6A63002CB6DD /* SliderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SliderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		834CDDB41D9B6A66002CB6DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		834CDDBA1D9B6AF1002CB6DD /* GameViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewModelTests.swift; sourceTree = "<group>"; };
@@ -71,6 +69,8 @@
 		837137561DD897BB003AD379 /* BlockModelLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlockModelLogic.swift; path = Models/BlockModel/BlockModelLogic.swift; sourceTree = "<group>"; };
 		837137591DD89843003AD379 /* BlockViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlockViewModel.swift; path = Views/Block/BlockViewModel.swift; sourceTree = "<group>"; };
 		8371375A1DD89843003AD379 /* CodedBlockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CodedBlockView.swift; path = Views/Block/CodedBlockView.swift; sourceTree = "<group>"; };
+		8371375D1DD899E9003AD379 /* Intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Intro.storyboard; path = Views/Intro/Intro.storyboard; sourceTree = "<group>"; };
+		8371375E1DD899E9003AD379 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntroViewController.swift; path = Views/Intro/IntroViewController.swift; sourceTree = "<group>"; };
 		8373AC9C1DA141FE004C4541 /* BlockViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockViewModelTests.swift; sourceTree = "<group>"; };
 		83AB62611D97106D00E61AB7 /* Slider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83AB62641D97106D00E61AB7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -130,8 +130,8 @@
 		834CDD941D9B5A3B002CB6DD /* Intro */ = {
 			isa = PBXGroup;
 			children = (
-				834CDD971D9B5AA1002CB6DD /* IntroViewController.swift */,
-				834CDD961D9B5AA1002CB6DD /* Intro.storyboard */,
+				8371375D1DD899E9003AD379 /* Intro.storyboard */,
+				8371375E1DD899E9003AD379 /* IntroViewController.swift */,
 			);
 			name = Intro;
 			sourceTree = "<group>";
@@ -170,6 +170,16 @@
 			name = BlockModel;
 			sourceTree = "<group>";
 		};
+		837137611DD89A21003AD379 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				834CDD941D9B5A3B002CB6DD /* Intro */,
+				8371374D1DD7E6E7003AD379 /* Gameboard */,
+				CB5FA3491DC16439003B19E0 /* PuzzleList */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		83AB62581D97106A00E61AB7 = {
 			isa = PBXGroup;
 			children = (
@@ -191,8 +201,8 @@
 		83AB62631D97106D00E61AB7 /* Slider */ = {
 			isa = PBXGroup;
 			children = (
-				834CDD941D9B5A3B002CB6DD /* Intro */,
 				CB5870901DAEE53A00D1EEE9 /* Models */,
+				837137611DD89A21003AD379 /* ViewControllers */,
 				83BE867D1DB267EA00D51EA1 /* Views */,
 				CBA63BF71DA9D7ED004C0EE6 /* Utilities */,
 				83AB62641D97106D00E61AB7 /* AppDelegate.swift */,
@@ -206,11 +216,9 @@
 		83BE867D1DB267EA00D51EA1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				834CDD921D9B5A1A002CB6DD /* Block */,
-				8371374D1DD7E6E7003AD379 /* Gameboard */,
-				CBAFA38D1DCA43B000534AEC /* ControlBar */,
-				CB5FA3491DC16439003B19E0 /* PuzzleList */,
 				CB6576531DD613CE00D61DED /* XibLoadable.swift */,
+				834CDD921D9B5A1A002CB6DD /* Block */,
+				CBAFA38D1DCA43B000534AEC /* ControlBar */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -372,9 +380,9 @@
 				83AB626F1D97106D00E61AB7 /* LaunchScreen.storyboard in Resources */,
 				CBAFA38F1DCA447200534AEC /* ControlBarView.xib in Resources */,
 				83AB626C1D97106D00E61AB7 /* Assets.xcassets in Resources */,
-				834CDD981D9B5AA1002CB6DD /* Intro.storyboard in Resources */,
 				CB5FA34B1DC1647F003B19E0 /* PuzzleList.storyboard in Resources */,
 				837137511DD7E6FD003AD379 /* Gameboard.storyboard in Resources */,
+				8371375F1DD899E9003AD379 /* Intro.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,7 +439,7 @@
 				8371375C1DD89843003AD379 /* CodedBlockView.swift in Sources */,
 				CB5FA34D1DC1654A003B19E0 /* PuzzleListViewController.swift in Sources */,
 				CB04A4231DD4CA08007BE787 /* GameModelUtility.swift in Sources */,
-				834CDD991D9B5AA1002CB6DD /* IntroViewController.swift in Sources */,
+				837137601DD899E9003AD379 /* IntroViewController.swift in Sources */,
 				837137571DD897BB003AD379 /* BlockModel.swift in Sources */,
 				837137531DD7E6FD003AD379 /* GameboardViewModel.swift in Sources */,
 				CB04A4211DD4C9DB007BE787 /* GameModelLogic.swift in Sources */,
