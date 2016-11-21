@@ -9,13 +9,21 @@
 import UIKit
 
 class Archiver {
+  static func dataFilePath() -> String {
+    let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+    let filepath = path[0].appendingPathComponent("datafile")
+    return filepath.path
+  }
+
   
-  static func store(data: MasterModel) {
-    NSKeyedArchiver.archiveRootObject(data, toFile: "dataStore")
+  static func store(data: Any) -> Bool {
+    let file = Archiver.dataFilePath()
+    return NSKeyedArchiver.archiveRootObject(data, toFile: file)
   }
   
-  static func retrieve() -> MasterModel? {
-    guard let master = NSKeyedUnarchiver.unarchiveObject(withFile: "dataStore") as? MasterModel else { return nil }
+  static func retrieve() -> Any? {
+    let file = Archiver.dataFilePath()
+    guard let master = NSKeyedUnarchiver.unarchiveObject(withFile: file) as? Any else { return nil }
     return master
   }
 }

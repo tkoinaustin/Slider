@@ -22,10 +22,10 @@ class CodedBlockView: UIView {
     imageView.translatesAutoresizingMaskIntoConstraints = false
     let margins = layoutMarginsGuide
     
-    imageView.topAnchor.constraint(equalTo: margins.topAnchor).isActive = true
-    imageView.bottomAnchor.constraint(equalTo: margins.bottomAnchor).isActive = true
-    imageView.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
-    imageView.trailingAnchor.constraint(equalTo:margins.trailingAnchor).isActive = true
+    imageView.topAnchor.constraint(equalTo: margins.topAnchor, constant: -8).isActive = true
+    imageView.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: 8).isActive = true
+    imageView.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: -8).isActive = true
+    imageView.trailingAnchor.constraint(equalTo:margins.trailingAnchor, constant: 8).isActive = true
     
     imageView.image = UIImage(named: "superman1")
   }

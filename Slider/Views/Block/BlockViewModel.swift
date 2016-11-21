@@ -8,8 +8,8 @@
 
 import UIKit
 
-enum Direction {
-  case up, right, down, left
+enum Direction: Int32 {
+  case up = 0, right, down, left
   
   func opposite() -> Direction {
     switch self {

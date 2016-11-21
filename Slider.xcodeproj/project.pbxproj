@@ -32,6 +32,7 @@
 		83AB626F1D97106D00E61AB7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83AB626D1D97106D00E61AB7 /* LaunchScreen.storyboard */; };
 		CB04A41C1DD4C879007BE787 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB04A41B1DD4C879007BE787 /* Board.swift */; };
 		CB0CB5ED1DC2B774002811E4 /* PuzzleListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0CB5EC1DC2B774002811E4 /* PuzzleListCell.swift */; };
+		CB23B34E1DE081C000ACFBC0 /* ArchiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB23B34D1DE081C000ACFBC0 /* ArchiveTests.swift */; };
 		CB4E7E631DC03AFE009D48F1 /* MasterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4E7E621DC03AFE009D48F1 /* MasterModel.swift */; };
 		CB4E7E651DC0D5F9009D48F1 /* Puzzles.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4E7E641DC0D5F9009D48F1 /* Puzzles.swift */; };
 		CB5FA34B1DC1647F003B19E0 /* PuzzleList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB5FA34A1DC1647F003B19E0 /* PuzzleList.storyboard */; };
@@ -88,6 +89,7 @@
 		83AB62701D97106D00E61AB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB04A41B1DD4C879007BE787 /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Board.swift; path = Models/enums/Board.swift; sourceTree = "<group>"; };
 		CB0CB5EC1DC2B774002811E4 /* PuzzleListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PuzzleListCell.swift; path = Views/PuzzleList/PuzzleListCell.swift; sourceTree = "<group>"; };
+		CB23B34D1DE081C000ACFBC0 /* ArchiveTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArchiveTests.swift; sourceTree = "<group>"; };
 		CB4E7E621DC03AFE009D48F1 /* MasterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MasterModel.swift; path = Models/MasterModel.swift; sourceTree = "<group>"; };
 		CB4E7E641DC0D5F9009D48F1 /* Puzzles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Puzzles.swift; path = Models/Puzzles.swift; sourceTree = "<group>"; };
 		CB5FA34A1DC1647F003B19E0 /* PuzzleList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = PuzzleList.storyboard; path = Views/PuzzleList/PuzzleList.storyboard; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 		834CDDB11D9B6A64002CB6DD /* SliderTests */ = {
 			isa = PBXGroup;
 			children = (
+				CB23B34D1DE081C000ACFBC0 /* ArchiveTests.swift */,
 				834CDDBA1D9B6AF1002CB6DD /* GameViewModelTests.swift */,
 				CBC922931DB0304F00132C91 /* GameModelTests.swift */,
 				835DD0CB1DB31703002CFF8E /* GameModelLogicTests.swift */,
@@ -426,6 +429,7 @@
 			files = (
 				834CDDBB1D9B6AF1002CB6DD /* GameViewModelTests.swift in Sources */,
 				8373AC9D1DA141FE004C4541 /* BlockViewModelTests.swift in Sources */,
+				CB23B34E1DE081C000ACFBC0 /* ArchiveTests.swift in Sources */,
 				CBC9229C1DB1422600132C91 /* BlockModelLogicTests.swift in Sources */,
 				CBC922961DB03FCE00132C91 /* BlockModelTests.swift in Sources */,
 				CBC922941DB0304F00132C91 /* GameModelTests.swift in Sources */,
