@@ -16,9 +16,12 @@ class MasterModel: NSObject, NSCoding {
   
   required convenience init?(coder aDecoder: NSCoder) {
     self.init()
-    puzzles = aDecoder.decodeObject(forKey: "puzzles") as! Puzzles
-    timer = aDecoder.decodeObject(forKey: "timer") as! TimeInterval
-    game = aDecoder.decodeObject(forKey: "game") as! GameModel
+    guard let puzzles = aDecoder.decodeObject(forKey: "puzzles") as? Puzzles else { return nil }
+    guard let timer = aDecoder.decodeObject(forKey: "timer") as? TimeInterval else { return nil }
+    guard let game = aDecoder.decodeObject(forKey: "game") as? GameModel else { return nil }
+    self.puzzles = puzzles
+    self.timer = timer
+    self.game = game 
   }
   
   func encode(with aCoder: NSCoder) {

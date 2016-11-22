@@ -19,11 +19,18 @@ class GameMoveData: NSObject, NSCoding {
     self.grid = grid
   }
   
-  required init?(coder aDecoder: NSCoder) {
-    block = aDecoder.decodeInt32(forKey: "block")
+  override init() {
+    block = 0
+    direction = nil
+    grid = [[Int32]]()
+  }
+  
+  required convenience init?(coder aDecoder: NSCoder) {
+    let block = aDecoder.decodeInt32(forKey: "block")
     let dir = aDecoder.decodeInt32(forKey: "direction")
-    direction = Direction(rawValue: dir)
-    grid = aDecoder.decodeObject(forKey: "grid") as! [[Int32]]
+    let direction = Direction(rawValue: dir)
+    guard let grid = aDecoder.decodeObject(forKey: "grid") as? [[Int32]] else { return nil }
+    self.init(block: block, direction: direction, grid: grid)
   }
   
   func encode(with aCoder: NSCoder) {
@@ -53,12 +60,14 @@ class GameModel: NSObject, NSCoding {
   }
   
   required convenience init?(coder aDecoder: NSCoder) {
-    self.init()
-    completed = aDecoder.decodeBool(forKey: "completed")
-    moveData = aDecoder.decodeObject(forKey: "moveData") as! [GameMoveData]
-    datePlayed = aDecoder.decodeObject(forKey: "datePlayed") as! Date
-    gameTime = aDecoder.decodeObject(forKey: "gameTime") as! TimeInterval
-    
+    let completed = aDecoder.decodeBool(forKey: "completed")
+    guard let moveData = aDecoder.decodeObject(forKey: "moveData") as? [GameMoveData]
+      else { return nil }
+    guard let datePlayed = aDecoder.decodeObject(forKey: "datePlayed") as? Date
+      else { return nil }
+    guard let gameTime = aDecoder.decodeObject(forKey: "gameTime") as? TimeInterval
+      else { return nil }
+    self.init(completed: completed, datePlayed: datePlayed, gameTime: gameTime, moveData: moveData)
   }
   
   func encode(with aCoder: NSCoder) {

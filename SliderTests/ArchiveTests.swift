@@ -16,6 +16,7 @@ class ArchiveTests: XCTestCase {
   
   override func setUp() {
     super.setUp()
+    // swiftlint:disable comma
     moveDatum = GameMoveData(block: 5,
                              direction: .down,
                              grid: [[2,2,3,4],[1,1,0,4],[1,1,8,0],[5,7,9,11],[5,10,6,6]])
@@ -31,26 +32,27 @@ class ArchiveTests: XCTestCase {
                              grid: [[2,2,3,4],[1,1,0,4],[1,1,8,0],[5,7,9,11],[5,10,6,6]])]
     
     gameModel = GameModel(completed: false, datePlayed: Date(), gameTime: 10, moveData: moveData)
+    // swiftlint:enable comma
   }
   
   func testGameMoveDataArchiveAndUnarchive() {
     _ = Archiver.store(data: moveDatum)
     
-    let move = Archiver.retrieve() as! GameMoveData
+    guard let move = Archiver.retrieve() as? GameMoveData else { return }
     print (move)
     XCTAssertTrue(move.block == 5)
     XCTAssertTrue(move.direction == .down)
-    XCTAssertTrue(move.grid[4] == [5,10,6,6])
+    XCTAssertTrue(move.grid[4] == [5, 10, 6, 6])
   }
   
   func testGameModelArchiveAndUnarchive() {
     _ = Archiver.store(data: gameModel)
     
-    let game = Archiver.retrieve() as! GameModel
+    guard let game = Archiver.retrieve() as? GameModel else { return }
     print (game)
     XCTAssertTrue(game.completed == false)
     XCTAssertTrue(game.gameTime == 10)
-    XCTAssertTrue(game.moveData[1].grid[4] == [5,10,6,6])
+    XCTAssertTrue(game.moveData[1].grid[4] == [5, 10, 6, 6])
   }
   
  }

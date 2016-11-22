@@ -46,12 +46,15 @@ extension XibLoadable where Self: UIView {
     return view
   }
   
+  // swiftlint:disable function_body_length
   static func getAndConfigure(from: UIView) -> UIView {
+    // swiftlint:enable function_body_length
     let realView = self.get()
     
     realView.frame = from.frame
     realView.autoresizingMask = from.autoresizingMask
-    realView.translatesAutoresizingMaskIntoConstraints = from.translatesAutoresizingMaskIntoConstraints
+    realView.translatesAutoresizingMaskIntoConstraints =
+      from.translatesAutoresizingMaskIntoConstraints
     
     for constraint in from.constraints {
       var firstItem: AnyObject {

@@ -15,7 +15,6 @@ class Archiver {
     return filepath.path
   }
 
-  
   static func store(data: Any) -> Bool {
     let file = Archiver.dataFilePath()
     return NSKeyedArchiver.archiveRootObject(data, toFile: file)
@@ -23,7 +22,7 @@ class Archiver {
   
   static func retrieve() -> Any? {
     let file = Archiver.dataFilePath()
-    guard let master = NSKeyedUnarchiver.unarchiveObject(withFile: file) as? Any else { return nil }
+    guard let master = NSKeyedUnarchiver.unarchiveObject(withFile: file) else { return nil }
     return master
   }
 }
