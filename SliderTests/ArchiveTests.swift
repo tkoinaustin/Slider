@@ -36,9 +36,9 @@ class ArchiveTests: XCTestCase {
   }
   
   func testGameMoveDataArchiveAndUnarchive() {
-    _ = Archiver.store(data: moveDatum)
+    _ = Archiver.store(data: moveDatum, model: .move)
     
-    guard let move = Archiver.retrieve() as? GameMoveData else { return }
+    let move = Archiver.retrieve(model: .move) as! GameMoveData
     print (move)
     XCTAssertTrue(move.block == 5)
     XCTAssertTrue(move.direction == .down)
@@ -46,9 +46,9 @@ class ArchiveTests: XCTestCase {
   }
   
   func testGameModelArchiveAndUnarchive() {
-    _ = Archiver.store(data: gameModel)
+    _ = Archiver.store(data: gameModel, model: .game)
     
-    guard let game = Archiver.retrieve() as? GameModel else { return }
+    let game = Archiver.retrieve(model: .game) as! GameModel
     print (game)
     XCTAssertTrue(game.completed == false)
     XCTAssertTrue(game.gameTime == 10)
