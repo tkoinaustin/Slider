@@ -8,12 +8,26 @@
 
 import UIKit
 
-class ControlBarViewModel {
-  var moves: Int = 0
+class ControlBarViewModel: NSObject, NSCoding {
+  var moveNumber: Int = 0 { didSet {
+      updateUI()
+  }}
   var time: String = ""
   var timer: Timer?
-  
+  var updateUI: (() -> ()) = {}
+
   // action forward
   // action back
   
+  required convenience init?(coder aDecoder: NSCoder) {
+    self.init()
+    moveNumber = aDecoder.decodeInteger(forKey: "moveNumber")
+    time = aDecoder.decodeObject(forKey: "time") as! String
+  }
+  
+  func encode(with aCoder: NSCoder) {
+    aCoder.encode(moveNumber, forKey: "moveNumber")
+    aCoder.encode(time, forKey: "time")
+  }
+
 }

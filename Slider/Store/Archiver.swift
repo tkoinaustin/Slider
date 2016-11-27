@@ -35,7 +35,7 @@ class Archiver {
   
   static func retrieve(model: Model) -> Any? {
     let file = Archiver.dataFilePath(model)
-    guard let master = NSKeyedUnarchiver.unarchiveObject(withFile: file) as? Any else { return nil }
+    guard let master = NSKeyedUnarchiver.unarchiveObject(withFile: file) else { return nil }
     return master
   }
 }

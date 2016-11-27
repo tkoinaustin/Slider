@@ -9,17 +9,17 @@
 import UIKit
 
 class HistoryModel: NSObject, NSCoding {
-  var puzzle: Int32 = 0
+  var puzzle: Int = 0
   var history: [GameModel]?
   
   required convenience init?(coder aDecoder: NSCoder) {
     self.init()
-    puzzle = aDecoder.decodeCInt(forKey: "puzzle")
+    puzzle = aDecoder.decodeInteger(forKey: "puzzle")
     history = aDecoder.decodeObject(forKey: "history") as? [GameModel]
   }
   
   func encode(with aCoder: NSCoder) {
-    aCoder.encodeCInt(puzzle, forKey: "puzzle")
+    aCoder.encode(puzzle, forKey: "puzzle")
     aCoder.encode(history, forKey: "history")
   }
   

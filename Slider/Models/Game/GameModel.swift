@@ -8,43 +8,12 @@
 
 import UIKit
 
-class GameMoveData: NSObject, NSCoding {
-  var block: Int32
-  var direction: Direction?
-  var grid: [[Int32]]
-
-  init(block: Int32, direction: Direction?, grid: [[Int32]]) {
-    self.block = block
-    self.direction = direction
-    self.grid = grid
-  }
-  
-  override init() {
-    block = 0
-    direction = nil
-    grid = [[Int32]]()
-  }
-  
-  required convenience init?(coder aDecoder: NSCoder) {
-    let block = aDecoder.decodeInt32(forKey: "block")
-    let dir = aDecoder.decodeInt32(forKey: "direction")
-    let direction = Direction(rawValue: dir)
-    guard let grid = aDecoder.decodeObject(forKey: "grid") as? [[Int32]] else { return nil }
-    self.init(block: block, direction: direction, grid: grid)
-  }
-  
-  func encode(with aCoder: NSCoder) {
-    aCoder.encode(block, forKey: "block")
-    aCoder.encode(direction!.rawValue, forKey: "direction")
-    aCoder.encode(grid, forKey: "grid")
-  }
-}
-
 class GameModel: NSObject, NSCoding {
   private(set) var completed = false
   private(set) var datePlayed = Date()
   private(set) var gameTime: TimeInterval!
   private(set) var moveData = [GameMoveData]()
+  private(set) var controlBar = ControlBarViewModel()
   
   init(completed: Bool, datePlayed: Date, gameTime: TimeInterval, moveData: [GameMoveData]) {
     self.completed = completed
@@ -56,25 +25,29 @@ class GameModel: NSObject, NSCoding {
   override init() {
     self.completed = false
     self.datePlayed = Date()
+    self.gameTime = 0
     self.moveData = [GameMoveData]()
   }
   
   required convenience init?(coder aDecoder: NSCoder) {
     let completed = aDecoder.decodeBool(forKey: "completed")
-    guard let moveData = aDecoder.decodeObject(forKey: "moveData") as? [GameMoveData]
-      else { return nil }
     guard let datePlayed = aDecoder.decodeObject(forKey: "datePlayed") as? Date
       else { return nil }
     guard let gameTime = aDecoder.decodeObject(forKey: "gameTime") as? TimeInterval
       else { return nil }
-    self.init(completed: completed, datePlayed: datePlayed, gameTime: gameTime, moveData: moveData)
+    guard let moveData = aDecoder.decodeObject(forKey: "moveData") as? [GameMoveData]
+      else { return nil }
+    self.init(completed: completed,
+              datePlayed: datePlayed,
+              gameTime: gameTime,
+              moveData: moveData)
   }
   
   func encode(with aCoder: NSCoder) {
     aCoder.encode(completed, forKey: "completed")
-    aCoder.encode (moveData, forKey: "moveData")
     aCoder.encode(datePlayed, forKey: "datePlayed")
     aCoder.encode(gameTime, forKey: "gameTime")
+    aCoder.encode(moveData, forKey: "moveData")
   }
 
   var moves: Int {
@@ -89,6 +62,10 @@ class GameModel: NSObject, NSCoding {
     
   }
   
+  func assignControlBar(_ controlBar: ControlBarViewModel) {
+    self.controlBar = controlBar
+  }
+  
   func move(index: Int) -> GameMoveData? {
     guard index < moveData.count else { return nil }
     guard index >= 0 else { return nil }
@@ -96,11 +73,13 @@ class GameModel: NSObject, NSCoding {
     return moveData[index]
   }
   
-  func push(singleMove: GameMoveData) {
+  func push(_ singleMove: GameMoveData) {
+    controlBar.moveNumber += 1
     moveData.append(singleMove)
   }
   
   func pop() -> GameMoveData? {
+    controlBar.moveNumber -= 1
     return moveData.popLast()
   }
 }

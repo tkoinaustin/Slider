@@ -12,10 +12,23 @@ import UIKit
 
 class ControlBarView: UIView, XibLoadable {
   let ibTag = 13
-  let controlBar = ControlBarViewModel()
+  let viewModel = ControlBarViewModel()
+  
+  @IBOutlet private weak var moveNumber: UILabel!
+  @IBOutlet private weak var back: UIButton!
+  @IBOutlet private weak var forward: UIButton!
+  
+  @IBAction func backAction(_ sender: UIButton) {
+  }
+  
+  @IBAction func forwardAction(_ sender: UIButton) {
+  }
   
   func setup() {
-    
+    print("----- ControlBarView setup -----")
+    viewModel.updateUI = { _ in
+      self.updateUI()
+    }
   }
 
   override func awakeAfter(using aDecoder: NSCoder) -> Any? {
@@ -24,5 +37,16 @@ class ControlBarView: UIView, XibLoadable {
   
   override func prepareForInterfaceBuilder() {
     makeIBDesignable()
+  }
+  
+  func updateUI() {
+    UIView.animate(withDuration: 0.2, animations: {
+      self.moveNumber.alpha = 0
+    }, completion: { _ in
+      self.moveNumber.text = self.viewModel.moveNumber.description
+      UIView.animate(withDuration: 0.2, animations: {
+      self.moveNumber.alpha = 1
+      })
+    })
   }
 }

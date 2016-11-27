@@ -31,7 +31,8 @@ class GridModel {
   var finish: UILabel!
   var twoMove: UILabel!
   
-  var gameViewModelUpdateUI: (() -> ()) = { _ in }
+  var gridViewModelUpdateUI: (() -> ()) = { _ in }
+  var gameModelPushMoveData: ((_: GameMoveData) -> ()) = { move in }
 
   var blockCount: Int {
     return gridBlocks.count
@@ -67,8 +68,12 @@ class GridModel {
         self.board = .moveOneSpace
         return
       }
-      
-      self.gameModelMoveFinished(finalBoard: self.board)
+      if let grid = self.gridForBoard(board: self.board) {
+        let gameMoveData = GameMoveData(block: 5, direction: self.direction, grid: grid)
+        print(gameMoveData)
+        self.gameModelPushMoveData(gameMoveData)
+      }
+      self.gridModelMoveFinished(finalBoard: self.board)
       self.direction = nil
       self.board = .moveOneSpace
     }
@@ -108,22 +113,25 @@ class GridModel {
     }
   }
   
-  func gameModelMoveFinished(finalBoard board: Board) {
+  func gridModelMoveFinished(finalBoard board: Board) {
     notThisDirection = nil
     updateGridForFinishPosition(board)
     updateBlockOriginsForBoard(currentGrid)
     resetBlocks()
-    gameViewModelUpdateUI()
+    gridViewModelUpdateUI()
+  }
+  
+  private func gridForBoard(board: Board) -> [[Int]]? {
+    switch board {
+    case .moveZeroSpaces: return zeroMoveBoard
+    case .moveOneSpace: return oneMoveBoard
+    case .moveTwoSpaces: return twoMoveBoard
+    }
   }
 
   private func updateGridForFinishPosition(_ board: Board) {
     print("update Grid For Finish Position \(board) *******")
-    switch board {
-    case .moveZeroSpaces: currentGrid = zeroMoveBoard
-    case .moveOneSpace: currentGrid = oneMoveBoard
-    case .moveTwoSpaces: currentGrid = twoMoveBoard
-    }
-    
+    currentGrid = gridForBoard(board: board)
     oneMoveBoard = nil
     twoMoveBoard = nil
   }

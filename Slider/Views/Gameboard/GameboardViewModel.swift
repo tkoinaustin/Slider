@@ -17,22 +17,26 @@ class GameboardViewModel {
   
   private var blocks = [BlockViewModel]()
   private var size: CGSize!
-  private var game: GridModel!
-  var controlBar: ControlBarViewModel!
+  private var grid: GridModel!
+  private(set) var game = GameModel()
   
   var count: Int {
     return blocks.count
   }
   
   func load(gameboard: [[Int]], size: CGSize, start: UILabel, finish: UILabel, twoMove: UILabel) {
-    game = GridModel(gameboard)
+    print("GameboardViewModel load")
+    grid = GridModel(gameboard)
     self.size = size
-    initBlocks(grid: gameboard)
-    game.start = start
-    game.finish = finish
-    game.twoMove = twoMove
-    game.gameViewModelUpdateUI = {
+    initBlocks()
+    grid.start = start
+    grid.finish = finish
+    grid.twoMove = twoMove
+    grid.gridViewModelUpdateUI = {
       self.placeAllBlocks()
+    }
+    grid.gameModelPushMoveData = { move in
+      self.game.push(move)
     }
   }
   
@@ -42,10 +46,10 @@ class GameboardViewModel {
     return blocks[index]
   }
   
-  func initBlocks(grid: [[Int]]) {
+  func initBlocks() {
     // most of this has been pushed into GameModel
-    for index in 0..<game.blockCount {
-      if let blockModel = game.block(index) {
+    for index in 0..<grid.blockCount {
+      if let blockModel = grid.block(index) {
         let block = BlockViewModel(model: blockModel)
         
         if let size = size { block.canvas = size }
