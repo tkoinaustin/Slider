@@ -46,7 +46,9 @@ class CodedBlockView: UIView {
     block.addSubview(label)
     
     block.viewModel.updateUI = { _ in
-      block.center = block.viewModel.center
+      UIView.animate(withDuration: 0.2, animations: {
+        block.center = block.viewModel.center
+      })
     }
     parent.addSubview(block)
 

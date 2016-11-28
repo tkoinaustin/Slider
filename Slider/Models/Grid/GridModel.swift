@@ -32,7 +32,7 @@ class GridModel {
   var twoMove: UILabel!
   
   var gridViewModelUpdateUI: (() -> ()) = { _ in }
-  var gameModelPushMoveData: ((_: GameMoveData) -> ()) = { move in }
+  var gameModelMoveFinished: ((_: GameMoveData) -> ()) = { move in }
 
   var blockCount: Int {
     return gridBlocks.count
@@ -69,9 +69,9 @@ class GridModel {
         return
       }
       if let grid = self.gridForBoard(board: self.board) {
-        let gameMoveData = GameMoveData(block: 5, direction: self.direction, grid: grid)
+        let gameMoveData = GameMoveData(block: block.index, direction: self.direction, grid: grid)
         print(gameMoveData)
-        self.gameModelPushMoveData(gameMoveData)
+        self.gameModelMoveFinished(gameMoveData)
       }
       self.gridModelMoveFinished(finalBoard: self.board)
       self.direction = nil

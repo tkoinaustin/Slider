@@ -29,13 +29,15 @@ class GameboardViewModel {
     grid = GridModel(gameboard)
     self.size = size
     initBlocks()
+    
     grid.start = start
     grid.finish = finish
     grid.twoMove = twoMove
+    
     grid.gridViewModelUpdateUI = {
       self.placeAllBlocks()
     }
-    grid.gameModelPushMoveData = { move in
+    grid.gameModelMoveFinished = { move in
       self.game.push(move)
     }
   }
