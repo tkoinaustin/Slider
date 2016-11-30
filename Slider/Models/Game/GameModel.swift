@@ -78,6 +78,7 @@ class GameModel: NSObject, NSCoding {
   }
   
   func push(_ singleMove: GameMoveData) {
+    trim(controlBar.moveNumber)
     controlBar.moveNumber += 1
     moveData.append(singleMove)
   }
@@ -85,5 +86,13 @@ class GameModel: NSObject, NSCoding {
   func pop() -> GameMoveData? {
     controlBar.moveNumber -= 1
     return moveData.popLast()
+  }
+  
+  func trim(_ index: Int) {
+    print("trimming moveData to \(index)")
+    guard index < moveData.count else { return }
+    let arraySlice = moveData[0...index]
+    moveData = Array(arraySlice)
+
   }
 }

@@ -11,6 +11,7 @@ import UIKit
 class ControlBarViewModel: NSObject, NSCoding {
   var moveNumber: Int = 0 { didSet {
     if moveNumber > highestMoveNumber { highestMoveNumber = moveNumber }
+//    if moveNumber < highestMoveNumber { trimMoveData(moveNumber) }
       updateUI()
   }}
   var highestMoveNumber: Int = 0
@@ -18,6 +19,7 @@ class ControlBarViewModel: NSObject, NSCoding {
   var timer: Timer?
   var updateUI: (() -> ()) = {}
   var updateBlocksToMoveNumber: ((Int) -> ()) = {_ in }
+  var trimMoveData: ((Int) -> ()) = { _ in }
 
   required convenience init?(coder aDecoder: NSCoder) {
     self.init()

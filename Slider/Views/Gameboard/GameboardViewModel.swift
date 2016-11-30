@@ -24,7 +24,7 @@ class GameboardViewModel {
     return blocks.count
   }
   
-  func load(gameboard: [[Int]], size: CGSize, start: UILabel, finish: UILabel, twoMove: UILabel) {
+  func loadGrid(gameboard: [[Int]], size: CGSize, start: UILabel, finish: UILabel, twoMove: UILabel) {
     print("GameboardViewModel load")
     grid = GridModel(gameboard)
     self.size = size
@@ -37,6 +37,7 @@ class GameboardViewModel {
     grid.gridViewModelUpdateUI = {
       self.placeAllBlocks()
     }
+    
     grid.gameModelMoveFinished = { move in
       self.game.push(move)
     }
@@ -45,11 +46,28 @@ class GameboardViewModel {
     game.setInitialGrid(gameMoveData)
   }
   
+  func loadBlocks(_ gridView: UIView) {
+    var blockCount = 0
+    for row in 0..<Rows {
+      for col in 0..<Columns {
+        if grid.currentGrid[row][col] > blockCount { blockCount = grid.currentGrid[row][col] }
+      }
+    }
+
+    for index in 1...blockCount {
+      let _ = CodedBlockView.get(parent: gridView, game: self, index: index)
+    }
+  }
+  
   func setControlBarClosure() {
     game.controlBar.updateBlocksToMoveNumber = { index in
       let moveBoard = self.game.moveData[index].grid
       self.grid.updateBlockOriginsForBoard(moveBoard)
       self.grid.gridViewModelUpdateUI()
+    }
+    
+    game.controlBar.trimMoveData = { index in
+      self.game.trim(index)
     }
   }
   
@@ -77,7 +95,6 @@ class GameboardViewModel {
   }
   
   func placeAllBlocks() {
-    print("----- placeAllBlocks -----")
     for block in blocks {
       block.placeBlock(point: GridConstants.blockCenter(row: block.model.origin.row,
                                                         col: block.model.origin.col,
