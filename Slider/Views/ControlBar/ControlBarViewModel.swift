@@ -10,15 +10,15 @@ import UIKit
 
 class ControlBarViewModel: NSObject, NSCoding {
   var moveNumber: Int = 0 { didSet {
+    if moveNumber > highestMoveNumber { highestMoveNumber = moveNumber }
       updateUI()
   }}
+  var highestMoveNumber: Int = 0
   var time: String = ""
   var timer: Timer?
   var updateUI: (() -> ()) = {}
+  var updateBlocksToMoveNumber: ((Int) -> ()) = {_ in }
 
-  // action forward
-  // action back
-  
   required convenience init?(coder aDecoder: NSCoder) {
     self.init()
     moveNumber = aDecoder.decodeInteger(forKey: "moveNumber")
@@ -29,5 +29,16 @@ class ControlBarViewModel: NSObject, NSCoding {
     aCoder.encode(moveNumber, forKey: "moveNumber")
     aCoder.encode(time, forKey: "time")
   }
-
+  
+  func forward() {
+    guard moveNumber < highestMoveNumber else { return }
+    moveNumber += 1
+    updateBlocksToMoveNumber(moveNumber)
+  }
+  
+  func  backward () {
+    guard moveNumber > 0 else { return }
+    moveNumber -= 1
+    updateBlocksToMoveNumber(moveNumber)
+  }
 }

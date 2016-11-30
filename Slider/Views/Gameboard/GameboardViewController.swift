@@ -20,6 +20,7 @@ class GameboardViewController: UIViewController {
   @IBOutlet private weak var twoMoveBoard: UILabel!
   @IBOutlet private weak var controlBar: ControlBarView! { didSet {
     viewModel.game.assignControlBar(controlBar.viewModel)
+    viewModel.setControlBarClosure()
   }}
   
   override func viewDidAppear(_ animated: Bool) {

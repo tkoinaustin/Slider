@@ -19,9 +19,11 @@ class ControlBarView: UIView, XibLoadable {
   @IBOutlet private weak var forward: UIButton!
   
   @IBAction func backAction(_ sender: UIButton) {
+    viewModel.backward()
   }
   
   @IBAction func forwardAction(_ sender: UIButton) {
+    viewModel.forward()
   }
   
   func setup() {

@@ -40,6 +40,8 @@ class CodedBlockView: UIView {
     block.viewModel = game.block(index)
     block.center = block.viewModel.center
     block.bounds = block.viewModel.bounds
+    block.layer.borderColor = UIColor.white.cgColor
+    block.layer.borderWidth = 0.5
     let label = UILabel(frame: CGRect(x: 20, y: 10, width: 20, height: 20))
     label.text = index.description
     label.textColor = UIColor.white

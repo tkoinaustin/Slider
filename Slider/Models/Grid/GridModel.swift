@@ -10,7 +10,7 @@ import UIKit
 
 class GridModel {
   
-  private var currentGrid: [[Int]]!
+  private(set) var currentGrid: [[Int]]!
   
   private var zeroMoveBoard: [[Int]]!
   private var oneMoveBoard: [[Int]]?
@@ -68,11 +68,13 @@ class GridModel {
         self.board = .moveOneSpace
         return
       }
+      
       if let grid = self.gridForBoard(board: self.board) {
         let gameMoveData = GameMoveData(block: block.index, direction: self.direction, grid: grid)
         print(gameMoveData)
         self.gameModelMoveFinished(gameMoveData)
       }
+      
       self.gridModelMoveFinished(finalBoard: self.board)
       self.direction = nil
       self.board = .moveOneSpace
@@ -130,13 +132,12 @@ class GridModel {
   }
 
   private func updateGridForFinishPosition(_ board: Board) {
-    print("update Grid For Finish Position \(board) *******")
     currentGrid = gridForBoard(board: board)
     oneMoveBoard = nil
     twoMoveBoard = nil
   }
   
-  private func updateBlockOriginsForBoard(_ grid: [[Int]]) {
+  func updateBlockOriginsForBoard(_ grid: [[Int]]) {
     for row in (0..<Rows).reversed() {
       for col in (0..<Columns).reversed() {
         gridBlocks[grid[row][col]].origin = Coordinate(row: row, col: col)
@@ -145,7 +146,6 @@ class GridModel {
   }
   
   private func resetBlocks() {
-    print("resetting double move legal and in double move to false for all blocks")
     for block in gridBlocks {
       block.doubleMoveLegal = false
       block.inDoubleMove = false

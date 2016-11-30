@@ -62,6 +62,10 @@ class GameModel: NSObject, NSCoding {
     
   }
   
+  func setInitialGrid(_ grid: GameMoveData) {
+    moveData.append(grid)
+  }
+  
   func assignControlBar(_ controlBar: ControlBarViewModel) {
     self.controlBar = controlBar
   }

@@ -40,6 +40,17 @@ class GameboardViewModel {
     grid.gameModelMoveFinished = { move in
       self.game.push(move)
     }
+    
+    let gameMoveData = GameMoveData(block: 0, direction: nil, grid: grid.currentGrid)
+    game.setInitialGrid(gameMoveData)
+  }
+  
+  func setControlBarClosure() {
+    game.controlBar.updateBlocksToMoveNumber = { index in
+      let moveBoard = self.game.moveData[index].grid
+      self.grid.updateBlockOriginsForBoard(moveBoard)
+      self.grid.gridViewModelUpdateUI()
+    }
   }
   
   func block(_ index: Int) -> BlockViewModel {
