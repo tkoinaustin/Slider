@@ -31,6 +31,7 @@ class ControlBarView: UIView, XibLoadable {
     viewModel.updateUI = { _ in
       self.updateUI()
     }
+    updateUI()
   }
 
   override func awakeAfter(using aDecoder: NSCoder) -> Any? {
@@ -42,6 +43,9 @@ class ControlBarView: UIView, XibLoadable {
   }
   
   func updateUI() {
+    back.isEnabled = viewModel.backEnabled
+    forward.isEnabled = viewModel.forwardEnabled
+
     UIView.animate(withDuration: 0.2, animations: {
       self.moveNumber.alpha = 0
     }, completion: { _ in

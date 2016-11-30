@@ -24,7 +24,11 @@ class GameboardViewModel {
     return blocks.count
   }
   
-  func loadGrid(gameboard: [[Int]], size: CGSize, start: UILabel, finish: UILabel, twoMove: UILabel) {
+  func loadGrid(gameboard: [[Int]],
+                size: CGSize,
+                start: UILabel,
+                finish: UILabel,
+                twoMove: UILabel) {
     print("GameboardViewModel load")
     grid = GridModel(gameboard)
     self.size = size
@@ -61,7 +65,11 @@ class GameboardViewModel {
   
   func setControlBarClosure() {
     game.controlBar.updateBlocksToMoveNumber = { index in
+      assert(index < self.game.moveData.count, "index higher than moveData count")
+      guard index < self.game.moveData.count else { return }
+      
       let moveBoard = self.game.moveData[index].grid
+      self.grid.setCurrentGrid(moveBoard)
       self.grid.updateBlockOriginsForBoard(moveBoard)
       self.grid.gridViewModelUpdateUI()
     }

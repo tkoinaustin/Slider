@@ -10,13 +10,16 @@ import UIKit
 
 class ControlBarViewModel: NSObject, NSCoding {
   var moveNumber: Int = 0 { didSet {
-    if moveNumber > highestMoveNumber { highestMoveNumber = moveNumber }
-//    if moveNumber < highestMoveNumber { trimMoveData(moveNumber) }
       updateUI()
   }}
-  var highestMoveNumber: Int = 0
+  
+  var moveDataCount: Int = 0
+  var backEnabled: Bool { return moveDataCount > 0 }
+  var forwardEnabled: Bool { return moveNumber < moveDataCount - 1 }
+  
   var time: String = ""
   var timer: Timer?
+  
   var updateUI: (() -> ()) = {}
   var updateBlocksToMoveNumber: ((Int) -> ()) = {_ in }
   var trimMoveData: ((Int) -> ()) = { _ in }
@@ -24,7 +27,7 @@ class ControlBarViewModel: NSObject, NSCoding {
   required convenience init?(coder aDecoder: NSCoder) {
     self.init()
     moveNumber = aDecoder.decodeInteger(forKey: "moveNumber")
-    time = aDecoder.decodeObject(forKey: "time") as! String
+    if let time1 = aDecoder.decodeObject(forKey: "time") as? String { time = time1 }
   }
   
   func encode(with aCoder: NSCoder) {
@@ -33,7 +36,6 @@ class ControlBarViewModel: NSObject, NSCoding {
   }
   
   func forward() {
-    guard moveNumber < highestMoveNumber else { return }
     moveNumber += 1
     updateBlocksToMoveNumber(moveNumber)
   }

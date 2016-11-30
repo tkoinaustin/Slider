@@ -54,6 +54,14 @@ class GridModel {
     for block in gridBlocks { setClosures(block) }
   }
   
+  func setCurrentGrid(_ grid: [[Int]]) {
+    currentGrid = grid
+    oneMoveBoard = nil
+    twoMoveBoard = nil
+    notThisDirection = nil
+    direction = nil
+  }
+  
   private func setClosures(_ block: BlockModel) {
     block.blockModelUpdateGrid = { board in
       self.updateGrid(board)
@@ -71,7 +79,6 @@ class GridModel {
       
       if let grid = self.gridForBoard(board: self.board) {
         let gameMoveData = GameMoveData(block: block.index, direction: self.direction, grid: grid)
-        print(gameMoveData)
         self.gameModelMoveFinished(gameMoveData)
       }
       
@@ -96,7 +103,7 @@ class GridModel {
       moveBy(amount, direction)
       
       return direction
-    } else { //set game boards and direction
+    } else { // set game boards and direction
       if let dir = gameLogic.setDirection(x: amount.x, y: amount.y) {
         if setGameplayForDirection(dir, index) {
           self.direction = dir
@@ -116,12 +123,15 @@ class GridModel {
   }
   
   func gridModelMoveFinished(finalBoard board: Board) {
-    notThisDirection = nil
-    updateGridForFinishPosition(board)
+    currentGrid = gridForBoard(board: board)
     updateBlockOriginsForBoard(currentGrid)
     resetBlocks()
     gridViewModelUpdateUI()
-  }
+
+    oneMoveBoard = nil
+    twoMoveBoard = nil
+    notThisDirection = nil
+}
   
   private func gridForBoard(board: Board) -> [[Int]]? {
     switch board {
@@ -129,12 +139,6 @@ class GridModel {
     case .moveOneSpace: return oneMoveBoard
     case .moveTwoSpaces: return twoMoveBoard
     }
-  }
-
-  private func updateGridForFinishPosition(_ board: Board) {
-    currentGrid = gridForBoard(board: board)
-    oneMoveBoard = nil
-    twoMoveBoard = nil
   }
   
   func updateBlockOriginsForBoard(_ grid: [[Int]]) {

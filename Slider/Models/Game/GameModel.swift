@@ -12,7 +12,9 @@ class GameModel: NSObject, NSCoding {
   private(set) var completed = false
   private(set) var datePlayed = Date()
   private(set) var gameTime: TimeInterval!
-  private(set) var moveData = [GameMoveData]()
+  private(set) var moveData = [GameMoveData]() { didSet {
+    controlBar.moveDataCount = moveData.count
+  }}
   private(set) var controlBar = ControlBarViewModel()
   
   init(completed: Bool, datePlayed: Date, gameTime: TimeInterval, moveData: [GameMoveData]) {
