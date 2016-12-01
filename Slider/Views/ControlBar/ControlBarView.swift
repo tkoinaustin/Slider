@@ -17,6 +17,9 @@ class ControlBarView: UIView, XibLoadable {
   @IBOutlet private weak var moveNumber: UILabel!
   @IBOutlet private weak var back: UIButton!
   @IBOutlet private weak var forward: UIButton!
+  @IBOutlet private weak var timerView: TimerView! { didSet {
+    timerView.count = viewModel.timerCount
+  }}
   
   @IBAction func backAction(_ sender: UIButton) {
     viewModel.backward()
@@ -24,6 +27,10 @@ class ControlBarView: UIView, XibLoadable {
   
   @IBAction func forwardAction(_ sender: UIButton) {
     viewModel.forward()
+  }
+  
+  @IBAction func puzzleList(_ sender: UIButton) {
+    viewModel.displayPuzzleList()
   }
   
   func setup() {

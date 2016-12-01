@@ -16,14 +16,15 @@ class GameboardViewController: UIViewController {
   var viewModel = GameboardViewModel()
 
   @IBOutlet private weak var gridView: UIView!
-  @IBOutlet private weak var startingBoard: UILabel!
-  @IBOutlet private weak var finishingBoard: UILabel!
-  @IBOutlet private weak var twoMoveBoard: UILabel!
   @IBOutlet private weak var controlBar: ControlBarView! { didSet {
     viewModel.game.assignControlBar(controlBar.viewModel)
     viewModel.setControlBarClosure()
   }}
-  
+ 
+  @IBOutlet private weak var startingBoard: UILabel!
+  @IBOutlet private weak var finishingBoard: UILabel!
+  @IBOutlet private weak var twoMoveBoard: UILabel!
+
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     
@@ -34,6 +35,7 @@ class GameboardViewController: UIViewController {
                        twoMove: twoMoveBoard)
     
     viewModel.loadBlocks(gridView)
+    viewModel.game.controlBar.parentViewController = self
   }
   
   override func didReceiveMemoryWarning() {

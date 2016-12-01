@@ -29,7 +29,6 @@ class GameboardViewModel {
                 start: UILabel,
                 finish: UILabel,
                 twoMove: UILabel) {
-    print("GameboardViewModel load")
     grid = GridModel(gameboard)
     self.size = size
     initBlocks()

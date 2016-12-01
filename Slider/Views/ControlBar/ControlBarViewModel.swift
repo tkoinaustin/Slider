@@ -19,6 +19,8 @@ class ControlBarViewModel: NSObject, NSCoding {
   
   var time: String = ""
   var timer: Timer?
+  var timerCount = 0
+  var parentViewController: UIViewController!
   
   var updateUI: (() -> ()) = {}
   var updateBlocksToMoveNumber: ((Int) -> ()) = {_ in }
@@ -45,4 +47,12 @@ class ControlBarViewModel: NSObject, NSCoding {
     moveNumber -= 1
     updateBlocksToMoveNumber(moveNumber)
   }
+  
+  func displayPuzzleList() {
+    let puzzleListViewController: PuzzleListViewController =
+      PuzzleListViewController()
+    
+    parentViewController?.show(puzzleListViewController, sender: self)
+  }
+
 }

@@ -16,9 +16,14 @@ class MasterModel: NSObject, NSCoding {
 
   required convenience init?(coder aDecoder: NSCoder) {
     self.init()
-    guard let puzzles = aDecoder.decodeObject(forKey: "puzzles") as? Puzzles else { return nil }
-    guard let game = aDecoder.decodeObject(forKey: "game") as? GameModel else { return nil }
-    guard let history = aDecoder.decodeObject(forKey: "history") as? HistoryModel else { return nil }
+    
+    guard let puzzles = aDecoder.decodeObject(forKey: "puzzles") as? Puzzles
+      else { return nil }
+    guard let game = aDecoder.decodeObject(forKey: "game") as? GameModel
+      else { return nil }
+    guard let history = aDecoder.decodeObject(forKey: "history") as? HistoryModel
+      else { return nil }
+    
     self.puzzles = puzzles
     self.game = game
     self.history = history
