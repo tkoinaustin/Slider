@@ -16,7 +16,7 @@ class PuzzleListViewController: UITableViewController {
     super.viewDidLoad()
     
     self.title = "Klotski Puzzles"
-    navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done,
+    navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel,
                                                        target: self,
                                                        action: #selector(dismissController))
 
