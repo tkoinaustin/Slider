@@ -14,6 +14,7 @@ class GameboardViewController: UIViewController {
   private var gridLayout = [[2,1,1,3],[2,1,1,3],[4,6,6,5],[4,7,8,5],[9,0,0,10]]
   // swiftlint:enable comma
   var viewModel = GameboardViewModel()
+  var loadNewPuzzle = true
 
   @IBOutlet private weak var gridView: UIView!
   @IBOutlet private weak var controlBar: ControlBarView! { didSet {
@@ -27,6 +28,7 @@ class GameboardViewController: UIViewController {
 
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
+    guard loadNewPuzzle else { return }
     
     viewModel.loadGrid(gameboard: gridLayout,
                        size: gridView.frame.size,
@@ -36,6 +38,7 @@ class GameboardViewController: UIViewController {
     
     viewModel.loadBlocks(gridView)
     viewModel.game.controlBar.parentViewController = self
+    loadNewPuzzle = false
   }
   
   override func didReceiveMemoryWarning() {
