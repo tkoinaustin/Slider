@@ -27,7 +27,6 @@ class ControlBarView: UIView, XibLoadable {
   }
   
   func setup() {
-    print("----- ControlBarView setup -----")
     viewModel.updateUI = { _ in
       self.updateUI()
     }
