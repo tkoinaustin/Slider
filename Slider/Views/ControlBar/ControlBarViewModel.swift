@@ -52,7 +52,15 @@ class ControlBarViewModel: NSObject, NSCoding {
     let puzzleListViewController: PuzzleListViewController =
       PuzzleListViewController()
     
-    parentViewController?.show(puzzleListViewController, sender: self)
+    let loginNavController = UINavigationController(rootViewController: puzzleListViewController)
+    loginNavController.navigationItem.backBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismiss))
+//    loginNavController.navigationBar.setLe
+    
+    parentViewController?.show(loginNavController, sender: self)
+  }
+  
+  func dismiss() {
+    parentViewController.dismiss(animated: true, completion: nil)
   }
 
 }

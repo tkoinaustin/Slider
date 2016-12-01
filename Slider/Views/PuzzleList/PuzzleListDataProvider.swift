@@ -17,7 +17,7 @@ class PuzzleListDataProvider: NSObject, UITableViewDataSource {
   }
 
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return store!.count
+    return store.count
   }
   
   func tableView(_ tableView: UITableView,

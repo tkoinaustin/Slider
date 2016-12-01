@@ -15,11 +15,20 @@ class PuzzleListViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    self.title = "Klotski Puzzles"
+    navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done,
+                                                       target: self,
+                                                       action: #selector(dismissController))
+
     tableView.separatorStyle = .none
     tableView.dataSource = dataProvider
     dataProvider.registerCellsForTableView(tableView)
 
     tableView.reloadData()
+  }
+  
+  func dismissController() {
+    dismiss(animated: true, completion: nil)
   }
 
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
