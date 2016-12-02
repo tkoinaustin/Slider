@@ -8,10 +8,25 @@
 
 import UIKit
 
-struct Gameboard {
+class Gameboard: NSObject, NSCoding {
+  var index: Int = 0
   var grid = [[Int]]()
   var bestMoves = 0
   var completed = false
+
+  required convenience init?(coder aDecoder: NSCoder) {
+    self.init()
+    index = aDecoder.decodeInteger(forKey: "index")
+    bestMoves = aDecoder.decodeInteger(forKey: "bestMoves")
+    completed = aDecoder.decodeBool(forKey: "completed")
+  }
+  
+  func encode(with aCoder: NSCoder) {
+    aCoder.encode(index, forKey: "index")
+    aCoder.encode(bestMoves, forKey: "bestMoves")
+    aCoder.encode(completed, forKey: "completed")
+  }
+  
 }
 
 class Puzzles {
@@ -86,7 +101,7 @@ class Puzzles {
   let k00 = [[4,2,3,5],[4,2,3,5],[6,6,8,7],[10,1,1,0],[9,1,1,0]]
   // swiftlint:enable comma
   
-  var gameboards: [[[Int]]] {
+  var klotski: [[[Int]]] {
     return [k01, k02, k03, k04, k05, k06, k07, k08, k09, k10,
             k11, k12, k13, k14, k15, k16, k17, k18, k19, k20,
             k21, k22, k23, k24, k25, k26, k27, k28, k29, k30,
@@ -95,5 +110,7 @@ class Puzzles {
             k51, k52, k53, k54, k55, k56, k57, k58, k59, k60,
             k61, k62, k63, k64, k65, k66]
   }
+  
+  var gb: [Gameboard]!
 
 }

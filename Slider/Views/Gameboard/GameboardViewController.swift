@@ -13,6 +13,7 @@ class GameboardViewController: UIViewController {
 //  private var gridLayout = [[2,2,3,4],[1,1,0,4],[1,1,8,0],[5,7,9,11],[5,10,6,12]]
   private var gridLayout = [[2,1,1,3],[2,1,1,3],[4,6,6,5],[4,7,8,5],[9,0,0,10]]
   // swiftlint:enable comma
+  
   var viewModel = GameboardViewModel()
   var loadNewPuzzle = true
 
@@ -25,20 +26,27 @@ class GameboardViewController: UIViewController {
   @IBOutlet private weak var startingBoard: UILabel!
   @IBOutlet private weak var finishingBoard: UILabel!
   @IBOutlet private weak var twoMoveBoard: UILabel!
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    viewModel.game.controlBar.parentViewController = self
+  }
 
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     guard loadNewPuzzle else { return }
     
-    viewModel.loadGrid(gameboard: gridLayout,
-                       size: gridView.frame.size,
+    loadPuzzle(gridLayout)
+    loadNewPuzzle = false
+  }
+  
+  func loadPuzzle(_ puzzleGrid: [[Int]]) {
+    viewModel.loadGrid(gameboard: puzzleGrid,
                        start: startingBoard,
                        finish: finishingBoard,
                        twoMove: twoMoveBoard)
     
     viewModel.loadBlocks(gridView)
-    viewModel.game.controlBar.parentViewController = self
-    loadNewPuzzle = false
   }
   
   override func didReceiveMemoryWarning() {

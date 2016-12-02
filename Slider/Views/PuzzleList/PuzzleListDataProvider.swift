@@ -10,7 +10,7 @@ import UIKit
 
 class PuzzleListDataProvider: NSObject, UITableViewDataSource {
   
-  var store = Puzzles().gameboards
+  var store = Puzzles().klotski
   
   func registerCellsForTableView(_ tableView: UITableView) {
     tableView.register(PuzzleListCell.self, forCellReuseIdentifier: "cell")

@@ -25,13 +25,10 @@ class GameboardViewModel {
   }
   
   func loadGrid(gameboard: [[Int]],
-                size: CGSize,
                 start: UILabel,
                 finish: UILabel,
                 twoMove: UILabel) {
     grid = GridModel(gameboard)
-    self.size = size
-    initBlocks()
     
     grid.start = start
     grid.finish = finish
@@ -48,16 +45,23 @@ class GameboardViewModel {
     let gameMoveData = GameMoveData(block: 0, direction: nil, grid: grid.currentGrid)
     game.setInitialGrid(gameMoveData)
   }
-  
+
   func loadBlocks(_ gridView: UIView) {
-    var blockCount = 0
-    for row in 0..<Rows {
-      for col in 0..<Columns {
-        if grid.currentGrid[row][col] > blockCount { blockCount = grid.currentGrid[row][col] }
+    self.size = gridView.frame.size
+
+    for index in 0..<grid.blockCount {
+      if let blockModel = grid.block(index) {
+        let block = BlockViewModel(model: blockModel)
+        
+        block.canvas = size
+        block.placeBlock(point: GridConstants.blockCenter(row: block.model.origin.row,
+                                                          col: block.model.origin.col,
+                                                          type: block.type))
+        blocks.append(block)
       }
     }
-
-    for index in 1...blockCount {
+    
+    for index in 1..<grid.blockCount {
       let _ = CodedBlockView.get(parent: gridView, game: self, index: index)
     }
   }
@@ -82,23 +86,6 @@ class GameboardViewModel {
     guard index < blocks.count && index > 0 else { return blocks[0] }
     
     return blocks[index]
-  }
-  
-  func initBlocks() {
-    // most of this has been pushed into GameModel
-    for index in 0..<grid.blockCount {
-      if let blockModel = grid.block(index) {
-        let block = BlockViewModel(model: blockModel)
-        
-        if let size = size { block.canvas = size }
-        else { block.canvas = CGSize(width: 320, height: 400) }
-        
-        block.placeBlock(point: GridConstants.blockCenter(row: block.model.origin.row,
-                                                          col: block.model.origin.col,
-                                                          type: block.type))
-        blocks.append(block)
-      }
-    }
   }
   
   func placeAllBlocks() {

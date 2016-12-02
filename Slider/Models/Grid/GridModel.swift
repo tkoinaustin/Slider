@@ -10,13 +10,13 @@ import UIKit
 
 class GridModel {
   
+  private var gridBlocks = [BlockModel]()
+
   private(set) var currentGrid: [[Int]]!
   
   private var zeroMoveBoard: [[Int]]!
   private var oneMoveBoard: [[Int]]?
   private var twoMoveBoard: [[Int]]?
-  
-  private var gridBlocks = [BlockModel]()
   
   private var oneMoveBlocks = [Int]()
   private var twoMoveBlocks = [Int]()
