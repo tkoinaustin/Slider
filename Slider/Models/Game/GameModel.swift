@@ -64,6 +64,10 @@ class GameModel: NSObject, NSCoding {
     
   }
   
+  func clearMoveData() {
+    moveData.removeAll()
+  }
+  
   func setInitialGrid(_ grid: GameMoveData) {
     moveData.append(grid)
   }

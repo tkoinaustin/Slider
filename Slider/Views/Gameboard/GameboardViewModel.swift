@@ -93,6 +93,8 @@ class GameboardViewModel {
     
     game.controlBar.puzzleToLoad = { gameboard in
       guard let gameboard = gameboard else { return }
+      // here is where we need to save current data before loading new puzzle
+      self.game.clearMoveData()
       self.loadPuzzle(gameboard.grid)
     }
   }
