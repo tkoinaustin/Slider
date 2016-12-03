@@ -57,11 +57,12 @@ class GameModel: NSObject, NSCoding {
   }
   
   func loadGame() {
-    
+    guard let game = Archiver.retrieve(model: .game) as? GameModel else { return }
   }
   
+
   func saveGame() {
-    
+    _ = Archiver.store(data: self, model: .game)
   }
   
   func clearMoveData() {

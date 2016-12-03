@@ -13,8 +13,11 @@ class ControlBarViewModel: NSObject, NSCoding {
       updateUI()
   }}
   
-  var moveDataCount: Int = 0
-  var backEnabled: Bool { return moveDataCount > 0 }
+  var moveDataCount: Int = 1 { didSet {
+    updateUI()
+  }}
+
+  var backEnabled: Bool { return moveDataCount > 1 }
   var forwardEnabled: Bool { return moveNumber < moveDataCount - 1 }
   
   var puzzleLabel: String = ""
