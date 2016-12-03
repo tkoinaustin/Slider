@@ -15,9 +15,9 @@ let Columns = 4
 
 class GameboardViewModel {
   
+  private var gridView: UIView!
   private var blocks = [BlockViewModel]()
   private var size: CGSize!
-  var gridView: UIView!
   private var grid: GridModel!
   private(set) var game = GameModel()
   
@@ -25,7 +25,9 @@ class GameboardViewModel {
     return blocks.count
   }
   
-  var loadIt: (([[Int]]) -> ()) = { _ in }
+  func assignGridView(_ gridView: UIView) {
+    self.gridView = gridView
+  }
   
   func loadPuzzle(_ puzzleGrid: [[Int]]?) {
     if let puzzleGrid = puzzleGrid { loadGrid(gameboard: puzzleGrid) }
@@ -91,7 +93,7 @@ class GameboardViewModel {
     
     game.controlBar.puzzleToLoad = { gameboard in
       guard let gameboard = gameboard else { return }
-      self.loadIt(gameboard.grid)
+      self.loadPuzzle(gameboard.grid)
     }
   }
   

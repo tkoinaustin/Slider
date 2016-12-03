@@ -54,13 +54,14 @@ class ControlBarViewModel: NSObject, NSCoding {
 
     puzzleLabel = "\(gameboard.name) \(gameboard.index)"
     timerCount = 0
+    moveNumber = 0
     updateUI()
     puzzleToLoad(gameboard)
   }
   
   func displayPuzzleList() {
     let puzzleListViewController: PuzzleListViewController = PuzzleListViewController()
-    puzzleListViewController.puzzleToLoad = newPuzzle
+    puzzleListViewController.loadNewPuzzle = newPuzzle
     
     let loginNavController = UINavigationController(rootViewController: puzzleListViewController)
     loginNavController.navigationItem.backBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismiss))

@@ -11,7 +11,7 @@ import UIKit
 class PuzzleListViewController: UITableViewController {
   var dataProvider = PuzzleListDataProvider()
   var selected: PuzzleListCell? = nil 
-  var puzzleToLoad: ((Gameboard?) -> ()) = { _ in }
+  var loadNewPuzzle: ((Gameboard?) -> ()) = { _ in }
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -29,7 +29,7 @@ class PuzzleListViewController: UITableViewController {
   }
   
   func dismissController() {
-    puzzleToLoad(nil)
+    loadNewPuzzle(nil)
     dismiss(animated: true, completion: nil)
   }
 
@@ -37,12 +37,8 @@ class PuzzleListViewController: UITableViewController {
     if let cell = tableView.cellForRow(at: indexPath) as? PuzzleListCell {
       guard cell != selected else { return }
       let gameboard = dataProvider.store[indexPath.row]
-      puzzleToLoad(gameboard)
+      loadNewPuzzle(gameboard)
       dismiss(animated: true, completion: nil ) // { self.puzzleToLoad(gameboard) })
-
-//      cell.select()
-//      selected?.deselect()
-//      selected = cell
     }
   }
 }
