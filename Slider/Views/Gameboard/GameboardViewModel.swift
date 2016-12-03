@@ -17,6 +17,7 @@ class GameboardViewModel {
   
   private var blocks = [BlockViewModel]()
   private var size: CGSize!
+  var gridView: UIView!
   private var grid: GridModel!
   private(set) var game = GameModel()
   
@@ -24,17 +25,21 @@ class GameboardViewModel {
     return blocks.count
   }
   
-  func loadGrid(gameboard: [[Int]],
-                start: UILabel,
-                finish: UILabel,
-                twoMove: UILabel) {
+  var loadIt: (([[Int]]) -> ()) = { _ in }
+  
+  func loadPuzzle(_ puzzleGrid: [[Int]]?) {
+    if let puzzleGrid = puzzleGrid { loadGrid(gameboard: puzzleGrid) }
+    else { loadGrid(gameboard: puzzleGrid!) }
+    
+    loadBlocks(gridView)
+  }
+  
+  func loadGrid(gameboard: [[Int]]) {
+    if let grid = grid { grid.releaseBlocks() }
+    
     grid = GridModel(gameboard)
     
-    grid.start = start
-    grid.finish = finish
-    grid.twoMove = twoMove
-    
-    grid.gridViewModelUpdateUI = {
+    grid.gameboardViewModelUpdateUI = {
       self.placeAllBlocks()
     }
     
@@ -48,6 +53,8 @@ class GameboardViewModel {
 
   func loadBlocks(_ gridView: UIView) {
     self.size = gridView.frame.size
+    
+    blocks.removeAll()
 
     for index in 0..<grid.blockCount {
       if let blockModel = grid.block(index) {
@@ -61,6 +68,7 @@ class GameboardViewModel {
       }
     }
     
+    for blockView in gridView.subviews { blockView.removeFromSuperview() }
     for index in 1..<grid.blockCount {
       let _ = CodedBlockView.get(parent: gridView, game: self, index: index)
     }
@@ -74,11 +82,16 @@ class GameboardViewModel {
       let moveBoard = self.game.moveData[index].grid
       self.grid.setCurrentGrid(moveBoard)
       self.grid.updateBlockOriginsForBoard(moveBoard)
-      self.grid.gridViewModelUpdateUI()
+      self.grid.gameboardViewModelUpdateUI()
     }
     
     game.controlBar.trimMoveData = { index in
       self.game.trim(index)
+    }
+    
+    game.controlBar.puzzleToLoad = { gameboard in
+      guard let gameboard = gameboard else { return }
+      self.loadIt(gameboard.grid)
     }
   }
   

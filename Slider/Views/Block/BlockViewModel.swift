@@ -27,7 +27,7 @@ enum BlockType {
 
 class BlockViewModel {
   var index: Int!
-  var model: BlockModel!
+  weak var model: BlockModel!
 
   private(set) var center: CGPoint!
   var startingCenter: CGPoint!

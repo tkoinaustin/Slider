@@ -14,11 +14,12 @@ class ControlBarView: UIView, XibLoadable {
   let ibTag = 13
   let viewModel = ControlBarViewModel()
   
+  @IBOutlet private weak var puzzle: UIButton!
   @IBOutlet private weak var moveNumber: UILabel!
   @IBOutlet private weak var back: UIButton!
   @IBOutlet private weak var forward: UIButton!
   @IBOutlet private weak var timerView: TimerView! { didSet {
-    timerView.count = viewModel.timerCount
+    timerView.viewModel = viewModel
   }}
   
   @IBAction func backAction(_ sender: UIButton) {
@@ -51,6 +52,7 @@ class ControlBarView: UIView, XibLoadable {
   func updateUI() {
     back.isEnabled = viewModel.backEnabled
     forward.isEnabled = viewModel.forwardEnabled
+    puzzle.setTitle(viewModel.puzzleLabel, for: .normal)
 
     UIView.animate(withDuration: 0.2, animations: {
       self.moveNumber.alpha = 0

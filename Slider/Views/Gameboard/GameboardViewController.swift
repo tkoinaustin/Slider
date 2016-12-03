@@ -17,19 +17,18 @@ class GameboardViewController: UIViewController {
   var viewModel = GameboardViewModel()
   var loadNewPuzzle = true
 
-  @IBOutlet private weak var gridView: UIView!
+  @IBOutlet private weak var gridView: UIView! { didSet {
+    viewModel.gridView = gridView
+  }}
   @IBOutlet private weak var controlBar: ControlBarView! { didSet {
     viewModel.game.assignControlBar(controlBar.viewModel)
     viewModel.setControlBarClosure()
+    viewModel.game.controlBar.parentViewController = self
   }}
- 
-  @IBOutlet private weak var startingBoard: UILabel!
-  @IBOutlet private weak var finishingBoard: UILabel!
-  @IBOutlet private weak var twoMoveBoard: UILabel!
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    viewModel.game.controlBar.parentViewController = self
+    viewModel.loadIt = { grid in self.loadPuzzle(grid) }
   }
 
   override func viewDidAppear(_ animated: Bool) {
@@ -41,11 +40,7 @@ class GameboardViewController: UIViewController {
   }
   
   func loadPuzzle(_ puzzleGrid: [[Int]]) {
-    viewModel.loadGrid(gameboard: puzzleGrid,
-                       start: startingBoard,
-                       finish: finishingBoard,
-                       twoMove: twoMoveBoard)
-    
+    viewModel.loadGrid(gameboard: puzzleGrid)
     viewModel.loadBlocks(gridView)
   }
   

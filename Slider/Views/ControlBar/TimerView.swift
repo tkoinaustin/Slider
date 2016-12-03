@@ -15,9 +15,9 @@ class TimerView: UIView {
   fileprivate var minute = ""
   fileprivate var second =  ""
   fileprivate var timer: Timer?
-  var count = 0
   var labelView: UILabel!
-  
+  var viewModel: ControlBarViewModel!
+
   public override init(frame: CGRect) {
     super.init(frame: frame)
     setup()
@@ -55,13 +55,19 @@ class TimerView: UIView {
     timer?.invalidate()
   }
   
+  func reset() {
+    stop()
+    viewModel.timerCount = 0
+    start()
+  }
+  
   func fired() {
     // do the timer thing
-    count += 1
+    viewModel.timerCount += 1
     
-    hour = (count / 3600).description
-    minute = (count % 3600 / 60).description
-    second = (count % 60).description
+    hour = (viewModel.timerCount / 3600).description
+    minute = (viewModel.timerCount % 3600 / 60).description
+    second = (viewModel.timerCount % 60).description
     
     if hour.lengthOfBytes(using: .ascii) == 1 { hour = "0\(hour)" }
     if minute.lengthOfBytes(using: .ascii) == 1 { minute = "0\(minute)" }

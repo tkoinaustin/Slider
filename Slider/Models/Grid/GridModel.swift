@@ -27,11 +27,7 @@ class GridModel {
   private var notThisDirection: Direction?
   private var board: Board = .moveOneSpace
   
-  var start: UILabel!
-  var finish: UILabel!
-  var twoMove: UILabel!
-  
-  var gridViewModelUpdateUI: (() -> ()) = { _ in }
+  var gameboardViewModelUpdateUI: (() -> ()) = { _ in }
   var gameModelMoveFinished: ((_: GameMoveData) -> ()) = { move in }
 
   var blockCount: Int {
@@ -52,6 +48,10 @@ class GridModel {
     self.currentGrid = grid
     gridBlocks = GridModelInitialization().initBlocks(grid: grid)
     for block in gridBlocks { setClosures(block) }
+  }
+  
+  func releaseBlocks() {
+    gridBlocks.removeAll()
   }
   
   func setCurrentGrid(_ grid: [[Int]]) {
@@ -126,7 +126,7 @@ class GridModel {
     currentGrid = gridForBoard(board: board)
     updateBlockOriginsForBoard(currentGrid)
     resetBlocks()
-    gridViewModelUpdateUI()
+    gameboardViewModelUpdateUI()
 
     oneMoveBoard = nil
     twoMoveBoard = nil
@@ -163,9 +163,9 @@ class GridModel {
       return false
     }
     
-    start.text =  GridModelUtility.showBoard(board: .moveZeroSpaces, grid: currentGrid)
-    finish.text = GridModelUtility.showBoard(board: .moveOneSpace, grid: oneMoveBoard)
-    twoMove.text = GridModelUtility.showBoard(board: .moveTwoSpaces, grid: twoMoveBoard)
+    print("\(GridModelUtility.showBoard(board: .moveZeroSpaces, grid: currentGrid))")
+    print("\(GridModelUtility.showBoard(board: .moveOneSpace, grid: oneMoveBoard))")
+    print("\(GridModelUtility.showBoard(board: .moveTwoSpaces, grid: twoMoveBoard))")
     setMinMaxMove(direction)
     return true
   }

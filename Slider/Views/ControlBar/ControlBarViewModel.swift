@@ -17,7 +17,7 @@ class ControlBarViewModel: NSObject, NSCoding {
   var backEnabled: Bool { return moveDataCount > 0 }
   var forwardEnabled: Bool { return moveNumber < moveDataCount - 1 }
   
-  var time: String = ""
+  var puzzleLabel: String = ""
   var timer: Timer?
   var timerCount = 0
   var parentViewController: UIViewController!
@@ -25,16 +25,17 @@ class ControlBarViewModel: NSObject, NSCoding {
   var updateUI: (() -> ()) = {}
   var updateBlocksToMoveNumber: ((Int) -> ()) = {_ in }
   var trimMoveData: ((Int) -> ()) = { _ in }
+  var puzzleToLoad: ((Gameboard?) -> ()) = { _ in }
 
   required convenience init?(coder aDecoder: NSCoder) {
     self.init()
     moveNumber = aDecoder.decodeInteger(forKey: "moveNumber")
-    if let time1 = aDecoder.decodeObject(forKey: "time") as? String { time = time1 }
+    if let puzzleLabel1 = aDecoder.decodeObject(forKey: "puzzleLabel") as? String { puzzleLabel = puzzleLabel1 }
   }
   
   func encode(with aCoder: NSCoder) {
     aCoder.encode(moveNumber, forKey: "moveNumber")
-    aCoder.encode(time, forKey: "time")
+    aCoder.encode(puzzleLabel, forKey: "puzzleLabel")
   }
   
   func forward() {
@@ -48,19 +49,27 @@ class ControlBarViewModel: NSObject, NSCoding {
     updateBlocksToMoveNumber(moveNumber)
   }
   
+  func newPuzzle(gameboard: Gameboard?) {
+    guard let gameboard = gameboard else { return }
+
+    puzzleLabel = "\(gameboard.name) \(gameboard.index)"
+    timerCount = 0
+    updateUI()
+    puzzleToLoad(gameboard)
+  }
+  
   func displayPuzzleList() {
-    let puzzleListViewController: PuzzleListViewController =
-      PuzzleListViewController()
+    let puzzleListViewController: PuzzleListViewController = PuzzleListViewController()
+    puzzleListViewController.puzzleToLoad = newPuzzle
     
     let loginNavController = UINavigationController(rootViewController: puzzleListViewController)
     loginNavController.navigationItem.backBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismiss))
-//    loginNavController.navigationBar.setLe
     
     parentViewController?.show(loginNavController, sender: self)
   }
   
   func dismiss() {
-    parentViewController.dismiss(animated: true, completion: nil)
+//    parentViewController.dismiss(animated: true, completion: nil)
   }
 
 }

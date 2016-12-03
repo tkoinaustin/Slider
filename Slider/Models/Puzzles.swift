@@ -9,19 +9,39 @@
 import UIKit
 
 class Gameboard: NSObject, NSCoding {
+  var name = ""
   var index: Int = 0
   var grid = [[Int]]()
   var bestMoves = 0
   var completed = false
+  
+  override init() {
+    name = ""
+    index = 0
+    grid = [[Int]]()
+    bestMoves = 0
+    completed = false
+  }
+  
+  required init(name: String, index: Int, grid: [[Int]], bestMoves: Int, completed: Bool) {
+    self.name = name
+    self.index = index
+    self.grid = grid
+    self.bestMoves = bestMoves
+    self.completed = completed
+  }
 
   required convenience init?(coder aDecoder: NSCoder) {
     self.init()
+    if let name = aDecoder.decodeObject(forKey: "name") as? String { self.name = name }
     index = aDecoder.decodeInteger(forKey: "index")
     bestMoves = aDecoder.decodeInteger(forKey: "bestMoves")
     completed = aDecoder.decodeBool(forKey: "completed")
+//    self.init(name: name, index: index, grid: grid, bestMoves: bestMoves, completed: completed)
   }
   
   func encode(with aCoder: NSCoder) {
+    aCoder.encode(index, forKey: "name")
     aCoder.encode(index, forKey: "index")
     aCoder.encode(bestMoves, forKey: "bestMoves")
     aCoder.encode(completed, forKey: "completed")
@@ -101,16 +121,27 @@ class Puzzles {
   let k00 = [[4,2,3,5],[4,2,3,5],[6,6,8,7],[10,1,1,0],[9,1,1,0]]
   // swiftlint:enable comma
   
-  var klotski: [[[Int]]] {
-    return [k01, k02, k03, k04, k05, k06, k07, k08, k09, k10,
-            k11, k12, k13, k14, k15, k16, k17, k18, k19, k20,
-            k21, k22, k23, k24, k25, k26, k27, k28, k29, k30,
-            k31, k32, k33, k34, k35, k36, k37, k38, k39, k40,
-            k41, k42, k43, k44, k45, k46, k47, k48, k49, k50,
-            k51, k52, k53, k54, k55, k56, k57, k58, k59, k60,
-            k61, k62, k63, k64, k65, k66]
-  }
+  var iVarKlotski = [Gameboard]()
   
-  var gb: [Gameboard]!
+  var klotski: [Gameboard] {
+    var kloskiGrids = [k01, k02, k03, k04, k05, k06, k07, k08, k09, k10,
+                       k11, k12, k13, k14, k15, k16, k17, k18, k19, k20,
+                       k21, k22, k23, k24, k25, k26, k27, k28, k29, k30,
+                       k31, k32, k33, k34, k35, k36, k37, k38, k39, k40,
+                       k41, k42, k43, k44, k45, k46, k47, k48, k49, k50,
+                       k51, k52, k53, k54, k55, k56, k57, k58, k59, k60,
+                       k61, k62, k63, k64, k65, k66]
 
+    if iVarKlotski.isEmpty {
+      for idx in 0..<kloskiGrids.count {
+        iVarKlotski.append(Gameboard(name: "Klotski",
+                                     index: idx,
+                                     grid: kloskiGrids[idx],
+                                     bestMoves: 0,
+                                     completed: false))
+      }
+    }
+    
+    return iVarKlotski
+  }
 }

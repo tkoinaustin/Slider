@@ -19,7 +19,8 @@ class BlockModel: Hashable {
     } else {
       print("------ direction changed to nil")
     }
-    }}
+  }}
+  
   weak var viewModel: BlockViewModel!
 
   var doubleMoveLegal = false
