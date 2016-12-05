@@ -21,10 +21,4 @@ class GameboardViewController: UIViewController {
     viewModel.setControlBarClosure()
     viewModel.game.controlBar.parentViewController = self
   }}
-
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    print("GameBoardViewController: didReceiveMemoryWarning()")
-  }
-  
 }

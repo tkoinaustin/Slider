@@ -66,8 +66,8 @@ class TimerView: UIView {
     viewModel.timerCount += 1
     
     hour = (viewModel.timerCount / 3600).description
-    minute = (viewModel.timerCount % 3600 / 60).description
-    second = (viewModel.timerCount % 60).description
+    minute = (Int(viewModel.timerCount) % 3600 / 60).description
+    second = (Int(viewModel.timerCount) % 60).description
     
     if hour.lengthOfBytes(using: .ascii) == 1 { hour = "0\(hour)" }
     if minute.lengthOfBytes(using: .ascii) == 1 { minute = "0\(minute)" }

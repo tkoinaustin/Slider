@@ -10,11 +10,11 @@ import UIKit
 
 class ControlBarViewModel: NSObject, NSCoding {
   var moveNumber: Int = 0 { didSet {
-      updateUI()
+      updateControlBarUI()
   }}
   
   var moveDataCount: Int = 1 { didSet {
-    updateUI()
+    updateControlBarUI()
   }}
 
   var backEnabled: Bool { return moveDataCount > 1 }
@@ -22,13 +22,15 @@ class ControlBarViewModel: NSObject, NSCoding {
   
   var puzzleLabel: String = ""
   var timer: Timer?
-  var timerCount = 0
+  var timerCount: TimeInterval = 0
   var parentViewController: UIViewController!
   
-  var updateUI: (() -> ()) = {}
+  var updateControlBarUI: (() -> ()) = {}
   var updateBlocksToMoveNumber: ((Int) -> ()) = {_ in }
   var trimMoveData: ((Int) -> ()) = { _ in }
   var puzzleToLoad: ((Gameboard?) -> ()) = { _ in }
+  var load: (() -> ()) = { }
+  var save: ((TimeInterval) -> ()) = { _ in }
 
   required convenience init?(coder aDecoder: NSCoder) {
     self.init()
@@ -39,6 +41,14 @@ class ControlBarViewModel: NSObject, NSCoding {
   func encode(with aCoder: NSCoder) {
     aCoder.encode(moveNumber, forKey: "moveNumber")
     aCoder.encode(puzzleLabel, forKey: "puzzleLabel")
+  }
+  
+  func loadIt() {
+    load()
+  }
+  
+  func saveIt() {
+    save(timerCount)
   }
   
   func forward() {
@@ -55,10 +65,10 @@ class ControlBarViewModel: NSObject, NSCoding {
   func newPuzzle(gameboard: Gameboard?) {
     guard let gameboard = gameboard else { return }
 
-    puzzleLabel = "\(gameboard.name) \(gameboard.index)"
+    puzzleLabel = "\(gameboard.name)"
     timerCount = 0
     moveNumber = 0
-    updateUI()
+    updateControlBarUI()
     puzzleToLoad(gameboard)
   }
   

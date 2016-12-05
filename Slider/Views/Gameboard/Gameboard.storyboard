@@ -30,8 +30,8 @@
                                     <constraint firstAttribute="width" secondItem="bie-Xn-ZpF" secondAttribute="height" multiplier="4:5" id="LfD-oR-lFq"/>
                                 </constraints>
                             </view>
-                            <view tag="13" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ds-Bj-rJn" userLabel="control bar" customClass="ControlBarView" customModule="Slider" customModuleProvider="target">
-                                <rect key="frame" x="16" y="582" width="343" height="65"/>
+                            <view tag="13" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ds-Bj-rJn" userLabel="control bar" customClass="ControlBarView" customModule="Slider" customModuleProvider="target">
+                                <rect key="frame" x="16" y="577" width="343" height="70"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>

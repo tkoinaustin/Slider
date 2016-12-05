@@ -92,10 +92,16 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ga-aj-DBA">
                                     <rect key="frame" x="172" y="0.0" width="34" height="35"/>
                                     <state key="normal" title="Save"/>
+                                    <connections>
+                                        <action selector="save:" destination="iN0-l3-epB" eventType="touchUpInside" id="CpX-J9-lZ4"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F5S-qf-EH0">
                                     <rect key="frame" x="258.5" y="0.0" width="34" height="35"/>
                                     <state key="normal" title="Load"/>
+                                    <connections>
+                                        <action selector="load:" destination="iN0-l3-epB" eventType="touchUpInside" id="J7k-ge-Ygy"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5uV-DI-a3d">
                                     <rect key="frame" x="345" y="0.0" width="30" height="35"/>

@@ -134,7 +134,7 @@ class Puzzles {
 
     if iVarKlotski.isEmpty {
       for idx in 0..<kloskiGrids.count {
-        iVarKlotski.append(Gameboard(name: "Klotski",
+        iVarKlotski.append(Gameboard(name: "Klotski \(idx)",
                                      index: idx,
                                      grid: kloskiGrids[idx],
                                      bestMoves: 0,

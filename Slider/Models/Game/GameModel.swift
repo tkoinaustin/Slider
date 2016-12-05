@@ -9,15 +9,17 @@
 import UIKit
 
 class GameModel: NSObject, NSCoding {
+  var name = ""
+  var gameTime: TimeInterval!
   private(set) var completed = false
   private(set) var datePlayed = Date()
-  private(set) var gameTime: TimeInterval!
+  private(set) var controlBar = ControlBarViewModel()
   private(set) var moveData = [GameMoveData]() { didSet {
     controlBar.moveDataCount = moveData.count
   }}
-  private(set) var controlBar = ControlBarViewModel()
   
-  init(completed: Bool, datePlayed: Date, gameTime: TimeInterval, moveData: [GameMoveData]) {
+  init(name: String, completed: Bool, datePlayed: Date, gameTime: TimeInterval, moveData: [GameMoveData]) {
+    self.name = name
     self.completed = completed
     self.datePlayed = datePlayed
     self.gameTime = gameTime
@@ -25,13 +27,24 @@ class GameModel: NSObject, NSCoding {
   }
   
   override init() {
+    self.name = ""
     self.completed = false
     self.datePlayed = Date()
     self.gameTime = 0
     self.moveData = [GameMoveData]()
   }
   
+  func copy(_ game: GameModel) {
+    self.name = game.name
+    self.completed = game.completed
+    self.datePlayed = game.datePlayed
+    self.gameTime = game.gameTime
+    self.moveData = game.moveData
+  }
+  
   required convenience init?(coder aDecoder: NSCoder) {
+    guard let name = aDecoder.decodeObject(forKey: "name") as? String
+      else { return nil }
     let completed = aDecoder.decodeBool(forKey: "completed")
     guard let datePlayed = aDecoder.decodeObject(forKey: "datePlayed") as? Date
       else { return nil }
@@ -39,13 +52,15 @@ class GameModel: NSObject, NSCoding {
       else { return nil }
     guard let moveData = aDecoder.decodeObject(forKey: "moveData") as? [GameMoveData]
       else { return nil }
-    self.init(completed: completed,
+    self.init(name: name,
+              completed: completed,
               datePlayed: datePlayed,
               gameTime: gameTime,
               moveData: moveData)
   }
   
   func encode(with aCoder: NSCoder) {
+    aCoder.encode(name, forKey: "name")
     aCoder.encode(completed, forKey: "completed")
     aCoder.encode(datePlayed, forKey: "datePlayed")
     aCoder.encode(gameTime, forKey: "gameTime")
@@ -54,15 +69,6 @@ class GameModel: NSObject, NSCoding {
 
   var moves: Int {
     return moveData.count
-  }
-  
-  func loadGame() {
-    guard let game = Archiver.retrieve(model: .game) as? GameModel else { return }
-  }
-  
-
-  func saveGame() {
-    _ = Archiver.store(data: self, model: .game)
   }
   
   func clearMoveData() {
