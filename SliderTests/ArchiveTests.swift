@@ -31,7 +31,11 @@ class ArchiveTests: XCTestCase {
                              direction: .down,
                              grid: [[2,2,3,4],[1,1,0,4],[1,1,8,0],[5,7,9,11],[5,10,6,6]])]
     
-    gameModel = GameModel(name: "test", completed: false, datePlayed: Date(), gameTime: 10, moveData: moveData)
+    gameModel = GameModel(name: "test",
+                          completed: false,
+                          datePlayed: Date(),
+                          gameTime: 10,
+                          moveData: moveData)
     // swiftlint:enable comma
   }
   

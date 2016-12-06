@@ -10,13 +10,12 @@ import UIKit
 
 class ControlBarViewModel: NSObject, NSCoding {
   var moveNumber: Int = 0 { didSet {
-      updateControlBarUI()
+    print("move number: \(moveNumber)")
+    if moveNumber != oldValue { updateControlBarUI() }
+    if moveNumber != oldValue { print("updating move number to \(moveNumber)") }
   }}
   
-  var moveDataCount: Int = 1 { didSet {
-    updateControlBarUI()
-  }}
-
+  var moveDataCount: Int = 1
   var backEnabled: Bool { return moveDataCount > 1 }
   var forwardEnabled: Bool { return moveNumber < moveDataCount - 1 }
   
@@ -35,7 +34,8 @@ class ControlBarViewModel: NSObject, NSCoding {
   required convenience init?(coder aDecoder: NSCoder) {
     self.init()
     moveNumber = aDecoder.decodeInteger(forKey: "moveNumber")
-    if let puzzleLabel1 = aDecoder.decodeObject(forKey: "puzzleLabel") as? String { puzzleLabel = puzzleLabel1 }
+    if let puzzleLabel1 = aDecoder.decodeObject(forKey: "puzzleLabel")
+      as? String { puzzleLabel = puzzleLabel1 }
   }
   
   func encode(with aCoder: NSCoder) {
@@ -77,7 +77,8 @@ class ControlBarViewModel: NSObject, NSCoding {
     puzzleListViewController.loadNewPuzzle = newPuzzle
     
     let loginNavController = UINavigationController(rootViewController: puzzleListViewController)
-    loginNavController.navigationItem.backBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismiss))
+    loginNavController.navigationItem.backBarButtonItem =
+      UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismiss))
     
     parentViewController?.show(loginNavController, sender: self)
   }

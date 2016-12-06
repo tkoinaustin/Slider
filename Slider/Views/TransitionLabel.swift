@@ -16,12 +16,11 @@ class TransitionLabel: UILabel {
   var newLabel = UILabel()
   
   func setLabel(_ text: String) {
-    newLabel.text = text
-    UIView.animate(withDuration: 0.1, animations: {
-      self.newLabel.alpha = 1
-    }, completion: { _ in
-      self.text = text
+    UIView.animate(withDuration: 0.2, animations: {
       self.newLabel.alpha = 0
+    }, completion: { _ in
+      self.newLabel.text = text
+      self.newLabel.alpha = 1
     })
   }
   
@@ -37,6 +36,8 @@ class TransitionLabel: UILabel {
   
   func setup() {
     self.addSubview(newLabel)
+    self.newLabel.textAlignment = self.textAlignment
+
     newLabel.translatesAutoresizingMaskIntoConstraints = false
     let margins = layoutMarginsGuide
     
@@ -44,8 +45,6 @@ class TransitionLabel: UILabel {
     newLabel.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: 8).isActive = true
     newLabel.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: -8).isActive = true
     newLabel.trailingAnchor.constraint(equalTo:margins.trailingAnchor, constant: 8).isActive = true
-    
-
   }
 
 }

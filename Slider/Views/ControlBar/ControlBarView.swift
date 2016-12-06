@@ -62,13 +62,5 @@ class ControlBarView: UIView, XibLoadable {
     forward.isEnabled = viewModel.forwardEnabled
     puzzle.setTitle(viewModel.puzzleLabel, for: .normal)
     moveNumber.text = viewModel.moveNumber.description
-    UIView.animate(withDuration: 0.2, animations: {
-      self.moveNumber.alpha = 0
-    }, completion: { _ in
-      self.moveNumber.text = self.viewModel.moveNumber.description
-      UIView.animate(withDuration: 0.2, animations: {
-      self.moveNumber.alpha = 1
-      })
-    })
   }
 }

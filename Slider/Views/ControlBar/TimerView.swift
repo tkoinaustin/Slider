@@ -15,7 +15,7 @@ class TimerView: UIView {
   fileprivate var minute = ""
   fileprivate var second =  ""
   fileprivate var timer: Timer?
-  var labelView: UILabel!
+  var labelView: TransitionLabel!
   var viewModel: ControlBarViewModel!
 
   public override init(frame: CGRect) {
@@ -29,7 +29,7 @@ class TimerView: UIView {
   }
   
   func setup() {
-    labelView = UILabel(frame: frame)
+    labelView = TransitionLabel(frame: frame)
     
     self.addSubview(labelView)
     labelView.translatesAutoresizingMaskIntoConstraints = false

@@ -18,7 +18,11 @@ class GameModel: NSObject, NSCoding {
     controlBar.moveDataCount = moveData.count
   }}
   
-  init(name: String, completed: Bool, datePlayed: Date, gameTime: TimeInterval, moveData: [GameMoveData]) {
+  init(name: String,
+       completed: Bool,
+       datePlayed: Date,
+       gameTime: TimeInterval,
+       moveData: [GameMoveData]) {
     self.name = name
     self.completed = completed
     self.datePlayed = datePlayed

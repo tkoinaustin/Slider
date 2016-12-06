@@ -101,7 +101,7 @@ class GameboardViewModel {
     }
     
     game.controlBar.load = {
-      self.loadGame()
+      let _ = self.restoreGame()
     }
     
     game.controlBar.save = { counter in
@@ -125,8 +125,14 @@ class GameboardViewModel {
     }
   }
   
-  func loadGame() {
-    guard let restoredGame = Archiver.retrieve(model: .game) as? GameModel else { return }
+  func startGame() {
+    if !restoreGame() {
+      game.controlBar.displayPuzzleList()
+    }
+  }
+  
+  func restoreGame() -> Bool {
+    guard let restoredGame = Archiver.retrieve(model: .game) as? GameModel else { return false }
     print("name: \(game.name)")
     game.copy(restoredGame)
     game.controlBar.puzzleLabel = "\(game.name)"
@@ -135,6 +141,8 @@ class GameboardViewModel {
     game.controlBar.updateControlBarUI()
 
     loadPuzzle(game.moveData.last?.grid)
+    
+    return true
   }
   
   func saveGame() {
