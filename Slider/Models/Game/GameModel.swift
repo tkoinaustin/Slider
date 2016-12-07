@@ -10,29 +10,19 @@ import UIKit
 
 class GameModel: NSObject, NSCoding {
   var name = ""
+  var index: Int = 0
   var gameTime: TimeInterval!
-  private(set) var completed = false
+  private(set) var won = false
   private(set) var datePlayed = Date()
   private(set) var controlBar = ControlBarViewModel()
   private(set) var moveData = [GameMoveData]() { didSet {
     controlBar.moveDataCount = moveData.count
   }}
   
-  init(name: String,
-       completed: Bool,
-       datePlayed: Date,
-       gameTime: TimeInterval,
-       moveData: [GameMoveData]) {
-    self.name = name
-    self.completed = completed
-    self.datePlayed = datePlayed
-    self.gameTime = gameTime
-    self.moveData = moveData
-  }
-  
   override init() {
     self.name = ""
-    self.completed = false
+    self.index = 0
+    self.won = false
     self.datePlayed = Date()
     self.gameTime = 0
     self.moveData = [GameMoveData]()
@@ -40,32 +30,31 @@ class GameModel: NSObject, NSCoding {
   
   func copy(_ game: GameModel) {
     self.name = game.name
-    self.completed = game.completed
+    self.index = game.index
+    self.won = game.won
     self.datePlayed = game.datePlayed
     self.gameTime = game.gameTime
     self.moveData = game.moveData
   }
   
   required convenience init?(coder aDecoder: NSCoder) {
-    guard let name = aDecoder.decodeObject(forKey: "name") as? String
-      else { return nil }
-    let completed = aDecoder.decodeBool(forKey: "completed")
-    guard let datePlayed = aDecoder.decodeObject(forKey: "datePlayed") as? Date
-      else { return nil }
-    guard let gameTime = aDecoder.decodeObject(forKey: "gameTime") as? TimeInterval
-      else { return nil }
-    guard let moveData = aDecoder.decodeObject(forKey: "moveData") as? [GameMoveData]
-      else { return nil }
-    self.init(name: name,
-              completed: completed,
-              datePlayed: datePlayed,
-              gameTime: gameTime,
-              moveData: moveData)
+    self.init()
+    if let name = aDecoder.decodeObject(forKey: "name")
+      as? String { self.name = name }
+    index = aDecoder.decodeInteger(forKey: "index")
+    won = aDecoder.decodeBool(forKey: "won")
+    if let datePlayed = aDecoder.decodeObject(forKey: "datePlayed")
+      as? Date { self.datePlayed = datePlayed }
+    if let gameTime = aDecoder.decodeObject(forKey: "gameTime")
+      as? TimeInterval { self.gameTime = gameTime }
+    if let moveData = aDecoder.decodeObject(forKey: "moveData")
+      as? [GameMoveData] { self.moveData = moveData }
   }
   
   func encode(with aCoder: NSCoder) {
     aCoder.encode(name, forKey: "name")
-    aCoder.encode(completed, forKey: "completed")
+    aCoder.encode(index, forKey: "index")
+    aCoder.encode(won, forKey: "won")
     aCoder.encode(datePlayed, forKey: "datePlayed")
     aCoder.encode(gameTime, forKey: "gameTime")
     aCoder.encode(moveData, forKey: "moveData")
