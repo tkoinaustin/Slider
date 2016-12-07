@@ -21,4 +21,8 @@ class GameboardViewController: UIViewController {
     viewModel.setControlBarClosure()
     viewModel.game.controlBar.parentViewController = self
   }}
+  
+  override func viewDidLoad() {
+    viewModel.startGame()
+  }
 }

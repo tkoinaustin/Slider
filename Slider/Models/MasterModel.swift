@@ -12,7 +12,7 @@ class MasterModel: NSObject, NSCoding {
   
   var puzzles = Puzzles()
   var game = GameModel()
-  var history = HistoryModel()
+  var history = [HistoryModel]()
 
   required convenience init?(coder aDecoder: NSCoder) {
     self.init()
@@ -21,7 +21,7 @@ class MasterModel: NSObject, NSCoding {
       else { return nil }
     guard let game = aDecoder.decodeObject(forKey: "game") as? GameModel
       else { return nil }
-    guard let history = aDecoder.decodeObject(forKey: "history") as? HistoryModel
+    guard let history = aDecoder.decodeObject(forKey: "history") as? [HistoryModel]
       else { return nil }
     
     self.puzzles = puzzles

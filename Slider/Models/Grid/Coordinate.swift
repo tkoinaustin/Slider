@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Coordinate {
+struct Coordinate: Equatable {
   var row: Int
   var col: Int
   
@@ -29,4 +29,9 @@ struct Coordinate {
       return Coordinate(row:self.row, col:self.col + 1)
     }
   }
+  
+  public static func == (lhs: Coordinate, rhs: Coordinate) -> Bool {
+    return lhs.row == rhs.row && lhs.col == rhs.col
+  }
+
 }

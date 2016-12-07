@@ -8,6 +8,8 @@
 
 import UIKit
 
+let winningCoordinates = Coordinate(row:3, col:1)
+
 class GridModel {
   
   private var gridBlocks = [BlockModel]()
@@ -29,6 +31,9 @@ class GridModel {
   
   var gameboardViewModelUpdateUI: (() -> ()) = { _ in }
   var gameModelMoveFinished: ((_: GameMoveData) -> ()) = { move in }
+  var gameWon: Bool = false { didSet {
+    if gameWon != oldValue { print("game won is \(gameWon)") }
+  }}
 
   var blockCount: Int {
     return gridBlocks.count
@@ -85,6 +90,7 @@ class GridModel {
       self.gridModelMoveFinished(finalBoard: self.board)
       self.direction = nil
       self.board = .moveOneSpace
+      self.gameWon = self.gridBlocks[1].origin == winningCoordinates
     }
   }
   

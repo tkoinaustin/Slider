@@ -19,7 +19,7 @@ class ControlBarViewModel: NSObject, NSCoding {
   var backEnabled: Bool { return moveDataCount > 1 }
   var forwardEnabled: Bool { return moveNumber < moveDataCount - 1 }
   
-  var puzzleLabel: String = ""
+  var puzzleLabel: String = "Select Puzzle"
   var timer: Timer?
   var timerCount: TimeInterval = 0
   var parentViewController: UIViewController!
