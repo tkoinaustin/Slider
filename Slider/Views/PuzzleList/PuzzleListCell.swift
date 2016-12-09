@@ -44,7 +44,7 @@ class PuzzleListCell: UITableViewCell {
     addSubview(completedLabel)
     
     setupConstraints()
-    deselect()
+//    deselect()
   }
   
   private func setupConstraints() {
@@ -56,14 +56,18 @@ class PuzzleListCell: UITableViewCell {
     puzzleLabel.leadingAnchor.constraint(equalTo:self.leadingAnchor, constant: 8).isActive = true
   }
   
-  func select() {
-    bottomBorder.backgroundColor = UIColor.blue.cgColor
+  func won() {
+    bottomBorder.backgroundColor = UIColor.green.cgColor
   }
   
-  func deselect() {
+  func notWon() {
+    bottomBorder.backgroundColor = UIColor.red.cgColor
+  }
+
+  func neverPlayed() {
     bottomBorder.backgroundColor = UIColor.lightGray.cgColor
   }
-  
+
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }

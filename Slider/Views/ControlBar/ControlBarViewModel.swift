@@ -18,6 +18,9 @@ class ControlBarViewModel: NSObject, NSCoding {
   var moveDataCount: Int = 1
   var backEnabled: Bool { return moveDataCount > 1 }
   var forwardEnabled: Bool { return moveNumber < moveDataCount - 1 }
+  var saveEnabled = true { didSet {
+    updateControlBarUI()
+  }}
   
   var puzzleLabel: String = "Select Puzzle"
   var timer: Timer?

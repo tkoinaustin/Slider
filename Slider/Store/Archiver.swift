@@ -9,7 +9,7 @@
 import UIKit
 
 enum Model: String {
-  case move, history, game, puzzle
+  case move, history, game, puzzle, historyStore
   
   func modelClass() -> AnyClass {
     switch self {
@@ -17,6 +17,7 @@ enum Model: String {
     case .history: return HistoryModel.self
     case .game: return GameModel.self
     case .puzzle: return Puzzles.self
+    case .historyStore: return HistoryStoreModel.self
     }
   }
 }

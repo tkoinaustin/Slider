@@ -8,12 +8,47 @@
 
 import UIKit
 
+class HistoryStoreModel: NSObject, NSCoding {
+  private(set) var allGames = [String: HistoryModel]()
+  static let shared = HistoryStoreModel()
+  
+  func encode(with aCoder: NSCoder) {
+    aCoder.encode(allGames, forKey: "allGames")
+  }
+  
+  required convenience init?(coder aDecoder: NSCoder) {
+    self.init()
+    if let allGames = aDecoder.decodeObject(forKey: "allGames")
+      as? [String : HistoryModel] { self.allGames = allGames }
+  }
+  
+  func load(_ data: [String: HistoryModel]) {
+    allGames = data
+  }
+  
+  func addGame(_ game: GameModel, to puzzle: String) -> Bool {
+    guard let history = allGames[puzzle] else { return false }
+    history.addGame(game: game)
+    
+    return true
+  }
+  
+  func history(for puzzle: String) -> HistoryModel {
+    if let history = allGames[puzzle] { return history }
+    
+    let newPuzzle = HistoryModel()
+    newPuzzle.name = puzzle
+    allGames[puzzle] = newPuzzle
+    return newPuzzle
+  }
+}
+
 class HistoryModel: NSObject, NSCoding {
   var name: String!
   var index: Int = 0
   var bestMoves: Int = 0
   var bestTime: TimeInterval = 1_000_000
-  var won = false
+  var state: GameState = .neverPlayed
   var history: [GameModel]?
   
   required convenience init?(coder aDecoder: NSCoder) {
@@ -24,16 +59,33 @@ class HistoryModel: NSObject, NSCoding {
     bestMoves = aDecoder.decodeInteger(forKey: "bestMoves")
     if let bestTime = aDecoder.decodeObject(forKey: "bestTime")
       as? TimeInterval { self.bestTime = bestTime }
-    won = aDecoder.decodeBool(forKey: "won")
+    let played = aDecoder.decodeBool(forKey: "played")
+    let winner = aDecoder.decodeBool(forKey: "winner")
+    
+    switch (played, winner) {
+    case (false, _): state = .neverPlayed
+    case (true, let winner): state = .played(won: winner)
+    }
     history = aDecoder.decodeObject(forKey: "history") as? [GameModel]
   }
   
   func encode(with aCoder: NSCoder) {
+    var played = false
+    var winner = false
+    
+    switch state {
+    case .neverPlayed: break
+    case .played (let won):
+      played = true
+      winner = won
+    }
+    
     aCoder.encode(name, forKey: "name")
     aCoder.encode(index, forKey: "index")
     aCoder.encode(bestMoves, forKey: "bestMoves")
     aCoder.encode(bestTime, forKey: "bestTime")
-    aCoder.encode(won, forKey: "won")
+    aCoder.encode(played, forKey: "played")
+    aCoder.encode(winner, forKey: "winner")
     aCoder.encode(history, forKey: "history")
   }
   
@@ -51,7 +103,13 @@ class HistoryModel: NSObject, NSCoding {
     
     if game.gameTime < bestTime { bestTime = game.gameTime }
     if game.moveData.count < bestMoves { bestMoves = game.moveData.count }
-    if game.won { won = true }
+    
+    switch state {
+    case .neverPlayed:
+      state = .played(won: game.won)
+    case .played:
+      if game.won { state = .played(won: true) }
+    }
     
     if var history = history {
       history.append(game)

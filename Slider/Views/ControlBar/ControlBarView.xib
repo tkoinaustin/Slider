@@ -66,7 +66,7 @@
                                                 <action selector="backAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Ea5-Er-Xwh"/>
                                             </connections>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pd8-XE-FLY" customClass="TransitionLabel" customModule="Slider" customModuleProvider="target">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pd8-XE-FLY" customClass="TransitionLabel" customModule="Slider" customModuleProvider="target">
                                             <rect key="frame" x="35" y="0.0" width="50" height="35"/>
                                             <color key="backgroundColor" red="0.94901960780000005" green="0.43529411759999997" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
@@ -135,6 +135,7 @@
                 <outlet property="forward" destination="DvV-Y6-SRC" id="Tkc-dq-nAz"/>
                 <outlet property="moveNumber" destination="pd8-XE-FLY" id="Iaa-CX-5IS"/>
                 <outlet property="puzzle" destination="dga-tm-gXZ" id="HSm-MW-BQQ"/>
+                <outlet property="saveButton" destination="2Ga-aj-DBA" id="9Bg-Or-3pp"/>
                 <outlet property="timerView" destination="LYi-Uc-MQ2" id="Dmt-AB-ac1"/>
             </connections>
             <point key="canvasLocation" x="-83.5" y="-228"/>

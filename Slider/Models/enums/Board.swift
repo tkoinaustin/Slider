@@ -11,3 +11,8 @@ import UIKit
 enum Board {
   case moveZeroSpaces, moveOneSpace, moveTwoSpaces
 }
+
+enum GameState {
+  case neverPlayed
+  case played (won: Bool)
+}

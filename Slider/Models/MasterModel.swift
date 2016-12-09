@@ -10,9 +10,9 @@ import UIKit
 
 class MasterModel: NSObject, NSCoding {
   
-  var puzzles = Puzzles()
-  var game = GameModel()
-  var history = [HistoryModel]()
+  var puzzles = Puzzles() // not needed, just decode from Archiver
+  var game = GameModel()  // not needed, just decode from Archiver
+  var history = [HistoryModel]() // This should be a dictionary, not an array
 
   required convenience init?(coder aDecoder: NSCoder) {
     self.init()

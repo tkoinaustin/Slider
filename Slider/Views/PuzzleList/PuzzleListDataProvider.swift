@@ -11,6 +11,7 @@ import UIKit
 class PuzzleListDataProvider: NSObject, UITableViewDataSource {
   
   var store = Puzzles().klotski
+  var allGames = HistoryStoreModel.shared
   
   func registerCellsForTableView(_ tableView: UITableView) {
     tableView.register(PuzzleListCell.self, forCellReuseIdentifier: "cell")
@@ -28,6 +29,15 @@ class PuzzleListDataProvider: NSObject, UITableViewDataSource {
     if let cell = cell as? PuzzleListCell {
       cell.puzzleLabel?.text = "Puzzle \(indexPath.row)"
       cell.completedLabel?.text = "Completed: \(indexPath.row)"
+      
+      let name = store[indexPath.row].name
+      switch allGames.history(for: name).state {
+      case .neverPlayed:
+        cell.neverPlayed()
+      case .played(let won):
+        if won { cell.won() }
+        else { cell.notWon() }
+      }
     }
     
     return cell

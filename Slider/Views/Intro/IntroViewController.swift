@@ -27,4 +27,10 @@ class IntroViewController: UIViewController {
       self.logoView.transform = transform
     })
   }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    guard let historyStore = Archiver.retrieve(model: .historyStore)
+      as? [String: HistoryModel] else { return }
+    HistoryStoreModel.shared.load(historyStore)
+  }
 }

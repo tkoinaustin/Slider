@@ -49,6 +49,13 @@ class GameboardViewModel {
       self.game.push(move)
     }
     
+    grid.onWinning = { won in
+      guard won else { return }
+      self.game.won = true
+      self.game.controlBar.saveEnabled = false
+      self.saveGame()
+    }
+    
     guard game.moveData.isEmpty else { return } // restored games already have moveData
     let gameMoveData = GameMoveData(block: 0, direction: .up, grid: grid.currentGrid)
     game.setInitialGrid(gameMoveData)
@@ -97,6 +104,7 @@ class GameboardViewModel {
       // here is where we need to save current data into history before loading new puzzle
       self.game.clearMoveData()
       self.game.name = gameboard.name
+      self.game.controlBar.saveEnabled = true
       self.loadPuzzle(gameboard.grid)
     }
     
@@ -125,7 +133,7 @@ class GameboardViewModel {
     }
   }
   
-  func startGame() {
+  func startGame() {    
     if !restoreGame() {
       game.controlBar.displayPuzzleList()
     }
@@ -147,5 +155,14 @@ class GameboardViewModel {
   
   func saveGame() {
     _ = Archiver.store(data: game, model: .game)
+    let historyStore = HistoryStoreModel.shared
+    
+    let history = historyStore.history(for: game.name)
+    history.addGame(game: game)
+    _ = Archiver.store(data: history, model: .history)
+    
+    if historyStore.addGame(game, to: game.name) {
+      _ = Archiver.store(data: historyStore.allGames, model: .historyStore)
+    }
   }
 }

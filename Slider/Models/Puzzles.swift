@@ -9,26 +9,26 @@
 import UIKit
 
 class Gameboard: NSObject, NSCoding {
-  var name = ""
-  var index: Int = 0
-  var grid = [[Int]]()
-  var bestMoves = 0
-  var completed = false
+  private(set) var name = ""
+  private(set) var index: Int = 0
+  private(set) var grid = [[Int]]()
+  private(set) var bestMoves = 0
+  private(set) var won = false
   
   override init() {
     name = ""
     index = 0
     grid = [[Int]]()
     bestMoves = 0
-    completed = false
+    won = false
   }
   
-  required init(name: String, index: Int, grid: [[Int]], bestMoves: Int, completed: Bool) {
+  required init(name: String, index: Int, grid: [[Int]], bestMoves: Int, won: Bool) {
     self.name = name
     self.index = index
     self.grid = grid
     self.bestMoves = bestMoves
-    self.completed = completed
+    self.won = won
   }
 
   required convenience init?(coder aDecoder: NSCoder) {
@@ -36,7 +36,7 @@ class Gameboard: NSObject, NSCoding {
     if let name = aDecoder.decodeObject(forKey: "name") as? String { self.name = name }
     index = aDecoder.decodeInteger(forKey: "index")
     bestMoves = aDecoder.decodeInteger(forKey: "bestMoves")
-    completed = aDecoder.decodeBool(forKey: "completed")
+    won = aDecoder.decodeBool(forKey: "won")
 //    self.init(name: name, index: index, grid: grid, bestMoves: bestMoves, completed: completed)
   }
   
@@ -44,7 +44,7 @@ class Gameboard: NSObject, NSCoding {
     aCoder.encode(index, forKey: "name")
     aCoder.encode(index, forKey: "index")
     aCoder.encode(bestMoves, forKey: "bestMoves")
-    aCoder.encode(completed, forKey: "completed")
+    aCoder.encode(won, forKey: "won")
   }
   
 }
@@ -138,7 +138,7 @@ class Puzzles {
                                      index: idx,
                                      grid: kloskiGrids[idx],
                                      bestMoves: 0,
-                                     completed: false))
+                                     won: false))
       }
     }
     

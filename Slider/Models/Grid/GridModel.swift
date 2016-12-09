@@ -31,8 +31,11 @@ class GridModel {
   
   var gameboardViewModelUpdateUI: (() -> ()) = { _ in }
   var gameModelMoveFinished: ((_: GameMoveData) -> ()) = { move in }
+  var onWinning: ((_: Bool) -> ()) = { won in }
+  
   var gameWon: Bool = false { didSet {
     if gameWon != oldValue { print("game won is \(gameWon)") }
+    onWinning(gameWon)
   }}
 
   var blockCount: Int {
