@@ -23,8 +23,8 @@ class ControlBarViewModel: NSObject, NSCoding {
   }}
   
   var puzzleLabel: String = "Select Puzzle"
-  var timer: Timer?
   var timerCount: TimeInterval = 0
+  var timerState: TimerState = .start
   var parentViewController: UIViewController!
   
   var updateControlBarUI: (() -> ()) = {}
@@ -47,10 +47,13 @@ class ControlBarViewModel: NSObject, NSCoding {
   }
   
   func loadIt() {
+    timerState = .start
     load()
   }
   
   func saveIt() {
+    timerState = .stop
+    updateControlBarUI()
     save(timerCount)
   }
   
@@ -68,8 +71,18 @@ class ControlBarViewModel: NSObject, NSCoding {
   func newPuzzle(gameboard: Gameboard?) {
     guard let gameboard = gameboard else { return }
 
+    // save existing puzzle if there are any moves and the puzzle is 
+    // different than the current puzzle
+    if gameboard.name != puzzleLabel && moveNumber > 0 {
+      //save puzzle
+      print("saving \(puzzleLabel)")
+      saveIt()
+    }
+    
+    // load new puzzle
     puzzleLabel = "\(gameboard.name)"
-    timerCount = 0
+//    timerCount = 0
+    timerState = .reset
     moveNumber = 0
     updateControlBarUI()
     puzzleToLoad(gameboard)

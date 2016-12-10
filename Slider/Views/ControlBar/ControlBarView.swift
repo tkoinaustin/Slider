@@ -64,5 +64,15 @@ class ControlBarView: UIView, XibLoadable {
     saveButton.isEnabled = viewModel.saveEnabled
     puzzle.setTitle(viewModel.puzzleLabel, for: .normal)
     moveNumber.text = viewModel.moveNumber.description
+    
+    switch viewModel.timerState {
+    case .start:
+      timerView.start()
+    case .stop:
+      timerView.stop()
+    case .reset:
+      timerView.reset()
+      viewModel.timerState = .start
+    }
   }
 }

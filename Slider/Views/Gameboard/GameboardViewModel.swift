@@ -54,6 +54,14 @@ class GameboardViewModel {
       self.game.won = true
       self.game.controlBar.saveEnabled = false
       self.saveGame()
+      
+      // so something here to indicate a win
+      // flashing blocks, pop up the game list controller, etc
+      
+      let notify = UIAlertController.init(title: "Winner",
+                                          message: "Good job",
+                                          preferredStyle: .actionSheet)
+    
     }
     
     guard game.moveData.isEmpty else { return } // restored games already have moveData

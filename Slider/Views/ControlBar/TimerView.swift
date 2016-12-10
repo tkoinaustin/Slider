@@ -44,6 +44,7 @@ class TimerView: UIView {
   }
   
   func start() {
+    if let _ = timer { return }
     timer = Timer.scheduledTimer(timeInterval: 1,
                                  target: self,
                                  selector: #selector(fired),
@@ -53,18 +54,23 @@ class TimerView: UIView {
   
   func stop() {
     timer?.invalidate()
+    timer = nil
   }
   
   func reset() {
     stop()
     viewModel.timerCount = 0
+    setDisplay(viewModel.timerCount)
     start()
   }
   
   func fired() {
     // do the timer thing
     viewModel.timerCount += 1
-    
+    setDisplay(viewModel.timerCount)
+  }
+  
+  func setDisplay(_ timerCount: TimeInterval) {
     hour = (viewModel.timerCount / 3600).description
     minute = (Int(viewModel.timerCount) % 3600 / 60).description
     second = (Int(viewModel.timerCount) % 60).description

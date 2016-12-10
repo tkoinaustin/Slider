@@ -16,3 +16,7 @@ enum GameState {
   case neverPlayed
   case played (won: Bool)
 }
+
+enum TimerState {
+  case start, stop, reset
+}
