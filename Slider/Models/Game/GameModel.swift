@@ -63,9 +63,18 @@ class GameModel: NSObject, NSCoding {
   var moves: Int {
     return moveData.count
   }
+//  
+//  func clearMoveData() {
+//    moveData.removeAll()
+//  }
   
-  func clearMoveData() {
+  func prepareForNewGame(_ gameboard: Gameboard) {
     moveData.removeAll()
+    won = false
+    gameTime = 0
+    datePlayed = Date()
+    index = gameboard.index
+    name = gameboard.name
   }
   
   func setInitialGrid(_ grid: GameMoveData) {

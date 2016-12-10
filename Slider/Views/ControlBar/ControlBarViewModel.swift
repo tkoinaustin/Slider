@@ -57,6 +57,11 @@ class ControlBarViewModel: NSObject, NSCoding {
     save(timerCount)
   }
   
+  func gameOver() {
+    timerState = .stop
+    saveEnabled = false
+  }
+  
   func forward() {
     moveNumber += 1
     updateBlocksToMoveNumber(moveNumber)

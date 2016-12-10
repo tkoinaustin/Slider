@@ -20,9 +20,14 @@ class GameboardViewModel {
   private var size: CGSize!
   private var grid: GridModel!
   private(set) var game = GameModel()
+  private var parent: GameboardViewController!
   
   var count: Int {
     return blocks.count
+  }
+  
+  func assignParent(_ parent: GameboardViewController) {
+    self.parent = parent
   }
   
   func assignGridView(_ gridView: UIView) {
@@ -52,7 +57,7 @@ class GameboardViewModel {
     grid.onWinning = { won in
       guard won else { return }
       self.game.won = true
-      self.game.controlBar.saveEnabled = false
+      self.game.controlBar.gameOver() 
       self.saveGame()
       
       // so something here to indicate a win
@@ -61,7 +66,9 @@ class GameboardViewModel {
       let notify = UIAlertController.init(title: "Winner",
                                           message: "Good job",
                                           preferredStyle: .actionSheet)
-    
+      let okAction = UIAlertAction(title: "OK", style: .default)
+      notify.addAction(okAction)
+      self.parent.present(notify, animated: true, completion: nil)
     }
     
     guard game.moveData.isEmpty else { return } // restored games already have moveData
@@ -109,9 +116,7 @@ class GameboardViewModel {
     
     game.controlBar.puzzleToLoad = { gameboard in
       guard let gameboard = gameboard else { return }
-      // here is where we need to save current data into history before loading new puzzle
-      self.game.clearMoveData()
-      self.game.name = gameboard.name
+      self.game.prepareForNewGame(gameboard)
       self.game.controlBar.saveEnabled = true
       self.loadPuzzle(gameboard.grid)
     }

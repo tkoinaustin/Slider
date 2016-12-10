@@ -23,6 +23,7 @@ class GameboardViewController: UIViewController {
   }}
   
   override func viewDidLoad() {
+    viewModel.assignParent(self)
     viewModel.startGame()
   }
 }
