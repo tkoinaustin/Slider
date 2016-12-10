@@ -63,10 +63,6 @@ class GameModel: NSObject, NSCoding {
   var moves: Int {
     return moveData.count
   }
-//  
-//  func clearMoveData() {
-//    moveData.removeAll()
-//  }
   
   func prepareForNewGame(_ gameboard: Gameboard) {
     moveData.removeAll()

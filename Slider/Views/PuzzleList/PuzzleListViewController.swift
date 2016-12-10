@@ -38,7 +38,7 @@ class PuzzleListViewController: UITableViewController {
       guard cell != selected else { return }
       let gameboard = dataProvider.store[indexPath.row]
       loadNewPuzzle(gameboard)
-      dismiss(animated: true, completion: nil ) // { self.puzzleToLoad(gameboard) })
+      dismiss(animated: true, completion: nil )
     }
   }
 }

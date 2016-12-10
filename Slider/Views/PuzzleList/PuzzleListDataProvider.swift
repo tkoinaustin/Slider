@@ -28,8 +28,9 @@ class PuzzleListDataProvider: NSObject, UITableViewDataSource {
     
     if let cell = cell as? PuzzleListCell {
       cell.puzzleLabel?.text = "Puzzle \(indexPath.row)"
-      cell.completedLabel?.text = "Completed: \(indexPath.row)"
-      
+      cell.historyButton.setTitle("History", for: .normal)
+      cell.historyButton.isEnabled = true
+
       let name = store[indexPath.row].name
       switch allGames.history(for: name).state {
       case .neverPlayed:
