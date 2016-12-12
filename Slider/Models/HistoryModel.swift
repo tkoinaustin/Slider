@@ -49,7 +49,7 @@ class HistoryModel: NSObject, NSCoding {
   var bestMoves: Int = 0
   var bestTime: TimeInterval = 1_000_000
   var state: GameState = .neverPlayed
-  var history: [GameModel]?
+  var history = [GameModel]()
   
   required convenience init?(coder aDecoder: NSCoder) {
     self.init()
@@ -66,7 +66,7 @@ class HistoryModel: NSObject, NSCoding {
     case (false, _): state = .neverPlayed
     case (true, let winner): state = .played(won: winner)
     }
-    history = aDecoder.decodeObject(forKey: "history") as? [GameModel]
+    history = aDecoder.decodeObject(forKey: "history") as! [GameModel]
   }
   
   func encode(with aCoder: NSCoder) {
@@ -111,10 +111,12 @@ class HistoryModel: NSObject, NSCoding {
       if game.won { state = .played(won: true) }
     }
     
-    if var history = history {
+    print("history count for \(name) is \(history.count)")
+//    if var history = history {
       history.append(game)
-    } else {
-      history = [game]
-    }
+//    } else {
+//      history = [game]
+//    }
+    print("appended history count for \(name) is \(history.count)")
   }
 }

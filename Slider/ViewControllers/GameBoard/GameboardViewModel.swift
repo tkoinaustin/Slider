@@ -168,12 +168,9 @@ class GameboardViewModel {
   
   func saveGame() {
     _ = Archiver.store(data: game, model: .game)
+    
     let historyStore = HistoryStoreModel.shared
-    
-    let history = historyStore.history(for: game.name)
-    history.addGame(game: game)
-    _ = Archiver.store(data: history, model: .history)
-    
+
     if historyStore.addGame(game, to: game.name) {
       _ = Archiver.store(data: historyStore.allGames, model: .historyStore)
     }

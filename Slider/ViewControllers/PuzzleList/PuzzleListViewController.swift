@@ -26,6 +26,7 @@ class PuzzleListViewController: UITableViewController {
     dataProvider.registerCellsForTableView(tableView)
 
     tableView.reloadData()
+    dataProvider.assignParent(self)
   }
   
   func dismissController() {

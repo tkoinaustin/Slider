@@ -12,7 +12,12 @@ class PuzzleListDataProvider: NSObject, UITableViewDataSource {
   
   var store = Puzzles().klotski
   var allGames = HistoryStoreModel.shared
-  
+  private var parent: PuzzleListViewController!
+
+  func assignParent(_ parent: PuzzleListViewController) {
+    self.parent = parent
+  }
+
   func registerCellsForTableView(_ tableView: UITableView) {
     tableView.register(PuzzleListCell.self, forCellReuseIdentifier: "cell")
   }
@@ -27,14 +32,20 @@ class PuzzleListDataProvider: NSObject, UITableViewDataSource {
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
     
     if let cell = cell as? PuzzleListCell {
-      cell.puzzleLabel?.text = "Puzzle \(indexPath.row)"
+      let gameModel = store[indexPath.row]
+      let name = gameModel.name
+      cell.puzzleLabel?.text = name
       cell.historyButton.setTitle("History", for: .normal)
       cell.historyButton.isEnabled = true
-
-      let name = store[indexPath.row].name
+      cell.historyButton.addTarget(self,
+                                   action: #selector(buttonAction(sender:)),
+      for: UIControlEvents.touchUpInside)
+      cell.historyButton.tag = indexPath.row
+      
       switch allGames.history(for: name).state {
       case .neverPlayed:
         cell.neverPlayed()
+        
       case .played(let won):
         if won { cell.won() }
         else { cell.notWon() }
@@ -43,4 +54,25 @@ class PuzzleListDataProvider: NSObject, UITableViewDataSource {
     
     return cell
   }
+  
+  func  buttonAction(sender: UIButton) {
+    let row = sender.tag
+    let name = store[row].name
+    let historyModel = allGames.history(for: name)
+    let gameModels = historyModel.history
+    let gameModel = gameModels[0]
+    let moves = gameModel.moveData
+    print("button action: history count for \(name) is \(gameModels.count)")
+    
+    let cnt = gameModels.count
+    let games = cnt == 1 ? "1 game" : "\(cnt) games"
+    let notify = UIAlertController.init(title: name,
+                                        message: "has \(games) in history",
+                                        preferredStyle: .actionSheet)
+    let okAction = UIAlertAction(title: "OK", style: .default)
+    notify.addAction(okAction)
+    self.parent.present(notify, animated: true, completion: nil)
+  }
+  
+
 }

@@ -46,6 +46,8 @@
 		CBC571411DFCC0DB00633ED8 /* PuzzleListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC5713D1DFCC0DB00633ED8 /* PuzzleListCell.swift */; };
 		CBC571421DFCC0DB00633ED8 /* PuzzleListDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC5713E1DFCC0DB00633ED8 /* PuzzleListDataProvider.swift */; };
 		CBC571431DFCC0DB00633ED8 /* PuzzleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC5713F1DFCC0DB00633ED8 /* PuzzleListViewController.swift */; };
+		CBC571471DFCC24900633ED8 /* HistoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC571461DFCC24900633ED8 /* HistoryListViewController.swift */; };
+		CBC571491DFCC2A300633ED8 /* HistoryList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBC571481DFCC2A300633ED8 /* HistoryList.storyboard */; };
 		CBC922941DB0304F00132C91 /* GameModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC922931DB0304F00132C91 /* GameModelTests.swift */; };
 		CBC922961DB03FCE00132C91 /* BlockModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC922951DB03FCE00132C91 /* BlockModelTests.swift */; };
 		CBC9229C1DB1422600132C91 /* BlockModelLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9229B1DB1422600132C91 /* BlockModelLogicTests.swift */; };
@@ -105,6 +107,8 @@
 		CBC5713D1DFCC0DB00633ED8 /* PuzzleListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PuzzleListCell.swift; path = ViewControllers/PuzzleList/PuzzleListCell.swift; sourceTree = "<group>"; };
 		CBC5713E1DFCC0DB00633ED8 /* PuzzleListDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PuzzleListDataProvider.swift; path = ViewControllers/PuzzleList/PuzzleListDataProvider.swift; sourceTree = "<group>"; };
 		CBC5713F1DFCC0DB00633ED8 /* PuzzleListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PuzzleListViewController.swift; path = ViewControllers/PuzzleList/PuzzleListViewController.swift; sourceTree = "<group>"; };
+		CBC571461DFCC24900633ED8 /* HistoryListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryListViewController.swift; path = ViewControllers/HistoryList/HistoryListViewController.swift; sourceTree = "<group>"; };
+		CBC571481DFCC2A300633ED8 /* HistoryList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = HistoryList.storyboard; path = ViewControllers/HistoryList/HistoryList.storyboard; sourceTree = "<group>"; };
 		CBC922931DB0304F00132C91 /* GameModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModelTests.swift; sourceTree = "<group>"; };
 		CBC922951DB03FCE00132C91 /* BlockModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockModelTests.swift; sourceTree = "<group>"; };
 		CBC9229B1DB1422600132C91 /* BlockModelLogicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockModelLogicTests.swift; sourceTree = "<group>"; };
@@ -282,9 +286,9 @@
 			isa = PBXGroup;
 			children = (
 				CBC5713C1DFCC0DB00633ED8 /* PuzzleList.storyboard */,
-				CBC5713D1DFCC0DB00633ED8 /* PuzzleListCell.swift */,
-				CBC5713E1DFCC0DB00633ED8 /* PuzzleListDataProvider.swift */,
 				CBC5713F1DFCC0DB00633ED8 /* PuzzleListViewController.swift */,
+				CBC5713E1DFCC0DB00633ED8 /* PuzzleListDataProvider.swift */,
+				CBC5713D1DFCC0DB00633ED8 /* PuzzleListCell.swift */,
 			);
 			name = PuzzleList;
 			sourceTree = "<group>";
@@ -328,6 +332,8 @@
 		CBC571311DFCBFF200633ED8 /* HistoryList */ = {
 			isa = PBXGroup;
 			children = (
+				CBC571481DFCC2A300633ED8 /* HistoryList.storyboard */,
+				CBC571461DFCC24900633ED8 /* HistoryListViewController.swift */,
 			);
 			name = HistoryList;
 			sourceTree = "<group>";
@@ -427,6 +433,7 @@
 				CB9C60261DF067610011F65F /* klotski.txt in Resources */,
 				83AB626F1D97106D00E61AB7 /* LaunchScreen.storyboard in Resources */,
 				CBAFA38F1DCA447200534AEC /* ControlBarView.xib in Resources */,
+				CBC571491DFCC2A300633ED8 /* HistoryList.storyboard in Resources */,
 				83AB626C1D97106D00E61AB7 /* Assets.xcassets in Resources */,
 				CBC571401DFCC0DB00633ED8 /* PuzzleList.storyboard in Resources */,
 				CBC571341DFCC0C200633ED8 /* Intro.storyboard in Resources */,
@@ -482,6 +489,7 @@
 				837137761DD8A1F5003AD379 /* GridModel.swift in Sources */,
 				8371376F1DD89CED003AD379 /* BlockModelLogic.swift in Sources */,
 				8371377E1DD8E144003AD379 /* Archiver.swift in Sources */,
+				CBC571471DFCC24900633ED8 /* HistoryListViewController.swift in Sources */,
 				CBC5712C1DEB2F0700633ED8 /* GameModel.swift in Sources */,
 				CBC5713A1DFCC0CE00633ED8 /* GameboardViewController.swift in Sources */,
 				8371375B1DD89843003AD379 /* BlockViewModel.swift in Sources */,

@@ -41,7 +41,7 @@ class PuzzleListCell: UITableViewCell {
     historyButton.setTitleColor(UIColor.black, for: .normal)
     historyButton.setTitleColor(UIColor.lightGray, for: .disabled)
     historyButton.setTitleColor(UIColor.lightGray, for: .highlighted)
-    
+
     addSubview(puzzleLabel)
     addSubview(historyButton)
     setupConstraints()
