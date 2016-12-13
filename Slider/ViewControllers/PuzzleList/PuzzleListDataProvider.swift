@@ -12,6 +12,7 @@ class PuzzleListDataProvider: NSObject, UITableViewDataSource {
   
   var store = Puzzles().klotski
   var allGames = HistoryStoreModel.shared
+  var gameModels = [GameModel]()
   private var parent: PuzzleListViewController!
 
   func assignParent(_ parent: PuzzleListViewController) {
@@ -39,7 +40,7 @@ class PuzzleListDataProvider: NSObject, UITableViewDataSource {
       cell.historyButton.isEnabled = true
       cell.historyButton.addTarget(self,
                                    action: #selector(buttonAction(sender:)),
-      for: UIControlEvents.touchUpInside)
+                                   for: UIControlEvents.touchUpInside)
       cell.historyButton.tag = indexPath.row
       
       switch allGames.history(for: name).state {
@@ -59,20 +60,17 @@ class PuzzleListDataProvider: NSObject, UITableViewDataSource {
     let row = sender.tag
     let name = store[row].name
     let historyModel = allGames.history(for: name)
-    let gameModels = historyModel.history
-    let gameModel = gameModels[0]
-    let moves = gameModel.moveData
-    print("button action: history count for \(name) is \(gameModels.count)")
-    
-    let cnt = gameModels.count
-    let games = cnt == 1 ? "1 game" : "\(cnt) games"
-    let notify = UIAlertController.init(title: name,
-                                        message: "has \(games) in history",
-                                        preferredStyle: .actionSheet)
-    let okAction = UIAlertAction(title: "OK", style: .default)
-    notify.addAction(okAction)
-    self.parent.present(notify, animated: true, completion: nil)
-  }
-  
+    gameModels = historyModel.history
 
+    // swiftlint:disable force_cast
+    let storyboard = UIStoryboard(name: "HistoryList", bundle: Bundle.main)
+    let navController: UINavigationController =
+      storyboard.instantiateViewController(withIdentifier: "historyListNav")
+        as! UINavigationController
+    let historyListViewController: HistoryListViewController =
+      navController.viewControllers[0] as! HistoryListViewController
+    historyListViewController.data = gameModels
+
+    parent.navigationController?.pushViewController(historyListViewController, animated: true)
+  }
 }

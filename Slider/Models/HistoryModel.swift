@@ -66,7 +66,9 @@ class HistoryModel: NSObject, NSCoding {
     case (false, _): state = .neverPlayed
     case (true, let winner): state = .played(won: winner)
     }
-    history = aDecoder.decodeObject(forKey: "history") as! [GameModel]
+    let history1 = aDecoder.decodeObject(forKey: "history")// as [GameModel]
+    guard let history2 = history1 as? [GameModel] else { return }
+    history = history2
   }
   
   func encode(with aCoder: NSCoder) {
