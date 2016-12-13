@@ -10,7 +10,7 @@ import UIKit
 
 class HistoryListViewController: UITableViewController {
   
-  var data: [GameModel]! { didSet {
+  var data = [GameModel]() { didSet {
     print("HistoryListViewController didSet data, count: \(data.count)")
   }}
   
@@ -29,24 +29,23 @@ class HistoryListViewController: UITableViewController {
   // MARK: - Table view data source
   
   override func numberOfSections(in tableView: UITableView) -> Int {
-    // #warning Incomplete implementation, return the number of sections
-    return 0
+    return 1
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    // #warning Incomplete implementation, return the number of rows
-    return 0
+    return data.count
   }
   
-  /*
-   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-   let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-   
-   // Configure the cell...
-   
-   return cell
-   }
-   */
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "historyCellReuseIdentifier", for: indexPath)
+    
+    if let cell = cell as? HistoryListCell {
+      let gameModel = data[indexPath.row]
+      cell.gameModel = gameModel
+    }
+    
+    return cell
+  }
   
   /*
    // Override to support conditional editing of the table view.

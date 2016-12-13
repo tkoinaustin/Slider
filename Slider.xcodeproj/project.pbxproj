@@ -48,6 +48,7 @@
 		CBC571431DFCC0DB00633ED8 /* PuzzleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC5713F1DFCC0DB00633ED8 /* PuzzleListViewController.swift */; };
 		CBC571471DFCC24900633ED8 /* HistoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC571461DFCC24900633ED8 /* HistoryListViewController.swift */; };
 		CBC571491DFCC2A300633ED8 /* HistoryList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBC571481DFCC2A300633ED8 /* HistoryList.storyboard */; };
+		CBC5714B1E00226F00633ED8 /* HistoryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC5714A1E00226F00633ED8 /* HistoryListCell.swift */; };
 		CBC922941DB0304F00132C91 /* GameModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC922931DB0304F00132C91 /* GameModelTests.swift */; };
 		CBC922961DB03FCE00132C91 /* BlockModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC922951DB03FCE00132C91 /* BlockModelTests.swift */; };
 		CBC9229C1DB1422600132C91 /* BlockModelLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9229B1DB1422600132C91 /* BlockModelLogicTests.swift */; };
@@ -109,6 +110,7 @@
 		CBC5713F1DFCC0DB00633ED8 /* PuzzleListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PuzzleListViewController.swift; path = ViewControllers/PuzzleList/PuzzleListViewController.swift; sourceTree = "<group>"; };
 		CBC571461DFCC24900633ED8 /* HistoryListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryListViewController.swift; path = ViewControllers/HistoryList/HistoryListViewController.swift; sourceTree = "<group>"; };
 		CBC571481DFCC2A300633ED8 /* HistoryList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = HistoryList.storyboard; path = ViewControllers/HistoryList/HistoryList.storyboard; sourceTree = "<group>"; };
+		CBC5714A1E00226F00633ED8 /* HistoryListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryListCell.swift; path = ViewControllers/HistoryList/HistoryListCell.swift; sourceTree = "<group>"; };
 		CBC922931DB0304F00132C91 /* GameModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModelTests.swift; sourceTree = "<group>"; };
 		CBC922951DB03FCE00132C91 /* BlockModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockModelTests.swift; sourceTree = "<group>"; };
 		CBC9229B1DB1422600132C91 /* BlockModelLogicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockModelLogicTests.swift; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 			children = (
 				CBC571481DFCC2A300633ED8 /* HistoryList.storyboard */,
 				CBC571461DFCC24900633ED8 /* HistoryListViewController.swift */,
+				CBC5714A1E00226F00633ED8 /* HistoryListCell.swift */,
 			);
 			name = HistoryList;
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 				CBC571301DF4BB9D00633ED8 /* TransitionLabel.swift in Sources */,
 				8371375C1DD89843003AD379 /* CodedBlockView.swift in Sources */,
 				CBC571351DFCC0C200633ED8 /* IntroViewController.swift in Sources */,
+				CBC5714B1E00226F00633ED8 /* HistoryListCell.swift in Sources */,
 				8371376E1DD89CED003AD379 /* BlockModel.swift in Sources */,
 				8371377B1DD8A52E003AD379 /* HistoryModel.swift in Sources */,
 				837137781DD8A1F5003AD379 /* GridModelLogic.swift in Sources */,
