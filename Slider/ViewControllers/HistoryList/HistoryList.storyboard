@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wOI-h7-J0z">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wOI-h7-J0z">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -23,9 +23,16 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m9f-Sw-5mY" id="xI0-Rp-TUZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2No-vR-Vc4">
+                                            <rect key="frame" x="0.0" y="32" width="375" height="12"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="12" id="gOB-1v-GF2"/>
+                                            </constraints>
+                                        </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xc1-7y-67v">
                                             <rect key="frame" x="8" y="11" width="112" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -40,8 +47,11 @@
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="2No-vR-Vc4" secondAttribute="bottom" id="A8a-7Y-Ncg"/>
+                                        <constraint firstItem="2No-vR-Vc4" firstAttribute="leading" secondItem="xI0-Rp-TUZ" secondAttribute="leading" id="E4G-BX-FUS"/>
                                         <constraint firstItem="6Mq-qR-GPD" firstAttribute="centerY" secondItem="xI0-Rp-TUZ" secondAttribute="centerY" id="Gcq-CS-oBg"/>
                                         <constraint firstItem="xc1-7y-67v" firstAttribute="centerY" secondItem="xI0-Rp-TUZ" secondAttribute="centerY" id="H44-8N-No2"/>
+                                        <constraint firstAttribute="trailing" secondItem="2No-vR-Vc4" secondAttribute="trailing" id="bGn-Xn-hdA"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="6Mq-qR-GPD" secondAttribute="trailing" constant="8" id="fAh-xZ-JBq"/>
                                         <constraint firstItem="xc1-7y-67v" firstAttribute="leading" secondItem="xI0-Rp-TUZ" secondAttribute="leadingMargin" id="x81-3N-QX3"/>
                                     </constraints>
@@ -49,6 +59,7 @@
                                 <connections>
                                     <outlet property="datePlayed" destination="xc1-7y-67v" id="unt-rH-DR1"/>
                                     <outlet property="moves" destination="6Mq-qR-GPD" id="ML7-pu-gkw"/>
+                                    <outlet property="wonStripe" destination="2No-vR-Vc4" id="yUl-ls-Vcn"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

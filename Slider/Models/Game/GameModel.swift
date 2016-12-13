@@ -13,6 +13,7 @@ class GameModel: NSObject, NSCoding {
   var index: Int = 0
   var gameTime: TimeInterval!
   var won = false
+  var displayDate: String = ""
   private(set) var datePlayed = Date()
   private(set) var controlBar = ControlBarViewModel()
   private(set) var moveData = [GameMoveData]() { didSet {

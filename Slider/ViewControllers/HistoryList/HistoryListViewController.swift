@@ -9,16 +9,15 @@
 import UIKit
 
 class HistoryListViewController: UITableViewController {
-  
+  let formatter = DateFormatter()
+
   var data = [GameModel]() { didSet {
     print("HistoryListViewController didSet data, count: \(data.count)")
   }}
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = false
+    formatter.dateFormat = "EEE, MMM d "
   }
   
   override func didReceiveMemoryWarning() {
@@ -41,6 +40,7 @@ class HistoryListViewController: UITableViewController {
     
     if let cell = cell as? HistoryListCell {
       let gameModel = data[indexPath.row]
+      gameModel.displayDate = formatter.string(from: gameModel.datePlayed)
       cell.gameModel = gameModel
     }
     

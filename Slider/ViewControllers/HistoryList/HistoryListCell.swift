@@ -9,19 +9,35 @@
 import UIKit
 
 class HistoryListCell: UITableViewCell {
-
   var gameModel: GameModel! { didSet {
-      print("----- gameModel didSet")
-    moves.text = gameModel.moves.description
-    datePlayed.text = gameModel.datePlayed.description
+    moves.text = "\(gameModel.moves.description) moves"
+    datePlayed.text = gameModel.displayDate
+    let winColor = gameModel.won ? UIColor.green : UIColor.red
+    addOpacityGradient(winColor)
   }}
   
-  @IBOutlet weak var datePlayed: UILabel! { didSet {
-    print("datePlayed didSet")
-    }}
-
-  @IBOutlet weak var moves: UILabel! { didSet {
-    print("moves didSet")
-    }}
+  @IBOutlet private weak var wonStripe: UIView!
+  @IBOutlet private weak var datePlayed: UILabel!
+  @IBOutlet private weak var moves: UILabel!
+  
+  private func addOpacityGradient(_ color: UIColor) {
+    wonStripe.isUserInteractionEnabled = false
+    
+    let gradientLayer = CAGradientLayer()
+    gradientLayer.frame.size = wonStripe.frame.size
+    gradientLayer.colors = [color.withAlphaComponent(0).cgColor,
+                            color.withAlphaComponent(0.012).cgColor,
+                            color.withAlphaComponent(0.059).cgColor,
+                            color.withAlphaComponent(0.155).cgColor,
+                            color.withAlphaComponent(0.308).cgColor,
+                            color.withAlphaComponent(0.50).cgColor,
+                            color.withAlphaComponent(0.692).cgColor,
+                            color.withAlphaComponent(0.844).cgColor,
+                            color.withAlphaComponent(0.941).cgColor,
+                            color.withAlphaComponent(0.989).cgColor,
+                            color.withAlphaComponent(1).cgColor]
+    
+    wonStripe.layer.addSublayer(gradientLayer)
+  }
 
 }
