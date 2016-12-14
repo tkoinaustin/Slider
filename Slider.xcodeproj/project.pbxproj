@@ -29,6 +29,8 @@
 		CB6576521DD5405500D61DED /* ControlBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6576511DD5405500D61DED /* ControlBarViewModel.swift */; };
 		CB6576541DD613CE00D61DED /* XibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6576531DD613CE00D61DED /* XibLoadable.swift */; };
 		CB6576561DD6141D00D61DED /* ControlBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6576551DD6141D00D61DED /* ControlBarView.swift */; };
+		CB6CB6781E00BB7C00FCB9B5 /* ReplayBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB6CB6771E00BB7C00FCB9B5 /* ReplayBoard.storyboard */; };
+		CB6CB67A1E00BB9E00FCB9B5 /* ReplayBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6CB6791E00BB9E00FCB9B5 /* ReplayBoardViewController.swift */; };
 		CB9C60231DEFC7590011F65F /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C60221DEFC7590011F65F /* TimerView.swift */; };
 		CB9C60261DF067610011F65F /* klotski.txt in Resources */ = {isa = PBXBuildFile; fileRef = CB9C60251DF067610011F65F /* klotski.txt */; };
 		CBA63BF91DA9D8F4004C0EE6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA63BF81DA9D8F4004C0EE6 /* Constants.swift */; };
@@ -91,6 +93,8 @@
 		CB6576511DD5405500D61DED /* ControlBarViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ControlBarViewModel.swift; path = Views/ControlBar/ControlBarViewModel.swift; sourceTree = "<group>"; };
 		CB6576531DD613CE00D61DED /* XibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XibLoadable.swift; path = Views/XibLoadable.swift; sourceTree = "<group>"; };
 		CB6576551DD6141D00D61DED /* ControlBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ControlBarView.swift; path = Views/ControlBar/ControlBarView.swift; sourceTree = "<group>"; };
+		CB6CB6771E00BB7C00FCB9B5 /* ReplayBoard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ReplayBoard.storyboard; path = ViewControllers/ReplayBoard/ReplayBoard.storyboard; sourceTree = "<group>"; };
+		CB6CB6791E00BB9E00FCB9B5 /* ReplayBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReplayBoardViewController.swift; path = ViewControllers/ReplayBoard/ReplayBoardViewController.swift; sourceTree = "<group>"; };
 		CB9C60221DEFC7590011F65F /* TimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimerView.swift; path = Views/ControlBar/TimerView.swift; sourceTree = "<group>"; };
 		CB9C60251DF067610011F65F /* klotski.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = klotski.txt; path = Resources/klotski.txt; sourceTree = "<group>"; };
 		CBA63BF81DA9D8F4004C0EE6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilities/Constants.swift; sourceTree = "<group>"; };
@@ -166,14 +170,14 @@
 			path = SliderTests;
 			sourceTree = "<group>";
 		};
-		8371374D1DD7E6E7003AD379 /* Gameboard */ = {
+		8371374D1DD7E6E7003AD379 /* GameBoard */ = {
 			isa = PBXGroup;
 			children = (
 				CBC571361DFCC0CE00633ED8 /* Gameboard.storyboard */,
 				CBC571371DFCC0CE00633ED8 /* GameboardViewController.swift */,
 				CBC571381DFCC0CE00633ED8 /* GameboardViewModel.swift */,
 			);
-			name = Gameboard;
+			name = GameBoard;
 			sourceTree = "<group>";
 		};
 		837137541DD897A2003AD379 /* Block */ = {
@@ -189,9 +193,10 @@
 			isa = PBXGroup;
 			children = (
 				834CDD941D9B5A3B002CB6DD /* Intro */,
-				8371374D1DD7E6E7003AD379 /* Gameboard */,
+				8371374D1DD7E6E7003AD379 /* GameBoard */,
 				CB5FA3491DC16439003B19E0 /* PuzzleList */,
 				CBC571311DFCBFF200633ED8 /* HistoryList */,
+				CB6CB6761E00BAE600FCB9B5 /* ReplayBoard */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -293,6 +298,15 @@
 				CBC5713D1DFCC0DB00633ED8 /* PuzzleListCell.swift */,
 			);
 			name = PuzzleList;
+			sourceTree = "<group>";
+		};
+		CB6CB6761E00BAE600FCB9B5 /* ReplayBoard */ = {
+			isa = PBXGroup;
+			children = (
+				CB6CB6771E00BB7C00FCB9B5 /* ReplayBoard.storyboard */,
+				CB6CB6791E00BB9E00FCB9B5 /* ReplayBoardViewController.swift */,
+			);
+			name = ReplayBoard;
 			sourceTree = "<group>";
 		};
 		CB9C60241DF067510011F65F /* Resources */ = {
@@ -440,6 +454,7 @@
 				83AB626C1D97106D00E61AB7 /* Assets.xcassets in Resources */,
 				CBC571401DFCC0DB00633ED8 /* PuzzleList.storyboard in Resources */,
 				CBC571341DFCC0C200633ED8 /* Intro.storyboard in Resources */,
+				CB6CB6781E00BB7C00FCB9B5 /* ReplayBoard.storyboard in Resources */,
 				CBC571391DFCC0CE00633ED8 /* Gameboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -495,6 +510,7 @@
 				CBC571471DFCC24900633ED8 /* HistoryListViewController.swift in Sources */,
 				CBC5712C1DEB2F0700633ED8 /* GameModel.swift in Sources */,
 				CBC5713A1DFCC0CE00633ED8 /* GameboardViewController.swift in Sources */,
+				CB6CB67A1E00BB9E00FCB9B5 /* ReplayBoardViewController.swift in Sources */,
 				8371375B1DD89843003AD379 /* BlockViewModel.swift in Sources */,
 				CB04A41C1DD4C879007BE787 /* Board.swift in Sources */,
 				CBC571421DFCC0DB00633ED8 /* PuzzleListDataProvider.swift in Sources */,

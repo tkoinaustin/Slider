@@ -26,16 +26,16 @@ class HistoryListCell: UITableViewCell {
     let gradientLayer = CAGradientLayer()
     gradientLayer.frame.size = wonStripe.frame.size
     gradientLayer.colors = [color.withAlphaComponent(0).cgColor,
-                            color.withAlphaComponent(0.012).cgColor,
-                            color.withAlphaComponent(0.059).cgColor,
-                            color.withAlphaComponent(0.155).cgColor,
-                            color.withAlphaComponent(0.308).cgColor,
-                            color.withAlphaComponent(0.50).cgColor,
+                            color.withAlphaComponent(0.008).cgColor,
+                            color.withAlphaComponent(0.041).cgColor,
+                            color.withAlphaComponent(0.109).cgColor,
+                            color.withAlphaComponent(0.216).cgColor,
+                            color.withAlphaComponent(0.35).cgColor,
+                            color.withAlphaComponent(0.484).cgColor,
+                            color.withAlphaComponent(0.591).cgColor,
+                            color.withAlphaComponent(0.659).cgColor,
                             color.withAlphaComponent(0.692).cgColor,
-                            color.withAlphaComponent(0.844).cgColor,
-                            color.withAlphaComponent(0.941).cgColor,
-                            color.withAlphaComponent(0.989).cgColor,
-                            color.withAlphaComponent(1).cgColor]
+                            color.withAlphaComponent(0.7).cgColor]
     
     wonStripe.layer.addSublayer(gradientLayer)
   }

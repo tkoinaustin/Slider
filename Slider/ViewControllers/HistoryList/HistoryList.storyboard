@@ -23,11 +23,11 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m9f-Sw-5mY" id="xI0-Rp-TUZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2No-vR-Vc4">
-                                            <rect key="frame" x="0.0" y="32" width="375" height="12"/>
+                                            <rect key="frame" x="0.0" y="31" width="375" height="12"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="12" id="gOB-1v-GF2"/>
@@ -69,10 +69,21 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="wfN-B2-bYn"/>
+                    <connections>
+                        <segue destination="S9n-4b-exC" kind="show" identifier="replaySegue" action="showDetailViewController:sender:" id="aOq-uL-FYf"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c2c-be-2VR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="916" y="56.221889055472268"/>
+        </scene>
+        <!--ReplayBoard-->
+        <scene sceneID="dT1-F2-eoL">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ReplayBoard" id="S9n-4b-exC" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cy2-cP-9ZQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1521" y="56"/>
         </scene>
         <!--historyListNav-->
         <scene sceneID="BzF-dX-tZw">
