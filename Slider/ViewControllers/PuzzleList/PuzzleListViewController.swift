@@ -10,8 +10,8 @@ import UIKit
 
 class PuzzleListViewController: UITableViewController {
   var dataProvider = PuzzleListDataProvider()
-  var selected: PuzzleListCell? = nil 
   var loadNewPuzzle: ((Gameboard?) -> ()) = { _ in }
+  var saveHistory: (() -> ()) = { }
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -35,11 +35,11 @@ class PuzzleListViewController: UITableViewController {
   }
 
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    if let cell = tableView.cellForRow(at: indexPath) as? PuzzleListCell {
-      guard cell != selected else { return }
-      let gameboard = dataProvider.store[indexPath.row]
-      loadNewPuzzle(gameboard)
-      dismiss(animated: true, completion: nil )
-    }
+    //    if let cell = tableView.cellForRow(at: indexPath) as? PuzzleListCell {
+    saveHistory()
+    let gameboard = dataProvider.store[indexPath.row]
+    loadNewPuzzle(gameboard)
+    dismiss(animated: true, completion: nil )
   }
+  //  }
 }

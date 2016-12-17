@@ -21,18 +21,24 @@ class ControlBarViewModel: NSObject, NSCoding {
   var saveEnabled = true { didSet {
     updateControlBarUI()
   }}
+  var timerCount: TimeInterval = 0
+  var timerState: TimerState = .start { didSet {
+      updateTimerState(timerState)
+  }}
   
   var puzzleLabel: String = "Select Puzzle"
-  var timerCount: TimeInterval = 0
-  var timerState: TimerState = .start
   var parentViewController: UIViewController!
   
   var updateControlBarUI: (() -> ()) = {}
+  var updateTimerState: ((TimerState) -> ()) = {_ in}
   var updateBlocksToMoveNumber: ((Int) -> ()) = {_ in }
+  
   var trimMoveData: ((Int) -> ()) = { _ in }
   var puzzleToLoad: ((Gameboard?) -> ()) = { _ in }
+  
   var load: (() -> ()) = { }
   var save: ((TimeInterval) -> ()) = { _ in }
+  var saveHistory: (() -> ()) = { }
 
   required convenience init?(coder aDecoder: NSCoder) {
     self.init()
@@ -46,6 +52,11 @@ class ControlBarViewModel: NSObject, NSCoding {
     aCoder.encode(puzzleLabel, forKey: "puzzleLabel")
   }
   
+  func addNotifications() {
+    NotificationCenter.default.addObserver( self, selector: #selector(becomeActive), name: .UIApplicationDidBecomeActive , object: nil)
+    NotificationCenter.default.addObserver( self, selector: #selector(resignActive), name: .UIApplicationWillResignActive, object: nil)
+  }
+
   func loadIt() {
     timerState = .start
     load()
@@ -79,7 +90,7 @@ class ControlBarViewModel: NSObject, NSCoding {
     // save existing puzzle if there are any moves and the puzzle is 
     // different than the current puzzle
     if gameboard.name != puzzleLabel && moveNumber > 0 {
-      //save puzzle
+      //save history, not puzzle!!
       print("saving \(puzzleLabel)")
       saveIt()
     }
@@ -96,6 +107,7 @@ class ControlBarViewModel: NSObject, NSCoding {
   func displayPuzzleList() {
     let puzzleListViewController: PuzzleListViewController = PuzzleListViewController()
     puzzleListViewController.loadNewPuzzle = newPuzzle
+    puzzleListViewController.saveHistory = saveHistory
     
     let loginNavController = UINavigationController(rootViewController: puzzleListViewController)
     loginNavController.navigationItem.backBarButtonItem =
@@ -106,6 +118,16 @@ class ControlBarViewModel: NSObject, NSCoding {
   
   func dismiss() {
 //    parentViewController.dismiss(animated: true, completion: nil)
+  }
+  
+  @objc func becomeActive() {
+    print("----- become active  -----")
+    timerState = .start
+  }
+  
+  @objc func resignActive() {
+    print("----- resign active  -----")
+    saveIt()
   }
 
 }

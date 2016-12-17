@@ -15,12 +15,12 @@ let Columns = 4
 
 class GameboardViewModel {
   
-  private var gridView: UIView!
-  private var blocks = [BlockViewModel]()
-  private var size: CGSize!
-  private var grid: GridModel!
-  private(set) var game = GameModel()
-  private var parent: GameboardViewController!
+  fileprivate var gridView: UIView!
+  fileprivate var blocks = [BlockViewModel]()
+  fileprivate var size: CGSize!
+  fileprivate var grid: GridModel!
+  fileprivate(set) var game = GameModel()
+  fileprivate var parent: GameboardViewController!
   
   var count: Int {
     return blocks.count
@@ -58,12 +58,12 @@ class GameboardViewModel {
       guard won else { return }
       self.game.won = true
       self.game.controlBar.gameOver() 
-      self.saveGame()
+      self.saveHistory()
       
       // so something here to indicate a win
       // flashing blocks, pop up the game list controller, etc
       
-      let notify = UIAlertController.init(title: "Winner",
+      let notify = UIAlertController.init(title: "Winner, winner, chicken dinner!",
                                           message: "Good job",
                                           preferredStyle: .actionSheet)
       let okAction = UIAlertAction(title: "OK", style: .default)
@@ -129,6 +129,8 @@ class GameboardViewModel {
       self.game.gameTime = counter
       self.saveGame()
     }
+    
+    game.controlBar.saveHistory = saveHistory
   }
   
   func block(_ index: Int) -> BlockViewModel {
@@ -166,9 +168,11 @@ class GameboardViewModel {
     return true
   }
   
-  func saveGame() {
+  fileprivate func saveGame() {
     _ = Archiver.store(data: game, model: .game)
-    
+  }
+  
+  fileprivate func saveHistory() {
     let historyStore = HistoryStoreModel.shared
 
     if historyStore.addGame(game, to: game.name) {

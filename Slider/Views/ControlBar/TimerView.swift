@@ -16,7 +16,9 @@ class TimerView: UIView {
   fileprivate var second =  ""
   fileprivate var timer: Timer?
   var labelView: TransitionLabel!
-  var viewModel: ControlBarViewModel!
+  var viewModel: ControlBarViewModel! { didSet {
+    viewModel.updateTimerState = updateForTimerState(_:)
+  }}
 
   public override init(frame: CGRect) {
     super.init(frame: frame)
@@ -41,6 +43,14 @@ class TimerView: UIView {
     labelView.trailingAnchor.constraint(equalTo:margins.trailingAnchor, constant: 8).isActive = true
     labelView.text = "00:00"
     start()
+  }
+  
+  func updateForTimerState(_ state: TimerState) {
+    switch state {
+    case .start: start()
+    case .stop: stop()
+    case .reset: reset()
+    }
   }
   
   func start() {

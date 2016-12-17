@@ -20,6 +20,7 @@ class GameboardViewController: UIViewController {
     viewModel.game.assignControlBar(controlBar.viewModel)
     viewModel.setControlBarClosure()
     viewModel.game.controlBar.parentViewController = self
+    viewModel.game.controlBar.addNotifications()
   }}
   
   override func viewDidLoad() {
