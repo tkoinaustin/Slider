@@ -17,7 +17,7 @@
 		837137771DD8A1F5003AD379 /* GridModelInitialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837137721DD8A1F5003AD379 /* GridModelInitialization.swift */; };
 		837137781DD8A1F5003AD379 /* GridModelLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837137731DD8A1F5003AD379 /* GridModelLogic.swift */; };
 		837137791DD8A1F5003AD379 /* GridModelUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837137741DD8A1F5003AD379 /* GridModelUtility.swift */; };
-		8371377B1DD8A52E003AD379 /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8371377A1DD8A52E003AD379 /* HistoryModel.swift */; };
+		8371377B1DD8A52E003AD379 /* GameHistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8371377A1DD8A52E003AD379 /* GameHistoryModel.swift */; };
 		8371377E1DD8E144003AD379 /* Archiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8371377D1DD8E144003AD379 /* Archiver.swift */; };
 		83AB62651D97106D00E61AB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AB62641D97106D00E61AB7 /* AppDelegate.swift */; };
 		83AB626C1D97106D00E61AB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83AB626B1D97106D00E61AB7 /* Assets.xcassets */; };
@@ -79,7 +79,7 @@
 		837137721DD8A1F5003AD379 /* GridModelInitialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridModelInitialization.swift; path = Models/Grid/GridModelInitialization.swift; sourceTree = "<group>"; };
 		837137731DD8A1F5003AD379 /* GridModelLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridModelLogic.swift; path = Models/Grid/GridModelLogic.swift; sourceTree = "<group>"; };
 		837137741DD8A1F5003AD379 /* GridModelUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridModelUtility.swift; path = Models/Grid/GridModelUtility.swift; sourceTree = "<group>"; };
-		8371377A1DD8A52E003AD379 /* HistoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryModel.swift; path = Models/HistoryModel.swift; sourceTree = "<group>"; };
+		8371377A1DD8A52E003AD379 /* GameHistoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameHistoryModel.swift; path = Models/GameHistoryModel.swift; sourceTree = "<group>"; };
 		8371377D1DD8E144003AD379 /* Archiver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Archiver.swift; path = Store/Archiver.swift; sourceTree = "<group>"; };
 		83AB62611D97106D00E61AB7 /* Slider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83AB62641D97106D00E61AB7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -280,7 +280,7 @@
 			children = (
 				CB04A41A1DD4C7E0007BE787 /* enums */,
 				CB4E7E621DC03AFE009D48F1 /* MasterModel.swift */,
-				8371377A1DD8A52E003AD379 /* HistoryModel.swift */,
+				8371377A1DD8A52E003AD379 /* GameHistoryModel.swift */,
 				CB4E7E641DC0D5F9009D48F1 /* Puzzles.swift */,
 				837137541DD897A2003AD379 /* Block */,
 				CB04A41D1DD4C990007BE787 /* Grid */,
@@ -520,7 +520,7 @@
 				CBC571351DFCC0C200633ED8 /* IntroViewController.swift in Sources */,
 				CBC5714B1E00226F00633ED8 /* HistoryListCell.swift in Sources */,
 				8371376E1DD89CED003AD379 /* BlockModel.swift in Sources */,
-				8371377B1DD8A52E003AD379 /* HistoryModel.swift in Sources */,
+				8371377B1DD8A52E003AD379 /* GameHistoryModel.swift in Sources */,
 				837137781DD8A1F5003AD379 /* GridModelLogic.swift in Sources */,
 				83AB62651D97106D00E61AB7 /* AppDelegate.swift in Sources */,
 				837137791DD8A1F5003AD379 /* GridModelUtility.swift in Sources */,

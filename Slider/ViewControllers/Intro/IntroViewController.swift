@@ -30,7 +30,7 @@ class IntroViewController: UIViewController {
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     guard let historyStore = Archiver.retrieve(model: .historyStore)
-      as? [String: HistoryModel] else { return }
+      as? [String: GameHistoryModel] else { return }
     HistoryStoreModel.shared.load(historyStore)
   }
 }

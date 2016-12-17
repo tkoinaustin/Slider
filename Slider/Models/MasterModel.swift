@@ -12,7 +12,7 @@ class MasterModel: NSObject, NSCoding {
   
   var puzzles = Puzzles() // not needed, just decode from Archiver
   var game = GameModel()  // not needed, just decode from Archiver
-  var history = [HistoryModel]() // This should be a dictionary, not an array
+  var history = [GameHistoryModel]() // This should be a dictionary, not an array
 
   required convenience init?(coder aDecoder: NSCoder) {
     self.init()
@@ -21,7 +21,7 @@ class MasterModel: NSObject, NSCoding {
       else { return nil }
     guard let game = aDecoder.decodeObject(forKey: "game") as? GameModel
       else { return nil }
-    guard let history = aDecoder.decodeObject(forKey: "history") as? [HistoryModel]
+    guard let history = aDecoder.decodeObject(forKey: "history") as? [GameHistoryModel]
       else { return nil }
     
     self.puzzles = puzzles

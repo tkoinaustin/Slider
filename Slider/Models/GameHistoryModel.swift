@@ -1,5 +1,5 @@
 //
-//  HistoryModel.swift
+//  GameHistoryModel.swift
 //  Slider
 //
 //  Created by Mac Daddy on 11/13/16.
@@ -9,7 +9,7 @@
 import UIKit
 
 class HistoryStoreModel: NSObject, NSCoding {
-  private(set) var allGames = [String: HistoryModel]()
+  private(set) var allGames = [String: GameHistoryModel]()
   static let shared = HistoryStoreModel()
   
   func encode(with aCoder: NSCoder) {
@@ -19,10 +19,10 @@ class HistoryStoreModel: NSObject, NSCoding {
   required convenience init?(coder aDecoder: NSCoder) {
     self.init()
     if let allGames = aDecoder.decodeObject(forKey: "allGames")
-      as? [String : HistoryModel] { self.allGames = allGames }
+      as? [String : GameHistoryModel] { self.allGames = allGames }
   }
   
-  func load(_ data: [String: HistoryModel]) {
+  func load(_ data: [String: GameHistoryModel]) {
     allGames = data
   }
   
@@ -33,17 +33,17 @@ class HistoryStoreModel: NSObject, NSCoding {
     return true
   }
   
-  func history(for puzzle: String) -> HistoryModel {
+  func history(for puzzle: String) -> GameHistoryModel {
     if let history = allGames[puzzle] { return history }
     
-    let newPuzzle = HistoryModel()
+    let newPuzzle = GameHistoryModel()
     newPuzzle.name = puzzle
     allGames[puzzle] = newPuzzle
     return newPuzzle
   }
 }
 
-class HistoryModel: NSObject, NSCoding {
+class GameHistoryModel: NSObject, NSCoding {
   var name: String!
   var index: Int = 0
   var bestMoves: Int = 0
