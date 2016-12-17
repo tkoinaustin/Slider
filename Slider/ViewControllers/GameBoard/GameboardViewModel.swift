@@ -58,7 +58,7 @@ class GameboardViewModel {
       guard won else { return }
       self.game.won = true
       self.game.controlBar.gameOver() 
-      self.saveHistory()
+//      self.saveHistory()
       
       // so something here to indicate a win
       // flashing blocks, pop up the game list controller, etc
@@ -173,8 +173,10 @@ class GameboardViewModel {
   }
   
   fileprivate func saveHistory() {
+    print("saving history")
     let historyStore = HistoryStoreModel.shared
-
+    guard game.moveData.count > 1 else { return }
+    
     if historyStore.addGame(game, to: game.name) {
       _ = Archiver.store(data: historyStore.allGames, model: .historyStore)
     }
