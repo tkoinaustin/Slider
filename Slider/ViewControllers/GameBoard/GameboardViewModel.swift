@@ -59,7 +59,10 @@ class GameboardViewModel {
       self.game.won = true
       self.game.controlBar.gameOver() 
       self.saveHistory()
-      
+//      
+//      _ = Archiver.store(data: nil, model: .game)
+//      print("setting game to nil")
+
       // so something here to indicate a win
       // flashing blocks, pop up the game list controller, etc
       
@@ -126,6 +129,7 @@ class GameboardViewModel {
     }
     
     game.controlBar.save = { counter in
+      guard self.game.won == false else { return }
       self.game.gameTime = counter
       self.saveGame()
     }
@@ -149,24 +153,26 @@ class GameboardViewModel {
   }
   
   func startGame() {    
-    if !restoreGame() {
-      game.controlBar.displayPuzzleList()
-    }
+    if !restoreGame() { game.controlBar.displayPuzzleList() }
   }
   
   func restoreGame() -> Bool {
     guard let restoredGame = Archiver.retrieve(model: .game) as? GameModel else { return false }
-    print("name: \(game.name)")
+    
+    guard !restoredGame.won else { return false }
+    
     game.copy(restoredGame)
     game.controlBar.restoreGame(game)
 
     loadPuzzle(game.moveData.last?.grid)
+    print(" restoreGame: \(game.name)")
     
     return true
   }
   
   fileprivate func saveGame() {
     _ = Archiver.store(data: game, model: .game)
+    print("setting game to \(game.name)")
   }
   
   fileprivate func saveHistory() {
