@@ -14,8 +14,8 @@ class HistoryStoreModel: NSObject, NSCoding {
   
   override var description: String {
     var desc = ""
-    for (key, value) in allGames {
-      desc += ("\n\(key): \(value)\n")
+    for (_, value) in allGames.sorted(by: { $0.value.index < $1.value.index }) {
+      desc += ("\n\(value)\n")
     }
     return desc
   }
@@ -44,8 +44,11 @@ class HistoryStoreModel: NSObject, NSCoding {
   func history(for puzzle: String) -> GameHistoryModel {
     if let history = allGames[puzzle] { return history }
     
+    let parts = puzzle.components(separatedBy: " ")
+    let index = Int(parts[1])
     let newPuzzle = GameHistoryModel()
     newPuzzle.name = puzzle
+    newPuzzle.index = index!
     allGames[puzzle] = newPuzzle
     return newPuzzle
   }

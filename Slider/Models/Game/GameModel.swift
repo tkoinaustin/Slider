@@ -23,7 +23,7 @@ class GameModel: NSObject, NSCoding {
   
   override var description: String {
     let formatter = DateFormatter()
-    formatter.dateFormat = "EEE, MMM d "
+    formatter.dateFormat = "hh:mm:ss"
     let dt = formatter.string(from: datePlayed)
     return "\(name) won:\(won) moves:\(moveData.count)   \(dt)"
   }

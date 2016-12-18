@@ -59,12 +59,6 @@ class GameboardViewModel {
       self.game.won = true
       self.game.controlBar.gameOver() 
       self.saveHistory()
-//      
-//      _ = Archiver.store(data: nil, model: .game)
-//      print("setting game to nil")
-
-      // so something here to indicate a win
-      // flashing blocks, pop up the game list controller, etc
       
       let notify = UIAlertController.init(title: "Winner, winner, chicken dinner!",
                                           message: "Good job",
@@ -119,6 +113,7 @@ class GameboardViewModel {
     
     game.controlBar.puzzleToLoad = { gameboard in
       guard let gameboard = gameboard else { return }
+      self.game = GameModel()
       self.game.prepareForNewGame(gameboard)
       self.game.controlBar.saveEnabled = true
       self.loadPuzzle(gameboard.grid)
@@ -161,6 +156,7 @@ class GameboardViewModel {
     
     guard !restoredGame.won else { return false }
     
+    game = GameModel()
     game.copy(restoredGame)
     game.controlBar.restoreGame(game)
 

@@ -26,9 +26,10 @@ class BlockModel: Hashable {
 
   var doubleMoveLegal = false
   var inDoubleMove = false
-  var board: Board = .moveZeroSpaces { didSet {
-    print("\(index!) board changed to \(board)")
-  }}
+  var board: Board = .moveZeroSpaces
+//  { didSet {
+//    print("\(index!) board changed to \(board)")
+//  }}
   var ppb: CGFloat!  // pixels per block, ie, how far a block can travel in one move
   
   fileprivate var startingCenter = CGPoint(x:0, y:0)
