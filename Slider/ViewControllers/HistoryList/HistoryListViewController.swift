@@ -46,13 +46,13 @@ class HistoryListViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     self.performSegue(withIdentifier: "replaySegue", sender: self)
   }
+  
   // swiftlint:disable force_cast
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    let nav = segue.destination as! UINavigationController
-    
-    let replay = nav.viewControllers[0] as! ReplayBoardViewController
+    let nav = segue.source.navigationController!
+    let dest = segue.destination as! UINavigationController
+    let replay = dest.viewControllers[0] as! ReplayBoardViewController
     replay.replayText = "replaying"
+//    nav.pushViewController(replay, animated: true)
   }
 }
