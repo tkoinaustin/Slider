@@ -158,10 +158,7 @@ class GameboardViewModel {
     guard let restoredGame = Archiver.retrieve(model: .game) as? GameModel else { return false }
     print("name: \(game.name)")
     game.copy(restoredGame)
-    game.controlBar.puzzleLabel = "\(game.name)"
-    game.controlBar.timerCount = game.gameTime
-    game.controlBar.moveNumber = game.moveData.count - 1
-    game.controlBar.updateControlBarUI()
+    game.controlBar.restoreGame(game)
 
     loadPuzzle(game.moveData.last?.grid)
     
@@ -173,14 +170,6 @@ class GameboardViewModel {
   }
   
   fileprivate func saveHistory() {
-    print("saving history")
-    
-    let historyStore = HistoryStoreModel.shared
-    guard game.moveData.count > 1 else { return }
-    guard !historyStore.contains(game) else { return }
-    
-    if historyStore.addGame(game, to: game.name) {
-      _ = Archiver.store(data: historyStore.allGames, model: .historyStore)
-    }
+    _ = Archiver.saveHistory(game)
   }
 }

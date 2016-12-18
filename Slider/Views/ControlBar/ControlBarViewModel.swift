@@ -84,6 +84,13 @@ class ControlBarViewModel: NSObject, NSCoding {
     updateBlocksToMoveNumber(moveNumber)
   }
   
+  func restoreGame(_ game: GameModel) {
+    puzzleLabel = "\(game.name)"
+    timerCount = game.gameTime
+    moveNumber = game.moveData.count - 1
+    updateControlBarUI()
+  }
+  
   func newPuzzle(gameboard: Gameboard?) {
     guard let gameboard = gameboard else { return }
 

@@ -37,4 +37,16 @@ class Archiver {
     guard let master = NSKeyedUnarchiver.unarchiveObject(withFile: file) else { return nil }
     return master
   }
+  
+  static func saveHistory(_ game: GameModel) {
+    guard game.moveData.count > 1 else { return }
+
+    let historyStore = HistoryStoreModel.shared
+    guard !historyStore.contains(game) else { return }
+    
+    if historyStore.addGame(game, to: game.name) {
+      print("----- Saving \(game.name) to history -----")
+      _ = Archiver.store(data: historyStore.allGames, model: .historyStore)
+    }
+  }
 }
