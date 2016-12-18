@@ -44,7 +44,7 @@ class Archiver {
     let historyStore = HistoryStoreModel.shared
     guard !historyStore.contains(game) else { return }
     
-    if historyStore.addGame(game, to: game.name) {
+    if historyStore.addGame(GameModel.duplicate(game), to: game.name) {
       print("----- Saving \(game.name) to history -----")
       _ = Archiver.store(data: historyStore.allGames, model: .historyStore)
     }

@@ -46,6 +46,18 @@ class GameModel: NSObject, NSCoding {
     self.moveData = game.moveData
   }
   
+  static func duplicate(_ game: GameModel) -> GameModel {
+    let newGame = GameModel()
+    newGame.name = game.name
+    newGame.index = game.index
+    newGame.won = game.won
+    newGame.datePlayed = game.datePlayed
+    newGame.gameTime = game.gameTime
+    newGame.moveData = game.moveData
+    
+    return newGame
+  }
+  
   required convenience init?(coder aDecoder: NSCoder) {
     self.init()
     if let name = aDecoder.decodeObject(forKey: "name")

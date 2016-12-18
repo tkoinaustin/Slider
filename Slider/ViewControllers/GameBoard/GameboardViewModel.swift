@@ -113,7 +113,6 @@ class GameboardViewModel {
     
     game.controlBar.puzzleToLoad = { gameboard in
       guard let gameboard = gameboard else { return }
-      self.game = GameModel()
       self.game.prepareForNewGame(gameboard)
       self.game.controlBar.saveEnabled = true
       self.loadPuzzle(gameboard.grid)
@@ -156,7 +155,6 @@ class GameboardViewModel {
     
     guard !restoredGame.won else { return false }
     
-    game = GameModel()
     game.copy(restoredGame)
     game.controlBar.restoreGame(game)
 
