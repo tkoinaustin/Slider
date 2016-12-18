@@ -39,16 +39,16 @@ class ArchiveTests: XCTestCase {
     // swiftlint:enable comma
   }
   
-  func testGameMoveDataArchiveAndUnarchive() {
-    _ = Archiver.store(data: moveDatum, model: .move)
-    
-    guard let move = Archiver.retrieve(model: .move) as? GameMoveData else { return }
-    print (move)
-    XCTAssertTrue(move.block == 5)
-    XCTAssertTrue(move.direction == .down)
-    XCTAssertTrue(move.grid[4] == [5, 10, 6, 6])
-  }
-  
+//  func testGameMoveDataArchiveAndUnarchive() {
+//    _ = Archiver.store(data: moveDatum, model: .move)
+//    
+//    guard let move = Archiver.retrieve(model: .move) as? GameMoveData else { return }
+//    print (move)
+//    XCTAssertTrue(move.block == 5)
+//    XCTAssertTrue(move.direction == .down)
+//    XCTAssertTrue(move.grid[4] == [5, 10, 6, 6])
+//  }
+//  
   func testGameModelArchiveAndUnarchive() {
     _ = Archiver.store(data: gameModel, model: .game)
     

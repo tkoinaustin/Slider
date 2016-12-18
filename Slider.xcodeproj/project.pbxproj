@@ -23,6 +23,7 @@
 		83AB626C1D97106D00E61AB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83AB626B1D97106D00E61AB7 /* Assets.xcassets */; };
 		83AB626F1D97106D00E61AB7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83AB626D1D97106D00E61AB7 /* LaunchScreen.storyboard */; };
 		CB04A41C1DD4C879007BE787 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB04A41B1DD4C879007BE787 /* Board.swift */; };
+		CB226D951E05DA9B0003A78F /* HistoryStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB226D941E05DA9B0003A78F /* HistoryStoreModel.swift */; };
 		CB23B34E1DE081C000ACFBC0 /* ArchiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB23B34D1DE081C000ACFBC0 /* ArchiveTests.swift */; };
 		CB4E7E631DC03AFE009D48F1 /* MasterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4E7E621DC03AFE009D48F1 /* MasterModel.swift */; };
 		CB4E7E651DC0D5F9009D48F1 /* Puzzles.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4E7E641DC0D5F9009D48F1 /* Puzzles.swift */; };
@@ -87,6 +88,7 @@
 		83AB626E1D97106D00E61AB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83AB62701D97106D00E61AB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB04A41B1DD4C879007BE787 /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Board.swift; path = Models/enums/Board.swift; sourceTree = "<group>"; };
+		CB226D941E05DA9B0003A78F /* HistoryStoreModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryStoreModel.swift; path = Models/HistoryStoreModel.swift; sourceTree = "<group>"; };
 		CB23B34D1DE081C000ACFBC0 /* ArchiveTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArchiveTests.swift; sourceTree = "<group>"; };
 		CB4E7E621DC03AFE009D48F1 /* MasterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MasterModel.swift; path = Models/MasterModel.swift; sourceTree = "<group>"; };
 		CB4E7E641DC0D5F9009D48F1 /* Puzzles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Puzzles.swift; path = Models/Puzzles.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 			children = (
 				CB04A41A1DD4C7E0007BE787 /* enums */,
 				CB4E7E621DC03AFE009D48F1 /* MasterModel.swift */,
+				CB226D941E05DA9B0003A78F /* HistoryStoreModel.swift */,
 				8371377A1DD8A52E003AD379 /* GameHistoryModel.swift */,
 				CB4E7E641DC0D5F9009D48F1 /* Puzzles.swift */,
 				837137541DD897A2003AD379 /* Block */,
@@ -503,6 +506,7 @@
 				CBC571411DFCC0DB00633ED8 /* PuzzleListCell.swift in Sources */,
 				CB6576541DD613CE00D61DED /* XibLoadable.swift in Sources */,
 				CB6576521DD5405500D61DED /* ControlBarViewModel.swift in Sources */,
+				CB226D951E05DA9B0003A78F /* HistoryStoreModel.swift in Sources */,
 				CB6576561DD6141D00D61DED /* ControlBarView.swift in Sources */,
 				837137761DD8A1F5003AD379 /* GridModel.swift in Sources */,
 				8371376F1DD89CED003AD379 /* BlockModelLogic.swift in Sources */,

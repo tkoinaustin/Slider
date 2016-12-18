@@ -8,41 +8,6 @@
 
 import UIKit
 
-class HistoryStoreModel: NSObject, NSCoding {
-  private(set) var allGames = [String: GameHistoryModel]()
-  static let shared = HistoryStoreModel()
-  
-  func encode(with aCoder: NSCoder) {
-    aCoder.encode(allGames, forKey: "allGames")
-  }
-  
-  required convenience init?(coder aDecoder: NSCoder) {
-    self.init()
-    if let allGames = aDecoder.decodeObject(forKey: "allGames")
-      as? [String : GameHistoryModel] { self.allGames = allGames }
-  }
-  
-  func load(_ data: [String: GameHistoryModel]) {
-    allGames = data
-  }
-  
-  func addGame(_ game: GameModel, to puzzle: String) -> Bool {
-    guard let history = allGames[puzzle] else { return false }
-    history.addGame(game: game)
-    
-    return true
-  }
-  
-  func history(for puzzle: String) -> GameHistoryModel {
-    if let history = allGames[puzzle] { return history }
-    
-    let newPuzzle = GameHistoryModel()
-    newPuzzle.name = puzzle
-    allGames[puzzle] = newPuzzle
-    return newPuzzle
-  }
-}
-
 class GameHistoryModel: NSObject, NSCoding {
   var name: String!
   var index: Int = 0
