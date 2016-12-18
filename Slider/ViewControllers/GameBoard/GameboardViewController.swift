@@ -28,9 +28,4 @@ class GameboardViewController: UIViewController {
     viewModel.assignParent(self)
     viewModel.startGame()
   }
-  
-//  override func viewDidAppear(_ animated: Bool) {
-//    super.viewDidAppear(animated)
-//    viewModel.startGame()
-//  }
 }

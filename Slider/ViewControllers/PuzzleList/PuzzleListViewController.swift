@@ -15,7 +15,8 @@ class PuzzleListViewController: UITableViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    print(HistoryStoreModel.shared)
+
     self.title = "Klotski Puzzles"
     navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel,
                                                        target: self,

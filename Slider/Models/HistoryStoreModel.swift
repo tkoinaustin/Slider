@@ -12,6 +12,14 @@ class HistoryStoreModel: NSObject, NSCoding {
   private(set) var allGames = [String: GameHistoryModel]()
   static let shared = HistoryStoreModel()
   
+  override var description: String {
+    var desc = ""
+    for (key, value) in allGames {
+      desc += ("\n\(key): \(value)\n")
+    }
+    return desc
+  }
+  
   func encode(with aCoder: NSCoder) {
     aCoder.encode(allGames, forKey: "allGames")
   }

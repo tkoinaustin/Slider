@@ -9,6 +9,7 @@
 import UIKit
 
 class GameModel: NSObject, NSCoding {
+
   var name = ""
   var index: Int = 0
   var gameTime: TimeInterval!
@@ -20,6 +21,13 @@ class GameModel: NSObject, NSCoding {
     controlBar.moveDataCount = moveData.count
   }}
   
+  override var description: String {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "EEE, MMM d "
+    let dt = formatter.string(from: datePlayed)
+    return "\(name) won:\(won) moves:\(moveData.count)   \(dt)"
+  }
+
   override init() {
     self.name = ""
     self.index = 0

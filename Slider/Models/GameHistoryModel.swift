@@ -16,6 +16,24 @@ class GameHistoryModel: NSObject, NSCoding {
   var state: GameState = .neverPlayed
   var history = [GameModel]()
   
+  override var description: String {
+    var played = false
+    var winner = false
+    
+    switch state {
+    case .neverPlayed: break
+    case .played (let won):
+      played = true
+      winner = won
+    }
+    
+    var desc = "\(name!) played:\(played) won:\(winner)"
+    for game in history {
+      desc += ("\n     \(game)")
+    }
+    return desc
+  }
+
   required convenience init?(coder aDecoder: NSCoder) {
     self.init()
     if let name = aDecoder.decodeObject(forKey: "name")
@@ -56,13 +74,9 @@ class GameHistoryModel: NSObject, NSCoding {
     aCoder.encode(history, forKey: "history")
   }
   
-  func loadHistory() {
-  
-  }
-  
-  func saveHistory() {
-    // serialize, coder, etc
-  }
+//  var description: String {
+//    return ""
+//  }
   
   func addGame(game: GameModel) {
     name = game.name
@@ -78,12 +92,6 @@ class GameHistoryModel: NSObject, NSCoding {
       if game.won { state = .played(won: true) }
     }
     
-    print("history count for \(name!) is \(history.count)")
-//    if var history = history {
-      history.append(game)
-//    } else {
-//      history = [game]
-//    }
-    print("appended history count for \(name!) is \(history.count)")
+    history.append(game)
   }
 }
