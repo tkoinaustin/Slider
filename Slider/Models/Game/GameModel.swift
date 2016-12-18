@@ -101,7 +101,7 @@ class GameModel: NSObject, NSCoding {
   }
   
   func trim(_ index: Int) {
-    print("trimming moveData to \(index)")
+//    print("trimming moveData to \(index)")
     guard index < moveData.count else { return }
     let arraySlice = moveData[0...index]
     moveData = Array(arraySlice)

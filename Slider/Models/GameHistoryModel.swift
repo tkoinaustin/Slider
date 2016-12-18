@@ -78,12 +78,12 @@ class GameHistoryModel: NSObject, NSCoding {
       if game.won { state = .played(won: true) }
     }
     
-    print("history count for \(name) is \(history.count)")
+    print("history count for \(name!) is \(history.count)")
 //    if var history = history {
       history.append(game)
 //    } else {
 //      history = [game]
 //    }
-    print("appended history count for \(name) is \(history.count)")
+    print("appended history count for \(name!) is \(history.count)")
   }
 }

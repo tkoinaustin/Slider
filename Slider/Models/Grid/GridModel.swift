@@ -34,7 +34,7 @@ class GridModel {
   var onWinning: ((_: Bool) -> ()) = { won in }
   
   var gameWon: Bool = false { didSet {
-    if gameWon != oldValue { print("game won is \(gameWon)") }
+//    if gameWon != oldValue { print("game won is \(gameWon)") }
     onWinning(gameWon)
   }}
 
@@ -98,7 +98,7 @@ class GridModel {
   }
   
   func updateGrid(_ board: Board) {
-    print("updateGrid \(board)")
+//    print("updateGrid \(board)")
     self.board = board
     switch board {
     case .moveTwoSpaces: movingBlocks = twoMoveBlocks
@@ -190,7 +190,7 @@ class GridModel {
     guard self.direction == nil else { return true }
     guard notThisDirection != direction else { return false }
 
-    print("setOutcomesForMove block \(index) \(direction)")
+//    print("setOutcomesForMove block \(index) \(direction)")
     
     zeroMoveBoard = currentGrid
     
@@ -199,13 +199,13 @@ class GridModel {
     self.oneMoveBoard = oneMoveBoard
     oneMoveBlocks = gameLogic.blocksThatMoved(startGrid: zeroMoveBoard, endGrid: oneMoveBoard)
     movingBlocks = oneMoveBlocks
-    print("oneMoveBlocks \(oneMoveBlocks)")
+//    print("oneMoveBlocks \(oneMoveBlocks)")
     
     guard let twoMoveBoard = gameLogic.newGridForMove(oneMoveBoard, index, direction)
       else { return true }
     self.twoMoveBoard = twoMoveBoard
     twoMoveBlocks = gameLogic.blocksThatMoved(startGrid: oneMoveBoard, endGrid: twoMoveBoard)
-    print("twoMoveBlocks \(twoMoveBlocks)")
+//    print("twoMoveBlocks \(twoMoveBlocks)")
 
     for index in twoMoveBlocks {
       if oneMoveBlocks.contains(index) {

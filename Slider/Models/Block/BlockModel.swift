@@ -13,13 +13,14 @@ class BlockModel: Hashable {
   var index: Int!
   var type: BlockType!
   var origin = Coordinate(row:0, col:0)
-  private var direction: Direction? { didSet {
-    if let direction = direction {
-      print("------ direction changed to \(direction)")
-    } else {
-      print("------ direction changed to nil")
-    }
-  }}
+  private var direction: Direction?
+//    { didSet {
+//    if let direction = direction {
+//      print("------ direction changed to \(direction)")
+//    } else {
+//      print("------ direction changed to nil")
+//    }
+//  }}
   
   weak var viewModel: BlockViewModel!
 
@@ -120,7 +121,7 @@ class BlockModel: Hashable {
     if let dblMove = dblMove { inDoubleMove = dblMove }
     
     if let changedBoard = changedBoard {
-      print("\(direction) blockModelUpdateGameboard: \(changedBoard)")
+//      print("\(direction) blockModelUpdateGameboard: \(changedBoard)")
       board = changedBoard
       
       blockModelUpdateGrid(changedBoard)
@@ -157,7 +158,7 @@ class BlockModel: Hashable {
       origin.col += 1
       assert(origin.col < Columns, " col > Columns")
     }
-    print("BlockModel updated block \(index!) origin to: (\(origin.row),\(origin.col))")
+//    print("BlockModel updated block \(index!) origin to: (\(origin.row),\(origin.col))")
   }
 
 }

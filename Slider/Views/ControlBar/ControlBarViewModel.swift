@@ -10,9 +10,9 @@ import UIKit
 
 class ControlBarViewModel: NSObject, NSCoding {
   var moveNumber: Int = 0 { didSet {
-    print("move number: \(moveNumber)")
+//    print("move number: \(moveNumber)")
     if moveNumber != oldValue { updateControlBarUI() }
-    if moveNumber != oldValue { print("updating move number to \(moveNumber)") }
+//    if moveNumber != oldValue { print("updating move number to \(moveNumber)") }
   }}
   
   var moveDataCount: Int = 1
@@ -91,7 +91,7 @@ class ControlBarViewModel: NSObject, NSCoding {
     // different than the current puzzle
     if gameboard.name != puzzleLabel && moveNumber > 0 {
       //save history, not puzzle!!
-      print("saving \(puzzleLabel)")
+//      print("saving \(puzzleLabel)")
       saveIt()
     }
     
@@ -121,12 +121,12 @@ class ControlBarViewModel: NSObject, NSCoding {
   }
   
   @objc func becomeActive() {
-    print("----- become active  -----")
+//    print("----- become active  -----")
     timerState = .start
   }
   
   @objc func resignActive() {
-    print("----- resign active  -----")
+//    print("----- resign active  -----")
     saveIt()
   }
 

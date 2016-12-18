@@ -11,9 +11,10 @@ import UIKit
 class HistoryListViewController: UITableViewController {
   let formatter = DateFormatter()
 
-  var data = [GameModel]() { didSet {
-    print("HistoryListViewController didSet data, count: \(data.count)")
-  }}
+  var data = [GameModel]()
+//  { didSet {
+//    print("HistoryListViewController didSet data, count: \(data.count)")
+//  }}
   
   override func viewDidLoad() {
     super.viewDidLoad()
