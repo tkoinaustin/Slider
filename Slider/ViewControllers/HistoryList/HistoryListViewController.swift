@@ -10,14 +10,12 @@ import UIKit
 
 class HistoryListViewController: UITableViewController {
   let formatter = DateFormatter()
-
   var data = [GameModel]()
-//  { didSet {
-//    print("HistoryListViewController didSet data, count: \(data.count)")
-//  }}
+  var selected = IndexPath()
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.title = "\(data[0].name)"
     formatter.dateFormat = "EEE, MMM d "
   }
   
@@ -44,15 +42,25 @@ class HistoryListViewController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    self.performSegue(withIdentifier: "replaySegue", sender: self)
+    selected = indexPath
+    let storyboard = UIStoryboard(name: "ReplayBoard", bundle: Bundle.main)
+    
+    let navController: UINavigationController = storyboard.instantiateViewController(withIdentifier: "replayNavController")
+        as! UINavigationController
+    
+    let replayBoardViewController: ReplayBoardViewController = navController.viewControllers[0]
+      as! ReplayBoardViewController
+    
+    replayBoardViewController.replayText = "replaying"
+    replayBoardViewController.index = indexPath.row
+    self.navigationController!.pushViewController(replayBoardViewController, animated: true)
   }
   
   // swiftlint:disable force_cast
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    let nav = segue.source.navigationController!
     let dest = segue.destination as! UINavigationController
     let replay = dest.viewControllers[0] as! ReplayBoardViewController
     replay.replayText = "replaying"
-//    nav.pushViewController(replay, animated: true)
+    self.navigationController!.pushViewController(replay, animated: true)
   }
 }

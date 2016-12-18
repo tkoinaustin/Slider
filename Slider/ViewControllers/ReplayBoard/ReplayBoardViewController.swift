@@ -11,9 +11,15 @@ import UIKit
 class ReplayBoardViewController: UIViewController {
   
   var replayText: String = ""
+  var index: Int!
   
   @IBOutlet weak var replayLabel: UILabel! { didSet {
     replayLabel.text = replayText
   }}
   
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    self.title = "Game \(index! + 1)"
+  }
+ 
 }
