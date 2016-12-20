@@ -111,12 +111,12 @@ class GameModel: NSObject, NSCoding {
   
   func push(_ singleMove: GameMoveData) {
     trim(controlBar.moveNumber)
-    controlBar.moveNumber += 1
+    controlBar.moveNumber! += 1
     moveData.append(singleMove)
   }
   
   func pop() -> GameMoveData? {
-    controlBar.moveNumber -= 1
+    controlBar.moveNumber! -= 1
     return moveData.popLast()
   }
   

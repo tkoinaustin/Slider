@@ -9,15 +9,17 @@
 import UIKit
 
 class ControlBarViewModel: NSObject, NSCoding {
-  var moveNumber: Int = 0 { didSet {
-//    print("move number: \(moveNumber)")
+  var moveNumber: Int! { didSet {
+    guard let _ = oldValue else { return }
     if moveNumber != oldValue { updateControlBarUI() }
-//    if moveNumber != oldValue { print("updating move number to \(moveNumber)") }
   }}
   
   var moveDataCount: Int = 1
   var backEnabled: Bool { return moveDataCount > 1 }
-  var forwardEnabled: Bool { return moveNumber < moveDataCount - 1 }
+  var forwardEnabled: Bool {
+    guard let _ = moveNumber else { return false }
+    return moveNumber < moveDataCount - 1
+  }
   var saveEnabled = true { didSet {
     updateControlBarUI()
   }}
@@ -53,8 +55,15 @@ class ControlBarViewModel: NSObject, NSCoding {
   }
   
   func addNotifications() {
-    NotificationCenter.default.addObserver( self, selector: #selector(becomeActive), name: .UIApplicationDidBecomeActive , object: nil)
-    NotificationCenter.default.addObserver( self, selector: #selector(resignActive), name: .UIApplicationWillResignActive, object: nil)
+    NotificationCenter.default.addObserver( self,
+                                            selector: #selector(becomeActive),
+                                            name: .UIApplicationDidBecomeActive ,
+                                            object: nil)
+    
+    NotificationCenter.default.addObserver( self,
+                                            selector: #selector(resignActive),
+                                            name: .UIApplicationWillResignActive,
+                                            object: nil)
   }
 
   func loadIt() {
@@ -74,13 +83,15 @@ class ControlBarViewModel: NSObject, NSCoding {
   }
   
   func forward() {
-    moveNumber += 1
+    moveNumber = moveNumber ?? 0
+    moveNumber! += 1
     updateBlocksToMoveNumber(moveNumber)
   }
   
   func  backward () {
+    moveNumber = moveNumber ?? 0
     guard moveNumber > 0 else { return }
-    moveNumber -= 1
+    moveNumber! -= 1
     updateBlocksToMoveNumber(moveNumber)
   }
   

@@ -44,12 +44,13 @@ class HistoryListViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     selected = indexPath
     let storyboard = UIStoryboard(name: "ReplayBoard", bundle: Bundle.main)
-    
+    // swiftlint:disable force_cast
     let navController: UINavigationController = storyboard.instantiateViewController(withIdentifier: "replayNavController")
         as! UINavigationController
     
     let replayBoardViewController: ReplayBoardViewController = navController.viewControllers[0]
       as! ReplayBoardViewController
+    // swiftlint:enable force_cast
     
     replayBoardViewController.replayText = "replaying"
     replayBoardViewController.index = indexPath.row

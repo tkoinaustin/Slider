@@ -63,7 +63,7 @@ class ControlBarView: UIView, XibLoadable {
     forward.isEnabled = viewModel.forwardEnabled
     saveButton.isEnabled = viewModel.saveEnabled
     puzzle.setTitle(viewModel.puzzleLabel, for: .normal)
-    moveNumber.text = viewModel.moveNumber.description
+    if let move = viewModel.moveNumber { moveNumber.text = move.description }
     
     switch viewModel.timerState {
     case .start:
