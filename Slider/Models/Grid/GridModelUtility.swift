@@ -19,7 +19,7 @@ class GridModelUtility {
     }
     if let grid = grid { msg += GridModelUtility.printGameboard(grid: grid) }
     
-    return""// msg
+    return "msg"
   }
   
   static private func printGameboard(grid: [[Int]]) -> String {

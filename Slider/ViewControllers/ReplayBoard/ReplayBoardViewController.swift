@@ -17,6 +17,8 @@ class ReplayBoardViewController: UIViewController {
     replayLabel.text = replayText
   }}
   
+  @IBOutlet weak var replayGrid: UIView!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.title = "Game \(index! + 1)"
