@@ -52,6 +52,7 @@ class HistoryListViewController: UITableViewController {
       as! ReplayBoardViewController
     // swiftlint:enable force_cast
     
+    replayBoardViewController.gameModel = data[indexPath.row]
     replayBoardViewController.replayText = "replaying"
     replayBoardViewController.index = indexPath.row
     self.navigationController!.pushViewController(replayBoardViewController, animated: true)

@@ -104,12 +104,11 @@ class ControlBarViewModel: NSObject, NSCoding {
   
   func newPuzzle(gameboard: Gameboard?) {
     guard let gameboard = gameboard else { return }
-
+    
     // save existing puzzle if there are any moves and the puzzle is 
     // different than the current puzzle
-    if gameboard.name != puzzleLabel && moveNumber > 0 {
+    if gameboard.name != puzzleLabel && moveNumber ?? 0 > 0 {
       //save history, not puzzle!!
-//      print("saving \(puzzleLabel)")
       saveIt()
     }
     

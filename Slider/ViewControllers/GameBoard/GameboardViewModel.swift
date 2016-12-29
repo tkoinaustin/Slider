@@ -62,7 +62,7 @@ class GameboardViewModel {
       
       let notify = UIAlertController.init(title: "Winner, winner, chicken dinner!",
                                           message: "Good job",
-                                          preferredStyle: .actionSheet)
+                                          preferredStyle: .alert)
       let okAction = UIAlertAction(title: "OK", style: .default)
       notify.addAction(okAction)
       self.parent.present(notify, animated: true, completion: nil)
@@ -92,7 +92,7 @@ class GameboardViewModel {
     
     for blockView in gridView.subviews { blockView.removeFromSuperview() }
     for index in 1..<grid.blockCount {
-      let _ = CodedBlockView.get(parent: gridView, game: self, index: index)
+      let _ = CodedBlockView.getGameBlock(parent: gridView, game: self, index: index)
     }
   }
   

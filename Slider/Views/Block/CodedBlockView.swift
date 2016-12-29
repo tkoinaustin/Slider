@@ -34,10 +34,21 @@ class CodedBlockView: UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
-  static func get(parent: UIView, game: GameboardViewModel, index: Int) -> CodedBlockView {
+  static func getReplayBlock(parent: UIView, blockModel: BlockViewModel, index: Int) -> CodedBlockView {
     let block = CodedBlockView.init(frame: CGRect.zero)
+    block.viewModel = blockModel
     
+    return get(block: block, parent: parent, index: index)
+  }
+  
+  static func getGameBlock(parent: UIView, game: GameboardViewModel, index: Int) -> CodedBlockView {
+    let block = CodedBlockView.init(frame: CGRect.zero)
     block.viewModel = game.block(index)
+    
+    return get(block: block, parent: parent, index: index)
+  }
+  
+  static func get(block: CodedBlockView, parent: UIView, index: Int) -> CodedBlockView {
     block.center = block.viewModel.center
     block.bounds = block.viewModel.bounds
     block.layer.borderColor = UIColor.white.cgColor
@@ -52,6 +63,20 @@ class CodedBlockView: UIView {
         block.center = block.viewModel.center
       })
     }
+    
+    block.viewModel.nextStep = { _ in
+      UIView.animate(withDuration: 0.4, animations: {
+        block.center = block.viewModel.center
+      })
+    }
+    
+    block.viewModel.fadeIn = { _ in
+      block.alpha = 0
+      UIView.animate(withDuration: 0.3, animations: {
+        block.alpha = 1
+      })
+    }
+    
     parent.addSubview(block)
 
     return block

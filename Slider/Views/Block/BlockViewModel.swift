@@ -37,6 +37,8 @@ class BlockViewModel {
   }}
   
   var updateUI: (() -> ()) = {}
+  var nextStep: (() -> ()) = {}
+  var fadeIn: (() -> ()) = {}
   
   var type: BlockType = .small { didSet {
     guard let _ = canvas else { return }

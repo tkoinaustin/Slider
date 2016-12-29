@@ -10,6 +10,11 @@ import UIKit
 
 class ReplayBoardViewController: UIViewController {
   
+  var viewModel = ReplayBoardViewModel()
+  var gameModel: GameModel! { didSet {
+    viewModel.assignGameModel(gameModel)
+  }}
+  
   var replayText: String = ""
   var index: Int!
   
@@ -17,11 +22,17 @@ class ReplayBoardViewController: UIViewController {
     replayLabel.text = replayText
   }}
   
-  @IBOutlet weak var replayGrid: UIView!
+  @IBOutlet weak var replayGrid: UIView!  { didSet {
+    viewModel.assignGridView(replayGrid)
+  }}
+
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    viewModel.loadBlocks()
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     self.title = "Game \(index! + 1)"
   }
- 
 }
