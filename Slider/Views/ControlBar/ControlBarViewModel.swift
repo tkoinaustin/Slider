@@ -123,14 +123,18 @@ class ControlBarViewModel: NSObject, NSCoding {
   
   func displayPuzzleList() {
     let puzzleListViewController: PuzzleListViewController = PuzzleListViewController()
+    puzzleListViewController.preferredContentSize = CGSize(width: 400, height: 3000)
     puzzleListViewController.loadNewPuzzle = newPuzzle
     puzzleListViewController.saveHistory = saveHistory
     
-    let loginNavController = UINavigationController(rootViewController: puzzleListViewController)
-    loginNavController.navigationItem.backBarButtonItem =
+    let navController = UINavigationController(rootViewController: puzzleListViewController)
+    navController.modalPresentationStyle = .popover
+    navController.popoverPresentationController?.sourceView = parentViewController?.view
+    
+    navController.navigationItem.backBarButtonItem =
       UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismiss))
     
-    parentViewController?.show(loginNavController, sender: self)
+    parentViewController?.show(navController, sender: self)
   }
   
   func dismiss() {
