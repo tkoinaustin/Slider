@@ -26,11 +26,10 @@ class GridModelUtility {
     var  desc = ""
     for row in 0..<Rows {
       for col in 0..<Columns {
-        desc += "[\(grid[row][col])]"// + col == Columns - 1 ? "\n" : ", "
+        desc += "[\(grid[row][col])]"
         desc += col == Columns - 1 ? "\n" : ", "
       }
     }
     return desc
   }
-
 }
