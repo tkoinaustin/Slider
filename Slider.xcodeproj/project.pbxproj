@@ -149,7 +149,6 @@
 			children = (
 				837137591DD89843003AD379 /* BlockViewModel.swift */,
 				8371375A1DD89843003AD379 /* CodedBlockView.swift */,
-				CBC571481DFCC2A300633ED8 /* HistoryList.storyboard */,
 			);
 			name = Block;
 			sourceTree = "<group>";
@@ -358,6 +357,7 @@
 		CBC571311DFCBFF200633ED8 /* HistoryList */ = {
 			isa = PBXGroup;
 			children = (
+				CBC571481DFCC2A300633ED8 /* HistoryList.storyboard */,
 				CBC571461DFCC24900633ED8 /* HistoryListViewController.swift */,
 				CBC5714A1E00226F00633ED8 /* HistoryListCell.swift */,
 			);
