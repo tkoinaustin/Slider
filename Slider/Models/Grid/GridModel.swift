@@ -29,7 +29,7 @@ class GridModel {
   private var notThisDirection: Direction?
   private var board: Board = .moveOneSpace
   
-  var gameboardViewModelUpdateUI: (() -> ()) = { _ in }
+  var updateGameboardUI: (() -> ()) = { _ in }
   var gameModelMoveFinished: ((_: GameMoveData) -> ()) = { move in }
   var onWinning: ((_: Bool) -> ()) = { won in }
   
@@ -135,7 +135,7 @@ class GridModel {
     currentGrid = gridForBoard(board: board)
     updateBlockOriginsForBoard(currentGrid)
     resetBlocks()
-    gameboardViewModelUpdateUI()
+    updateGameboardUI()
 
     oneMoveBoard = nil
     twoMoveBoard = nil

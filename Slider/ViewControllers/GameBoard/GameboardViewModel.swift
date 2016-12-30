@@ -46,7 +46,7 @@ class GameboardViewModel {
     
     grid = GridModel(gameboard)
     
-    grid.gameboardViewModelUpdateUI = {
+    grid.updateGameboardUI = {
       self.placeAllBlocks()
     }
     
@@ -104,7 +104,7 @@ class GameboardViewModel {
       let moveBoard = self.game.moveData[index].grid
       self.grid.setCurrentGrid(moveBoard)
       self.grid.updateBlockOriginsForBoard(moveBoard)
-      self.grid.gameboardViewModelUpdateUI()
+      self.grid.updateGameboardUI()
     }
     
     game.controlBar.trimMoveData = { index in
@@ -142,7 +142,7 @@ class GameboardViewModel {
       block.placeBlock(point: GridConstants.blockCenter(row: block.model.origin.row,
                                                         col: block.model.origin.col,
                                                         type: block.type))
-      block.updateUI()
+      block.updateBlockUI()
     }
   }
   

@@ -58,7 +58,7 @@ class CodedBlockView: UIView {
     label.textColor = UIColor.white
     block.addSubview(label)
     
-    block.viewModel.updateUI = { _ in
+    block.viewModel.updateBlockUI = { _ in
       UIView.animate(withDuration: 0.2, animations: {
         block.center = block.viewModel.center
       })

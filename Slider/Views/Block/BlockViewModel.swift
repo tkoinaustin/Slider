@@ -36,7 +36,7 @@ class BlockViewModel {
     bounds = setBounds()
   }}
   
-  var updateUI: (() -> ()) = {}
+  var updateBlockUI: (() -> ()) = {}
   var nextStep: (() -> ()) = {}
   var fadeIn: (() -> ()) = {}
   
@@ -58,7 +58,7 @@ class BlockViewModel {
   
   func setCenter(newCenter: CGPoint) {
     center = newCenter
-    updateUI()
+    updateBlockUI()
   }
   
   private func setBounds() -> CGRect {
