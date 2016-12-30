@@ -21,6 +21,9 @@ class GameboardViewModel {
   fileprivate var grid: GridModel!
   fileprivate(set) var game = GameModel()
   fileprivate var parent: GameboardViewController!
+  fileprivate let gradientLayer = CAGradientLayer()
+  fileprivate var initialLoad = true
+
   
   var count: Int {
     return blocks.count
@@ -35,7 +38,7 @@ class GameboardViewModel {
   }
   
   func fillGradient(_ gradientView: UIView) {
-    let gradientLayer  = CAGradientLayer()
+    gradientLayer.removeFromSuperlayer()
     gradientLayer.frame.size = gradientView.frame.size
     let color = UIColor.white
     gradientLayer.colors = [
@@ -167,7 +170,9 @@ class GameboardViewModel {
     }
   }
   
-  func startGame() {    
+  func startGame() {
+    guard initialLoad else { return }
+    initialLoad = false
     if !restoreGame() { game.controlBar.displayPuzzleList() }
   }
   

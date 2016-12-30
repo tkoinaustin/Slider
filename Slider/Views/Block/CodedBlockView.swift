@@ -88,7 +88,11 @@ class CodedBlockView: UIView {
       })
     }
     
+    block.alpha = 0
     parent.addSubview(block)
+    UIView.animate(withDuration: 1, animations: {
+      block.alpha = 1
+    })
 
     return block
   }

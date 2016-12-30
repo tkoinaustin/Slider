@@ -27,11 +27,11 @@ class GameboardViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     viewModel.assignParent(self)
-    viewModel.startGame()
   }
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     viewModel.fillGradient(gradientView)
+    viewModel.startGame()
   }
 }
