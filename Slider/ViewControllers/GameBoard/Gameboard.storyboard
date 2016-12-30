@@ -8,6 +8,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -34,10 +35,18 @@
                                 <rect key="frame" x="16" y="577" width="343" height="70"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dlY-hv-vqP">
+                                <rect key="frame" x="67" y="449" width="240" height="128"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="dlY-hv-vqP" secondAttribute="height" multiplier="1:1" id="xSG-m6-hni"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="2Ds-Bj-rJn" firstAttribute="top" relation="greaterThanOrEqual" secondItem="bie-Xn-ZpF" secondAttribute="bottom" constant="20" id="7g4-6Q-LaQ"/>
+                            <constraint firstItem="dlY-hv-vqP" firstAttribute="width" secondItem="bie-Xn-ZpF" secondAttribute="width" multiplier="0.5" id="8zK-z6-RXz"/>
                             <constraint firstItem="bie-Xn-ZpF" firstAttribute="leading" secondItem="tVV-JY-VtE" secondAttribute="leadingMargin" id="B9r-9Q-V8n"/>
                             <constraint firstItem="bie-Xn-ZpF" firstAttribute="top" secondItem="f1l-yQ-djv" secondAttribute="bottom" id="KSF-A3-gWB"/>
                             <constraint firstItem="2Ds-Bj-rJn" firstAttribute="leading" secondItem="tVV-JY-VtE" secondAttribute="leadingMargin" id="SDu-So-N4E"/>
@@ -45,6 +54,9 @@
                             <constraint firstItem="2Ds-Bj-rJn" firstAttribute="trailing" secondItem="tVV-JY-VtE" secondAttribute="trailingMargin" id="ZAc-Oa-gNC"/>
                             <constraint firstItem="bie-Xn-ZpF" firstAttribute="trailing" secondItem="tVV-JY-VtE" secondAttribute="trailingMargin" priority="250" id="gOU-qd-yOe"/>
                             <constraint firstItem="2Ds-Bj-rJn" firstAttribute="top" secondItem="bie-Xn-ZpF" secondAttribute="bottom" priority="250" id="nG2-BZ-lMh"/>
+                            <constraint firstItem="dlY-hv-vqP" firstAttribute="top" secondItem="bie-Xn-ZpF" secondAttribute="bottom" id="qK2-10-Ot0"/>
+                            <constraint firstItem="dlY-hv-vqP" firstAttribute="top" secondItem="bie-Xn-ZpF" secondAttribute="bottom" id="sPL-KX-suf"/>
+                            <constraint firstItem="dlY-hv-vqP" firstAttribute="centerX" secondItem="bie-Xn-ZpF" secondAttribute="centerX" id="wVK-mr-khh"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="bie-Xn-ZpF" secondAttribute="trailing" id="xK5-Ef-e3O"/>
                         </constraints>
                     </view>
