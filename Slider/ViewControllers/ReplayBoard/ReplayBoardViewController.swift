@@ -18,17 +18,19 @@ class ReplayBoardViewController: UIViewController {
   var replayText: String = ""
   var index: Int!
   
-  @IBOutlet weak var replayLabel: UILabel! { didSet {
+  @IBOutlet private weak var gradientView: UIView!
+  @IBOutlet private weak var replayLabel: UILabel! { didSet {
     replayLabel.text = replayText
   }}
   
-  @IBOutlet weak var replayGrid: UIView!  { didSet {
+  @IBOutlet private weak var replayGrid: UIView!  { didSet {
     viewModel.assignGridView(replayGrid)
   }}
 
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     viewModel.loadBlocks()
+    viewModel.fillGradient(gradientView)
   }
   
   override func viewDidLoad() {

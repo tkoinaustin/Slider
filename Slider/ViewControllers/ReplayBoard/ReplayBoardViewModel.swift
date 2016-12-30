@@ -36,6 +36,26 @@ class ReplayBoardViewModel {
     self.gridView = gridView
   }
   
+  func fillGradient(_ gradientView: UIView) {
+    let gradientLayer  = CAGradientLayer()
+    gradientLayer.frame.size = gradientView.frame.size
+    let color = UIColor.white
+    gradientLayer.colors = [
+      color.withAlphaComponent(0.000).cgColor,
+      color.withAlphaComponent(0.012).cgColor,
+      color.withAlphaComponent(0.059).cgColor,
+      color.withAlphaComponent(0.155).cgColor,
+      color.withAlphaComponent(0.308).cgColor,
+      color.withAlphaComponent(0.500).cgColor,
+      color.withAlphaComponent(0.692).cgColor,
+      color.withAlphaComponent(0.844).cgColor,
+      color.withAlphaComponent(0.941).cgColor,
+      color.withAlphaComponent(0.989).cgColor,
+      color.withAlphaComponent(1.000).cgColor
+    ]
+    gradientView.layer.addSublayer(gradientLayer)
+  }
+
   func loadBlocks() {
     self.size = gridView.frame.size
     blockModels = GridModelInitialization().initBlocks(grid: grid)
@@ -67,7 +87,11 @@ class ReplayBoardViewModel {
   }
 
   @objc fileprivate func moveBlocks() -> Bool {
-    guard index < game.moveData.count else { moveTimer = nil; return false }
+    guard index < game.moveData.count else {
+      moveTimer = nil
+      blockViews[1].moveOffBoard()
+      return false
+    }
     
     updateBlockOriginsForBoard(game.moveData[index].grid)
     if !moveAllBlocks(index) {
