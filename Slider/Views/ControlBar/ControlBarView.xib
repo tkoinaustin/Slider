@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -50,7 +50,7 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZFx-aW-e1F">
-                            <rect key="frame" x="0.0" y="45" width="375" height="35"/>
+                            <rect key="frame" x="0.0" y="45" width="374.5" height="35"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="7XP-9c-rcP">
                                     <rect key="frame" x="0.0" y="0.0" width="120" height="35"/>
@@ -90,7 +90,7 @@
                                     </constraints>
                                 </stackView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ga-aj-DBA">
-                                    <rect key="frame" x="172.5" y="0.0" width="34" height="35"/>
+                                    <rect key="frame" x="172" y="0.0" width="34" height="35"/>
                                     <state key="normal" title="Save"/>
                                     <connections>
                                         <action selector="save:" destination="iN0-l3-epB" eventType="touchUpInside" id="CpX-J9-lZ4"/>
@@ -104,7 +104,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5uV-DI-a3d">
-                                    <rect key="frame" x="345" y="0.0" width="30" height="35"/>
+                                    <rect key="frame" x="344.5" y="0.0" width="30" height="35"/>
                                     <color key="backgroundColor" red="0.94901960780000005" green="0.43529411759999997" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <state key="normal" title="O"/>
                                 </button>
@@ -113,11 +113,15 @@
                     </subviews>
                     <constraints>
                         <constraint firstItem="fdP-nE-Ddh" firstAttribute="leading" secondItem="i27-v4-cfz" secondAttribute="leading" id="FQD-Z0-wpl"/>
+                        <constraint firstItem="ZFx-aW-e1F" firstAttribute="width" secondItem="fdP-nE-Ddh" secondAttribute="width" id="QqF-rK-STR"/>
                         <constraint firstAttribute="trailing" secondItem="ZFx-aW-e1F" secondAttribute="trailing" id="WBm-PQ-JgN"/>
-                        <constraint firstAttribute="trailing" secondItem="fdP-nE-Ddh" secondAttribute="trailing" id="mai-pZ-5CK"/>
+                        <constraint firstAttribute="trailing" secondItem="fdP-nE-Ddh" secondAttribute="trailing" priority="250" id="mai-pZ-5CK"/>
                         <constraint firstItem="ZFx-aW-e1F" firstAttribute="height" secondItem="fdP-nE-Ddh" secondAttribute="height" id="vE9-2L-0As"/>
-                        <constraint firstItem="ZFx-aW-e1F" firstAttribute="leading" secondItem="i27-v4-cfz" secondAttribute="leading" id="wUd-xF-TPP"/>
+                        <constraint firstItem="ZFx-aW-e1F" firstAttribute="leading" secondItem="i27-v4-cfz" secondAttribute="leading" priority="250" id="wUd-xF-TPP"/>
+                        <constraint firstAttribute="bottom" secondItem="ZFx-aW-e1F" secondAttribute="bottom" id="yt4-Ry-afd"/>
                     </constraints>
+                    <variation key="widthClass=compact" axis="vertical" spacing="10"/>
+                    <variation key="widthClass=regular" axis="horizontal" spacing="50"/>
                 </stackView>
             </subviews>
             <constraints>
