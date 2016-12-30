@@ -158,6 +158,8 @@ class GameboardViewModel {
     game.copy(restoredGame)
     game.controlBar.restoreGame(game)
 
+    guard !game.moveData.isEmpty else { return false }
+    
     loadPuzzle(game.moveData.last?.grid)
     print(" restoreGame: \(game.name)")
     
