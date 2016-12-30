@@ -12,6 +12,7 @@ class GameboardViewController: UIViewController {
   
   var viewModel = GameboardViewModel()
 
+  @IBOutlet weak var gradientView: UIView!
   @IBOutlet private weak var gridView: UIView! { didSet {
     viewModel.assignGridView(gridView)
   }}
@@ -27,5 +28,10 @@ class GameboardViewController: UIViewController {
     super.viewDidLoad()
     viewModel.assignParent(self)
     viewModel.startGame()
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    viewModel.fillGradient(gradientView)
   }
 }

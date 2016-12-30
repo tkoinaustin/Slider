@@ -34,6 +34,26 @@ class GameboardViewModel {
     self.gridView = gridView
   }
   
+  func fillGradient(_ gradientView: UIView) {
+    let gradientLayer  = CAGradientLayer()
+    gradientLayer.frame.size = gradientView.frame.size
+    let color = UIColor.white
+    gradientLayer.colors = [
+      color.withAlphaComponent(0.000).cgColor,
+      color.withAlphaComponent(0.012).cgColor,
+      color.withAlphaComponent(0.059).cgColor,
+      color.withAlphaComponent(0.155).cgColor,
+      color.withAlphaComponent(0.308).cgColor,
+      color.withAlphaComponent(0.500).cgColor,
+      color.withAlphaComponent(0.692).cgColor,
+      color.withAlphaComponent(0.844).cgColor,
+      color.withAlphaComponent(0.941).cgColor,
+      color.withAlphaComponent(0.989).cgColor,
+      color.withAlphaComponent(1.000).cgColor
+    ]
+    gradientView.layer.addSublayer(gradientLayer)
+  }
+  
   func loadPuzzle(_ puzzleGrid: [[Int]]?) {
     if let puzzleGrid = puzzleGrid { loadGrid(gameboard: puzzleGrid) }
     else { loadGrid(gameboard: puzzleGrid!) }
@@ -60,6 +80,7 @@ class GameboardViewModel {
       self.game.controlBar.gameOver() 
       self.saveHistory()
       
+      self.blocks[1].moveOffBoard()
       let notify = UIAlertController.init(title: "Winner, winner, chicken dinner!",
                                           message: "Good job",
                                           preferredStyle: .alert)

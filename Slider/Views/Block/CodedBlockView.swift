@@ -70,6 +70,17 @@ class CodedBlockView: UIView {
       })
     }
     
+    block.viewModel.exitOffScreen = { _ in
+      UIView.animate(
+        withDuration: 1,
+        delay: 0.25,
+        options: .curveEaseIn ,
+        animations: {
+          block.center = block.viewModel.center
+      },
+        completion: nil
+    )}
+    
     block.viewModel.fadeIn = { _ in
       block.alpha = 0
       UIView.animate(withDuration: 0.3, animations: {

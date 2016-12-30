@@ -8,7 +8,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -31,37 +30,47 @@
                                     <constraint firstAttribute="width" secondItem="bie-Xn-ZpF" secondAttribute="height" multiplier="4:5" id="LfD-oR-lFq"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7RE-wj-Htt">
+                                <rect key="frame" x="15.5" y="474" width="343" height="343"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="7RE-wj-Htt" secondAttribute="height" multiplier="1:1" id="Vdz-ii-fCw"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dlY-hv-vqP">
+                                <rect key="frame" x="16" y="449" width="343" height="25"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="oAD-F3-G4x"/>
+                                </constraints>
+                            </view>
                             <view tag="13" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ds-Bj-rJn" userLabel="control bar" customClass="ControlBarView" customModule="Slider" customModuleProvider="target">
                                 <rect key="frame" x="16" y="577" width="343" height="70"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dlY-hv-vqP">
-                                <rect key="frame" x="67" y="449" width="240" height="128"/>
-                                <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="dlY-hv-vqP" secondAttribute="height" multiplier="1:1" id="xSG-m6-hni"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="7RE-wj-Htt" firstAttribute="leading" secondItem="bie-Xn-ZpF" secondAttribute="leading" id="48C-j5-1IB"/>
+                            <constraint firstItem="dlY-hv-vqP" firstAttribute="leading" secondItem="bie-Xn-ZpF" secondAttribute="leading" id="6gB-ZF-miq"/>
                             <constraint firstItem="2Ds-Bj-rJn" firstAttribute="top" relation="greaterThanOrEqual" secondItem="bie-Xn-ZpF" secondAttribute="bottom" constant="20" id="7g4-6Q-LaQ"/>
-                            <constraint firstItem="dlY-hv-vqP" firstAttribute="width" secondItem="bie-Xn-ZpF" secondAttribute="width" multiplier="0.5" id="8zK-z6-RXz"/>
+                            <constraint firstItem="7RE-wj-Htt" firstAttribute="trailing" secondItem="bie-Xn-ZpF" secondAttribute="trailing" id="9uw-zG-d8s"/>
                             <constraint firstItem="bie-Xn-ZpF" firstAttribute="leading" secondItem="tVV-JY-VtE" secondAttribute="leadingMargin" id="B9r-9Q-V8n"/>
                             <constraint firstItem="bie-Xn-ZpF" firstAttribute="top" secondItem="f1l-yQ-djv" secondAttribute="bottom" id="KSF-A3-gWB"/>
                             <constraint firstItem="2Ds-Bj-rJn" firstAttribute="leading" secondItem="tVV-JY-VtE" secondAttribute="leadingMargin" id="SDu-So-N4E"/>
                             <constraint firstItem="zGg-GE-j6X" firstAttribute="top" secondItem="2Ds-Bj-rJn" secondAttribute="bottom" constant="20" id="XgJ-rt-86U"/>
                             <constraint firstItem="2Ds-Bj-rJn" firstAttribute="trailing" secondItem="tVV-JY-VtE" secondAttribute="trailingMargin" id="ZAc-Oa-gNC"/>
+                            <constraint firstItem="dlY-hv-vqP" firstAttribute="trailing" secondItem="bie-Xn-ZpF" secondAttribute="trailing" id="fjt-R1-gPk"/>
                             <constraint firstItem="bie-Xn-ZpF" firstAttribute="trailing" secondItem="tVV-JY-VtE" secondAttribute="trailingMargin" priority="250" id="gOU-qd-yOe"/>
+                            <constraint firstItem="7RE-wj-Htt" firstAttribute="top" secondItem="dlY-hv-vqP" secondAttribute="bottom" id="gR5-Gx-s6I"/>
                             <constraint firstItem="2Ds-Bj-rJn" firstAttribute="top" secondItem="bie-Xn-ZpF" secondAttribute="bottom" priority="250" id="nG2-BZ-lMh"/>
                             <constraint firstItem="dlY-hv-vqP" firstAttribute="top" secondItem="bie-Xn-ZpF" secondAttribute="bottom" id="qK2-10-Ot0"/>
-                            <constraint firstItem="dlY-hv-vqP" firstAttribute="top" secondItem="bie-Xn-ZpF" secondAttribute="bottom" id="sPL-KX-suf"/>
-                            <constraint firstItem="dlY-hv-vqP" firstAttribute="centerX" secondItem="bie-Xn-ZpF" secondAttribute="centerX" id="wVK-mr-khh"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="bie-Xn-ZpF" secondAttribute="trailing" id="xK5-Ef-e3O"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="controlBar" destination="2Ds-Bj-rJn" id="TNo-Nu-Qka"/>
+                        <outlet property="gradientView" destination="dlY-hv-vqP" id="NBM-0Q-eTP"/>
                         <outlet property="gridView" destination="bie-Xn-ZpF" id="76v-4Z-C8f"/>
                     </connections>
                 </viewController>

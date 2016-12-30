@@ -24,6 +24,7 @@
 		83AB626F1D97106D00E61AB7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83AB626D1D97106D00E61AB7 /* LaunchScreen.storyboard */; };
 		CB04A41C1DD4C879007BE787 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB04A41B1DD4C879007BE787 /* Board.swift */; };
 		CB04CA1D1E140BC40056A600 /* ReplayBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB04CA1C1E140BC40056A600 /* ReplayBoardViewModel.swift */; };
+		CB04CA1F1E16AB060056A600 /* Delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB04CA1E1E16AB060056A600 /* Delay.swift */; };
 		CB226D951E05DA9B0003A78F /* HistoryStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB226D941E05DA9B0003A78F /* HistoryStoreModel.swift */; };
 		CB23B34E1DE081C000ACFBC0 /* ArchiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB23B34D1DE081C000ACFBC0 /* ArchiveTests.swift */; };
 		CB4E7E631DC03AFE009D48F1 /* MasterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4E7E621DC03AFE009D48F1 /* MasterModel.swift */; };
@@ -90,6 +91,7 @@
 		83AB62701D97106D00E61AB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB04A41B1DD4C879007BE787 /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Board.swift; path = Models/enums/Board.swift; sourceTree = "<group>"; };
 		CB04CA1C1E140BC40056A600 /* ReplayBoardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReplayBoardViewModel.swift; path = ViewControllers/ReplayBoard/ReplayBoardViewModel.swift; sourceTree = "<group>"; };
+		CB04CA1E1E16AB060056A600 /* Delay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Delay.swift; path = Utilities/Delay.swift; sourceTree = "<group>"; };
 		CB226D941E05DA9B0003A78F /* HistoryStoreModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryStoreModel.swift; path = Models/HistoryStoreModel.swift; sourceTree = "<group>"; };
 		CB23B34D1DE081C000ACFBC0 /* ArchiveTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArchiveTests.swift; sourceTree = "<group>"; };
 		CB4E7E621DC03AFE009D48F1 /* MasterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MasterModel.swift; path = Models/MasterModel.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			children = (
 				837137591DD89843003AD379 /* BlockViewModel.swift */,
 				8371375A1DD89843003AD379 /* CodedBlockView.swift */,
+				CBC571481DFCC2A300633ED8 /* HistoryList.storyboard */,
 			);
 			name = Block;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 			isa = PBXGroup;
 			children = (
 				CBA63BF81DA9D8F4004C0EE6 /* Constants.swift */,
+				CB04CA1E1E16AB060056A600 /* Delay.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -354,7 +358,6 @@
 		CBC571311DFCBFF200633ED8 /* HistoryList */ = {
 			isa = PBXGroup;
 			children = (
-				CBC571481DFCC2A300633ED8 /* HistoryList.storyboard */,
 				CBC571461DFCC24900633ED8 /* HistoryListViewController.swift */,
 				CBC5714A1E00226F00633ED8 /* HistoryListCell.swift */,
 			);
@@ -506,6 +509,7 @@
 				CB4E7E631DC03AFE009D48F1 /* MasterModel.swift in Sources */,
 				CB4E7E651DC0D5F9009D48F1 /* Puzzles.swift in Sources */,
 				CBA63BF91DA9D8F4004C0EE6 /* Constants.swift in Sources */,
+				CB04CA1F1E16AB060056A600 /* Delay.swift in Sources */,
 				CBC571411DFCC0DB00633ED8 /* PuzzleListCell.swift in Sources */,
 				CB6576541DD613CE00D61DED /* XibLoadable.swift in Sources */,
 				CB6576521DD5405500D61DED /* ControlBarViewModel.swift in Sources */,
