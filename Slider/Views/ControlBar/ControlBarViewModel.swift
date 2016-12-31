@@ -103,7 +103,7 @@ class ControlBarViewModel: NSObject, NSCoding {
   }
   
   func newPuzzle(gameboard: Gameboard?) {
-    guard let gameboard = gameboard else { return }
+    guard let gameboard = gameboard else { timerState = .start; return }
     
     // save existing puzzle if there are any moves and the puzzle is 
     // different than the current puzzle
@@ -114,7 +114,6 @@ class ControlBarViewModel: NSObject, NSCoding {
     
     // load new puzzle
     puzzleLabel = "\(gameboard.name)"
-//    timerCount = 0
     timerState = .reset
     moveNumber = 0
     updateControlBarUI()
@@ -122,6 +121,7 @@ class ControlBarViewModel: NSObject, NSCoding {
   }
   
   func displayPuzzleList() {
+    timerState = .stop
     let puzzleListViewController: PuzzleListViewController = PuzzleListViewController()
     puzzleListViewController.preferredContentSize = CGSize(width: 400, height: 3000)
     puzzleListViewController.loadNewPuzzle = newPuzzle
@@ -130,6 +130,7 @@ class ControlBarViewModel: NSObject, NSCoding {
     let navController = UINavigationController(rootViewController: puzzleListViewController)
     navController.modalPresentationStyle = .popover
     navController.popoverPresentationController?.sourceView = parentViewController?.view
+    navController.popoverPresentationController?.delegate = self
     
     navController.navigationItem.backBarButtonItem =
       UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismiss))
@@ -142,13 +143,19 @@ class ControlBarViewModel: NSObject, NSCoding {
   }
   
   @objc func becomeActive() {
-//    print("----- become active  -----")
+    print("----- become active  -----")
     timerState = .start
   }
   
   @objc func resignActive() {
-//    print("----- resign active  -----")
+    print("----- resign active  -----")
     saveIt()
+  }
+}
+
+extension ControlBarViewModel: UIPopoverPresentationControllerDelegate {
+  func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
+    timerState = .start
   }
 
 }
