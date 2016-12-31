@@ -21,7 +21,6 @@ class ControlBarView: UIView, XibLoadable {
   @IBOutlet private weak var timerView: TimerView! { didSet {
     timerView.viewModel = viewModel
   }}
-  @IBOutlet private weak var saveButton: UIButton!
   
   @IBAction func backAction(_ sender: UIButton) {
     viewModel.backward()
@@ -33,14 +32,6 @@ class ControlBarView: UIView, XibLoadable {
   
   @IBAction func puzzleList(_ sender: UIButton) {
     viewModel.displayPuzzleList()
-  }
-  
-  @IBAction func save(_ sender: UIButton) {
-    viewModel.saveIt()
-  }
-  
-  @IBAction func load(_ sender: UIButton) {
-    viewModel.loadIt()
   }
   
   func setup() {
@@ -61,7 +52,6 @@ class ControlBarView: UIView, XibLoadable {
   func updateUI() {
     back.isEnabled = viewModel.backEnabled
     forward.isEnabled = viewModel.forwardEnabled
-    saveButton.isEnabled = viewModel.saveEnabled
     puzzle.setTitle(viewModel.puzzleLabel, for: .normal)
     if let move = viewModel.moveNumber { moveNumber.text = move.description }
     

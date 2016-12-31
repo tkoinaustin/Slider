@@ -38,12 +38,12 @@
                                         <action selector="puzzleList:" destination="iN0-l3-epB" eventType="touchUpInside" id="zjX-Bl-NYj"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vxx-jY-pDs">
+                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vxx-jY-pDs">
                                     <rect key="frame" x="157" y="0.0" width="59" height="35"/>
                                     <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                     <state key="normal" title="Reset"/>
                                 </button>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LYi-Uc-MQ2" customClass="TimerView" customModule="Slider" customModuleProvider="target">
+                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LYi-Uc-MQ2" customClass="TimerView" customModule="Slider" customModuleProvider="target">
                                     <rect key="frame" x="296" y="0.0" width="79" height="35"/>
                                     <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </view>
@@ -89,20 +89,6 @@
                                         <constraint firstItem="DvV-Y6-SRC" firstAttribute="width" secondItem="onZ-R1-c7D" secondAttribute="width" id="tT0-Oe-Q86"/>
                                     </constraints>
                                 </stackView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ga-aj-DBA">
-                                    <rect key="frame" x="172" y="0.0" width="34" height="35"/>
-                                    <state key="normal" title="Save"/>
-                                    <connections>
-                                        <action selector="save:" destination="iN0-l3-epB" eventType="touchUpInside" id="CpX-J9-lZ4"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F5S-qf-EH0">
-                                    <rect key="frame" x="258.5" y="0.0" width="34" height="35"/>
-                                    <state key="normal" title="Load"/>
-                                    <connections>
-                                        <action selector="load:" destination="iN0-l3-epB" eventType="touchUpInside" id="J7k-ge-Ygy"/>
-                                    </connections>
-                                </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5uV-DI-a3d">
                                     <rect key="frame" x="344.5" y="0.0" width="30" height="35"/>
                                     <color key="backgroundColor" red="0.94901960780000005" green="0.43529411759999997" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -139,7 +125,6 @@
                 <outlet property="forward" destination="DvV-Y6-SRC" id="Tkc-dq-nAz"/>
                 <outlet property="moveNumber" destination="pd8-XE-FLY" id="Iaa-CX-5IS"/>
                 <outlet property="puzzle" destination="dga-tm-gXZ" id="HSm-MW-BQQ"/>
-                <outlet property="saveButton" destination="2Ga-aj-DBA" id="9Bg-Or-3pp"/>
                 <outlet property="timerView" destination="LYi-Uc-MQ2" id="Dmt-AB-ac1"/>
             </connections>
             <point key="canvasLocation" x="-83.5" y="-228"/>

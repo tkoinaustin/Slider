@@ -73,11 +73,7 @@ class GameHistoryModel: NSObject, NSCoding {
     aCoder.encode(winner, forKey: "winner")
     aCoder.encode(history, forKey: "history")
   }
-  
-//  var description: String {
-//    return ""
-//  }
-  
+
   func addGame(game: GameModel) {
     name = game.name
     index = game.index
