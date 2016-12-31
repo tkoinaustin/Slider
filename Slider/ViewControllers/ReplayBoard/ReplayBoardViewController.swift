@@ -36,14 +36,5 @@ class ReplayBoardViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.title = "Game \(index! + 1)"
-    
-    navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done,
-                                                       target: self,
-                                                       action: #selector(dismissController))
   }
-
-func dismissController() {
-  dismiss(animated: true, completion: nil)
-}
-
 }

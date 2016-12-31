@@ -11,7 +11,6 @@ import UIKit
 class HistoryListViewController: UITableViewController {
   let formatter = DateFormatter()
   var data = [GameModel]()
-  var selected = IndexPath()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -41,20 +40,16 @@ class HistoryListViewController: UITableViewController {
     return cell
   }
   
-  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    selected = indexPath
-    let storyboard = UIStoryboard(name: "ReplayBoard", bundle: Bundle.main)
-    // swiftlint:disable force_cast
-    let navController: UINavigationController = storyboard.instantiateViewController(withIdentifier: "replayNavController")
-        as! UINavigationController
-    
-    let replayBoardViewController: ReplayBoardViewController = navController.viewControllers[0]
-      as! ReplayBoardViewController
-    // swiftlint:enable force_cast
-    
-    replayBoardViewController.gameModel = data[indexPath.row]
-    replayBoardViewController.replayText = "replaying"
-    replayBoardViewController.index = indexPath.row
-    present(navController, animated: true, completion: nil)
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    let row = sender as! Int
+    let navController = segue.destination as? UINavigationController
+    let replayBoardViewController = navController?.viewControllers[0] as? ReplayBoardViewController
+    replayBoardViewController?.gameModel = data[row]
+    replayBoardViewController?.replayText = "replaying"
+    replayBoardViewController?.index = row
+  }
+  
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {    
+    performSegue(withIdentifier: "replayBoardSegue", sender: indexPath.row)
   }
 }

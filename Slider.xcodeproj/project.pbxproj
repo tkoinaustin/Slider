@@ -26,6 +26,7 @@
 		CB04CA1D1E140BC40056A600 /* ReplayBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB04CA1C1E140BC40056A600 /* ReplayBoardViewModel.swift */; };
 		CB04CA1F1E16AB060056A600 /* Delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB04CA1E1E16AB060056A600 /* Delay.swift */; };
 		CB04CA221E17F1C50056A600 /* IntroSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB04CA211E17F1C50056A600 /* IntroSegue.swift */; };
+		CB04CA241E17F7670056A600 /* TabShowSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB04CA231E17F7670056A600 /* TabShowSegue.swift */; };
 		CB226D951E05DA9B0003A78F /* HistoryStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB226D941E05DA9B0003A78F /* HistoryStoreModel.swift */; };
 		CB23B34E1DE081C000ACFBC0 /* ArchiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB23B34D1DE081C000ACFBC0 /* ArchiveTests.swift */; };
 		CB4E7E631DC03AFE009D48F1 /* MasterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4E7E621DC03AFE009D48F1 /* MasterModel.swift */; };
@@ -94,6 +95,7 @@
 		CB04CA1C1E140BC40056A600 /* ReplayBoardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReplayBoardViewModel.swift; path = ViewControllers/ReplayBoard/ReplayBoardViewModel.swift; sourceTree = "<group>"; };
 		CB04CA1E1E16AB060056A600 /* Delay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Delay.swift; path = Utilities/Delay.swift; sourceTree = "<group>"; };
 		CB04CA211E17F1C50056A600 /* IntroSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntroSegue.swift; path = Segues/IntroSegue.swift; sourceTree = "<group>"; };
+		CB04CA231E17F7670056A600 /* TabShowSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabShowSegue.swift; path = Segues/TabShowSegue.swift; sourceTree = "<group>"; };
 		CB226D941E05DA9B0003A78F /* HistoryStoreModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryStoreModel.swift; path = Models/HistoryStoreModel.swift; sourceTree = "<group>"; };
 		CB23B34D1DE081C000ACFBC0 /* ArchiveTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArchiveTests.swift; sourceTree = "<group>"; };
 		CB4E7E621DC03AFE009D48F1 /* MasterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MasterModel.swift; path = Models/MasterModel.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				CB04CA211E17F1C50056A600 /* IntroSegue.swift */,
+				CB04CA231E17F7670056A600 /* TabShowSegue.swift */,
 			);
 			name = Segues;
 			sourceTree = "<group>";
@@ -535,6 +538,7 @@
 				CBC5712C1DEB2F0700633ED8 /* GameModel.swift in Sources */,
 				CBC5713A1DFCC0CE00633ED8 /* GameboardViewController.swift in Sources */,
 				CB6CB67A1E00BB9E00FCB9B5 /* ReplayBoardViewController.swift in Sources */,
+				CB04CA241E17F7670056A600 /* TabShowSegue.swift in Sources */,
 				8371375B1DD89843003AD379 /* BlockViewModel.swift in Sources */,
 				CB04A41C1DD4C879007BE787 /* Board.swift in Sources */,
 				CBC571421DFCC0DB00633ED8 /* PuzzleListDataProvider.swift in Sources */,
