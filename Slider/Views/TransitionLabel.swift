@@ -16,7 +16,7 @@ class TransitionLabel: UILabel {
   var newLabel = UILabel()
   
   func setLabel(_ text: String) {
-    UIView.animate(withDuration: 0.2, animations: {
+    UIView.animate(withDuration: 0.25, animations: {
       self.newLabel.alpha = 0
     }, completion: { _ in
       self.newLabel.text = text
@@ -37,6 +37,7 @@ class TransitionLabel: UILabel {
   func setup() {
     self.addSubview(newLabel)
     self.newLabel.textAlignment = self.textAlignment
+    newLabel.backgroundColor = UIColor.white
 
     newLabel.translatesAutoresizingMaskIntoConstraints = false
     let margins = layoutMarginsGuide

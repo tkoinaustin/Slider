@@ -19,11 +19,11 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fdP-nE-Ddh">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="35"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="37.5"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dga-tm-gXZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="77" height="35"/>
-                                    <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="77" height="37.5"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="120" id="Eyg-FP-7vL"/>
                                     </constraints>
@@ -38,28 +38,28 @@
                                         <action selector="puzzleList:" destination="iN0-l3-epB" eventType="touchUpInside" id="zjX-Bl-NYj"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vxx-jY-pDs">
-                                    <rect key="frame" x="157" y="0.0" width="59" height="35"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vxx-jY-pDs">
+                                    <rect key="frame" x="157" y="0.0" width="59" height="37.5"/>
                                     <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                     <state key="normal" title="Reset"/>
                                 </button>
-                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LYi-Uc-MQ2" customClass="TimerView" customModule="Slider" customModuleProvider="target">
-                                    <rect key="frame" x="296" y="0.0" width="79" height="35"/>
-                                    <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LYi-Uc-MQ2" customClass="TimerView" customModule="Slider" customModuleProvider="target">
+                                    <rect key="frame" x="296" y="0.0" width="79" height="37.5"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZFx-aW-e1F">
-                            <rect key="frame" x="0.0" y="45" width="374.5" height="35"/>
+                            <rect key="frame" x="0.0" y="42.5" width="374.5" height="37.5"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="7XP-9c-rcP">
-                                    <rect key="frame" x="0.0" y="0.0" width="120" height="35"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="90" height="37.5"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="onZ-R1-c7D">
-                                            <rect key="frame" x="0.0" y="0.0" width="30" height="35"/>
-                                            <color key="backgroundColor" red="0.97254901959999995" green="0.90980392160000001" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="20" height="37.5"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="30" id="hUf-YO-yLz"/>
+                                                <constraint firstAttribute="width" constant="20" id="hUf-YO-yLz"/>
                                             </constraints>
                                             <state key="normal" title="B"/>
                                             <connections>
@@ -67,18 +67,18 @@
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pd8-XE-FLY" customClass="TransitionLabel" customModule="Slider" customModuleProvider="target">
-                                            <rect key="frame" x="35" y="0.0" width="50" height="35"/>
-                                            <color key="backgroundColor" red="0.94901960780000005" green="0.43529411759999997" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <rect key="frame" x="25" y="0.0" width="40" height="37.5"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="50" id="ZgY-66-xdd"/>
+                                                <constraint firstAttribute="width" constant="40" id="ZgY-66-xdd"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DvV-Y6-SRC">
-                                            <rect key="frame" x="90" y="0.0" width="30" height="35"/>
-                                            <color key="backgroundColor" red="0.97254901959999995" green="0.90980392160000001" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <rect key="frame" x="70" y="0.0" width="20" height="37.5"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <state key="normal" title="F"/>
                                             <connections>
                                                 <action selector="forwardAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="YGt-Qt-aCg"/>
@@ -90,8 +90,8 @@
                                     </constraints>
                                 </stackView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5uV-DI-a3d">
-                                    <rect key="frame" x="344.5" y="0.0" width="30" height="35"/>
-                                    <color key="backgroundColor" red="0.94901960780000005" green="0.43529411759999997" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <rect key="frame" x="344.5" y="0.0" width="30" height="37.5"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <state key="normal" title="O"/>
                                 </button>
                             </subviews>
@@ -106,7 +106,7 @@
                         <constraint firstItem="ZFx-aW-e1F" firstAttribute="leading" secondItem="i27-v4-cfz" secondAttribute="leading" priority="250" id="wUd-xF-TPP"/>
                         <constraint firstAttribute="bottom" secondItem="ZFx-aW-e1F" secondAttribute="bottom" id="yt4-Ry-afd"/>
                     </constraints>
-                    <variation key="widthClass=compact" axis="vertical" spacing="10"/>
+                    <variation key="widthClass=compact" axis="vertical" spacing="5"/>
                     <variation key="widthClass=regular" axis="horizontal" spacing="50"/>
                 </stackView>
             </subviews>
