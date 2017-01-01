@@ -71,7 +71,6 @@ class PuzzleListDataProvider: NSObject, UITableViewDataSource {
     let historyListViewController: HistoryListViewController = navController.viewControllers[0]
       as! HistoryListViewController
     historyListViewController.data = gameModels
-    historyListViewController.preferredContentSize = CGSize(width: 400, height: 3000)
 
     parent.navigationController?.pushViewController(historyListViewController, animated: true)
   }
