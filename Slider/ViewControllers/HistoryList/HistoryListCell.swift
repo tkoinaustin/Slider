@@ -10,7 +10,8 @@ import UIKit
 
 class HistoryListCell: UITableViewCell {
   var gameModel: GameModel! { didSet {
-    moves.text = "\(gameModel.moves.description) moves"
+    let move = gameModel.moves == 1 ? "move" : "moves"
+    moves.text = "\(gameModel.moves.description) \(move)"
     datePlayed.text = gameModel.displayDate
     let winColor = gameModel.won ? UIColor.green : UIColor.red
     wonStripe.backgroundColor = winColor

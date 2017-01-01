@@ -82,7 +82,7 @@ class GameModel: NSObject, NSCoding {
   }
 
   var moves: Int {
-    return moveData.count
+    return moveData.count - 1
   }
   
   func prepareForNewGame(_ gameboard: Gameboard) {
