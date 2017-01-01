@@ -15,7 +15,7 @@ class GameModel: NSObject, NSCoding {
   var gameTime: TimeInterval!
   var won = false
   var displayDate: String = ""
-  private(set) var datePlayed = Date()
+  var datePlayed = Date()
   private(set) var controlBar = ControlBarViewModel()
   private(set) var moveData = [GameMoveData]() { didSet {
     controlBar.moveDataCount = moveData.count
@@ -121,7 +121,6 @@ class GameModel: NSObject, NSCoding {
   }
   
   func trim(_ index: Int) {
-//    print("trimming moveData to \(index)")
     guard index < moveData.count else { return }
     let arraySlice = moveData[0...index]
     moveData = Array(arraySlice)

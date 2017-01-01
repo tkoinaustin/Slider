@@ -15,7 +15,9 @@ class ControlBarView: UIView, XibLoadable {
   let viewModel = ControlBarViewModel()
   
   @IBOutlet private weak var puzzle: UIButton!
+  @IBOutlet private weak var reset: UIButton!
   @IBOutlet private weak var moveNumber: TransitionLabel!
+  
   @IBOutlet private weak var back: UIButton!
   @IBOutlet private weak var forward: UIButton!
   @IBOutlet private weak var timerView: TimerView! { didSet {
@@ -32,6 +34,10 @@ class ControlBarView: UIView, XibLoadable {
   
   @IBAction func puzzleList(_ sender: UIButton) {
     viewModel.displayPuzzleList()
+  }
+  
+  @IBAction func resetAction(_ sender: UIButton) {
+    viewModel.resetCurrentGame()
   }
   
   func setup() {

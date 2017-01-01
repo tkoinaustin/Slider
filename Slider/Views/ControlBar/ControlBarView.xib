@@ -42,6 +42,9 @@
                                     <rect key="frame" x="157" y="0.0" width="59" height="37.5"/>
                                     <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                     <state key="normal" title="Reset"/>
+                                    <connections>
+                                        <action selector="resetAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="12a-7F-Tkk"/>
+                                    </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LYi-Uc-MQ2" customClass="TimerView" customModule="Slider" customModuleProvider="target">
                                     <rect key="frame" x="296" y="0.0" width="79" height="37.5"/>
@@ -125,6 +128,7 @@
                 <outlet property="forward" destination="DvV-Y6-SRC" id="Tkc-dq-nAz"/>
                 <outlet property="moveNumber" destination="pd8-XE-FLY" id="Iaa-CX-5IS"/>
                 <outlet property="puzzle" destination="dga-tm-gXZ" id="HSm-MW-BQQ"/>
+                <outlet property="reset" destination="vxx-jY-pDs" id="xVB-II-mu9"/>
                 <outlet property="timerView" destination="LYi-Uc-MQ2" id="Dmt-AB-ac1"/>
             </connections>
             <point key="canvasLocation" x="-83.5" y="-228"/>

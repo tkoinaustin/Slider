@@ -20,9 +20,6 @@ class ControlBarViewModel: NSObject, NSCoding {
     guard let _ = moveNumber else { return false }
     return moveNumber < moveDataCount - 1
   }
-  var saveEnabled = true { didSet {
-    updateControlBarUI()
-  }}
   var timerCount: TimeInterval = 0
   var timerState: TimerState = .start { didSet {
       updateTimerState(timerState)
@@ -41,6 +38,7 @@ class ControlBarViewModel: NSObject, NSCoding {
   var load: (() -> ()) = { }
   var save: ((TimeInterval) -> ()) = { _ in }
   var saveHistory: (() -> ()) = { }
+  var resetPuzzle: (() -> ()) = { }
 
   required convenience init?(coder aDecoder: NSCoder) {
     self.init()
@@ -79,7 +77,6 @@ class ControlBarViewModel: NSObject, NSCoding {
   
   func gameOver() {
     timerState = .stop
-    saveEnabled = false
   }
   
   func forward() {
@@ -99,6 +96,13 @@ class ControlBarViewModel: NSObject, NSCoding {
     puzzleLabel = "\(game.name)"
     timerCount = game.gameTime
     moveNumber = game.moveData.count - 1
+    updateControlBarUI()
+  }
+  
+  func resetCurrentGame() {
+    resetPuzzle()
+    moveNumber = 0
+    timerState = .reset
     updateControlBarUI()
   }
   

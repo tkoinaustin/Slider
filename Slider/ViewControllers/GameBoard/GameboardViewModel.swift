@@ -138,7 +138,6 @@ class GameboardViewModel {
     game.controlBar.puzzleToLoad = { gameboard in
       guard let gameboard = gameboard else { return }
       self.game.prepareForNewGame(gameboard)
-      self.game.controlBar.saveEnabled = true
       self.loadPuzzle(gameboard.grid)
     }
     
@@ -153,6 +152,18 @@ class GameboardViewModel {
     }
     
     game.controlBar.saveHistory = saveHistory
+    
+    game.controlBar.resetPuzzle = {
+      print("resetPuzzle")
+      guard !self.game.moveData.isEmpty else { return }
+
+      self.saveHistory()
+      self.game.datePlayed = Date()
+      self.grid.setCurrentGrid((self.game.moveData.first?.grid)!)
+      self.grid.updateBlockOriginsForBoard(self.grid.currentGrid)
+      self.placeAllBlocks()
+      self.game.trim(0)
+    }
   }
   
   func block(_ index: Int) -> BlockViewModel {
