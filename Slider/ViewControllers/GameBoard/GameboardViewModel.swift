@@ -80,7 +80,6 @@ class GameboardViewModel {
     grid.onWinning = { won in
       guard won else { return }
       self.game.won = true
-      self.game.controlBar.gameOver() 
       self.saveHistory()
       
       self.blocks[1].moveOffBoard()

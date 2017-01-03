@@ -20,15 +20,21 @@ class ControlBarViewModel: NSObject, NSCoding {
   }}
   var backEnabled: Bool {
     guard let _ = moveNumber else { return false }
+    if gameOver { return false }
+
     return moveNumber > 0
   }
   var forwardEnabled: Bool {
     guard let _ = moveNumber else { return false }
+    if gameOver { return false }
+    
     print("moveNumber: \(moveNumber), moveDataCount: \(moveDataCount)")
     return moveNumber < moveDataCount - 1
   }
   var resetEnabled: Bool {
     guard let _ = moveNumber else { return false }
+    if gameOver { return false }
+
     return moveNumber > 0
   }
   
@@ -37,6 +43,12 @@ class ControlBarViewModel: NSObject, NSCoding {
       updateTimerState(timerState)
   }}
   
+  var gameOver: Bool = false { didSet {
+    if gameOver {
+      timerState = .stop
+      updateControlBarUI()
+    }
+  }}
   var puzzleLabel: String = "Select Puzzle"
   var parentViewController: UIViewController!
   
@@ -84,10 +96,6 @@ class ControlBarViewModel: NSObject, NSCoding {
   func saveIt() {
     timerState = .stop
     save(timerCount)
-  }
-  
-  func gameOver() {
-    timerState = .stop
   }
   
   func forward() {

@@ -13,7 +13,9 @@ class GameModel: NSObject, NSCoding {
   var name = ""
   var index: Int = 0
   var gameTime: TimeInterval!
-  var won = false
+  var won = false { didSet {
+    controlBar.gameOver = won
+  }}
   var displayDate: String = ""
   var datePlayed = Date()
   private(set) var controlBar = ControlBarViewModel()
