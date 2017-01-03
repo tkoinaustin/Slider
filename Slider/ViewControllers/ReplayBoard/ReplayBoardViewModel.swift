@@ -74,10 +74,15 @@ class ReplayBoardViewModel {
     
     for blockView in gridView.subviews { blockView.removeFromSuperview() }
     for index in 1..<blockModels.count {
-      let _ = CodedBlockView.getReplayBlock(parent: gridView, blockModel: blockViews[index], index: index)
+      let _ = CodedBlockView.getReplayBlock(parent: gridView,
+                                            blockModel: blockViews[index],
+                                            index: index)
     }
     placeAllBlocks()
-    moveTimer = Timer.scheduledTimer(timeInterval: 0.6, target: self, selector: #selector(moveBlocks), userInfo: nil, repeats: true)
+    moveTimer = Timer.scheduledTimer(timeInterval: 0.6,
+                                     target: self,
+                                     selector: #selector(moveBlocks),
+                                     userInfo: nil, repeats: true)
   }
   
   func stopTimer() {

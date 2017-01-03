@@ -166,8 +166,9 @@ class ControlBarViewModel: NSObject, NSCoding {
 }
 
 extension ControlBarViewModel: UIPopoverPresentationControllerDelegate {
+  // swiftlint:disable line_length
   func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
     timerState = .start
   }
-
+  // swiftlint:enable line_length
 }

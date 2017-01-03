@@ -20,7 +20,7 @@ class ReplayBoardViewController: UIViewController {
     replayLabel.text = replayText
   }}
   
-  @IBOutlet private weak var replayGrid: UIView!  { didSet {
+  @IBOutlet private weak var replayGrid: UIView! { didSet {
     viewModel.assignGridView(replayGrid)
   }}
 

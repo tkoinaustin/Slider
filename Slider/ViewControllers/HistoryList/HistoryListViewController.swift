@@ -41,7 +41,9 @@ class HistoryListViewController: UITableViewController {
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    // swiftlint:disable force_cast
     let row = sender as! Int
+    // swiftlint:enable force_cast
     let navController = segue.destination as? UINavigationController
     let replayBoardViewController = navController?.viewControllers[0] as? ReplayBoardViewController
     replayBoardViewController?.viewModel.game = data[row]

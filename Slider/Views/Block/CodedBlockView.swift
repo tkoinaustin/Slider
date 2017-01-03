@@ -34,7 +34,9 @@ class CodedBlockView: UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
-  static func getReplayBlock(parent: UIView, blockModel: BlockViewModel, index: Int) -> CodedBlockView {
+  static func getReplayBlock(parent: UIView,
+                             blockModel: BlockViewModel,
+                             index: Int) -> CodedBlockView {
     let block = CodedBlockView.init(frame: CGRect.zero)
     block.viewModel = blockModel
     
@@ -48,6 +50,7 @@ class CodedBlockView: UIView {
     return get(block: block, parent: parent, index: index)
   }
   
+  // swiftlint:disable function_body_length
   static func get(block: CodedBlockView, parent: UIView, index: Int) -> CodedBlockView {
     block.center = block.viewModel.center
     block.bounds = block.viewModel.bounds
@@ -96,7 +99,8 @@ class CodedBlockView: UIView {
 
     return block
   }
-  
+  // swiftlint:enable function_body_length
+
   func pan(_ panRecognizer: UIPanGestureRecognizer) {
     
     let translation = panRecognizer.translation(in: superview)

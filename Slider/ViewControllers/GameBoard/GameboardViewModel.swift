@@ -24,7 +24,6 @@ class GameboardViewModel {
   fileprivate let gradientLayer = CAGradientLayer()
   fileprivate var initialLoad = true
 
-  
   var count: Int {
     return blocks.count
   }
@@ -64,6 +63,7 @@ class GameboardViewModel {
     loadBlocks(gridView)
   }
   
+  // swiftlint:disable function_body_length
   func loadGrid(gameboard: [[Int]]) {
     if let grid = grid { grid.releaseBlocks() }
     
@@ -96,6 +96,7 @@ class GameboardViewModel {
     let gameMoveData = GameMoveData(block: 0, direction: .up, grid: grid.currentGrid)
     game.setInitialGrid(gameMoveData)
   }
+  // swiftlint:enable function_body_length
 
   func loadBlocks(_ gridView: UIView) {
     self.size = gridView.frame.size
@@ -120,7 +121,9 @@ class GameboardViewModel {
     }
   }
   
+  // swiftlint:disable function_body_length
   func setControlBarClosure() {
+    // swiftlint:enable function_body_length
     game.controlBar.updateBlocksToMoveNumber = { index in
       assert(index < self.game.moveData.count, "index higher than moveData count")
       guard index < self.game.moveData.count else { return }

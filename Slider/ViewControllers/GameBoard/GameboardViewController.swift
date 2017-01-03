@@ -12,7 +12,7 @@ class GameboardViewController: UIViewController {
   
   var viewModel = GameboardViewModel()
 
-  @IBOutlet weak var gradientView: UIView!
+  @IBOutlet private weak var gradientView: UIView!
   @IBOutlet private weak var gridView: UIView! { didSet {
     viewModel.assignGridView(gridView)
   }}
