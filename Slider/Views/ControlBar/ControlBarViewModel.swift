@@ -18,9 +18,13 @@ class ControlBarViewModel: NSObject, NSCoding {
       print("move data count is \(moveDataCount)")
 //    if moveDataCount != oldValue { updateControlBarUI() }
   }}
-  var backEnabled: Bool { return moveDataCount > 1 }
+  var backEnabled: Bool {
+    guard let _ = moveNumber else { return false }
+    return moveNumber > 0
+  }
   var forwardEnabled: Bool {
     guard let _ = moveNumber else { return false }
+    print("moveNumber: \(moveNumber), moveDataCount: \(moveDataCount)")
     return moveNumber < moveDataCount - 1
   }
   var resetEnabled: Bool {
@@ -79,7 +83,6 @@ class ControlBarViewModel: NSObject, NSCoding {
   
   func saveIt() {
     timerState = .stop
-    updateControlBarUI()
     save(timerCount)
   }
   
@@ -127,6 +130,7 @@ class ControlBarViewModel: NSObject, NSCoding {
     // load new puzzle
     puzzleLabel = "\(gameboard.name)"
     timerState = .reset
+    moveDataCount = 1
     moveNumber = 0
     updateControlBarUI()
     puzzleToLoad(gameboard)
