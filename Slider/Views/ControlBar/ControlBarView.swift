@@ -56,8 +56,10 @@ class ControlBarView: UIView, XibLoadable {
   }
   
   func updateUI() {
+    print("update control bar UI")
     back.isEnabled = viewModel.backEnabled
     forward.isEnabled = viewModel.forwardEnabled
+    reset.isEnabled = viewModel.resetEnabled
     puzzle.setTitle(viewModel.puzzleLabel, for: .normal)
     if let move = viewModel.moveNumber { moveNumber.text = move.description }
     

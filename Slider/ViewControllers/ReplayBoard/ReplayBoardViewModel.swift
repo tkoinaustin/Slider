@@ -15,21 +15,21 @@ class ReplayBoardViewModel {
   fileprivate var size: CGSize!
   fileprivate var parent: ReplayBoardViewController!
   fileprivate var grid: [[Int]]!
-  fileprivate var game: GameModel!
-  fileprivate var moveTimer: Timer!
+  var moveTimer: Timer!
   fileprivate var index = 1
-
+  
+  var game: GameModel! { didSet {
+    grid = game.move(index: 0)?.grid
+  }}
+  
+  var dismiss: (() -> ())  = { }
+  
   var count: Int {
     return blockViews.count
   }
   
   func assignParent(_ parent: ReplayBoardViewController) {
     self.parent = parent
-  }
-  
-  func assignGameModel(_ gameModel: GameModel) {
-    self.game = gameModel
-    self.grid = gameModel.move(index: 0)?.grid
   }
   
   func assignGridView(_ gridView: UIView) {
@@ -80,6 +80,13 @@ class ReplayBoardViewModel {
     moveTimer = Timer.scheduledTimer(timeInterval: 0.6, target: self, selector: #selector(moveBlocks), userInfo: nil, repeats: true)
   }
   
+  func stopTimer() {
+    if let _ = moveTimer {
+      moveTimer.invalidate()
+      moveTimer = nil
+    }
+  }
+  
   fileprivate func block(_ index: Int) -> BlockViewModel {
     guard index < blockViews.count && index > 0 else { return blockViews[0] }
     
@@ -88,15 +95,16 @@ class ReplayBoardViewModel {
 
   @objc fileprivate func moveBlocks() -> Bool {
     guard index < game.moveData.count else {
-      moveTimer = nil
-      blockViews[1].moveOffBoard()
+      stopTimer()
+      if game.won { blockViews[1].moveOffBoard() }
+      Delay.by(2) {
+        self.dismiss()
+      }
       return false
     }
     
     updateBlockOriginsForBoard(game.moveData[index].grid)
-    if !moveAllBlocks(index) {
-      // do done stuff here
-    }
+    moveAllBlocks(index)
     index += 1
     return true
   }
@@ -109,7 +117,7 @@ class ReplayBoardViewModel {
     }
   }
 
-  fileprivate func moveAllBlocks(_ index: Int) -> Bool {
+  fileprivate func moveAllBlocks(_ index: Int) {
     print(" Move all Blocks: \(index)")
     for block in blockViews {
       block.placeBlock(point: GridConstants.blockCenter(row: block.model.origin.row,
@@ -117,7 +125,6 @@ class ReplayBoardViewModel {
                                                         type: block.type))
       block.nextStep()
     }
-    return true
   }
   
   fileprivate func placeAllBlocks() {

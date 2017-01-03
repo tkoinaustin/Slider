@@ -56,9 +56,7 @@ class BlockViewModel {
   func moveOffBoard() {
     guard index == 1 else { return }
     placeBlock(point: CGPoint(x: 0.5, y: 1.3))
-    Delay.by(1) {
-      self.exitOffScreen()
-    }
+    self.exitOffScreen()
   }
   
   func placeBlock(point: CGPoint) {

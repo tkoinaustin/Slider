@@ -72,7 +72,7 @@ class CodedBlockView: UIView {
     
     block.viewModel.exitOffScreen = { _ in
       UIView.animate(
-        withDuration: 1,
+        withDuration: 0.5,
         delay: 0.25,
         options: .curveEaseIn ,
         animations: {

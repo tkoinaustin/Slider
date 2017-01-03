@@ -44,7 +44,7 @@ class HistoryListViewController: UITableViewController {
     let row = sender as! Int
     let navController = segue.destination as? UINavigationController
     let replayBoardViewController = navController?.viewControllers[0] as? ReplayBoardViewController
-    replayBoardViewController?.gameModel = data[row]
+    replayBoardViewController?.viewModel.game = data[row]
     replayBoardViewController?.replayText = "replaying"
     replayBoardViewController?.index = row
   }

@@ -14,12 +14,20 @@ class ControlBarViewModel: NSObject, NSCoding {
     if moveNumber != oldValue { updateControlBarUI() }
   }}
   
-  var moveDataCount: Int = 1
+  var moveDataCount: Int = 1 { didSet {
+      print("move data count is \(moveDataCount)")
+//    if moveDataCount != oldValue { updateControlBarUI() }
+  }}
   var backEnabled: Bool { return moveDataCount > 1 }
   var forwardEnabled: Bool {
     guard let _ = moveNumber else { return false }
     return moveNumber < moveDataCount - 1
   }
+  var resetEnabled: Bool {
+    guard let _ = moveNumber else { return false }
+    return moveNumber > 0
+  }
+  
   var timerCount: TimeInterval = 0
   var timerState: TimerState = .start { didSet {
       updateTimerState(timerState)
