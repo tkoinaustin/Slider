@@ -102,6 +102,7 @@ class CodedBlockView: UIView {
   // swiftlint:enable function_body_length
 
   func pan(_ panRecognizer: UIPanGestureRecognizer) {
+    guard viewModel.swipeEnabled else { return }
     
     let translation = panRecognizer.translation(in: superview)
     

@@ -28,6 +28,7 @@ enum BlockType {
 class BlockViewModel {
   var index: Int!
   weak var model: BlockModel!
+  var swipeEnabled = true
 
   private(set) var center: CGPoint!
   var startingCenter: CGPoint!

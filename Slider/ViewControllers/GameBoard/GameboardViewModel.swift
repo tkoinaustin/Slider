@@ -81,6 +81,7 @@ class GameboardViewModel {
       guard won else { return }
       self.game.won = true
       self.saveHistory()
+      for block in self.blocks { block.swipeEnabled = false }
       
       self.blocks[1].moveOffBoard()
       let notify = UIAlertController.init(title: "Winner, winner, chicken dinner!",
@@ -141,6 +142,7 @@ class GameboardViewModel {
       guard let gameboard = gameboard else { return }
       self.game.prepareForNewGame(gameboard)
       self.loadPuzzle(gameboard.grid)
+      for block in self.blocks { block.swipeEnabled = true }
     }
     
     game.controlBar.load = {
