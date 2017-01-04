@@ -87,8 +87,12 @@ class GameboardViewModel {
       let notify = UIAlertController.init(title: "Winner, winner, chicken dinner!",
                                           message: "Good job",
                                           preferredStyle: .alert)
-      let okAction = UIAlertAction(title: "OK", style: .default)
+      let okAction = UIAlertAction(title: "Next Puzzle", style: .cancel)
       notify.addAction(okAction)
+      let replayAction = UIAlertAction(title: "Instant Replay", style: .default )
+      notify.addAction(replayAction)
+      let playAgainAction = UIAlertAction(title: "Play Again", style: .default)
+      notify.addAction(playAgainAction)
       self.parent.present(notify, animated: true, completion: nil)
     }
     
