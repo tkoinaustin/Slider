@@ -120,6 +120,7 @@ class ControlBarViewModel: NSObject, NSCoding {
   
   func resetCurrentGame() {
     resetPuzzle()
+    moveDataCount = 1
     moveNumber = 0
     timerState = .reset
     updateControlBarUI()

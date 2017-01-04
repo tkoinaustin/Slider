@@ -19,9 +19,7 @@ class GameModel: NSObject, NSCoding {
   var displayDate: String = ""
   var datePlayed = Date()
   private(set) var controlBar = ControlBarViewModel()
-  private(set) var moveData = [GameMoveData]() { didSet {
-    controlBar.moveDataCount = moveData.count
-  }}
+  private(set) var moveData = [GameMoveData]()
   
   override var description: String {
     let formatter = DateFormatter()
@@ -115,11 +113,13 @@ class GameModel: NSObject, NSCoding {
     trim(controlBar.moveNumber)
     controlBar.moveNumber! += 1
     moveData.append(singleMove)
+    controlBar.moveDataCount = moveData.count
   }
   
   func pop() -> GameMoveData? {
     controlBar.moveNumber! -= 1
     return moveData.popLast()
+    controlBar.moveDataCount = moveData.count
   }
   
   func trim(_ index: Int) {
