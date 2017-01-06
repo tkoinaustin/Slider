@@ -28,32 +28,8 @@ class ReplayBoardViewModel {
     return blockViews.count
   }
   
-  func assignParent(_ parent: ReplayBoardViewController) {
-    self.parent = parent
-  }
-  
   func assignGridView(_ gridView: UIView) {
     self.gridView = gridView
-  }
-  
-  func fillGradient(_ gradientView: UIView) {
-    let gradientLayer  = CAGradientLayer()
-    gradientLayer.frame.size = gradientView.frame.size
-    let color = UIColor.white
-    gradientLayer.colors = [
-      color.withAlphaComponent(0.000).cgColor,
-      color.withAlphaComponent(0.012).cgColor,
-      color.withAlphaComponent(0.059).cgColor,
-      color.withAlphaComponent(0.155).cgColor,
-      color.withAlphaComponent(0.308).cgColor,
-      color.withAlphaComponent(0.500).cgColor,
-      color.withAlphaComponent(0.692).cgColor,
-      color.withAlphaComponent(0.844).cgColor,
-      color.withAlphaComponent(0.941).cgColor,
-      color.withAlphaComponent(0.989).cgColor,
-      color.withAlphaComponent(1.000).cgColor
-    ]
-    gradientView.layer.addSublayer(gradientLayer)
   }
 
   func loadBlocks() {
@@ -82,7 +58,8 @@ class ReplayBoardViewModel {
     moveTimer = Timer.scheduledTimer(timeInterval: 0.6,
                                      target: self,
                                      selector: #selector(moveBlocks),
-                                     userInfo: nil, repeats: true)
+                                     userInfo: nil,
+                                     repeats: true)
   }
   
   func stopTimer() {

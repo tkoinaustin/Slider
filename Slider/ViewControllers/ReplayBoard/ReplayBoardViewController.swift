@@ -14,8 +14,12 @@ class ReplayBoardViewController: UIViewController {
   
   var replayText: String = ""
   var index: Int!
+
+  @IBOutlet private weak var gradientView: UIView! { didSet {
+    gradientView.backgroundColor = UIColor(patternImage: UIImage(named: "opaque gradient")!)
+    gradientView.clipsToBounds = true
+  }}
   
-  @IBOutlet private weak var gradientView: UIView!
   @IBOutlet private weak var replayLabel: UILabel! { didSet {
     replayLabel.text = replayText
   }}
@@ -27,7 +31,6 @@ class ReplayBoardViewController: UIViewController {
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     viewModel.loadBlocks()
-    viewModel.fillGradient(gradientView)
   }
   
   override func viewDidLoad() {

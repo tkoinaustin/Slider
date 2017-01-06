@@ -22,16 +22,11 @@ class GameboardViewModel {
   fileprivate var grid: GridModel!
   fileprivate(set) var game = GameModel()
   fileprivate(set) var controlBar = ControlBarViewModel()
-  fileprivate var parent: GameboardViewController!
   fileprivate let gradientLayer = CAGradientLayer()
   fileprivate var initialLoad = true
 
   var count: Int {
     return blocks.count
-  }
-  
-  func assignParent(_ parent: GameboardViewController) {
-    self.parent = parent
   }
   
   func assignGridView(_ gridView: UIView) {
@@ -40,26 +35,6 @@ class GameboardViewModel {
   
   func assignControlBar(_ controlBar: ControlBarViewModel) {
     self.controlBar = controlBar
-  }
-
-  func fillGradient(_ gradientView: UIView) {
-    gradientLayer.removeFromSuperlayer()
-    gradientLayer.frame.size = gradientView.frame.size
-    let color = UIColor.white
-    gradientLayer.colors = [
-      color.withAlphaComponent(0.000).cgColor,
-      color.withAlphaComponent(0.012).cgColor,
-      color.withAlphaComponent(0.059).cgColor,
-      color.withAlphaComponent(0.155).cgColor,
-      color.withAlphaComponent(0.308).cgColor,
-      color.withAlphaComponent(0.500).cgColor,
-      color.withAlphaComponent(0.692).cgColor,
-      color.withAlphaComponent(0.844).cgColor,
-      color.withAlphaComponent(0.941).cgColor,
-      color.withAlphaComponent(0.989).cgColor,
-      color.withAlphaComponent(1.000).cgColor
-    ]
-    gradientView.layer.addSublayer(gradientLayer)
   }
   
   func loadPuzzle(_ puzzleGrid: [[Int]]?) {
@@ -101,7 +76,7 @@ class GameboardViewModel {
       notify.addAction(replayAction)
       let playAgainAction = UIAlertAction(title: "Play Again", style: .default)
       notify.addAction(playAgainAction)
-      self.parent.present(notify, animated: true, completion: nil)
+      self.gridView.parentViewController?.present(notify, animated: true, completion: nil)
     }
     
     guard game.moveData.isEmpty else { return } // restored games already have moveData

@@ -38,6 +38,7 @@
 		CB6CB67A1E00BB9E00FCB9B5 /* ReplayBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6CB6791E00BB9E00FCB9B5 /* ReplayBoardViewController.swift */; };
 		CB9C60231DEFC7590011F65F /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C60221DEFC7590011F65F /* TimerView.swift */; };
 		CB9C60261DF067610011F65F /* klotski.txt in Resources */ = {isa = PBXBuildFile; fileRef = CB9C60251DF067610011F65F /* klotski.txt */; };
+		CB9F9AF81E204F32009FF7C2 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9F9AF71E204F32009FF7C2 /* UIView.swift */; };
 		CBA63BF91DA9D8F4004C0EE6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA63BF81DA9D8F4004C0EE6 /* Constants.swift */; };
 		CBA63BFB1DA9E73F004C0EE6 /* ConstantsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA63BFA1DA9E73F004C0EE6 /* ConstantsTests.swift */; };
 		CBAFA38F1DCA447200534AEC /* ControlBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBAFA38E1DCA447200534AEC /* ControlBarView.xib */; };
@@ -107,6 +108,7 @@
 		CB6CB6791E00BB9E00FCB9B5 /* ReplayBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReplayBoardViewController.swift; path = ViewControllers/ReplayBoard/ReplayBoardViewController.swift; sourceTree = "<group>"; };
 		CB9C60221DEFC7590011F65F /* TimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimerView.swift; path = Views/ControlBar/TimerView.swift; sourceTree = "<group>"; };
 		CB9C60251DF067610011F65F /* klotski.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = klotski.txt; path = Resources/klotski.txt; sourceTree = "<group>"; };
+		CB9F9AF71E204F32009FF7C2 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIView.swift; path = Extensions/UIView.swift; sourceTree = "<group>"; };
 		CBA63BF81DA9D8F4004C0EE6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilities/Constants.swift; sourceTree = "<group>"; };
 		CBA63BFA1DA9E73F004C0EE6 /* ConstantsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstantsTests.swift; sourceTree = "<group>"; };
 		CBAFA38E1DCA447200534AEC /* ControlBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ControlBarView.xib; path = Views/ControlBar/ControlBarView.xib; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 		83AB62631D97106D00E61AB7 /* Slider */ = {
 			isa = PBXGroup;
 			children = (
+				CB9F9AF61E204EC2009FF7C2 /* Extensions */,
 				CB04CA201E17F0990056A600 /* Segues */,
 				8371377C1DD8E11A003AD379 /* Store */,
 				CB5870901DAEE53A00D1EEE9 /* Models */,
@@ -337,6 +340,14 @@
 				CB9C60251DF067610011F65F /* klotski.txt */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		CB9F9AF61E204EC2009FF7C2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CB9F9AF71E204F32009FF7C2 /* UIView.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		CBA63BF71DA9D7ED004C0EE6 /* Utilities */ = {
@@ -525,6 +536,7 @@
 				CBA63BF91DA9D8F4004C0EE6 /* Constants.swift in Sources */,
 				CB04CA221E17F1C50056A600 /* IntroSegue.swift in Sources */,
 				CB04CA1F1E16AB060056A600 /* Delay.swift in Sources */,
+				CB9F9AF81E204F32009FF7C2 /* UIView.swift in Sources */,
 				CBC571411DFCC0DB00633ED8 /* PuzzleListCell.swift in Sources */,
 				CB6576541DD613CE00D61DED /* XibLoadable.swift in Sources */,
 				CB6576521DD5405500D61DED /* ControlBarViewModel.swift in Sources */,

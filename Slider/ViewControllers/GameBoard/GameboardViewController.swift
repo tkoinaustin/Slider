@@ -12,7 +12,11 @@ class GameboardViewController: UIViewController {
   
   var viewModel = GameboardViewModel()
 
-  @IBOutlet private weak var gradientView: UIView!
+  @IBOutlet private weak var gradientView: UIView! { didSet {
+    gradientView.backgroundColor = UIColor(patternImage: UIImage(named: "opaque gradient")!)
+    gradientView.clipsToBounds = true
+  }}
+  
   @IBOutlet private weak var gridView: UIView! { didSet {
     viewModel.assignGridView(gridView)
   }}
@@ -24,14 +28,8 @@ class GameboardViewController: UIViewController {
     viewModel.controlBar.addNotifications()
   }}
   
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    viewModel.assignParent(self)
-  }
-  
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    viewModel.fillGradient(gradientView)
     viewModel.startGame()
   }
 }
