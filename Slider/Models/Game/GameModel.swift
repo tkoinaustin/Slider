@@ -14,11 +14,10 @@ class GameModel: NSObject, NSCoding {
   var index: Int = 0
   var gameTime: TimeInterval!
   var won = false { didSet {
-    controlBar.gameOver = won
+//    controlBar.gameOver = won
   }}
   var displayDate: String = ""
   var datePlayed = Date()
-  private(set) var controlBar = ControlBarViewModel()
   private(set) var moveData = [GameMoveData]()
   
   override var description: String {
@@ -98,28 +97,16 @@ class GameModel: NSObject, NSCoding {
     moveData.append(grid)
   }
   
-  func assignControlBar(_ controlBar: ControlBarViewModel) {
-    self.controlBar = controlBar
-  }
-  
   func move(index: Int) -> GameMoveData? {
     guard index < moveData.count else { return nil }
     guard index >= 0 else { return nil }
     
     return moveData[index]
   }
-  
-  func push(_ singleMove: GameMoveData) {
-    trim(controlBar.moveNumber)
-    controlBar.moveNumber! += 1
+
+  func push(_ singleMove: GameMoveData, moveNumber: Int) {
+    trim(moveNumber)
     moveData.append(singleMove)
-    controlBar.moveDataCount = moveData.count
-  }
-  
-  func pop() -> GameMoveData? {
-    controlBar.moveNumber! -= 1
-    return moveData.popLast()
-    controlBar.moveDataCount = moveData.count
   }
   
   func trim(_ index: Int) {

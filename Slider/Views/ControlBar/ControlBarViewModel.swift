@@ -11,13 +11,18 @@ import UIKit
 class ControlBarViewModel: NSObject, NSCoding {
   var moveNumber: Int! { didSet {
     guard let _ = oldValue else { return }
-    if moveNumber != oldValue { updateControlBarUI() }
+    if moveNumber != oldValue {
+      print("moveNumber changed to \(moveNumber)")
+      updateControlBarUI()
+    }
   }}
   
   var moveDataCount: Int = 1 { didSet {
-      print("move data count is \(moveDataCount)")
-//    if moveDataCount != oldValue { updateControlBarUI() }
+    if moveDataCount != oldValue {
+      print("moveDataCount changed to \(moveDataCount)")
+    }
   }}
+  
   var backEnabled: Bool {
     guard let _ = moveNumber else { return false }
     if gameOver { return false }
@@ -28,7 +33,7 @@ class ControlBarViewModel: NSObject, NSCoding {
     guard let _ = moveNumber else { return false }
     if gameOver { return false }
     
-    print("moveNumber: \(moveNumber), moveDataCount: \(moveDataCount)")
+    print("forwardEnabled: moveNumber: \(moveNumber), moveDataCount: \(moveDataCount)")
     return moveNumber < moveDataCount - 1
   }
   var resetEnabled: Bool {
@@ -111,6 +116,11 @@ class ControlBarViewModel: NSObject, NSCoding {
     updateBlocksToMoveNumber(moveNumber)
   }
   
+  func increment(_ moveDataCount: Int) {
+    self.moveDataCount = moveDataCount
+    moveNumber = moveNumber ?? 0
+    moveNumber! += 1
+  }
   func restoreGame(_ game: GameModel) {
     puzzleLabel = "\(game.name)"
     timerCount = game.gameTime

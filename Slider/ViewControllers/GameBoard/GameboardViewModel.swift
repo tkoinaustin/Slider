@@ -8,6 +8,7 @@
 
 import UIKit
 
+// swiftlint:disable file_length
 // swiftlint:disable variable_name
 let Rows = 5
 let Columns = 4
@@ -20,6 +21,7 @@ class GameboardViewModel {
   fileprivate var size: CGSize!
   fileprivate var grid: GridModel!
   fileprivate(set) var game = GameModel()
+  fileprivate(set) var controlBar = ControlBarViewModel()
   fileprivate var parent: GameboardViewController!
   fileprivate let gradientLayer = CAGradientLayer()
   fileprivate var initialLoad = true
@@ -36,6 +38,10 @@ class GameboardViewModel {
     self.gridView = gridView
   }
   
+  func assignControlBar(_ controlBar: ControlBarViewModel) {
+    self.controlBar = controlBar
+  }
+
   func fillGradient(_ gradientView: UIView) {
     gradientLayer.removeFromSuperlayer()
     gradientLayer.frame.size = gradientView.frame.size
@@ -74,7 +80,9 @@ class GameboardViewModel {
     }
     
     grid.gameModelMoveFinished = { move in
-      self.game.push(move)
+      guard let moveNumber = self.controlBar.moveNumber else { return }
+      self.game.push(move, moveNumber: moveNumber)
+      self.controlBar.increment(self.game.moveData.count)
     }
     
     grid.onWinning = { won in
@@ -128,7 +136,7 @@ class GameboardViewModel {
   // swiftlint:disable function_body_length
   func setControlBarClosure() {
     // swiftlint:enable function_body_length
-    game.controlBar.updateBlocksToMoveNumber = { index in
+    controlBar.updateBlocksToMoveNumber = { index in
       assert(index < self.game.moveData.count, "index higher than moveData count")
       guard index < self.game.moveData.count else { return }
       
@@ -138,30 +146,30 @@ class GameboardViewModel {
       self.grid.updateGameboardUI()
     }
     
-    game.controlBar.trimMoveData = { index in
+    controlBar.trimMoveData = { index in
       self.game.trim(index)
     }
     
-    game.controlBar.puzzleToLoad = { gameboard in
+    controlBar.puzzleToLoad = { gameboard in
       guard let gameboard = gameboard else { return }
       self.game.prepareForNewGame(gameboard)
       self.loadPuzzle(gameboard.grid)
       for block in self.blocks { block.swipeEnabled = true }
     }
     
-    game.controlBar.load = {
+    controlBar.load = {
       let _ = self.restoreGame()
     }
     
-    game.controlBar.save = { counter in
+    controlBar.save = { counter in
       guard self.game.won == false else { return }
       self.game.gameTime = counter
       self.saveGame()
     }
     
-    game.controlBar.saveHistory = saveHistory
+    controlBar.saveHistory = saveHistory
     
-    game.controlBar.resetPuzzle = {
+    controlBar.resetPuzzle = {
       print("resetPuzzle")
       guard !self.game.moveData.isEmpty else { return }
 
@@ -192,7 +200,7 @@ class GameboardViewModel {
   func startGame() {
     guard initialLoad else { return }
     initialLoad = false
-    if !restoreGame() { game.controlBar.displayPuzzleList() }
+    if !restoreGame() { controlBar.displayPuzzleList() }
   }
   
   func restoreGame() -> Bool {
@@ -201,7 +209,7 @@ class GameboardViewModel {
     guard !restoredGame.won else { return false }
     
     game.copy(restoredGame)
-    game.controlBar.restoreGame(game)
+    controlBar.restoreGame(game)
 
     guard !game.moveData.isEmpty else { return false }
     

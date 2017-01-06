@@ -18,10 +18,10 @@ class GameboardViewController: UIViewController {
   }}
   
   @IBOutlet private weak var controlBar: ControlBarView! { didSet {
-    viewModel.game.assignControlBar(controlBar.viewModel)
+    viewModel.assignControlBar(controlBar.viewModel)
     viewModel.setControlBarClosure()
-    viewModel.game.controlBar.parentViewController = self
-    viewModel.game.controlBar.addNotifications()
+    viewModel.controlBar.parentViewController = self
+    viewModel.controlBar.addNotifications()
   }}
   
   override func viewDidLoad() {
