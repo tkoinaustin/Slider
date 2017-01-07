@@ -88,9 +88,8 @@ class CodedBlockView: UIView {
         completion: nil)
       
       var offScreen = CGAffineTransform.identity
-      offScreen = offScreen.scaledBy(x: scale, y: scale)
-      offScreen = offScreen.translatedBy(x: -150, y: -150)
-      offScreen = offScreen.rotated(by: -CGFloat.pi)
+      offScreen = offScreen.scaledBy(x: 0.01, y: 0.01)
+      offScreen = offScreen.rotated(by: index % 2 == 0 ? CGFloat.pi + 0.01 : CGFloat.pi - 0.01)
       
       UIView.animate(
         withDuration: 0.4,
@@ -98,7 +97,9 @@ class CodedBlockView: UIView {
         options: .curveEaseIn,
         animations: {
           block.transform = offScreen
-      }, completion: nil)
+      }, completion: { _ in
+        block.alpha = 0
+      })
     }
     
     block.viewModel.exitOffScreen = { _ in
