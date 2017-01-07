@@ -41,6 +41,7 @@ class BlockViewModel {
   var nextStep: (() -> ()) = {}
   var fadeIn: (() -> ()) = {}
   var exitOffScreen: (() -> ()) = {}
+  var spinOffScreen: (() -> ()) = {}
   
   var type: BlockType = .small { didSet {
     guard let _ = canvas else { return }
@@ -54,10 +55,14 @@ class BlockViewModel {
     model.viewModel = self
   }
   
+  // TODO make this generic to handle all blocks, not just the big block
   func moveOffBoard() {
-    guard index == 1 else { return }
+    if index == 1 {
     placeBlock(point: CGPoint(x: 0.5, y: 1.3))
     self.exitOffScreen()
+    } else {
+      self.spinOffScreen()
+    }
   }
   
   func placeBlock(point: CGPoint) {

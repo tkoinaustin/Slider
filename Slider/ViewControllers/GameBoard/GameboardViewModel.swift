@@ -67,16 +67,18 @@ class GameboardViewModel {
       for block in self.blocks { block.swipeEnabled = false }
       
       self.blocks[1].moveOffBoard()
-      let notify = UIAlertController.init(title: "Winner, winner, chicken dinner!",
-                                          message: "Good job",
-                                          preferredStyle: .alert)
-      let okAction = UIAlertAction(title: "Next Puzzle", style: .cancel)
-      notify.addAction(okAction)
-      let replayAction = UIAlertAction(title: "Instant Replay", style: .default )
-      notify.addAction(replayAction)
-      let playAgainAction = UIAlertAction(title: "Play Again", style: .default)
-      notify.addAction(playAgainAction)
-      self.gridView.parentViewController?.present(notify, animated: true, completion: nil)
+      for block in self.blocks { block.moveOffBoard() }
+      
+//      let notify = UIAlertController.init(title: "Winner, winner, chicken dinner!",
+//                                          message: "Good job",
+//                                          preferredStyle: .alert)
+//      let okAction = UIAlertAction(title: "Next Puzzle", style: .cancel)
+//      notify.addAction(okAction)
+//      let replayAction = UIAlertAction(title: "Instant Replay", style: .default )
+//      notify.addAction(replayAction)
+//      let playAgainAction = UIAlertAction(title: "Play Again", style: .default)
+//      notify.addAction(playAgainAction)
+//      self.gridView.parentViewController?.present(notify, animated: true, completion: nil)
     }
     
     guard game.moveData.isEmpty else { return } // restored games already have moveData

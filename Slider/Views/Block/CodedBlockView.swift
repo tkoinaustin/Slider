@@ -73,6 +73,34 @@ class CodedBlockView: UIView {
       })
     }
     
+    block.viewModel.spinOffScreen = { _ in
+      let delay: Double = 0.3 * Double(index)
+      let scale: CGFloat = 1.2
+      let enlarge = CGAffineTransform(scaleX: scale, y: scale)
+      
+      UIView.animate(
+        withDuration: 0.1,
+        delay: delay,
+        options: .curveEaseIn,
+        animations: {
+          block.transform = enlarge
+      },
+        completion: nil)
+      
+      var offScreen = CGAffineTransform.identity
+      offScreen = offScreen.scaledBy(x: scale, y: scale)
+      offScreen = offScreen.translatedBy(x: -150, y: -150)
+      offScreen = offScreen.rotated(by: -CGFloat.pi)
+      
+      UIView.animate(
+        withDuration: 0.4,
+        delay: 0.1 + delay,
+        options: .curveEaseIn,
+        animations: {
+          block.transform = offScreen
+      }, completion: nil)
+    }
+    
     block.viewModel.exitOffScreen = { _ in
       UIView.animate(
         withDuration: 0.5,
