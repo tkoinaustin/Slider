@@ -74,20 +74,26 @@ class ReplayBoardViewModel {
     return blockViews[index]
   }
 
-  @objc fileprivate func moveBlocks() -> Bool {
-    guard index < game.moveData.count else {
-      stopTimer()
-      if game.won { blockViews[1].moveOffBoard() }
-      Delay.by(2) {
-        self.dismiss()
-      }
-      return false
-    }
+  @objc fileprivate func moveBlocks() {
+    if index < game.moveData.count { nextMove() }
+    else { replayComplete() }
+  }
     
+  fileprivate func replayComplete() {
+    stopTimer()
+    var delay = 2.0
+    
+    if game.won {
+      for block in self.blockViews { block.moveOffBoard() }
+      delay = 4.0
+    }
+    Delay.by(delay) { self.dismiss() }
+  }
+  
+  fileprivate func nextMove() {
     updateBlockOriginsForBoard(game.moveData[index].grid)
     moveAllBlocks(index)
     index += 1
-    return true
   }
   
   fileprivate func updateBlockOriginsForBoard(_ grid: [[Int]]) {
