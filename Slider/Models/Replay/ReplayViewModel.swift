@@ -1,14 +1,13 @@
 //
-//  ReplayBoardViewModel.swift
+//  ReplayViewModel.swift
 //  Slider
 //
-//  Created by Tom Nelson on 12/28/16.
-//  Copyright © 2016 TKO Solutions. All rights reserved.
+//  Created by Tom Nelson on 1/8/17.
+//  Copyright © 2017 TKO Solutions. All rights reserved.
 //
 
 import UIKit
-
-class ReplayBoardViewModel {
+class ReplayViewModel {
   fileprivate var gridView: UIView!
   fileprivate var blockViews = [BlockViewModel]()
   fileprivate var blockModels = [BlockModel]()
@@ -19,7 +18,7 @@ class ReplayBoardViewModel {
   
   var game: GameModel! { didSet {
     grid = game.move(index: 0)?.grid
-  }}
+    }}
   
   var dismiss: (() -> ())  = { }
   
@@ -30,11 +29,11 @@ class ReplayBoardViewModel {
   func assignGridView(_ gridView: UIView) {
     self.gridView = gridView
   }
-
+  
   func loadBlocks() {
     self.size = gridView.frame.size
     blockModels = GridModelInitialization().initBlocks(grid: grid)
-
+    
     blockViews.removeAll()
     
     for index in 0..<blockModels.count {
@@ -73,12 +72,12 @@ class ReplayBoardViewModel {
     
     return blockViews[index]
   }
-
+  
   @objc fileprivate func moveBlocks() {
     if index < game.moveData.count { nextMove() }
     else { replayComplete() }
   }
-    
+  
   fileprivate func replayComplete() {
     stopTimer()
     var delay = 2.0
@@ -90,29 +89,29 @@ class ReplayBoardViewModel {
     Delay.by(delay) { self.dismiss() }
   }
   
-  fileprivate func nextMove() {
-    updateBlockOriginsForBoard(game.moveData[index].grid)
-    moveAllBlocks(index)
-    index += 1
-  }
+    fileprivate func nextMove() {
+      updateBlockOriginsForBoard(game.moveData[index].grid)
+      moveAllBlocks(index)
+      index += 1
+    }
   
-  fileprivate func updateBlockOriginsForBoard(_ grid: [[Int]]) {
-    for row in (0..<Rows).reversed() {
-      for col in (0..<Columns).reversed() {
-        blockModels[grid[row][col]].origin = Coordinate(row: row, col: col)
+    fileprivate func updateBlockOriginsForBoard(_ grid: [[Int]]) {
+      for row in (0..<Rows).reversed() {
+        for col in (0..<Columns).reversed() {
+          blockModels[grid[row][col]].origin = Coordinate(row: row, col: col)
+        }
       }
     }
-  }
-
-  fileprivate func moveAllBlocks(_ index: Int) {
-    print(" Move all Blocks: \(index)")
-    for block in blockViews {
-      block.placeBlock(point: GridConstants.blockCenter(row: block.model.origin.row,
-                                                        col: block.model.origin.col,
-                                                        type: block.type))
-      block.nextStep()
+  
+    fileprivate func moveAllBlocks(_ index: Int) {
+      print(" Move all Blocks: \(index)")
+      for block in blockViews {
+        block.placeBlock(point: GridConstants.blockCenter(row: block.model.origin.row,
+                                                          col: block.model.origin.col,
+                                                          type: block.type))
+        block.nextStep()
+      }
     }
-  }
   
   fileprivate func placeAllBlocks() {
     for block in blockViews {

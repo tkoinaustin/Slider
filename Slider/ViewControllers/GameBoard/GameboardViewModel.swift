@@ -38,8 +38,8 @@ class GameboardViewModel {
   }
   
   func loadPuzzle(_ puzzleGrid: [[Int]]?) {
-    if let puzzleGrid = puzzleGrid { loadGrid(gameGrid: puzzleGrid) }
-    else { loadGrid(gameGrid: puzzleGrid!) }
+    guard let puzzleGrid = puzzleGrid else { return }
+    loadGrid(gameGrid: puzzleGrid)
     
     loadBlocks(gridView)
   }
@@ -79,7 +79,7 @@ class GameboardViewModel {
                                             preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Next Puzzle", style: .cancel)
         notify.addAction(okAction)
-        let replayAction = UIAlertAction(title: "Instant Replay", style: .default )
+        let replayAction = UIAlertAction(title: "Instant Replay", style: .default, handler: { _ in self.replayGame() } )
         notify.addAction(replayAction)
         let playAgainAction = UIAlertAction(title: "Play Again", style: .default, handler: { _ in self.playAgain() } )
         notify.addAction(playAgainAction)
@@ -161,22 +161,11 @@ class GameboardViewModel {
   }
   
   func playAgain() {
-//    for block in self.blocks { block.reset() }
     controlBar.resetControlBar()
     self.saveHistory()
-    self.game.datePlayed = Date()
-    self.grid.setCurrentGrid((self.game.moveData.first?.grid)!)
-    self.grid.updateBlockOriginsForBoard(self.grid.currentGrid)
     self.game.trim(0)
-    for block in self.blocks {
-      block.reset()
-      block.swipeEnabled = true
-      block.placeBlock(point: GridConstants.blockCenter(row: block.model.origin.row,
-                                                        col: block.model.origin.col,
-                                                        type: block.type))
-      block.updateBlockUI(0.0)
-      block.fadeIn()
-    }
+    self.game.datePlayed = Date()
+    self.loadPuzzle(self.game.moveData.first?.grid)
   }
   
   func block(_ index: Int) -> BlockViewModel {
@@ -223,5 +212,24 @@ class GameboardViewModel {
   
   fileprivate func saveHistory() {
     _ = Archiver.saveHistory(game)
+  }
+  
+  func replayGame() {
+    let replayViewModel = ReplayViewModel()
+    replayViewModel.game = self.game
+    replayViewModel.assignGridView(gridView)
+    replayViewModel.dismiss = {
+      let notify = UIAlertController.init(title: "You just never get tired of that game, do you?",
+                                          message: "Replay",
+                                          preferredStyle: .alert)
+      let okAction = UIAlertAction(title: "Next Puzzle", style: .cancel)
+      notify.addAction(okAction)
+      let replayAction = UIAlertAction(title: "Instant Replay", style: .default, handler: { _ in self.replayGame() } )
+      notify.addAction(replayAction)
+      let playAgainAction = UIAlertAction(title: "Play Again", style: .default, handler: { _ in self.playAgain() } )
+      notify.addAction(playAgainAction)
+      self.gridView.parentViewController?.present(notify, animated: true, completion: nil)
+    }
+    replayViewModel.loadBlocks()
   }
 }

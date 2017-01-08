@@ -10,7 +10,7 @@ import UIKit
 
 class ReplayBoardViewController: UIViewController {
   
-  var viewModel = ReplayBoardViewModel() 
+  var viewModel = ReplayViewModel() 
   
   var replayText: String = ""
   var index: Int!
