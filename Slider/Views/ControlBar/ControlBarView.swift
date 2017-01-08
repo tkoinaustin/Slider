@@ -44,7 +44,9 @@ class ControlBarView: UIView, XibLoadable {
     viewModel.updateControlBarUI = { _ in
       self.updateUI()
     }
+    
     updateUI()
+    viewModel.addNotifications()
   }
 
   override func awakeAfter(using aDecoder: NSCoder) -> Any? {

@@ -21,13 +21,12 @@ class GameboardViewController: UIViewController {
     viewModel.assignGridView(gridView)
   }}
   
-  @IBOutlet private weak var controlBar: ControlBarView! { didSet {
-    viewModel.assignControlBar(controlBar.viewModel)
+  @IBOutlet private weak var controlBarView: ControlBarView!  { didSet {
+    viewModel.assignControlBar(controlBarView.viewModel)
     viewModel.setControlBarClosure()
     viewModel.controlBar.parentViewController = self
-    viewModel.controlBar.addNotifications()
   }}
-  
+
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     viewModel.startGame()
