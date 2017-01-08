@@ -13,7 +13,6 @@ class ReplayBoardViewModel {
   fileprivate var blockViews = [BlockViewModel]()
   fileprivate var blockModels = [BlockModel]()
   fileprivate var size: CGSize!
-  fileprivate var parent: ReplayBoardViewController!
   fileprivate var grid: [[Int]]!
   var moveTimer: Timer!
   fileprivate var index = 1

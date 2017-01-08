@@ -54,6 +54,7 @@ class GridModel {
 
   init(_ grid: [[Int]]) {
     self.currentGrid = grid
+    gridBlocks.removeAll()
     gridBlocks = GridModelInitialization().initBlocks(grid: grid)
     for block in gridBlocks { setClosures(block) }
   }

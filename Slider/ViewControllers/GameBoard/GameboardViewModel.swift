@@ -38,18 +38,24 @@ class GameboardViewModel {
   }
   
   func loadPuzzle(_ puzzleGrid: [[Int]]?) {
-    if let puzzleGrid = puzzleGrid { loadGrid(gameboard: puzzleGrid) }
-    else { loadGrid(gameboard: puzzleGrid!) }
+    if let puzzleGrid = puzzleGrid { loadGrid(gameGrid: puzzleGrid) }
+    else { loadGrid(gameGrid: puzzleGrid!) }
     
     loadBlocks(gridView)
   }
   
+  func loadGrid(gameGrid: [[Int]]) {
+    grid = GridModel(gameGrid)
+    setGridClosures()
+    
+    guard game.moveData.isEmpty else { return } // restored games already have moveData
+    let gameMoveData = GameMoveData(block: 0, direction: .up, grid: grid.currentGrid)
+    game.setInitialGrid(gameMoveData)
+  }
+  
   // swiftlint:disable function_body_length
-  func loadGrid(gameboard: [[Int]]) {
-    if let grid = grid { grid.releaseBlocks() }
-    
-    grid = GridModel(gameboard)
-    
+  fileprivate func setGridClosures() {
+    // swiftlint:enable function_body_length
     grid.updateGameboardUI = {
       self.placeAllBlocks()
     }
@@ -63,29 +69,24 @@ class GameboardViewModel {
     grid.onWinning = { won in
       guard won else { return }
       self.game.won = true
+      self.controlBar.gameOver = true
       self.saveHistory()
-      for block in self.blocks { block.swipeEnabled = false }
-      
-      self.blocks[1].moveOffBoard()
       for block in self.blocks { block.moveOffBoard() }
       
-//      let notify = UIAlertController.init(title: "Winner, winner, chicken dinner!",
-//                                          message: "Good job",
-//                                          preferredStyle: .alert)
-//      let okAction = UIAlertAction(title: "Next Puzzle", style: .cancel)
-//      notify.addAction(okAction)
-//      let replayAction = UIAlertAction(title: "Instant Replay", style: .default )
-//      notify.addAction(replayAction)
-//      let playAgainAction = UIAlertAction(title: "Play Again", style: .default)
-//      notify.addAction(playAgainAction)
-//      self.gridView.parentViewController?.present(notify, animated: true, completion: nil)
+      Delay.by(4) {
+        let notify = UIAlertController.init(title: "Winner, winner, chicken dinner!",
+                                            message: "Good job",
+                                            preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Next Puzzle", style: .cancel)
+        notify.addAction(okAction)
+        let replayAction = UIAlertAction(title: "Instant Replay", style: .default )
+        notify.addAction(replayAction)
+        let playAgainAction = UIAlertAction(title: "Play Again", style: .default, handler: { _ in self.playAgain() } )
+        notify.addAction(playAgainAction)
+        self.gridView.parentViewController?.present(notify, animated: true, completion: nil)
+      }
     }
-    
-    guard game.moveData.isEmpty else { return } // restored games already have moveData
-    let gameMoveData = GameMoveData(block: 0, direction: .up, grid: grid.currentGrid)
-    game.setInitialGrid(gameMoveData)
   }
-  // swiftlint:enable function_body_length
 
   func loadBlocks(_ gridView: UIView) {
     self.size = gridView.frame.size
@@ -159,6 +160,25 @@ class GameboardViewModel {
     }
   }
   
+  func playAgain() {
+//    for block in self.blocks { block.reset() }
+    controlBar.resetControlBar()
+    self.saveHistory()
+    self.game.datePlayed = Date()
+    self.grid.setCurrentGrid((self.game.moveData.first?.grid)!)
+    self.grid.updateBlockOriginsForBoard(self.grid.currentGrid)
+    self.game.trim(0)
+    for block in self.blocks {
+      block.reset()
+      block.swipeEnabled = true
+      block.placeBlock(point: GridConstants.blockCenter(row: block.model.origin.row,
+                                                        col: block.model.origin.col,
+                                                        type: block.type))
+      block.updateBlockUI(0.0)
+      block.fadeIn()
+    }
+  }
+  
   func block(_ index: Int) -> BlockViewModel {
     guard index < blocks.count && index > 0 else { return blocks[0] }
     
@@ -170,7 +190,7 @@ class GameboardViewModel {
       block.placeBlock(point: GridConstants.blockCenter(row: block.model.origin.row,
                                                         col: block.model.origin.col,
                                                         type: block.type))
-      block.updateBlockUI()
+      block.updateBlockUI(0.2)
     }
   }
   

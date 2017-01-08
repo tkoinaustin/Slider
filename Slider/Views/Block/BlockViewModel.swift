@@ -37,11 +37,12 @@ class BlockViewModel {
     bounds = setBounds()
   }}
   
-  var updateBlockUI: (() -> ()) = {}
+  var updateBlockUI: ((TimeInterval) -> ()) = { _ in }
   var nextStep: (() -> ()) = {}
   var fadeIn: (() -> ()) = {}
   var exitOffScreen: (() -> ()) = {}
   var spinOffScreen: (() -> ()) = {}
+  var reset: (() -> ()) = {}
   
   var type: BlockType = .small { didSet {
     guard let _ = canvas else { return }
@@ -57,6 +58,7 @@ class BlockViewModel {
   
   // TODO make this generic to handle all blocks, not just the big block
   func moveOffBoard() {
+    swipeEnabled = false
     if index == 1 {
     placeBlock(point: CGPoint(x: 0.5, y: 1.3))
     self.exitOffScreen()
@@ -71,7 +73,7 @@ class BlockViewModel {
   
   func setCenter(newCenter: CGPoint) {
     center = newCenter
-    updateBlockUI()
+    updateBlockUI(0.2)
   }
   
   private func setBounds() -> CGRect {

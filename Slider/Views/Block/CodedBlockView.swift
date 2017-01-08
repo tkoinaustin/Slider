@@ -56,24 +56,41 @@ class CodedBlockView: UIView {
     block.bounds = block.viewModel.bounds
     block.layer.borderColor = UIColor.white.cgColor
     block.layer.borderWidth = 0.5
+    
     let label = UILabel(frame: CGRect(x: 20, y: 10, width: 20, height: 20))
     label.text = index.description
     label.textColor = UIColor.white
     block.addSubview(label)
+    block.setBlockClosures(index)
     
-    block.viewModel.updateBlockUI = { _ in
-      UIView.animate(withDuration: 0.2, animations: {
-        block.center = block.viewModel.center
+    block.alpha = 0
+    parent.addSubview(block)
+    UIView.animate(withDuration: 1, animations: {
+      block.alpha = 1
+    })
+
+    return block
+  }
+  
+  fileprivate func setBlockClosures(_ index: Int) {
+    viewModel.reset = {
+      self.alpha = 0
+      self.transform = .identity
+    }
+    
+    viewModel.updateBlockUI = { duration in
+      UIView.animate(withDuration: duration, animations: {
+        self.center = self.viewModel.center
       })
     }
     
-    block.viewModel.nextStep = { _ in
+   viewModel.nextStep = { _ in
       UIView.animate(withDuration: 0.4, animations: {
-        block.center = block.viewModel.center
+        self.center = self.viewModel.center
       })
     }
     
-    block.viewModel.spinOffScreen = { _ in
+    viewModel.spinOffScreen = { _ in
       let delay: Double = 0.3 * Double(index)
       let scale: CGFloat = 1.2
       let enlarge = CGAffineTransform(scaleX: scale, y: scale)
@@ -83,7 +100,7 @@ class CodedBlockView: UIView {
         delay: delay,
         options: .curveEaseIn,
         animations: {
-          block.transform = enlarge
+          self.transform = enlarge
       },
         completion: nil)
       
@@ -92,41 +109,33 @@ class CodedBlockView: UIView {
       offScreen = offScreen.rotated(by: index % 2 == 0 ? CGFloat.pi + 0.01 : CGFloat.pi - 0.01)
       
       UIView.animate(
-        withDuration: 0.4,
+        withDuration: 0.75,
         delay: 0.1 + delay,
         options: .curveEaseIn,
         animations: {
-          block.transform = offScreen
+          self.transform = offScreen
       }, completion: { _ in
-        block.alpha = 0
+        self.alpha = 0
       })
     }
     
-    block.viewModel.exitOffScreen = { _ in
+    self.viewModel.exitOffScreen = { _ in
       UIView.animate(
         withDuration: 0.5,
         delay: 0.25,
         options: .curveEaseIn ,
         animations: {
-          block.center = block.viewModel.center
+          self.center = self.viewModel.center
       },
         completion: nil
     )}
     
-    block.viewModel.fadeIn = { _ in
-      block.alpha = 0
+    viewModel.fadeIn = { _ in
+      self.alpha = 0
       UIView.animate(withDuration: 0.3, animations: {
-        block.alpha = 1
+        self.alpha = 1
       })
     }
-    
-    block.alpha = 0
-    parent.addSubview(block)
-    UIView.animate(withDuration: 1, animations: {
-      block.alpha = 1
-    })
-
-    return block
   }
   // swiftlint:enable function_body_length
 
