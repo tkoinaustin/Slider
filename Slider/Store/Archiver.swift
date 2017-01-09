@@ -9,12 +9,11 @@
 import UIKit
 
 enum Model: String {
-  case game, puzzle, historyStore
+  case game, historyStore
   
   func modelClass() -> AnyClass {
     switch self {
     case .game: return GameModel.self
-    case .puzzle: return Puzzles.self
     case .historyStore: return HistoryStoreModel.self
     }
   }

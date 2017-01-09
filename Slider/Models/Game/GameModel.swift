@@ -84,7 +84,7 @@ class GameModel: NSObject, NSCoding {
     return moveData.count - 1
   }
   
-  func prepareForNewGame(_ gameboard: Gameboard) {
+  func prepareForNewGame(_ gameboard: PuzzleModel) {
     moveData.removeAll()
     won = false
     gameTime = 0

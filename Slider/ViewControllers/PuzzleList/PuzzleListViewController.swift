@@ -10,7 +10,7 @@ import UIKit
 
 class PuzzleListViewController: UITableViewController {
   var dataProvider = PuzzleListDataProvider()
-  var loadNewPuzzle: ((Gameboard?) -> ()) = { _ in }
+  var loadNewPuzzle: ((PuzzleModel?) -> ()) = { _ in }
   var saveHistory: (() -> ()) = { }
 
   override func viewDidLoad() {

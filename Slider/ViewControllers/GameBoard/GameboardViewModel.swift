@@ -186,6 +186,7 @@ class GameboardViewModel {
   func startGame() {
     guard initialLoad else { return }
     initialLoad = false
+
     if !restoreGame() { controlBar.displayPuzzleList() }
   }
   

@@ -62,7 +62,7 @@ class ControlBarViewModel: NSObject, NSCoding {
   var updateBlocksToMoveNumber: ((Int) -> ()) = {_ in }
   
   var trimMoveData: ((Int) -> ()) = { _ in }
-  var puzzleToLoad: ((Gameboard?) -> ()) = { _ in }
+  var puzzleToLoad: ((PuzzleModel?) -> ()) = { _ in }
   
   var load: (() -> ()) = { }
   var save: ((TimeInterval) -> ()) = { _ in }
@@ -141,7 +141,7 @@ class ControlBarViewModel: NSObject, NSCoding {
     updateControlBarUI()
   }
   
-  func newPuzzle(gameboard: Gameboard?) {
+  func newPuzzle(gameboard: PuzzleModel?) {
     guard let gameboard = gameboard else { timerState = .start; return }
     
     // save existing puzzle if there are any moves and the puzzle is 
