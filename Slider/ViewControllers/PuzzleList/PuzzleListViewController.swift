@@ -37,8 +37,8 @@ class PuzzleListViewController: UITableViewController {
 
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     saveHistory()
-    let gameboard = dataProvider.store[indexPath.row]
-    loadNewPuzzle(gameboard)
+    let puzzleModel = dataProvider.store[indexPath.row]
+    loadNewPuzzle(puzzleModel)
     dismiss(animated: true, completion: nil )
   }
 }

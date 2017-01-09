@@ -141,23 +141,23 @@ class ControlBarViewModel: NSObject, NSCoding {
     updateControlBarUI()
   }
   
-  func newPuzzle(gameboard: PuzzleModel?) {
-    guard let gameboard = gameboard else { timerState = .start; return }
+  func newPuzzle(puzzleModel: PuzzleModel?) {
+    guard let puzzleModel = puzzleModel else { timerState = .start; return }
     
     // save existing puzzle if there are any moves and the puzzle is 
     // different than the current puzzle
-    if gameboard.name != puzzleLabel && moveNumber ?? 0 > 0 {
+    if puzzleModel.name != puzzleLabel && moveNumber ?? 0 > 0 {
       //save history, not puzzle!!
       saveIt()
     }
     
     // load new puzzle
-    puzzleLabel = "\(gameboard.name)"
+    puzzleLabel = "\(puzzleModel.name)"
     timerState = .reset
     moveDataCount = 1
     moveNumber = 0
     updateControlBarUI()
-    puzzleToLoad(gameboard)
+    puzzleToLoad(puzzleModel)
   }
   
   func displayPuzzleList() {

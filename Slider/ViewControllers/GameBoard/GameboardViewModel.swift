@@ -128,10 +128,10 @@ class GameboardViewModel {
       self.game.trim(index)
     }
     
-    controlBar.puzzleToLoad = { gameboard in
-      guard let gameboard = gameboard else { return }
-      self.game.prepareForNewGame(gameboard)
-      self.loadPuzzle(gameboard.grid)
+    controlBar.puzzleToLoad = { puzzleModel in
+      guard let puzzleModel = puzzleModel else { return }
+      self.game.prepareForNewGame(puzzleModel)
+      self.loadPuzzle(puzzleModel.grid)
       for block in self.blocks { block.swipeEnabled = true }
     }
     

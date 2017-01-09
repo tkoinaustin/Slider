@@ -84,13 +84,13 @@ class GameModel: NSObject, NSCoding {
     return moveData.count - 1
   }
   
-  func prepareForNewGame(_ gameboard: PuzzleModel) {
+  func prepareForNewGame(_ puzzleModel: PuzzleModel) {
     moveData.removeAll()
     won = false
     gameTime = 0
     datePlayed = Date()
-    index = gameboard.index
-    name = gameboard.name
+    index = puzzleModel.index
+    name = puzzleModel.name
   }
   
   func setInitialGrid(_ grid: GameMoveData) {
