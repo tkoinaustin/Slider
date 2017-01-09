@@ -74,20 +74,11 @@ class GameboardViewModel {
       for block in self.blocks { block.moveOffBoard() }
       
       Delay.by(4) {
-        let notify = UIAlertController.init(title: "Winner, winner, chicken dinner!",
-                                            message: "Good job",
-                                            preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Next Puzzle", style: .cancel, handler: { _ in self.nextPuzzle() })
-        notify.addAction(okAction)
-        let replayAction = UIAlertAction(title: "Instant Replay", style: .default, handler: { _ in self.replayGame() })
-        notify.addAction(replayAction)
-        let playAgainAction = UIAlertAction(title: "Play Again", style: .default, handler: { _ in self.playAgain() })
-        notify.addAction(playAgainAction)
-        self.gridView.parentViewController?.present(notify, animated: true, completion: nil)
+        self.winnerAlert(.winner)
       }
     }
   }
-
+  
   func loadBlocks(_ gridView: UIView) {
     self.size = gridView.frame.size
     
@@ -231,17 +222,29 @@ class GameboardViewModel {
       self.controlBar.moveNumber = index - 1
     }
     replayViewModel.dismiss = {
-      let notify = UIAlertController.init(title: "You just never get tired of that game, do you?",
-                                          message: "Replay",
-                                          preferredStyle: .alert)
-      let okAction = UIAlertAction(title: "Next Puzzle", style: .cancel, handler: { _ in self.nextPuzzle() })
-      notify.addAction(okAction)
-      let replayAction = UIAlertAction(title: "Instant Replay", style: .default, handler: { _ in self.replayGame() })
-      notify.addAction(replayAction)
-      let playAgainAction = UIAlertAction(title: "Play Again", style: .default, handler: { _ in self.playAgain() })
-      notify.addAction(playAgainAction)
-      self.gridView.parentViewController?.present(notify, animated: true, completion: nil)
+      self.winnerAlert(.replay)
     }
     replayViewModel.loadBlocks()
+  }
+  
+  func winnerAlert(_ type: Alerts) {
+    let notify = UIAlertController.init(title: type.title,
+                                        message: type.message,
+                                        preferredStyle: .alert)
+    let okAction = UIAlertAction(title: "Next Puzzle",
+                                 style: .cancel,
+                                 handler: { _ in self.nextPuzzle() })
+    notify.addAction(okAction)
+    let replayAction = UIAlertAction(title: "Instant Replay",
+                                     style: .default,
+                                     handler: { _ in self.replayGame() })
+    notify.addAction(replayAction)
+    let playAgainAction = UIAlertAction(title: "Play Again",
+                                        style: .default,
+                                        handler: { _ in self.playAgain() })
+    notify.addAction(playAgainAction)
+    self.gridView.parentViewController?.present(notify,
+                                                animated: true,
+                                                completion: nil)
   }
 }

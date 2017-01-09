@@ -25,7 +25,12 @@ class PuzzleModel: NSObject, NSCoding {
     won = false
   }
   
-  required init(name: String, puzzleClass: String, index: Int, grid: [[Int]], bestMoves: Int, won: Bool) {
+  required init(name: String,
+                puzzleClass: String,
+                index: Int,
+                grid: [[Int]],
+                bestMoves: Int,
+                won: Bool) {
     self.name = name
     self.puzzleClass = puzzleClass
     self.index = index
@@ -37,7 +42,8 @@ class PuzzleModel: NSObject, NSCoding {
   required convenience init?(coder aDecoder: NSCoder) {
     self.init()
     if let name = aDecoder.decodeObject(forKey: "name") as? String { self.name = name }
-    if let puzzleClass = aDecoder.decodeObject(forKey: "puzzleClass") as? String { self.puzzleClass = puzzleClass }
+    if let puzzleClass = aDecoder.decodeObject(forKey: "puzzleClass")
+      as? String { self.puzzleClass = puzzleClass }
     index = aDecoder.decodeInteger(forKey: "index")
     bestMoves = aDecoder.decodeInteger(forKey: "bestMoves")
     won = aDecoder.decodeBool(forKey: "won")

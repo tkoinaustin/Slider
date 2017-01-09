@@ -21,7 +21,7 @@ class GameboardViewController: UIViewController {
     viewModel.assignGridView(gridView)
   }}
   
-  @IBOutlet private weak var controlBarView: ControlBarView!  { didSet {
+  @IBOutlet private weak var controlBarView: ControlBarView! { didSet {
     viewModel.assignControlBar(controlBarView.viewModel)
     viewModel.setControlBarClosure()
     viewModel.controlBar.parentViewController = self

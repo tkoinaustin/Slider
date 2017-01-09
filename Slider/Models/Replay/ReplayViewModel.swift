@@ -48,6 +48,7 @@ class ReplayViewModel {
     }
     
     for blockView in gridView.subviews { blockView.removeFromSuperview() }
+    
     for index in 1..<blockModels.count {
       let _ = CodedBlockView.getReplayBlock(parent: gridView,
                                             blockModel: blockViews[index],

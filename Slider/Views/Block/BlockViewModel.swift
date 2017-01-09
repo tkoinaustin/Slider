@@ -56,7 +56,6 @@ class BlockViewModel {
     model.viewModel = self
   }
   
-  // TODO make this generic to handle all blocks, not just the big block
   func moveOffBoard() {
     swipeEnabled = false
     if index == 1 {
