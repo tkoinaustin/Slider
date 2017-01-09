@@ -224,8 +224,12 @@ class GameboardViewModel {
   
   func replayGame() {
     let replayViewModel = ReplayViewModel()
+    controlBar.moveNumber = 0
     replayViewModel.game = self.game
     replayViewModel.assignGridView(gridView)
+    replayViewModel.updateCounter = { index in
+      self.controlBar.moveNumber = index - 1
+    }
     replayViewModel.dismiss = {
       let notify = UIAlertController.init(title: "You just never get tired of that game, do you?",
                                           message: "Replay",

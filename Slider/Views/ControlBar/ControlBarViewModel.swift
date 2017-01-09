@@ -152,6 +152,7 @@ class ControlBarViewModel: NSObject, NSCoding {
     }
     
     // load new puzzle
+    gameOver = false
     puzzleLabel = "\(puzzleModel.name)"
     timerState = .reset
     moveDataCount = 1

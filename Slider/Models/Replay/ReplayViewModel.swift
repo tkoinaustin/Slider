@@ -21,6 +21,7 @@ class ReplayViewModel {
     }}
   
   var dismiss: (() -> ())  = { }
+  var updateCounter: ((Int) -> ()) = { _ in }
   
   var count: Int {
     return blockViews.count
@@ -93,6 +94,7 @@ class ReplayViewModel {
       updateBlockOriginsForBoard(game.moveData[index].grid)
       moveAllBlocks(index)
       index += 1
+      updateCounter(index)
     }
   
     fileprivate func updateBlockOriginsForBoard(_ grid: [[Int]]) {
