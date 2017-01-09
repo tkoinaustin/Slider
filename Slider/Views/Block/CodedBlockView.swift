@@ -28,6 +28,8 @@ class CodedBlockView: UIView {
     imageView.trailingAnchor.constraint(equalTo:margins.trailingAnchor, constant: 8).isActive = true
     
     imageView.image = UIImage(named: "superman1")
+    imageView.layer.cornerRadius = 5
+    imageView.clipsToBounds = true
   }
   
   required init?(coder aDecoder: NSCoder) {
