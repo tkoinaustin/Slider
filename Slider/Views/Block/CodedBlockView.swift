@@ -22,10 +22,10 @@ class CodedBlockView: UIView {
     imageView.translatesAutoresizingMaskIntoConstraints = false
     let margins = layoutMarginsGuide
     
-    imageView.topAnchor.constraint(equalTo: margins.topAnchor, constant: -8).isActive = true
-    imageView.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: 8).isActive = true
-    imageView.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: -8).isActive = true
-    imageView.trailingAnchor.constraint(equalTo:margins.trailingAnchor, constant: 8).isActive = true
+    imageView.topAnchor.constraint(equalTo: margins.topAnchor, constant: -7.5).isActive = true
+    imageView.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: 7.5).isActive = true
+    imageView.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: -7.5).isActive = true
+    imageView.trailingAnchor.constraint(equalTo:margins.trailingAnchor, constant: 7.5).isActive = true
     
     imageView.image = UIImage(named: "superman1")
     imageView.layer.cornerRadius = 5
@@ -55,14 +55,7 @@ class CodedBlockView: UIView {
   // swiftlint:disable function_body_length
   static func get(block: CodedBlockView, parent: UIView, index: Int) -> CodedBlockView {
     block.center = block.viewModel.center
-    block.bounds = block.viewModel.bounds
-    block.layer.borderColor = UIColor.white.cgColor
-    block.layer.borderWidth = 0.5
-    
-    let label = UILabel(frame: CGRect(x: 20, y: 10, width: 20, height: 20))
-    label.text = index.description
-    label.textColor = UIColor.white
-    block.addSubview(label)
+    block.bounds = block.viewModel.bounds    
     block.setBlockClosures(index)
     
     block.alpha = 0

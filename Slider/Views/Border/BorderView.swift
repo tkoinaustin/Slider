@@ -28,10 +28,8 @@ class BorderView: UIView, XibLoadable {
   
   
   func setup() {
-    print("BorderView setup")
     layer.cornerRadius = 5
     clipsToBounds = true
-    for border in borders { border.backgroundColor = UIColor.red }
   }
   
   override func awakeAfter(using aDecoder: NSCoder) -> Any? {
