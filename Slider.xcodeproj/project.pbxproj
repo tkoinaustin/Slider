@@ -44,6 +44,7 @@
 		CBA63BF91DA9D8F4004C0EE6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA63BF81DA9D8F4004C0EE6 /* Constants.swift */; };
 		CBA63BFB1DA9E73F004C0EE6 /* ConstantsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA63BFA1DA9E73F004C0EE6 /* ConstantsTests.swift */; };
 		CBAFA38F1DCA447200534AEC /* ControlBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBAFA38E1DCA447200534AEC /* ControlBarView.xib */; };
+		CBB7D3371E2562C2000CC0D3 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D3361E2562C2000CC0D3 /* Color.swift */; };
 		CBC5712C1DEB2F0700633ED8 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC5712B1DEB2F0700633ED8 /* GameModel.swift */; };
 		CBC5712E1DEB2F3A00633ED8 /* GameMoveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC5712D1DEB2F3A00633ED8 /* GameMoveData.swift */; };
 		CBC571301DF4BB9D00633ED8 /* TransitionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC5712F1DF4BB9D00633ED8 /* TransitionLabel.swift */; };
@@ -120,6 +121,7 @@
 		CBA63BF81DA9D8F4004C0EE6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilities/Constants.swift; sourceTree = "<group>"; };
 		CBA63BFA1DA9E73F004C0EE6 /* ConstantsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstantsTests.swift; sourceTree = "<group>"; };
 		CBAFA38E1DCA447200534AEC /* ControlBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ControlBarView.xib; path = Views/ControlBar/ControlBarView.xib; sourceTree = "<group>"; };
+		CBB7D3361E2562C2000CC0D3 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Color.swift; path = Store/Color.swift; sourceTree = "<group>"; };
 		CBC5712B1DEB2F0700633ED8 /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameModel.swift; path = Models/Game/GameModel.swift; sourceTree = "<group>"; };
 		CBC5712D1DEB2F3A00633ED8 /* GameMoveData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameMoveData.swift; path = Models/Game/GameMoveData.swift; sourceTree = "<group>"; };
 		CBC5712F1DF4BB9D00633ED8 /* TransitionLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransitionLabel.swift; path = Views/TransitionLabel.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				8371377D1DD8E144003AD379 /* Archiver.swift */,
+				CBB7D3361E2562C2000CC0D3 /* Color.swift */,
 			);
 			name = Store;
 			sourceTree = "<group>";
@@ -710,6 +713,7 @@
 				8371376F1DD89CED003AD379 /* BlockModelLogic.swift in Sources */,
 				8371377E1DD8E144003AD379 /* Archiver.swift in Sources */,
 				CBC571471DFCC24900633ED8 /* HistoryListViewController.swift in Sources */,
+				CBB7D3371E2562C2000CC0D3 /* Color.swift in Sources */,
 				CB54C8C61E2320F0008F2A00 /* GameHistoryModel.swift in Sources */,
 				CB54C8CA1E2321C3008F2A00 /* Puzzles.swift in Sources */,
 				CBC5712C1DEB2F0700633ED8 /* GameModel.swift in Sources */,

@@ -78,7 +78,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="borderView" destination="fZ6-fn-By1" id="DPa-4l-Pg5"/>
+                        <outlet property="borderView" destination="fZ6-fn-By1" id="9Gi-WH-AhS"/>
                         <outlet property="controlBarView" destination="2Ds-Bj-rJn" id="NmK-YZ-ud1"/>
                         <outlet property="gradientView" destination="dlY-hv-vqP" id="NBM-0Q-eTP"/>
                         <outlet property="gridView" destination="bie-Xn-ZpF" id="76v-4Z-C8f"/>

@@ -12,8 +12,10 @@ class CodedBlockView: UIView {
   
   var imageView = UIImageView()
   var viewModel: BlockViewModel!
+  var color: UIColor { didSet { imageView.backgroundColor = color }}
 
   public override init(frame: CGRect) {
+    color = Color.blue
     super.init(frame: frame)
     let pan = UIPanGestureRecognizer(target: self, action: #selector(pan(_:)))
     self.addGestureRecognizer(pan)
@@ -22,14 +24,22 @@ class CodedBlockView: UIView {
     imageView.translatesAutoresizingMaskIntoConstraints = false
     let margins = layoutMarginsGuide
     
-    imageView.topAnchor.constraint(equalTo: margins.topAnchor, constant: -7.5).isActive = true
-    imageView.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: 7.5).isActive = true
-    imageView.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: -7.5).isActive = true
-    imageView.trailingAnchor.constraint(equalTo:margins.trailingAnchor, constant: 7.5).isActive = true
+    imageView.topAnchor.constraint(equalTo: margins.topAnchor, constant: -7).isActive = true
+    imageView.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: 7).isActive = true
+    imageView.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: -7).isActive = true
+    imageView.trailingAnchor.constraint(equalTo:margins.trailingAnchor, constant: 7).isActive = true
     
-    imageView.image = UIImage(named: "superman1")
+    imageView.image = UIImage()
+    imageView.backgroundColor = Color.blue
     imageView.layer.cornerRadius = 5
-    imageView.clipsToBounds = true
+    
+    imageView.layer.borderWidth = 0.5
+    imageView.layer.borderColor = Color.purple.cgColor
+    
+    imageView.layer.shadowColor = UIColor.black.cgColor
+    imageView.layer.shadowOpacity = 0.6
+    imageView.layer.shadowRadius = 2
+    imageView.layer.shadowOffset = CGSize(width: 0, height: 1)
   }
   
   required init?(coder aDecoder: NSCoder) {
