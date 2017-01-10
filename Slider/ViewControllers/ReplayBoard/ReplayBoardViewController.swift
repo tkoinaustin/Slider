@@ -24,6 +24,11 @@ class ReplayBoardViewController: UIViewController {
     replayLabel.text = replayText
   }}
   
+  @IBOutlet private weak var borderView: BorderView! { didSet {
+      borderView.alpha = 0
+    borderView.borderColor = UIColor.brown
+  }}
+  
   @IBOutlet private weak var replayGrid: UIView! { didSet {
     viewModel.assignGridView(replayGrid)
   }}
@@ -31,6 +36,7 @@ class ReplayBoardViewController: UIViewController {
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     viewModel.loadBlocks()
+    UIView.animate(withDuration: 0.2, animations: { self.borderView.alpha = 1 })
   }
   
   override func viewDidLoad() {
