@@ -5,6 +5,7 @@ use_frameworks!
 target 'Slider' do
   pod 'Fabric'
   pod 'Crashlytics'
+  pod 'Hue'
 
   target 'SliderTests' do
   end
