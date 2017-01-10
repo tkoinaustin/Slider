@@ -62,6 +62,8 @@
 		CBC922941DB0304F00132C91 /* GameModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC922931DB0304F00132C91 /* GameModelTests.swift */; };
 		CBC922961DB03FCE00132C91 /* BlockModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC922951DB03FCE00132C91 /* BlockModelTests.swift */; };
 		CBC9229C1DB1422600132C91 /* BlockModelLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9229B1DB1422600132C91 /* BlockModelLogicTests.swift */; };
+		CBD253091E2510E800E2DC14 /* BorderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBD253081E2510E800E2DC14 /* BorderView.xib */; };
+		CBD2530B1E25178D00E2DC14 /* BorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD2530A1E25178D00E2DC14 /* BorderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +138,8 @@
 		CBC922931DB0304F00132C91 /* GameModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModelTests.swift; sourceTree = "<group>"; };
 		CBC922951DB03FCE00132C91 /* BlockModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockModelTests.swift; sourceTree = "<group>"; };
 		CBC9229B1DB1422600132C91 /* BlockModelLogicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockModelLogicTests.swift; sourceTree = "<group>"; };
+		CBD253081E2510E800E2DC14 /* BorderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BorderView.xib; path = Views/Border/BorderView.xib; sourceTree = "<group>"; };
+		CBD2530A1E25178D00E2DC14 /* BorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BorderView.swift; path = Views/Border/BorderView.swift; sourceTree = "<group>"; };
 		E87AEA41F862378B334E6C3D /* Pods_Slider_SliderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Slider_SliderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBB8FB1D2BF6E068E8500308 /* Pods-Slider-SliderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slider-SliderTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Slider-SliderTests/Pods-Slider-SliderTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -276,6 +280,7 @@
 				CB6576531DD613CE00D61DED /* XibLoadable.swift */,
 				CBC5712F1DF4BB9D00633ED8 /* TransitionLabel.swift */,
 				834CDD921D9B5A1A002CB6DD /* Block */,
+				CBD253071E250FD300E2DC14 /* Border */,
 				CBAFA38D1DCA43B000534AEC /* ControlBar */,
 			);
 			name = Views;
@@ -425,6 +430,15 @@
 			name = HistoryList;
 			sourceTree = "<group>";
 		};
+		CBD253071E250FD300E2DC14 /* Border */ = {
+			isa = PBXGroup;
+			children = (
+				CBD253081E2510E800E2DC14 /* BorderView.xib */,
+				CBD2530A1E25178D00E2DC14 /* BorderView.swift */,
+			);
+			name = Border;
+			sourceTree = "<group>";
+		};
 		EC1CD7408572E2BF31C54A2B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -551,6 +565,7 @@
 				CBC571401DFCC0DB00633ED8 /* PuzzleList.storyboard in Resources */,
 				CBC571341DFCC0C200633ED8 /* Intro.storyboard in Resources */,
 				CB6CB6781E00BB7C00FCB9B5 /* ReplayBoard.storyboard in Resources */,
+				CBD253091E2510E800E2DC14 /* BorderView.xib in Resources */,
 				CBC571391DFCC0CE00633ED8 /* Gameboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -719,6 +734,7 @@
 				837137751DD8A1F5003AD379 /* Coordinate.swift in Sources */,
 				CBC5712E1DEB2F3A00633ED8 /* GameMoveData.swift in Sources */,
 				837137771DD8A1F5003AD379 /* GridModelInitialization.swift in Sources */,
+				CBD2530B1E25178D00E2DC14 /* BorderView.swift in Sources */,
 				CBC5713B1DFCC0CE00633ED8 /* GameboardViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     UIApplicationLaunchOptionsKey: Any
     ]?
     ) -> Bool {
-    Fabric.with([Crashlytics.self])
+//    Fabric.with([Crashlytics.self])
     return true
   }
   

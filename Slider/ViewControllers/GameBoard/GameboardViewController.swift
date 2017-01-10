@@ -17,6 +17,8 @@ class GameboardViewController: UIViewController {
     gradientView.clipsToBounds = true
   }}
   
+  @IBOutlet weak var borderView: UIView!
+  
   @IBOutlet private weak var gridView: UIView! { didSet {
     viewModel.assignGridView(gridView)
   }}
