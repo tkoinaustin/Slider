@@ -25,7 +25,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQy-bj-uP7">
-                                <rect key="frame" x="166" y="72" width="42" height="20.5"/>
+                                <rect key="frame" x="166.5" y="72" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -79,6 +79,7 @@
                     <navigationItem key="navigationItem" id="VNx-e3-rJx"/>
                     <connections>
                         <outlet property="borderView" destination="yAP-35-pAC" id="P64-fl-XVQ"/>
+                        <outlet property="gradientHeight" destination="uV6-FT-ERM" id="Uoq-6L-jJ9"/>
                         <outlet property="gradientView" destination="8hU-O8-93E" id="x2K-K7-ZmY"/>
                         <outlet property="replayGrid" destination="vsR-tg-oBY" id="iPa-32-eeo"/>
                         <outlet property="replayLabel" destination="iQy-bj-uP7" id="rtV-Ig-ccd"/>

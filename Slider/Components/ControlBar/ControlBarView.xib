@@ -23,7 +23,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="37.5"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dga-tm-gXZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="57" height="37.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="54" height="37.5"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="120" id="Eyg-FP-7vL"/>
@@ -39,7 +39,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vxx-jY-pDs">
-                                    <rect key="frame" x="157.5" y="0.0" width="59" height="37.5"/>
+                                    <rect key="frame" x="156.5" y="0.0" width="59" height="37.5"/>
                                     <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                     <state key="normal" title="Reset"/>
                                     <connections>

@@ -16,7 +16,7 @@ class ReplayBoardViewController: UIViewController {
   var index: Int!
 
   @IBOutlet private weak var gradientView: UIView! { didSet {
-    gradientView.backgroundColor = UIColor(patternImage: UIImage(named: "opaque gradient")!)
+    gradientView.backgroundColor = UIColor(patternImage: gameSize.gradient!)
     gradientView.clipsToBounds = true
   }}
   
@@ -31,6 +31,10 @@ class ReplayBoardViewController: UIViewController {
   
   @IBOutlet private weak var replayGrid: UIView! { didSet {
     viewModel.assignGridView(replayGrid)
+  }}
+  
+  @IBOutlet private weak var gradientHeight: NSLayoutConstraint! { didSet {
+      gradientHeight.constant = gameSize.border
   }}
 
   override func viewDidAppear(_ animated: Bool) {

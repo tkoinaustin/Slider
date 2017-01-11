@@ -13,13 +13,17 @@ class GameboardViewController: UIViewController {
   var viewModel = GameboardViewModel()
 
   @IBOutlet private weak var gradientView: UIView! { didSet {
-    gradientView.backgroundColor = UIColor(patternImage: UIImage(named: "opaque gradient")!)
+    gradientView.backgroundColor = UIColor(patternImage: gameSize.gradient!)
     gradientView.clipsToBounds = true
   }}
   
   @IBOutlet weak var borderView: BorderView! { didSet {
     borderView.borderColor = Color.lightPurple
     }}
+  
+  @IBOutlet private weak var gradientHeight: NSLayoutConstraint! { didSet {
+      gradientHeight.constant = gameSize.border
+  }}
   
   @IBOutlet private weak var gridView: UIView! { didSet {
     viewModel.assignGridView(gridView)
