@@ -24,7 +24,7 @@ enum GameSize: String {
   var corner: CGFloat {
     switch self{
     case .small: return 5
-    case .medium: return 8
+    case .medium: return 7
     case .large: return 10
     }
   }
@@ -32,7 +32,7 @@ enum GameSize: String {
   var border: CGFloat {
     switch self{
     case .small: return 10
-    case .medium: return 16
+    case .medium: return 14
     case .large: return 20
     }
   }
@@ -47,10 +47,27 @@ enum GameSize: String {
   
   var layout: CGFloat {
     switch self {
-    case .small: return 8 - 0.5
-    case .medium: return 8 - 1
+    case .small: return 8 - 1
+    case .medium: return 8 - 1.5
     case .large: return 8 - 2
     }
   }
+  
+  var shadowRadius: CGFloat {
+    switch self {
+    case .small: return  1
+    case .medium: return 1.5
+    case .large: return 2
+    }
+  }
+  
+  var shadowOffset: CGSize {
+    switch self {
+    case .small: return CGSize(width: 0, height: 0.5)
+    case .medium: return CGSize(width: 0, height: 1)
+    case .large: return CGSize(width: 0, height: 2)
+    }
+  }
+
 }
 

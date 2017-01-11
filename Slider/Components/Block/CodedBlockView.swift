@@ -38,8 +38,8 @@ class CodedBlockView: UIView {
     
     imageView.layer.shadowColor = UIColor.black.cgColor
     imageView.layer.shadowOpacity = 0.6
-    imageView.layer.shadowRadius = 2
-    imageView.layer.shadowOffset = CGSize(width: 0, height: 2)
+    imageView.layer.shadowRadius = gameSize.shadowRadius
+    imageView.layer.shadowOffset = gameSize.shadowOffset
   }
   
   required init?(coder aDecoder: NSCoder) {
