@@ -21,6 +21,13 @@ class IntroViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     let height = view.frame.height
+    
+    switch height {
+    case 1024...10000: gameSize = .large
+    case 667...1023: gameSize = .medium
+    default: gameSize = .small
+    }
+    
     let transform = CGAffineTransform(translationX: 0, y: -height)
     UIView.animate(withDuration: 1.5, animations: {
       self.continueButton.transform = CGAffineTransform.identity
@@ -29,7 +36,6 @@ class IntroViewController: UIViewController {
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    gameSize = .small
     guard let historyStore = Archiver.retrieve(model: .historyStore)
       as? [String: GameHistoryModel] else { return }
     HistoryStoreModel.shared.load(historyStore)
