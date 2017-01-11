@@ -10,8 +10,14 @@ import UIKit
 import Hue
 
 struct Color {
+  static var lightBlue: UIColor {
+    return UIColor(hex: "5795D2")
+  }
   static var blue: UIColor {
     return UIColor(hex: "4679AB")
+  }
+  static var darkBlue: UIColor {
+    return UIColor(hex: "396590")
   }
   static var purple: UIColor {
     return UIColor(hex: "2D2E40")

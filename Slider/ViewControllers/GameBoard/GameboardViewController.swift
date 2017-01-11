@@ -21,8 +21,6 @@ class GameboardViewController: UIViewController {
     borderView.borderColor = Color.lightPurple
     }}
   
-
-
   @IBOutlet private weak var gridView: UIView! { didSet {
     viewModel.assignGridView(gridView)
   }}

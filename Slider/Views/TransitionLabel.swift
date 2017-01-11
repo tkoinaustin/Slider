@@ -9,6 +9,10 @@
 import UIKit
 class TransitionLabel: UILabel {
   
+  var color: UIColor! { didSet {
+    newLabel.backgroundColor = color
+  }}
+  
   override var text: String? { didSet {
     if let text = text { setLabel(text) }
   }}
@@ -35,9 +39,12 @@ class TransitionLabel: UILabel {
   }
   
   func setup() {
+    font = UIFont(name: font.fontName, size: 15)
+
     self.addSubview(newLabel)
     self.newLabel.textAlignment = self.textAlignment
     newLabel.backgroundColor = UIColor.white
+    newLabel.font = font
 
     newLabel.translatesAutoresizingMaskIntoConstraints = false
     let margins = layoutMarginsGuide

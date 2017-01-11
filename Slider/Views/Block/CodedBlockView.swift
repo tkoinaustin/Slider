@@ -65,7 +65,8 @@ class CodedBlockView: UIView {
   // swiftlint:disable function_body_length
   static func get(block: CodedBlockView, parent: UIView, index: Int) -> CodedBlockView {
     block.center = block.viewModel.center
-    block.bounds = block.viewModel.bounds    
+    block.bounds = block.viewModel.bounds
+    if index == 1 { block.imageView.backgroundColor = Color.darkBlue }
     block.setBlockClosures(index)
     
     block.alpha = 0
