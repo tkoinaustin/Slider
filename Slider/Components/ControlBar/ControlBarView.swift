@@ -20,12 +20,14 @@ class ControlBarView: UIView, XibLoadable {
     puzzleName.font = size.font
     moveNumber.displayFont = size.font
     timerView.labelView.displayFont = size.font
+    buttonHeight.constant = gameSize.buttonSize
   }}
   
   @IBOutlet private weak var puzzle: UIButton!
   @IBOutlet private weak var reset: UIButton!
   @IBOutlet private weak var moveNumber: TransitionLabel!
-  
+  @IBOutlet private weak var buttonHeight: NSLayoutConstraint!
+
   @IBOutlet private weak var puzzleName: UILabel!
   @IBOutlet private weak var back: UIButton!
   @IBOutlet private weak var forward: UIButton!
@@ -54,7 +56,6 @@ class ControlBarView: UIView, XibLoadable {
       self.updateUI()
     }
     
-    size = .large
     updateUI()
     viewModel.addNotifications()
   }

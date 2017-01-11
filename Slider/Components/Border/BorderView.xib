@@ -101,8 +101,11 @@
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="borderWidth" destination="qxh-ri-0pw" id="CSK-8h-sDN"/>
                 <outlet property="bottomLeft" destination="HfB-Oy-b3M" id="2al-gF-jtF"/>
                 <outlet property="bottomRight" destination="r2e-6Q-mcQ" id="Q0W-pI-qcg"/>
+                <outlet property="gameboardLocation" destination="nZU-Aq-M5N" id="tOn-RM-LuZ"/>
+                <outlet property="sideBorderWidth" destination="PEU-Qb-Nlp" id="zwL-fO-3wl"/>
                 <outletCollection property="borders" destination="AvZ-Jj-SP4" collectionClass="NSMutableArray" id="kos-FU-xLQ"/>
                 <outletCollection property="borders" destination="1h0-fI-QoR" collectionClass="NSMutableArray" id="MP6-v0-ZQQ"/>
                 <outletCollection property="borders" destination="uzc-OT-kS3" collectionClass="NSMutableArray" id="nt6-8g-KRa"/>

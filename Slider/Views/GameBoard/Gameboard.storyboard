@@ -24,26 +24,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view tag="18" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fZ6-fn-By1" customClass="BorderView" customModule="Slider" customModuleProvider="target">
-                                <rect key="frame" x="16" y="20" width="343" height="419"/>
+                            <view tag="18" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fZ6-fn-By1" customClass="BorderView" customModule="Slider" customModuleProvider="target">
+                                <rect key="frame" x="16" y="20" width="343" height="542"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bie-Xn-ZpF">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bie-Xn-ZpF">
                                 <rect key="frame" x="36" y="40" width="303" height="379"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="bie-Xn-ZpF" secondAttribute="height" multiplier="4:5" id="LfD-oR-lFq"/>
-                                </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dlY-hv-vqP">
-                                <rect key="frame" x="112" y="419" width="151.5" height="15"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dlY-hv-vqP">
+                                <rect key="frame" x="112" y="419" width="151.5" height="20"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="15" id="oAD-F3-G4x"/>
+                                    <constraint firstAttribute="height" constant="20" id="oAD-F3-G4x"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7RE-wj-Htt">
-                                <rect key="frame" x="36" y="434" width="303" height="363.5"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7RE-wj-Htt">
+                                <rect key="frame" x="108" y="439" width="159.5" height="191.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="7RE-wj-Htt" secondAttribute="height" multiplier="1:1.2" id="Vdz-ii-fCw"/>
@@ -56,21 +53,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fZ6-fn-By1" firstAttribute="top" secondItem="bie-Xn-ZpF" secondAttribute="top" constant="-20" id="3K5-aC-Azn"/>
                             <constraint firstItem="2Ds-Bj-rJn" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fZ6-fn-By1" secondAttribute="bottom" constant="20" id="8e0-cb-bPH"/>
-                            <constraint firstItem="fZ6-fn-By1" firstAttribute="bottom" secondItem="bie-Xn-ZpF" secondAttribute="bottom" constant="20" id="F8y-0Z-xwb"/>
-                            <constraint firstItem="fZ6-fn-By1" firstAttribute="leading" secondItem="bie-Xn-ZpF" secondAttribute="leading" constant="-20" id="NTN-Fh-UFe"/>
                             <constraint firstItem="fZ6-fn-By1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tVV-JY-VtE" secondAttribute="leadingMargin" id="QCH-KI-any"/>
                             <constraint firstItem="dlY-hv-vqP" firstAttribute="width" secondItem="bie-Xn-ZpF" secondAttribute="width" multiplier="0.5" id="Rbg-of-rPd"/>
                             <constraint firstItem="2Ds-Bj-rJn" firstAttribute="leading" secondItem="tVV-JY-VtE" secondAttribute="leadingMargin" id="SDu-So-N4E"/>
+                            <constraint firstItem="fZ6-fn-By1" firstAttribute="top" secondItem="f1l-yQ-djv" secondAttribute="bottom" priority="750" constant="20" id="TuK-H2-95h"/>
                             <constraint firstItem="zGg-GE-j6X" firstAttribute="top" secondItem="2Ds-Bj-rJn" secondAttribute="bottom" constant="20" id="XgJ-rt-86U"/>
                             <constraint firstItem="2Ds-Bj-rJn" firstAttribute="trailing" secondItem="tVV-JY-VtE" secondAttribute="trailingMargin" id="ZAc-Oa-gNC"/>
-                            <constraint firstItem="7RE-wj-Htt" firstAttribute="leading" secondItem="dlY-hv-vqP" secondAttribute="leading" id="ZCE-7B-RdA"/>
-                            <constraint firstItem="7RE-wj-Htt" firstAttribute="trailing" secondItem="dlY-hv-vqP" secondAttribute="trailing" id="dzt-zB-ilr"/>
+                            <constraint firstItem="7RE-wj-Htt" firstAttribute="leading" secondItem="dlY-hv-vqP" secondAttribute="leading" constant="-4" id="ZCE-7B-RdA"/>
+                            <constraint firstItem="7RE-wj-Htt" firstAttribute="trailing" secondItem="dlY-hv-vqP" secondAttribute="trailing" constant="4" id="dzt-zB-ilr"/>
                             <constraint firstItem="7RE-wj-Htt" firstAttribute="top" secondItem="dlY-hv-vqP" secondAttribute="bottom" id="gR5-Gx-s6I"/>
                             <constraint firstItem="fZ6-fn-By1" firstAttribute="leading" secondItem="tVV-JY-VtE" secondAttribute="leadingMargin" priority="250" id="gbA-M6-GY9"/>
-                            <constraint firstItem="fZ6-fn-By1" firstAttribute="trailing" secondItem="bie-Xn-ZpF" secondAttribute="trailing" constant="20" id="igE-q0-qA6"/>
-                            <constraint firstItem="fZ6-fn-By1" firstAttribute="top" secondItem="f1l-yQ-djv" secondAttribute="bottom" id="laZ-ps-6qv"/>
+                            <constraint firstItem="fZ6-fn-By1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="f1l-yQ-djv" secondAttribute="bottom" id="laZ-ps-6qv"/>
                             <constraint firstItem="fZ6-fn-By1" firstAttribute="centerX" secondItem="tVV-JY-VtE" secondAttribute="centerX" id="nXW-7u-BEc"/>
                             <constraint firstItem="dlY-hv-vqP" firstAttribute="centerX" secondItem="tVV-JY-VtE" secondAttribute="centerX" id="nda-Pb-1Q8"/>
                             <constraint firstItem="dlY-hv-vqP" firstAttribute="top" secondItem="bie-Xn-ZpF" secondAttribute="bottom" id="qK2-10-Ot0"/>

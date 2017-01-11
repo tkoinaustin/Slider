@@ -23,9 +23,14 @@ class GameboardViewController: UIViewController {
   
   @IBOutlet private weak var gridView: UIView! { didSet {
     viewModel.assignGridView(gridView)
+    gridView.widthAnchor.constraint(equalTo: borderView.gameboardLocation.widthAnchor).isActive = true
+    gridView.heightAnchor.constraint(equalTo: borderView.gameboardLocation.heightAnchor).isActive = true
+    gridView.centerXAnchor.constraint(equalTo: borderView.gameboardLocation.centerXAnchor).isActive = true
+    gridView.centerYAnchor.constraint(equalTo: borderView.gameboardLocation.centerYAnchor).isActive = true
   }}
   
   @IBOutlet private weak var controlBarView: ControlBarView! { didSet {
+    controlBarView.size = gameSize
     viewModel.assignControlBar(controlBarView.viewModel)
     viewModel.setControlBarClosure()
     viewModel.controlBar.parentViewController = self

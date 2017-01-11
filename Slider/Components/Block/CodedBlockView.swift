@@ -12,7 +12,6 @@ class CodedBlockView: UIView {
   
   var imageView = UIImageView()
   var viewModel: BlockViewModel!
-  var size: GameSize = .large
   var color: UIColor { didSet { imageView.backgroundColor = color }}
 
   public override init(frame: CGRect) {
@@ -25,14 +24,14 @@ class CodedBlockView: UIView {
     imageView.translatesAutoresizingMaskIntoConstraints = false
     let margins = layoutMarginsGuide
     
-    imageView.topAnchor.constraint(equalTo: margins.topAnchor, constant: -6).isActive = true
-    imageView.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: 6).isActive = true
-    imageView.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: -6).isActive = true
-    imageView.trailingAnchor.constraint(equalTo:margins.trailingAnchor, constant: 6).isActive = true
+    imageView.topAnchor.constraint(equalTo: margins.topAnchor, constant: -gameSize.layout).isActive = true
+    imageView.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: gameSize.layout).isActive = true
+    imageView.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: -gameSize.layout).isActive = true
+    imageView.trailingAnchor.constraint(equalTo:margins.trailingAnchor, constant: gameSize.layout).isActive = true
     
     imageView.image = UIImage()
     imageView.backgroundColor = Color.blue
-    imageView.layer.cornerRadius = size.corner
+    imageView.layer.cornerRadius = gameSize.corner
     
     imageView.layer.borderWidth = 0.5
     imageView.layer.borderColor = Color.purple.cgColor

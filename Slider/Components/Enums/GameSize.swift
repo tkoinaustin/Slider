@@ -8,6 +8,8 @@
 
 import UIKit
 
+var gameSize: GameSize!
+
 enum GameSize: String {
   case small, medium, large
   
@@ -19,20 +21,36 @@ enum GameSize: String {
     }
   }
   
-    var corner: CGFloat {
-      switch self{
-      case .small: return 5
-      case .medium: return 8
-      case .large: return 10
-      }
-    }
-    
-    var border: CGFloat {
-      switch self{
-      case .small: return 10
-      case .medium: return 16
-      case .large: return 20
-      }
+  var corner: CGFloat {
+    switch self{
+    case .small: return 5
+    case .medium: return 8
+    case .large: return 10
     }
   }
+  
+  var border: CGFloat {
+    switch self{
+    case .small: return 10
+    case .medium: return 16
+    case .large: return 20
+    }
+  }
+  
+  var buttonSize: CGFloat {
+    switch self {
+    case .small: return 16
+    case .medium: return 20
+    case .large: return 25
+    }
+  }
+  
+  var layout: CGFloat {
+    switch self {
+    case .small: return 8 - 0.5
+    case .medium: return 8 - 1
+    case .large: return 8 - 2
+    }
+  }
+}
 

@@ -10,26 +10,35 @@ import UIKit
 
 class BorderView: UIView, XibLoadable {
   let ibTag = 18
-  var size: GameSize = .large
   
   var borderColor: UIColor! { didSet {
     for border in borders { border.backgroundColor = borderColor }
   }}
   
-  @IBOutlet weak var bottomLeft: UIView! { didSet {
-      bottomLeft.layer.cornerRadius = size.corner
+  @IBOutlet private weak var borderWidth: NSLayoutConstraint! { didSet {
+      borderWidth.constant = gameSize.border
+  }}
+  
+  @IBOutlet private weak var sideBorderWidth: NSLayoutConstraint!{ didSet {
+    sideBorderWidth.constant = gameSize.border
+    }}
+
+  @IBOutlet private weak var bottomLeft: UIView! { didSet {
+      bottomLeft.layer.cornerRadius = gameSize.corner
       bottomLeft.clipsToBounds = true
   }}
-  @IBOutlet weak var bottomRight: UIView! { didSet {
-    bottomRight.layer.cornerRadius = size.corner
+  @IBOutlet private weak var bottomRight: UIView! { didSet {
+    bottomRight.layer.cornerRadius = gameSize.corner
     bottomRight.clipsToBounds = true
   }}
 
+  @IBOutlet weak var gameboardLocation: UIView!
+  
   @IBOutlet var borders: [UIView]!
   
   
   func setup() {
-    layer.cornerRadius = size.corner
+    layer.cornerRadius = gameSize.corner
     clipsToBounds = true
   }
   

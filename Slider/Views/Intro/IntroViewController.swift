@@ -29,6 +29,7 @@ class IntroViewController: UIViewController {
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    gameSize = .large
     guard let historyStore = Archiver.retrieve(model: .historyStore)
       as? [String: GameHistoryModel] else { return }
     HistoryStoreModel.shared.load(historyStore)
