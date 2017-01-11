@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		14A719E0799017184F795BDC /* Pods_Slider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37EBB68CCC3F36F5BC342702 /* Pods_Slider.framework */; };
 		835DD0CC1DB31703002CFF8E /* GameModelLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835DD0CB1DB31703002CFF8E /* GameModelLogicTests.swift */; };
-		8371375B1DD89843003AD379 /* BlockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837137591DD89843003AD379 /* BlockViewModel.swift */; };
-		8371375C1DD89843003AD379 /* CodedBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8371375A1DD89843003AD379 /* CodedBlockView.swift */; };
 		8371376E1DD89CED003AD379 /* BlockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8371376C1DD89CED003AD379 /* BlockModel.swift */; };
 		8371376F1DD89CED003AD379 /* BlockModelLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8371376D1DD89CED003AD379 /* BlockModelLogic.swift */; };
 		837137751DD8A1F5003AD379 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837137701DD8A1F5003AD379 /* Coordinate.swift */; };
@@ -33,38 +31,41 @@
 		CB54C8C71E2320F0008F2A00 /* HistoryStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB54C8C51E2320F0008F2A00 /* HistoryStoreModel.swift */; };
 		CB54C8CA1E2321C3008F2A00 /* Puzzles.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB54C8C91E2321C3008F2A00 /* Puzzles.swift */; };
 		CB54C8CC1E232257008F2A00 /* PuzzleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB54C8CB1E232257008F2A00 /* PuzzleModel.swift */; };
-		CB6576521DD5405500D61DED /* ControlBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6576511DD5405500D61DED /* ControlBarViewModel.swift */; };
-		CB6576541DD613CE00D61DED /* XibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6576531DD613CE00D61DED /* XibLoadable.swift */; };
-		CB6576561DD6141D00D61DED /* ControlBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6576551DD6141D00D61DED /* ControlBarView.swift */; };
-		CB6CB6781E00BB7C00FCB9B5 /* ReplayBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB6CB6771E00BB7C00FCB9B5 /* ReplayBoard.storyboard */; };
-		CB6CB67A1E00BB9E00FCB9B5 /* ReplayBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6CB6791E00BB9E00FCB9B5 /* ReplayBoardViewController.swift */; };
-		CB9C60231DEFC7590011F65F /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C60221DEFC7590011F65F /* TimerView.swift */; };
 		CB9C60261DF067610011F65F /* klotski.txt in Resources */ = {isa = PBXBuildFile; fileRef = CB9C60251DF067610011F65F /* klotski.txt */; };
 		CB9F9AF81E204F32009FF7C2 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9F9AF71E204F32009FF7C2 /* UIView.swift */; };
 		CBA63BF91DA9D8F4004C0EE6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA63BF81DA9D8F4004C0EE6 /* Constants.swift */; };
 		CBA63BFB1DA9E73F004C0EE6 /* ConstantsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA63BFA1DA9E73F004C0EE6 /* ConstantsTests.swift */; };
-		CBAFA38F1DCA447200534AEC /* ControlBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBAFA38E1DCA447200534AEC /* ControlBarView.xib */; };
 		CBB7D3371E2562C2000CC0D3 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D3361E2562C2000CC0D3 /* Color.swift */; };
+		CBB7D33A1E25B712000CC0D3 /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBB7D3381E25B712000CC0D3 /* Intro.storyboard */; };
+		CBB7D33B1E25B712000CC0D3 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D3391E25B712000CC0D3 /* IntroViewController.swift */; };
+		CBB7D33F1E25B722000CC0D3 /* Gameboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBB7D33C1E25B722000CC0D3 /* Gameboard.storyboard */; };
+		CBB7D3401E25B722000CC0D3 /* GameboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D33D1E25B722000CC0D3 /* GameboardViewController.swift */; };
+		CBB7D3411E25B722000CC0D3 /* GameboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D33E1E25B722000CC0D3 /* GameboardViewModel.swift */; };
+		CBB7D3461E25B734000CC0D3 /* PuzzleList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBB7D3421E25B734000CC0D3 /* PuzzleList.storyboard */; };
+		CBB7D3471E25B734000CC0D3 /* PuzzleListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D3431E25B734000CC0D3 /* PuzzleListCell.swift */; };
+		CBB7D3481E25B734000CC0D3 /* PuzzleListDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D3441E25B734000CC0D3 /* PuzzleListDataProvider.swift */; };
+		CBB7D3491E25B734000CC0D3 /* PuzzleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D3451E25B734000CC0D3 /* PuzzleListViewController.swift */; };
+		CBB7D34D1E25B741000CC0D3 /* HistoryList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBB7D34A1E25B741000CC0D3 /* HistoryList.storyboard */; };
+		CBB7D34E1E25B741000CC0D3 /* HistoryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D34B1E25B741000CC0D3 /* HistoryListCell.swift */; };
+		CBB7D34F1E25B741000CC0D3 /* HistoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D34C1E25B741000CC0D3 /* HistoryListViewController.swift */; };
+		CBB7D3521E25B751000CC0D3 /* ReplayBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBB7D3501E25B751000CC0D3 /* ReplayBoard.storyboard */; };
+		CBB7D3531E25B752000CC0D3 /* ReplayBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D3511E25B751000CC0D3 /* ReplayBoardViewController.swift */; };
+		CBB7D3561E25B763000CC0D3 /* TransitionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D3541E25B763000CC0D3 /* TransitionLabel.swift */; };
+		CBB7D3571E25B763000CC0D3 /* XibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D3551E25B763000CC0D3 /* XibLoadable.swift */; };
+		CBB7D35A1E25B772000CC0D3 /* BlockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D3581E25B772000CC0D3 /* BlockViewModel.swift */; };
+		CBB7D35B1E25B772000CC0D3 /* CodedBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D3591E25B772000CC0D3 /* CodedBlockView.swift */; };
+		CBB7D35E1E25B77D000CC0D3 /* BorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D35C1E25B77D000CC0D3 /* BorderView.swift */; };
+		CBB7D35F1E25B77D000CC0D3 /* BorderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBB7D35D1E25B77D000CC0D3 /* BorderView.xib */; };
+		CBB7D3641E25B798000CC0D3 /* ControlBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D3601E25B798000CC0D3 /* ControlBarView.swift */; };
+		CBB7D3651E25B798000CC0D3 /* ControlBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBB7D3611E25B798000CC0D3 /* ControlBarView.xib */; };
+		CBB7D3661E25B798000CC0D3 /* ControlBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D3621E25B798000CC0D3 /* ControlBarViewModel.swift */; };
+		CBB7D3671E25B798000CC0D3 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D3631E25B798000CC0D3 /* TimerView.swift */; };
+		CBB7D36A1E25B898000CC0D3 /* GameSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D3691E25B898000CC0D3 /* GameSize.swift */; };
 		CBC5712C1DEB2F0700633ED8 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC5712B1DEB2F0700633ED8 /* GameModel.swift */; };
 		CBC5712E1DEB2F3A00633ED8 /* GameMoveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC5712D1DEB2F3A00633ED8 /* GameMoveData.swift */; };
-		CBC571301DF4BB9D00633ED8 /* TransitionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC5712F1DF4BB9D00633ED8 /* TransitionLabel.swift */; };
-		CBC571341DFCC0C200633ED8 /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBC571321DFCC0C200633ED8 /* Intro.storyboard */; };
-		CBC571351DFCC0C200633ED8 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC571331DFCC0C200633ED8 /* IntroViewController.swift */; };
-		CBC571391DFCC0CE00633ED8 /* Gameboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBC571361DFCC0CE00633ED8 /* Gameboard.storyboard */; };
-		CBC5713A1DFCC0CE00633ED8 /* GameboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC571371DFCC0CE00633ED8 /* GameboardViewController.swift */; };
-		CBC5713B1DFCC0CE00633ED8 /* GameboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC571381DFCC0CE00633ED8 /* GameboardViewModel.swift */; };
-		CBC571401DFCC0DB00633ED8 /* PuzzleList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBC5713C1DFCC0DB00633ED8 /* PuzzleList.storyboard */; };
-		CBC571411DFCC0DB00633ED8 /* PuzzleListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC5713D1DFCC0DB00633ED8 /* PuzzleListCell.swift */; };
-		CBC571421DFCC0DB00633ED8 /* PuzzleListDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC5713E1DFCC0DB00633ED8 /* PuzzleListDataProvider.swift */; };
-		CBC571431DFCC0DB00633ED8 /* PuzzleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC5713F1DFCC0DB00633ED8 /* PuzzleListViewController.swift */; };
-		CBC571471DFCC24900633ED8 /* HistoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC571461DFCC24900633ED8 /* HistoryListViewController.swift */; };
-		CBC571491DFCC2A300633ED8 /* HistoryList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBC571481DFCC2A300633ED8 /* HistoryList.storyboard */; };
-		CBC5714B1E00226F00633ED8 /* HistoryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC5714A1E00226F00633ED8 /* HistoryListCell.swift */; };
 		CBC922941DB0304F00132C91 /* GameModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC922931DB0304F00132C91 /* GameModelTests.swift */; };
 		CBC922961DB03FCE00132C91 /* BlockModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC922951DB03FCE00132C91 /* BlockModelTests.swift */; };
 		CBC9229C1DB1422600132C91 /* BlockModelLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9229B1DB1422600132C91 /* BlockModelLogicTests.swift */; };
-		CBD253091E2510E800E2DC14 /* BorderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBD253081E2510E800E2DC14 /* BorderView.xib */; };
-		CBD2530B1E25178D00E2DC14 /* BorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD2530A1E25178D00E2DC14 /* BorderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,8 +85,6 @@
 		834CDDB01D9B6A63002CB6DD /* SliderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SliderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		834CDDB41D9B6A66002CB6DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		835DD0CB1DB31703002CFF8E /* GameModelLogicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModelLogicTests.swift; sourceTree = "<group>"; };
-		837137591DD89843003AD379 /* BlockViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlockViewModel.swift; path = Views/Block/BlockViewModel.swift; sourceTree = "<group>"; };
-		8371375A1DD89843003AD379 /* CodedBlockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CodedBlockView.swift; path = Views/Block/CodedBlockView.swift; sourceTree = "<group>"; };
 		8371376C1DD89CED003AD379 /* BlockModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlockModel.swift; path = Models/Block/BlockModel.swift; sourceTree = "<group>"; };
 		8371376D1DD89CED003AD379 /* BlockModelLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlockModelLogic.swift; path = Models/Block/BlockModelLogic.swift; sourceTree = "<group>"; };
 		837137701DD8A1F5003AD379 /* Coordinate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coordinate.swift; path = Models/Grid/Coordinate.swift; sourceTree = "<group>"; };
@@ -110,38 +109,41 @@
 		CB54C8C51E2320F0008F2A00 /* HistoryStoreModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryStoreModel.swift; path = Models/History/HistoryStoreModel.swift; sourceTree = "<group>"; };
 		CB54C8C91E2321C3008F2A00 /* Puzzles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Puzzles.swift; path = Models/Puzzles/Puzzles.swift; sourceTree = "<group>"; };
 		CB54C8CB1E232257008F2A00 /* PuzzleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PuzzleModel.swift; path = Models/Puzzles/PuzzleModel.swift; sourceTree = "<group>"; };
-		CB6576511DD5405500D61DED /* ControlBarViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ControlBarViewModel.swift; path = Views/ControlBar/ControlBarViewModel.swift; sourceTree = "<group>"; };
-		CB6576531DD613CE00D61DED /* XibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XibLoadable.swift; path = Views/XibLoadable.swift; sourceTree = "<group>"; };
-		CB6576551DD6141D00D61DED /* ControlBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ControlBarView.swift; path = Views/ControlBar/ControlBarView.swift; sourceTree = "<group>"; };
-		CB6CB6771E00BB7C00FCB9B5 /* ReplayBoard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ReplayBoard.storyboard; path = ViewControllers/ReplayBoard/ReplayBoard.storyboard; sourceTree = "<group>"; };
-		CB6CB6791E00BB9E00FCB9B5 /* ReplayBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReplayBoardViewController.swift; path = ViewControllers/ReplayBoard/ReplayBoardViewController.swift; sourceTree = "<group>"; };
-		CB9C60221DEFC7590011F65F /* TimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimerView.swift; path = Views/ControlBar/TimerView.swift; sourceTree = "<group>"; };
 		CB9C60251DF067610011F65F /* klotski.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = klotski.txt; path = Resources/klotski.txt; sourceTree = "<group>"; };
 		CB9F9AF71E204F32009FF7C2 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIView.swift; path = Extensions/UIView.swift; sourceTree = "<group>"; };
 		CBA63BF81DA9D8F4004C0EE6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilities/Constants.swift; sourceTree = "<group>"; };
 		CBA63BFA1DA9E73F004C0EE6 /* ConstantsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstantsTests.swift; sourceTree = "<group>"; };
-		CBAFA38E1DCA447200534AEC /* ControlBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ControlBarView.xib; path = Views/ControlBar/ControlBarView.xib; sourceTree = "<group>"; };
 		CBB7D3361E2562C2000CC0D3 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Color.swift; path = Store/Color.swift; sourceTree = "<group>"; };
+		CBB7D3381E25B712000CC0D3 /* Intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Intro.storyboard; path = Views/Intro/Intro.storyboard; sourceTree = "<group>"; };
+		CBB7D3391E25B712000CC0D3 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntroViewController.swift; path = Views/Intro/IntroViewController.swift; sourceTree = "<group>"; };
+		CBB7D33C1E25B722000CC0D3 /* Gameboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Gameboard.storyboard; path = Views/GameBoard/Gameboard.storyboard; sourceTree = "<group>"; };
+		CBB7D33D1E25B722000CC0D3 /* GameboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameboardViewController.swift; path = Views/GameBoard/GameboardViewController.swift; sourceTree = "<group>"; };
+		CBB7D33E1E25B722000CC0D3 /* GameboardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameboardViewModel.swift; path = Views/GameBoard/GameboardViewModel.swift; sourceTree = "<group>"; };
+		CBB7D3421E25B734000CC0D3 /* PuzzleList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = PuzzleList.storyboard; path = Views/PuzzleList/PuzzleList.storyboard; sourceTree = "<group>"; };
+		CBB7D3431E25B734000CC0D3 /* PuzzleListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PuzzleListCell.swift; path = Views/PuzzleList/PuzzleListCell.swift; sourceTree = "<group>"; };
+		CBB7D3441E25B734000CC0D3 /* PuzzleListDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PuzzleListDataProvider.swift; path = Views/PuzzleList/PuzzleListDataProvider.swift; sourceTree = "<group>"; };
+		CBB7D3451E25B734000CC0D3 /* PuzzleListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PuzzleListViewController.swift; path = Views/PuzzleList/PuzzleListViewController.swift; sourceTree = "<group>"; };
+		CBB7D34A1E25B741000CC0D3 /* HistoryList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = HistoryList.storyboard; path = Views/HistoryList/HistoryList.storyboard; sourceTree = "<group>"; };
+		CBB7D34B1E25B741000CC0D3 /* HistoryListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryListCell.swift; path = Views/HistoryList/HistoryListCell.swift; sourceTree = "<group>"; };
+		CBB7D34C1E25B741000CC0D3 /* HistoryListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryListViewController.swift; path = Views/HistoryList/HistoryListViewController.swift; sourceTree = "<group>"; };
+		CBB7D3501E25B751000CC0D3 /* ReplayBoard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ReplayBoard.storyboard; path = Views/ReplayBoard/ReplayBoard.storyboard; sourceTree = "<group>"; };
+		CBB7D3511E25B751000CC0D3 /* ReplayBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReplayBoardViewController.swift; path = Views/ReplayBoard/ReplayBoardViewController.swift; sourceTree = "<group>"; };
+		CBB7D3541E25B763000CC0D3 /* TransitionLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransitionLabel.swift; path = Components/TransitionLabel.swift; sourceTree = "<group>"; };
+		CBB7D3551E25B763000CC0D3 /* XibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XibLoadable.swift; path = Components/XibLoadable.swift; sourceTree = "<group>"; };
+		CBB7D3581E25B772000CC0D3 /* BlockViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlockViewModel.swift; path = Components/Block/BlockViewModel.swift; sourceTree = "<group>"; };
+		CBB7D3591E25B772000CC0D3 /* CodedBlockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CodedBlockView.swift; path = Components/Block/CodedBlockView.swift; sourceTree = "<group>"; };
+		CBB7D35C1E25B77D000CC0D3 /* BorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BorderView.swift; path = Components/Border/BorderView.swift; sourceTree = "<group>"; };
+		CBB7D35D1E25B77D000CC0D3 /* BorderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BorderView.xib; path = Components/Border/BorderView.xib; sourceTree = "<group>"; };
+		CBB7D3601E25B798000CC0D3 /* ControlBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ControlBarView.swift; path = Components/ControlBar/ControlBarView.swift; sourceTree = "<group>"; };
+		CBB7D3611E25B798000CC0D3 /* ControlBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ControlBarView.xib; path = Components/ControlBar/ControlBarView.xib; sourceTree = "<group>"; };
+		CBB7D3621E25B798000CC0D3 /* ControlBarViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ControlBarViewModel.swift; path = Components/ControlBar/ControlBarViewModel.swift; sourceTree = "<group>"; };
+		CBB7D3631E25B798000CC0D3 /* TimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimerView.swift; path = Components/ControlBar/TimerView.swift; sourceTree = "<group>"; };
+		CBB7D3691E25B898000CC0D3 /* GameSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameSize.swift; path = Components/Enums/GameSize.swift; sourceTree = "<group>"; };
 		CBC5712B1DEB2F0700633ED8 /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameModel.swift; path = Models/Game/GameModel.swift; sourceTree = "<group>"; };
 		CBC5712D1DEB2F3A00633ED8 /* GameMoveData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameMoveData.swift; path = Models/Game/GameMoveData.swift; sourceTree = "<group>"; };
-		CBC5712F1DF4BB9D00633ED8 /* TransitionLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransitionLabel.swift; path = Views/TransitionLabel.swift; sourceTree = "<group>"; };
-		CBC571321DFCC0C200633ED8 /* Intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Intro.storyboard; path = ViewControllers/Intro/Intro.storyboard; sourceTree = "<group>"; };
-		CBC571331DFCC0C200633ED8 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntroViewController.swift; path = ViewControllers/Intro/IntroViewController.swift; sourceTree = "<group>"; };
-		CBC571361DFCC0CE00633ED8 /* Gameboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Gameboard.storyboard; path = ViewControllers/GameBoard/Gameboard.storyboard; sourceTree = "<group>"; };
-		CBC571371DFCC0CE00633ED8 /* GameboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameboardViewController.swift; path = ViewControllers/GameBoard/GameboardViewController.swift; sourceTree = "<group>"; };
-		CBC571381DFCC0CE00633ED8 /* GameboardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameboardViewModel.swift; path = ViewControllers/GameBoard/GameboardViewModel.swift; sourceTree = "<group>"; };
-		CBC5713C1DFCC0DB00633ED8 /* PuzzleList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = PuzzleList.storyboard; path = ViewControllers/PuzzleList/PuzzleList.storyboard; sourceTree = "<group>"; };
-		CBC5713D1DFCC0DB00633ED8 /* PuzzleListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PuzzleListCell.swift; path = ViewControllers/PuzzleList/PuzzleListCell.swift; sourceTree = "<group>"; };
-		CBC5713E1DFCC0DB00633ED8 /* PuzzleListDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PuzzleListDataProvider.swift; path = ViewControllers/PuzzleList/PuzzleListDataProvider.swift; sourceTree = "<group>"; };
-		CBC5713F1DFCC0DB00633ED8 /* PuzzleListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PuzzleListViewController.swift; path = ViewControllers/PuzzleList/PuzzleListViewController.swift; sourceTree = "<group>"; };
-		CBC571461DFCC24900633ED8 /* HistoryListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryListViewController.swift; path = ViewControllers/HistoryList/HistoryListViewController.swift; sourceTree = "<group>"; };
-		CBC571481DFCC2A300633ED8 /* HistoryList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = HistoryList.storyboard; path = ViewControllers/HistoryList/HistoryList.storyboard; sourceTree = "<group>"; };
-		CBC5714A1E00226F00633ED8 /* HistoryListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryListCell.swift; path = ViewControllers/HistoryList/HistoryListCell.swift; sourceTree = "<group>"; };
 		CBC922931DB0304F00132C91 /* GameModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModelTests.swift; sourceTree = "<group>"; };
 		CBC922951DB03FCE00132C91 /* BlockModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockModelTests.swift; sourceTree = "<group>"; };
 		CBC9229B1DB1422600132C91 /* BlockModelLogicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockModelLogicTests.swift; sourceTree = "<group>"; };
-		CBD253081E2510E800E2DC14 /* BorderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BorderView.xib; path = Views/Border/BorderView.xib; sourceTree = "<group>"; };
-		CBD2530A1E25178D00E2DC14 /* BorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BorderView.swift; path = Views/Border/BorderView.swift; sourceTree = "<group>"; };
 		E87AEA41F862378B334E6C3D /* Pods_Slider_SliderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Slider_SliderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBB8FB1D2BF6E068E8500308 /* Pods-Slider-SliderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slider-SliderTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Slider-SliderTests/Pods-Slider-SliderTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -169,8 +171,8 @@
 		834CDD921D9B5A1A002CB6DD /* Block */ = {
 			isa = PBXGroup;
 			children = (
-				837137591DD89843003AD379 /* BlockViewModel.swift */,
-				8371375A1DD89843003AD379 /* CodedBlockView.swift */,
+				CBB7D3581E25B772000CC0D3 /* BlockViewModel.swift */,
+				CBB7D3591E25B772000CC0D3 /* CodedBlockView.swift */,
 			);
 			name = Block;
 			sourceTree = "<group>";
@@ -178,8 +180,8 @@
 		834CDD941D9B5A3B002CB6DD /* Intro */ = {
 			isa = PBXGroup;
 			children = (
-				CBC571321DFCC0C200633ED8 /* Intro.storyboard */,
-				CBC571331DFCC0C200633ED8 /* IntroViewController.swift */,
+				CBB7D3381E25B712000CC0D3 /* Intro.storyboard */,
+				CBB7D3391E25B712000CC0D3 /* IntroViewController.swift */,
 				83AB626D1D97106D00E61AB7 /* LaunchScreen.storyboard */,
 			);
 			name = Intro;
@@ -202,9 +204,9 @@
 		8371374D1DD7E6E7003AD379 /* GameBoard */ = {
 			isa = PBXGroup;
 			children = (
-				CBC571361DFCC0CE00633ED8 /* Gameboard.storyboard */,
-				CBC571371DFCC0CE00633ED8 /* GameboardViewController.swift */,
-				CBC571381DFCC0CE00633ED8 /* GameboardViewModel.swift */,
+				CBB7D33C1E25B722000CC0D3 /* Gameboard.storyboard */,
+				CBB7D33D1E25B722000CC0D3 /* GameboardViewController.swift */,
+				CBB7D33E1E25B722000CC0D3 /* GameboardViewModel.swift */,
 			);
 			name = GameBoard;
 			sourceTree = "<group>";
@@ -218,7 +220,7 @@
 			name = Block;
 			sourceTree = "<group>";
 		};
-		837137611DD89A21003AD379 /* ViewControllers */ = {
+		837137611DD89A21003AD379 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				834CDD941D9B5A3B002CB6DD /* Intro */,
@@ -227,7 +229,7 @@
 				CBC571311DFCBFF200633ED8 /* HistoryList */,
 				CB6CB6761E00BAE600FCB9B5 /* ReplayBoard */,
 			);
-			name = ViewControllers;
+			name = Views;
 			sourceTree = "<group>";
 		};
 		8371377C1DD8E11A003AD379 /* Store */ = {
@@ -266,8 +268,8 @@
 				CB04CA201E17F0990056A600 /* Segues */,
 				8371377C1DD8E11A003AD379 /* Store */,
 				CB5870901DAEE53A00D1EEE9 /* Models */,
-				837137611DD89A21003AD379 /* ViewControllers */,
-				83BE867D1DB267EA00D51EA1 /* Views */,
+				837137611DD89A21003AD379 /* Views */,
+				83BE867D1DB267EA00D51EA1 /* Components */,
 				CBA63BF71DA9D7ED004C0EE6 /* Utilities */,
 				CB9C60241DF067510011F65F /* Resources */,
 				83AB62641D97106D00E61AB7 /* AppDelegate.swift */,
@@ -277,16 +279,17 @@
 			path = Slider;
 			sourceTree = "<group>";
 		};
-		83BE867D1DB267EA00D51EA1 /* Views */ = {
+		83BE867D1DB267EA00D51EA1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				CB6576531DD613CE00D61DED /* XibLoadable.swift */,
-				CBC5712F1DF4BB9D00633ED8 /* TransitionLabel.swift */,
+				CBB7D3681E25B80B000CC0D3 /* Enums */,
+				CBB7D3541E25B763000CC0D3 /* TransitionLabel.swift */,
+				CBB7D3551E25B763000CC0D3 /* XibLoadable.swift */,
 				834CDD921D9B5A1A002CB6DD /* Block */,
 				CBD253071E250FD300E2DC14 /* Border */,
 				CBAFA38D1DCA43B000534AEC /* ControlBar */,
 			);
-			name = Views;
+			name = Components;
 			sourceTree = "<group>";
 		};
 		CB04A41A1DD4C7E0007BE787 /* enums */ = {
@@ -361,10 +364,10 @@
 		CB5FA3491DC16439003B19E0 /* PuzzleList */ = {
 			isa = PBXGroup;
 			children = (
-				CBC5713C1DFCC0DB00633ED8 /* PuzzleList.storyboard */,
-				CBC5713F1DFCC0DB00633ED8 /* PuzzleListViewController.swift */,
-				CBC5713E1DFCC0DB00633ED8 /* PuzzleListDataProvider.swift */,
-				CBC5713D1DFCC0DB00633ED8 /* PuzzleListCell.swift */,
+				CBB7D3421E25B734000CC0D3 /* PuzzleList.storyboard */,
+				CBB7D3431E25B734000CC0D3 /* PuzzleListCell.swift */,
+				CBB7D3441E25B734000CC0D3 /* PuzzleListDataProvider.swift */,
+				CBB7D3451E25B734000CC0D3 /* PuzzleListViewController.swift */,
 			);
 			name = PuzzleList;
 			sourceTree = "<group>";
@@ -372,8 +375,8 @@
 		CB6CB6761E00BAE600FCB9B5 /* ReplayBoard */ = {
 			isa = PBXGroup;
 			children = (
-				CB6CB6771E00BB7C00FCB9B5 /* ReplayBoard.storyboard */,
-				CB6CB6791E00BB9E00FCB9B5 /* ReplayBoardViewController.swift */,
+				CBB7D3501E25B751000CC0D3 /* ReplayBoard.storyboard */,
+				CBB7D3511E25B751000CC0D3 /* ReplayBoardViewController.swift */,
 			);
 			name = ReplayBoard;
 			sourceTree = "<group>";
@@ -406,12 +409,20 @@
 		CBAFA38D1DCA43B000534AEC /* ControlBar */ = {
 			isa = PBXGroup;
 			children = (
-				CBAFA38E1DCA447200534AEC /* ControlBarView.xib */,
-				CB6576551DD6141D00D61DED /* ControlBarView.swift */,
-				CB6576511DD5405500D61DED /* ControlBarViewModel.swift */,
-				CB9C60221DEFC7590011F65F /* TimerView.swift */,
+				CBB7D3611E25B798000CC0D3 /* ControlBarView.xib */,
+				CBB7D3601E25B798000CC0D3 /* ControlBarView.swift */,
+				CBB7D3621E25B798000CC0D3 /* ControlBarViewModel.swift */,
+				CBB7D3631E25B798000CC0D3 /* TimerView.swift */,
 			);
 			name = ControlBar;
+			sourceTree = "<group>";
+		};
+		CBB7D3681E25B80B000CC0D3 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				CBB7D3691E25B898000CC0D3 /* GameSize.swift */,
+			);
+			name = Enums;
 			sourceTree = "<group>";
 		};
 		CBC5712A1DEB2E9600633ED8 /* Game */ = {
@@ -426,9 +437,9 @@
 		CBC571311DFCBFF200633ED8 /* HistoryList */ = {
 			isa = PBXGroup;
 			children = (
-				CBC571481DFCC2A300633ED8 /* HistoryList.storyboard */,
-				CBC571461DFCC24900633ED8 /* HistoryListViewController.swift */,
-				CBC5714A1E00226F00633ED8 /* HistoryListCell.swift */,
+				CBB7D34A1E25B741000CC0D3 /* HistoryList.storyboard */,
+				CBB7D34B1E25B741000CC0D3 /* HistoryListCell.swift */,
+				CBB7D34C1E25B741000CC0D3 /* HistoryListViewController.swift */,
 			);
 			name = HistoryList;
 			sourceTree = "<group>";
@@ -436,8 +447,8 @@
 		CBD253071E250FD300E2DC14 /* Border */ = {
 			isa = PBXGroup;
 			children = (
-				CBD253081E2510E800E2DC14 /* BorderView.xib */,
-				CBD2530A1E25178D00E2DC14 /* BorderView.swift */,
+				CBB7D35D1E25B77D000CC0D3 /* BorderView.xib */,
+				CBB7D35C1E25B77D000CC0D3 /* BorderView.swift */,
 			);
 			name = Border;
 			sourceTree = "<group>";
@@ -562,14 +573,14 @@
 			files = (
 				CB9C60261DF067610011F65F /* klotski.txt in Resources */,
 				83AB626F1D97106D00E61AB7 /* LaunchScreen.storyboard in Resources */,
-				CBAFA38F1DCA447200534AEC /* ControlBarView.xib in Resources */,
-				CBC571491DFCC2A300633ED8 /* HistoryList.storyboard in Resources */,
+				CBB7D3651E25B798000CC0D3 /* ControlBarView.xib in Resources */,
+				CBB7D34D1E25B741000CC0D3 /* HistoryList.storyboard in Resources */,
 				83AB626C1D97106D00E61AB7 /* Assets.xcassets in Resources */,
-				CBC571401DFCC0DB00633ED8 /* PuzzleList.storyboard in Resources */,
-				CBC571341DFCC0C200633ED8 /* Intro.storyboard in Resources */,
-				CB6CB6781E00BB7C00FCB9B5 /* ReplayBoard.storyboard in Resources */,
-				CBD253091E2510E800E2DC14 /* BorderView.xib in Resources */,
-				CBC571391DFCC0CE00633ED8 /* Gameboard.storyboard in Resources */,
+				CBB7D33A1E25B712000CC0D3 /* Intro.storyboard in Resources */,
+				CBB7D3461E25B734000CC0D3 /* PuzzleList.storyboard in Resources */,
+				CBB7D3521E25B751000CC0D3 /* ReplayBoard.storyboard in Resources */,
+				CBB7D35F1E25B77D000CC0D3 /* BorderView.xib in Resources */,
+				CBB7D33F1E25B722000CC0D3 /* Gameboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -700,46 +711,47 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBC571431DFCC0DB00633ED8 /* PuzzleListViewController.swift in Sources */,
 				CBA63BF91DA9D8F4004C0EE6 /* Constants.swift in Sources */,
 				CB04CA221E17F1C50056A600 /* IntroSegue.swift in Sources */,
 				CB04CA1F1E16AB060056A600 /* Delay.swift in Sources */,
+				CBB7D36A1E25B898000CC0D3 /* GameSize.swift in Sources */,
+				CBB7D3481E25B734000CC0D3 /* PuzzleListDataProvider.swift in Sources */,
 				CB9F9AF81E204F32009FF7C2 /* UIView.swift in Sources */,
-				CBC571411DFCC0DB00633ED8 /* PuzzleListCell.swift in Sources */,
-				CB6576541DD613CE00D61DED /* XibLoadable.swift in Sources */,
-				CB6576521DD5405500D61DED /* ControlBarViewModel.swift in Sources */,
-				CB6576561DD6141D00D61DED /* ControlBarView.swift in Sources */,
 				837137761DD8A1F5003AD379 /* GridModel.swift in Sources */,
 				8371376F1DD89CED003AD379 /* BlockModelLogic.swift in Sources */,
 				8371377E1DD8E144003AD379 /* Archiver.swift in Sources */,
-				CBC571471DFCC24900633ED8 /* HistoryListViewController.swift in Sources */,
 				CBB7D3371E2562C2000CC0D3 /* Color.swift in Sources */,
+				CBB7D3661E25B798000CC0D3 /* ControlBarViewModel.swift in Sources */,
 				CB54C8C61E2320F0008F2A00 /* GameHistoryModel.swift in Sources */,
+				CBB7D3491E25B734000CC0D3 /* PuzzleListViewController.swift in Sources */,
+				CBB7D33B1E25B712000CC0D3 /* IntroViewController.swift in Sources */,
 				CB54C8CA1E2321C3008F2A00 /* Puzzles.swift in Sources */,
 				CBC5712C1DEB2F0700633ED8 /* GameModel.swift in Sources */,
+				CBB7D3401E25B722000CC0D3 /* GameboardViewController.swift in Sources */,
 				CB54C8C71E2320F0008F2A00 /* HistoryStoreModel.swift in Sources */,
-				CBC5713A1DFCC0CE00633ED8 /* GameboardViewController.swift in Sources */,
-				CB6CB67A1E00BB9E00FCB9B5 /* ReplayBoardViewController.swift in Sources */,
 				CB04CA241E17F7670056A600 /* TabShowSegue.swift in Sources */,
-				8371375B1DD89843003AD379 /* BlockViewModel.swift in Sources */,
 				CB04A41C1DD4C879007BE787 /* Board.swift in Sources */,
-				CBC571421DFCC0DB00633ED8 /* PuzzleListDataProvider.swift in Sources */,
+				CBB7D35B1E25B772000CC0D3 /* CodedBlockView.swift in Sources */,
 				CB54C8C21E22DF88008F2A00 /* ReplayViewModel.swift in Sources */,
-				CB9C60231DEFC7590011F65F /* TimerView.swift in Sources */,
-				CBC571301DF4BB9D00633ED8 /* TransitionLabel.swift in Sources */,
-				8371375C1DD89843003AD379 /* CodedBlockView.swift in Sources */,
 				CB54C8CC1E232257008F2A00 /* PuzzleModel.swift in Sources */,
-				CBC571351DFCC0C200633ED8 /* IntroViewController.swift in Sources */,
-				CBC5714B1E00226F00633ED8 /* HistoryListCell.swift in Sources */,
 				8371376E1DD89CED003AD379 /* BlockModel.swift in Sources */,
 				837137781DD8A1F5003AD379 /* GridModelLogic.swift in Sources */,
+				CBB7D3571E25B763000CC0D3 /* XibLoadable.swift in Sources */,
+				CBB7D34E1E25B741000CC0D3 /* HistoryListCell.swift in Sources */,
+				CBB7D35E1E25B77D000CC0D3 /* BorderView.swift in Sources */,
+				CBB7D3641E25B798000CC0D3 /* ControlBarView.swift in Sources */,
+				CBB7D3561E25B763000CC0D3 /* TransitionLabel.swift in Sources */,
+				CBB7D34F1E25B741000CC0D3 /* HistoryListViewController.swift in Sources */,
+				CBB7D3671E25B798000CC0D3 /* TimerView.swift in Sources */,
+				CBB7D3411E25B722000CC0D3 /* GameboardViewModel.swift in Sources */,
 				83AB62651D97106D00E61AB7 /* AppDelegate.swift in Sources */,
+				CBB7D35A1E25B772000CC0D3 /* BlockViewModel.swift in Sources */,
 				837137791DD8A1F5003AD379 /* GridModelUtility.swift in Sources */,
+				CBB7D3471E25B734000CC0D3 /* PuzzleListCell.swift in Sources */,
 				837137751DD8A1F5003AD379 /* Coordinate.swift in Sources */,
 				CBC5712E1DEB2F3A00633ED8 /* GameMoveData.swift in Sources */,
 				837137771DD8A1F5003AD379 /* GridModelInitialization.swift in Sources */,
-				CBD2530B1E25178D00E2DC14 /* BorderView.swift in Sources */,
-				CBC5713B1DFCC0CE00633ED8 /* GameboardViewModel.swift in Sources */,
+				CBB7D3531E25B752000CC0D3 /* ReplayBoardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

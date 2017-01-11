@@ -12,6 +12,7 @@ class CodedBlockView: UIView {
   
   var imageView = UIImageView()
   var viewModel: BlockViewModel!
+  var size: GameSize = .large
   var color: UIColor { didSet { imageView.backgroundColor = color }}
 
   public override init(frame: CGRect) {
@@ -24,14 +25,14 @@ class CodedBlockView: UIView {
     imageView.translatesAutoresizingMaskIntoConstraints = false
     let margins = layoutMarginsGuide
     
-    imageView.topAnchor.constraint(equalTo: margins.topAnchor, constant: -7).isActive = true
-    imageView.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: 7).isActive = true
-    imageView.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: -7).isActive = true
-    imageView.trailingAnchor.constraint(equalTo:margins.trailingAnchor, constant: 7).isActive = true
+    imageView.topAnchor.constraint(equalTo: margins.topAnchor, constant: -6).isActive = true
+    imageView.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: 6).isActive = true
+    imageView.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: -6).isActive = true
+    imageView.trailingAnchor.constraint(equalTo:margins.trailingAnchor, constant: 6).isActive = true
     
     imageView.image = UIImage()
     imageView.backgroundColor = Color.blue
-    imageView.layer.cornerRadius = 5
+    imageView.layer.cornerRadius = size.corner
     
     imageView.layer.borderWidth = 0.5
     imageView.layer.borderColor = Color.purple.cgColor
@@ -39,7 +40,7 @@ class CodedBlockView: UIView {
     imageView.layer.shadowColor = UIColor.black.cgColor
     imageView.layer.shadowOpacity = 0.6
     imageView.layer.shadowRadius = 2
-    imageView.layer.shadowOffset = CGSize(width: 0, height: 1)
+    imageView.layer.shadowOffset = CGSize(width: 0, height: 2)
   }
   
   required init?(coder aDecoder: NSCoder) {

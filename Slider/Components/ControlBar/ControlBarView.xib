@@ -39,7 +39,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vxx-jY-pDs">
-                                    <rect key="frame" x="157.5" y="0.0" width="59" height="37.5"/>
+                                    <rect key="frame" x="162.5" y="0.0" width="59" height="37.5"/>
                                     <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                     <state key="normal" title="Reset"/>
                                     <connections>
@@ -47,11 +47,8 @@
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LYi-Uc-MQ2" customClass="TimerView" customModule="Slider" customModuleProvider="target">
-                                    <rect key="frame" x="296" y="0.0" width="79" height="37.5"/>
+                                    <rect key="frame" x="315" y="0.0" width="60" height="37.5"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="60" id="PBA-D9-Fm6"/>
-                                    </constraints>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -63,12 +60,12 @@
                                     <rect key="frame" x="0.0" y="0.0" width="90" height="37.5"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="onZ-R1-c7D">
-                                            <rect key="frame" x="0.0" y="0.0" width="20" height="37.5"/>
+                                            <rect key="frame" x="-29" y="-27" width="79" height="93"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="20" id="hUf-YO-yLz"/>
                                             </constraints>
-                                            <state key="normal" title="B"/>
+                                            <state key="normal" image="left"/>
                                             <connections>
                                                 <action selector="backAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Ea5-Er-Xwh"/>
                                             </connections>
@@ -83,10 +80,13 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DvV-Y6-SRC">
-                                            <rect key="frame" x="70" y="0.0" width="20" height="37.5"/>
+                                        <button opaque="NO" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DvV-Y6-SRC">
+                                            <rect key="frame" x="41" y="-27" width="79" height="93"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <state key="normal" title="F"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="26" id="tMB-iD-1e5"/>
+                                            </constraints>
+                                            <state key="normal" image="right"/>
                                             <connections>
                                                 <action selector="forwardAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="YGt-Qt-aCg"/>
                                             </connections>
@@ -141,6 +141,7 @@
                 <outlet property="forward" destination="DvV-Y6-SRC" id="Tkc-dq-nAz"/>
                 <outlet property="moveNumber" destination="pd8-XE-FLY" id="Iaa-CX-5IS"/>
                 <outlet property="puzzle" destination="dga-tm-gXZ" id="HSm-MW-BQQ"/>
+                <outlet property="puzzleName" destination="m5l-Mn-YXD" id="6ze-Ru-Zw5"/>
                 <outlet property="reset" destination="vxx-jY-pDs" id="xVB-II-mu9"/>
                 <outlet property="timerView" destination="LYi-Uc-MQ2" id="Dmt-AB-ac1"/>
             </connections>
@@ -148,6 +149,8 @@
         </view>
     </objects>
     <resources>
+        <image name="left" width="79" height="93"/>
+        <image name="right" width="79" height="93"/>
         <image name="settings" width="26" height="26"/>
     </resources>
 </document>
