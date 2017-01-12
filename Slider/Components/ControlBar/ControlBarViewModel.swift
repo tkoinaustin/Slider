@@ -17,7 +17,7 @@ class ControlBarViewModel: NSObject, NSCoding {
     }
   }}
   
-  var moveDataCount: Int = 1 { didSet {
+  private(set) var moveDataCount: Int = 1 { didSet {
     if moveDataCount != oldValue {
       print("moveDataCount changed to \(moveDataCount)")
     }
@@ -126,6 +126,7 @@ class ControlBarViewModel: NSObject, NSCoding {
     puzzleLabel = "\(game.name)"
     timerCount = game.gameTime
     moveNumber = game.moveData.count - 1
+    moveDataCount = game.moveData.count
     updateControlBarUI()
   }
   
