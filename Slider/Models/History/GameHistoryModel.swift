@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum GameState {
+  case neverPlayed
+  case played (won: Bool)
+}
+
 class GameHistoryModel: NSObject, NSCoding {
   var name: String!
   var index: Int = 0

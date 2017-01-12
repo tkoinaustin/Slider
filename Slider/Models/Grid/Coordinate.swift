@@ -8,6 +8,10 @@
 
 import UIKit
 
+enum Board {
+  case moveZeroSpaces, moveOneSpace, moveTwoSpaces
+}
+
 struct Coordinate: Equatable {
   var row: Int
   var col: Int

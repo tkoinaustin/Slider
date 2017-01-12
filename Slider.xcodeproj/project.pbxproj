@@ -21,7 +21,6 @@
 		83AB626C1D97106D00E61AB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83AB626B1D97106D00E61AB7 /* Assets.xcassets */; };
 		83AB626F1D97106D00E61AB7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83AB626D1D97106D00E61AB7 /* LaunchScreen.storyboard */; };
 		933C120CEF59C9C398F98B3F /* Pods_Slider_SliderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E87AEA41F862378B334E6C3D /* Pods_Slider_SliderTests.framework */; };
-		CB04A41C1DD4C879007BE787 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB04A41B1DD4C879007BE787 /* Board.swift */; };
 		CB04CA1F1E16AB060056A600 /* Delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB04CA1E1E16AB060056A600 /* Delay.swift */; };
 		CB04CA221E17F1C50056A600 /* IntroSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB04CA211E17F1C50056A600 /* IntroSegue.swift */; };
 		CB04CA241E17F7670056A600 /* TabShowSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB04CA231E17F7670056A600 /* TabShowSegue.swift */; };
@@ -33,6 +32,7 @@
 		CB54C8CC1E232257008F2A00 /* PuzzleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB54C8CB1E232257008F2A00 /* PuzzleModel.swift */; };
 		CB56F7041E28210800798C20 /* BannerAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB56F7031E28210800798C20 /* BannerAdView.xib */; };
 		CB56F7061E28214600798C20 /* BannerAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB56F7051E28214600798C20 /* BannerAdView.swift */; };
+		CB56F7091E284A7B00798C20 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB56F7081E284A7B00798C20 /* Alerts.swift */; };
 		CB9C60261DF067610011F65F /* klotski.txt in Resources */ = {isa = PBXBuildFile; fileRef = CB9C60251DF067610011F65F /* klotski.txt */; };
 		CB9F9AF81E204F32009FF7C2 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9F9AF71E204F32009FF7C2 /* UIView.swift */; };
 		CBA63BF91DA9D8F4004C0EE6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA63BF81DA9D8F4004C0EE6 /* Constants.swift */; };
@@ -101,7 +101,6 @@
 		83AB626E1D97106D00E61AB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83AB62701D97106D00E61AB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC5B84D619DC575A9C97E07F /* Pods-Slider.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slider.release.xcconfig"; path = "Pods/Target Support Files/Pods-Slider/Pods-Slider.release.xcconfig"; sourceTree = "<group>"; };
-		CB04A41B1DD4C879007BE787 /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Board.swift; path = Models/enums/Board.swift; sourceTree = "<group>"; };
 		CB04CA1E1E16AB060056A600 /* Delay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Delay.swift; path = Utilities/Delay.swift; sourceTree = "<group>"; };
 		CB04CA211E17F1C50056A600 /* IntroSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntroSegue.swift; path = Segues/IntroSegue.swift; sourceTree = "<group>"; };
 		CB04CA231E17F7670056A600 /* TabShowSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabShowSegue.swift; path = Segues/TabShowSegue.swift; sourceTree = "<group>"; };
@@ -113,6 +112,7 @@
 		CB54C8CB1E232257008F2A00 /* PuzzleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PuzzleModel.swift; path = Models/Puzzles/PuzzleModel.swift; sourceTree = "<group>"; };
 		CB56F7031E28210800798C20 /* BannerAdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BannerAdView.xib; path = Components/BannerAd/BannerAdView.xib; sourceTree = "<group>"; };
 		CB56F7051E28214600798C20 /* BannerAdView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BannerAdView.swift; path = Components/BannerAd/BannerAdView.swift; sourceTree = "<group>"; };
+		CB56F7081E284A7B00798C20 /* Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Alerts.swift; path = Views/GameBoard/enums/Alerts.swift; sourceTree = "<group>"; };
 		CB9C60251DF067610011F65F /* klotski.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = klotski.txt; path = Resources/klotski.txt; sourceTree = "<group>"; };
 		CB9F9AF71E204F32009FF7C2 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIView.swift; path = Extensions/UIView.swift; sourceTree = "<group>"; };
 		CBA63BF81DA9D8F4004C0EE6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilities/Constants.swift; sourceTree = "<group>"; };
@@ -208,6 +208,7 @@
 		8371374D1DD7E6E7003AD379 /* GameBoard */ = {
 			isa = PBXGroup;
 			children = (
+				CB56F7071E284A4500798C20 /* enums */,
 				CBB7D33C1E25B722000CC0D3 /* Gameboard.storyboard */,
 				CBB7D33D1E25B722000CC0D3 /* GameboardViewController.swift */,
 				CBB7D33E1E25B722000CC0D3 /* GameboardViewModel.swift */,
@@ -297,14 +298,6 @@
 			name = Components;
 			sourceTree = "<group>";
 		};
-		CB04A41A1DD4C7E0007BE787 /* enums */ = {
-			isa = PBXGroup;
-			children = (
-				CB04A41B1DD4C879007BE787 /* Board.swift */,
-			);
-			name = enums;
-			sourceTree = "<group>";
-		};
 		CB04A41D1DD4C990007BE787 /* Grid */ = {
 			isa = PBXGroup;
 			children = (
@@ -361,12 +354,19 @@
 			name = BannerAd;
 			sourceTree = "<group>";
 		};
+		CB56F7071E284A4500798C20 /* enums */ = {
+			isa = PBXGroup;
+			children = (
+				CB56F7081E284A7B00798C20 /* Alerts.swift */,
+			);
+			name = enums;
+			sourceTree = "<group>";
+		};
 		CB5870901DAEE53A00D1EEE9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				CB54C8C31E2320AC008F2A00 /* History */,
 				CB54C8C01E22DF14008F2A00 /* Replay */,
-				CB04A41A1DD4C7E0007BE787 /* enums */,
 				837137541DD897A2003AD379 /* Block */,
 				CB04A41D1DD4C990007BE787 /* Grid */,
 				CBC5712A1DEB2E9600633ED8 /* Game */,
@@ -746,7 +746,6 @@
 				CBB7D3401E25B722000CC0D3 /* GameboardViewController.swift in Sources */,
 				CB54C8C71E2320F0008F2A00 /* HistoryStoreModel.swift in Sources */,
 				CB04CA241E17F7670056A600 /* TabShowSegue.swift in Sources */,
-				CB04A41C1DD4C879007BE787 /* Board.swift in Sources */,
 				CBB7D35B1E25B772000CC0D3 /* CodedBlockView.swift in Sources */,
 				CB54C8C21E22DF88008F2A00 /* ReplayViewModel.swift in Sources */,
 				CB54C8CC1E232257008F2A00 /* PuzzleModel.swift in Sources */,
@@ -758,6 +757,7 @@
 				CBB7D3641E25B798000CC0D3 /* ControlBarView.swift in Sources */,
 				CBB7D3561E25B763000CC0D3 /* TransitionLabel.swift in Sources */,
 				CBB7D34F1E25B741000CC0D3 /* HistoryListViewController.swift in Sources */,
+				CB56F7091E284A7B00798C20 /* Alerts.swift in Sources */,
 				CBB7D3671E25B798000CC0D3 /* TimerView.swift in Sources */,
 				CBB7D3411E25B722000CC0D3 /* GameboardViewModel.swift in Sources */,
 				83AB62651D97106D00E61AB7 /* AppDelegate.swift in Sources */,

@@ -8,6 +8,10 @@
 
 import UIKit
 
+enum TimerState {
+  case start, stop, reset
+}
+
 @IBDesignable
 
 class TimerView: UIView {
