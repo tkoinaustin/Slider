@@ -9,6 +9,7 @@
 import UIKit
 import Fabric
 import Crashlytics
+import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ]?
     ) -> Bool {
 //    Fabric.with([Crashlytics.self])
+    GADMobileAds.configure(withApplicationID: "ca-app-pub-8254175664355700~3835606073")
     return true
   }
   

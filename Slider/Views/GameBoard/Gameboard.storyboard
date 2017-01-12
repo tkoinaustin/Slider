@@ -34,12 +34,15 @@
                                 <rect key="frame" x="16" y="582" width="343" height="65"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="37R-IU-CTZ">
+                            <view tag="42" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="37R-IU-CTZ" customClass="BannerAdView" customModule="Slider" customModuleProvider="target">
                                 <rect key="frame" x="16" y="524" width="343" height="50"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="S7H-Im-9fk"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="adUnitID" value="ca-app-pub-8254175664355700/5312339275"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -61,6 +64,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bannerAdView" destination="37R-IU-CTZ" id="mP1-FJ-PgB"/>
                         <outlet property="borderView" destination="fZ6-fn-By1" id="9Gi-WH-AhS"/>
                         <outlet property="controlBarView" destination="2Ds-Bj-rJn" id="NmK-YZ-ud1"/>
                         <outlet property="gridView" destination="bie-Xn-ZpF" id="76v-4Z-C8f"/>
