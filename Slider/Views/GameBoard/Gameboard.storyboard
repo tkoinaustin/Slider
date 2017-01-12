@@ -36,13 +36,13 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="adUnitID" value="ca-app-pub-8254175664355700/5312339275"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bie-Xn-ZpF">
-                                <rect key="frame" x="36" y="118" width="303" height="379"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
                             <view tag="18" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fZ6-fn-By1" customClass="BorderView" customModule="Slider" customModuleProvider="target">
                                 <rect key="frame" x="16" y="90" width="343" height="435"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bie-Xn-ZpF">
+                                <rect key="frame" x="36" y="118" width="303" height="379"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
