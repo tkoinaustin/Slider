@@ -180,9 +180,9 @@
 		834CDD941D9B5A3B002CB6DD /* Intro */ = {
 			isa = PBXGroup;
 			children = (
+				83AB626D1D97106D00E61AB7 /* LaunchScreen.storyboard */,
 				CBB7D3381E25B712000CC0D3 /* Intro.storyboard */,
 				CBB7D3391E25B712000CC0D3 /* IntroViewController.swift */,
-				83AB626D1D97106D00E61AB7 /* LaunchScreen.storyboard */,
 			);
 			name = Intro;
 			sourceTree = "<group>";
@@ -365,9 +365,9 @@
 			isa = PBXGroup;
 			children = (
 				CBB7D3421E25B734000CC0D3 /* PuzzleList.storyboard */,
-				CBB7D3431E25B734000CC0D3 /* PuzzleListCell.swift */,
-				CBB7D3441E25B734000CC0D3 /* PuzzleListDataProvider.swift */,
 				CBB7D3451E25B734000CC0D3 /* PuzzleListViewController.swift */,
+				CBB7D3441E25B734000CC0D3 /* PuzzleListDataProvider.swift */,
+				CBB7D3431E25B734000CC0D3 /* PuzzleListCell.swift */,
 			);
 			name = PuzzleList;
 			sourceTree = "<group>";
@@ -438,8 +438,8 @@
 			isa = PBXGroup;
 			children = (
 				CBB7D34A1E25B741000CC0D3 /* HistoryList.storyboard */,
-				CBB7D34B1E25B741000CC0D3 /* HistoryListCell.swift */,
 				CBB7D34C1E25B741000CC0D3 /* HistoryListViewController.swift */,
+				CBB7D34B1E25B741000CC0D3 /* HistoryListCell.swift */,
 			);
 			name = HistoryList;
 			sourceTree = "<group>";

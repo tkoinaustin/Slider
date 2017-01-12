@@ -185,7 +185,10 @@ class GameboardViewModel {
     guard initialLoad else { return }
     initialLoad = false
 
-    if !restoreGame() { controlBar.displayPuzzleList() }
+    if !restoreGame() {
+      let puzzleModel = Puzzles().klotski[0]
+      controlBar.newPuzzle(puzzleModel: puzzleModel)
+    }
   }
   
   func restoreGame() -> Bool {
