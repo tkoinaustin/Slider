@@ -127,12 +127,14 @@ class CodedBlockView: UIView {
     }
     
     self.viewModel.exitOffScreen = { _ in
+      let transform = CGAffineTransform(scaleX: 1, y: 0.001)
       UIView.animate(
         withDuration: 0.5,
         delay: 0.25,
         options: .curveEaseIn ,
         animations: {
           self.center = self.viewModel.center
+          self.transform = transform
       },
         completion: nil
     )}

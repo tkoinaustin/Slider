@@ -59,7 +59,7 @@ class BlockViewModel {
   func moveOffBoard() {
     swipeEnabled = false
     if index == 1 {
-    placeBlock(point: CGPoint(x: 0.5, y: 1.3))
+    placeBlock(point: CGPoint(x: 0.5, y: 1.0))
     self.exitOffScreen()
     } else {
       self.spinOffScreen()

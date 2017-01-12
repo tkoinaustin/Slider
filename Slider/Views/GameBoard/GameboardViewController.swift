@@ -20,10 +20,10 @@ class GameboardViewController: UIViewController {
   @IBOutlet weak var borderView: BorderView! { didSet {
     borderView.borderColor = Color.lightPurple
     }}
-  
-  @IBOutlet private weak var gradientHeight: NSLayoutConstraint! { didSet {
-      gradientHeight.constant = gameSize.border
-  }}
+//  
+//  @IBOutlet private weak var gradientHeight: NSLayoutConstraint! { didSet {
+//      gradientHeight.constant = gameSize.border
+//  }}
   
   @IBOutlet private weak var gridView: UIView! { didSet {
     viewModel.assignGridView(gridView)

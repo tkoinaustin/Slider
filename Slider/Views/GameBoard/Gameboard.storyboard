@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -39,13 +38,6 @@
                                     <constraint firstAttribute="height" constant="20" id="oAD-F3-G4x"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7RE-wj-Htt">
-                                <rect key="frame" x="108" y="439" width="159.5" height="191.5"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="7RE-wj-Htt" secondAttribute="height" multiplier="1:1.2" id="Vdz-ii-fCw"/>
-                                </constraints>
-                            </view>
                             <view tag="13" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ds-Bj-rJn" userLabel="control bar" customClass="ControlBarView" customModule="Slider" customModuleProvider="target">
                                 <rect key="frame" x="16" y="582" width="343" height="65"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -60,9 +52,6 @@
                             <constraint firstItem="fZ6-fn-By1" firstAttribute="top" secondItem="f1l-yQ-djv" secondAttribute="bottom" priority="750" constant="20" id="TuK-H2-95h"/>
                             <constraint firstItem="zGg-GE-j6X" firstAttribute="top" secondItem="2Ds-Bj-rJn" secondAttribute="bottom" constant="20" id="XgJ-rt-86U"/>
                             <constraint firstItem="2Ds-Bj-rJn" firstAttribute="trailing" secondItem="tVV-JY-VtE" secondAttribute="trailingMargin" id="ZAc-Oa-gNC"/>
-                            <constraint firstItem="7RE-wj-Htt" firstAttribute="leading" secondItem="dlY-hv-vqP" secondAttribute="leading" constant="-4" id="ZCE-7B-RdA"/>
-                            <constraint firstItem="7RE-wj-Htt" firstAttribute="trailing" secondItem="dlY-hv-vqP" secondAttribute="trailing" constant="4" id="dzt-zB-ilr"/>
-                            <constraint firstItem="7RE-wj-Htt" firstAttribute="top" secondItem="dlY-hv-vqP" secondAttribute="bottom" id="gR5-Gx-s6I"/>
                             <constraint firstItem="fZ6-fn-By1" firstAttribute="leading" secondItem="tVV-JY-VtE" secondAttribute="leadingMargin" priority="250" id="gbA-M6-GY9"/>
                             <constraint firstItem="fZ6-fn-By1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="f1l-yQ-djv" secondAttribute="bottom" id="laZ-ps-6qv"/>
                             <constraint firstItem="fZ6-fn-By1" firstAttribute="centerX" secondItem="tVV-JY-VtE" secondAttribute="centerX" id="nXW-7u-BEc"/>
@@ -74,7 +63,6 @@
                     <connections>
                         <outlet property="borderView" destination="fZ6-fn-By1" id="9Gi-WH-AhS"/>
                         <outlet property="controlBarView" destination="2Ds-Bj-rJn" id="NmK-YZ-ud1"/>
-                        <outlet property="gradientHeight" destination="oAD-F3-G4x" id="zqp-GH-rfP"/>
                         <outlet property="gradientView" destination="dlY-hv-vqP" id="NBM-0Q-eTP"/>
                         <outlet property="gridView" destination="bie-Xn-ZpF" id="76v-4Z-C8f"/>
                     </connections>
