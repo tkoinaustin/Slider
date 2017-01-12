@@ -6,6 +6,8 @@ target 'Slider' do
   pod 'Fabric'
   pod 'Crashlytics'
   pod 'Hue'
+  pod 'Firebase/Core'
+  pod 'Firebase/AdMob'
 
   target 'SliderTests' do
   end
