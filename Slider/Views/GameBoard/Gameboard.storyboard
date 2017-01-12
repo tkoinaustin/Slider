@@ -22,20 +22,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view tag="18" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fZ6-fn-By1" customClass="BorderView" customModule="Slider" customModuleProvider="target">
-                                <rect key="frame" x="16" y="20" width="343" height="435"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bie-Xn-ZpF">
-                                <rect key="frame" x="36" y="40" width="303" height="379"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
                             <view tag="13" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ds-Bj-rJn" userLabel="control bar" customClass="ControlBarView" customModule="Slider" customModuleProvider="target">
                                 <rect key="frame" x="16" y="582" width="343" height="65"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view tag="42" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="37R-IU-CTZ" customClass="BannerAdView" customModule="Slider" customModuleProvider="target">
-                                <rect key="frame" x="16" y="524" width="343" height="50"/>
+                                <rect key="frame" x="16" y="20" width="343" height="50"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="S7H-Im-9fk"/>
@@ -44,23 +36,30 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="adUnitID" value="ca-app-pub-8254175664355700/5312339275"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bie-Xn-ZpF">
+                                <rect key="frame" x="36" y="118" width="303" height="379"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view tag="18" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fZ6-fn-By1" customClass="BorderView" customModule="Slider" customModuleProvider="target">
+                                <rect key="frame" x="16" y="90" width="343" height="435"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="37R-IU-CTZ" firstAttribute="trailing" secondItem="tVV-JY-VtE" secondAttribute="trailingMargin" id="1oh-nb-80Z"/>
-                            <constraint firstItem="37R-IU-CTZ" firstAttribute="leading" secondItem="tVV-JY-VtE" secondAttribute="leadingMargin" id="2B6-SU-bIK"/>
-                            <constraint firstItem="bie-Xn-ZpF" firstAttribute="centerX" secondItem="tVV-JY-VtE" secondAttribute="centerX" id="HZo-Nh-Qg4"/>
+                            <constraint firstItem="37R-IU-CTZ" firstAttribute="top" secondItem="f1l-yQ-djv" secondAttribute="bottom" id="76k-lC-TxG"/>
+                            <constraint firstItem="37R-IU-CTZ" firstAttribute="trailing" secondItem="tVV-JY-VtE" secondAttribute="trailingMargin" id="FnQ-g2-99H"/>
                             <constraint firstItem="fZ6-fn-By1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tVV-JY-VtE" secondAttribute="leadingMargin" id="QCH-KI-any"/>
                             <constraint firstItem="2Ds-Bj-rJn" firstAttribute="leading" secondItem="tVV-JY-VtE" secondAttribute="leadingMargin" id="SDu-So-N4E"/>
-                            <constraint firstItem="fZ6-fn-By1" firstAttribute="top" secondItem="f1l-yQ-djv" secondAttribute="bottom" priority="750" constant="20" id="TuK-H2-95h"/>
-                            <constraint firstItem="37R-IU-CTZ" firstAttribute="top" secondItem="fZ6-fn-By1" secondAttribute="bottom" priority="250" constant="20" id="VFJ-d7-5RT"/>
+                            <constraint firstItem="bie-Xn-ZpF" firstAttribute="centerX" secondItem="tVV-JY-VtE" secondAttribute="centerX" id="WXL-8o-0IF"/>
                             <constraint firstItem="zGg-GE-j6X" firstAttribute="top" secondItem="2Ds-Bj-rJn" secondAttribute="bottom" constant="20" id="XgJ-rt-86U"/>
-                            <constraint firstItem="2Ds-Bj-rJn" firstAttribute="top" secondItem="37R-IU-CTZ" secondAttribute="bottom" constant="8" id="YQf-id-ouG"/>
                             <constraint firstItem="2Ds-Bj-rJn" firstAttribute="trailing" secondItem="tVV-JY-VtE" secondAttribute="trailingMargin" id="ZAc-Oa-gNC"/>
-                            <constraint firstItem="37R-IU-CTZ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fZ6-fn-By1" secondAttribute="bottom" id="e2y-7Y-cRU"/>
+                            <constraint firstItem="2Ds-Bj-rJn" firstAttribute="top" secondItem="fZ6-fn-By1" secondAttribute="bottom" priority="250" constant="20" id="ZJb-6I-P7m"/>
+                            <constraint firstItem="37R-IU-CTZ" firstAttribute="leading" secondItem="tVV-JY-VtE" secondAttribute="leadingMargin" id="bLK-gK-ZeS"/>
                             <constraint firstItem="fZ6-fn-By1" firstAttribute="leading" secondItem="tVV-JY-VtE" secondAttribute="leadingMargin" priority="250" id="gbA-M6-GY9"/>
-                            <constraint firstItem="fZ6-fn-By1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="f1l-yQ-djv" secondAttribute="bottom" id="laZ-ps-6qv"/>
+                            <constraint firstItem="2Ds-Bj-rJn" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fZ6-fn-By1" secondAttribute="bottom" id="hhA-T3-3LS"/>
                             <constraint firstItem="fZ6-fn-By1" firstAttribute="centerX" secondItem="tVV-JY-VtE" secondAttribute="centerX" id="nXW-7u-BEc"/>
+                            <constraint firstItem="fZ6-fn-By1" firstAttribute="top" secondItem="37R-IU-CTZ" secondAttribute="bottom" constant="20" id="xKa-kk-yJV"/>
                         </constraints>
                     </view>
                     <connections>
