@@ -86,35 +86,35 @@ class ReplayViewModel {
     
     if game.won {
       for block in self.blockViews { block.moveOffBoard() }
-      delay = 4.0
+      delay = 5.0
     }
-    Delay.by(delay) { self.dismiss() }
+    Delay.by(delay) { self.gridView.parentViewController?.navigationController?.popViewController(animated: true) }
   }
   
-    fileprivate func nextMove() {
-      updateBlockOriginsForBoard(game.moveData[index].grid)
-      moveAllBlocks(index)
-      index += 1
-      updateCounter(index)
-    }
+  fileprivate func nextMove() {
+    updateBlockOriginsForBoard(game.moveData[index].grid)
+    moveAllBlocks(index)
+    index += 1
+    updateCounter(index)
+  }
   
-    fileprivate func updateBlockOriginsForBoard(_ grid: [[Int]]) {
-      for row in (0..<Rows).reversed() {
-        for col in (0..<Columns).reversed() {
-          blockModels[grid[row][col]].origin = Coordinate(row: row, col: col)
-        }
+  fileprivate func updateBlockOriginsForBoard(_ grid: [[Int]]) {
+    for row in (0..<Rows).reversed() {
+      for col in (0..<Columns).reversed() {
+        blockModels[grid[row][col]].origin = Coordinate(row: row, col: col)
       }
     }
+  }
   
-    fileprivate func moveAllBlocks(_ index: Int) {
-      print(" Move all Blocks: \(index)")
-      for block in blockViews {
-        block.placeBlock(point: GridConstants.blockCenter(row: block.model.origin.row,
-                                                          col: block.model.origin.col,
-                                                          type: block.type))
-        block.nextStep()
-      }
+  fileprivate func moveAllBlocks(_ index: Int) {
+    print(" Move all Blocks: \(index)")
+    for block in blockViews {
+      block.placeBlock(point: GridConstants.blockCenter(row: block.model.origin.row,
+                                                        col: block.model.origin.col,
+                                                        type: block.type))
+      block.nextStep()
     }
+  }
   
   fileprivate func placeAllBlocks() {
     for block in blockViews {

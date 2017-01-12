@@ -44,8 +44,9 @@ class ControlBarViewModel: NSObject, NSCoding {
   }
   
   var timerCount: TimeInterval = 0
+  
   var timerState: TimerState = .start { didSet {
-      updateTimerState(timerState)
+    if timerState != oldValue { updateTimerState(timerState) }
   }}
   
   var gameOver: Bool = false { didSet {
@@ -173,14 +174,7 @@ class ControlBarViewModel: NSObject, NSCoding {
     navController.popoverPresentationController?.sourceView = parentViewController?.view
     navController.popoverPresentationController?.delegate = self
     
-    navController.navigationItem.backBarButtonItem =
-      UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismiss))
-    
     parentViewController?.show(navController, sender: self)
-  }
-  
-  func dismiss() {
-//    parentViewController.dismiss(animated: true, completion: nil)
   }
   
   @objc func becomeActive() {
