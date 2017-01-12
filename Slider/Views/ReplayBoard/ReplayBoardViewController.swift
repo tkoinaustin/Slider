@@ -31,6 +31,10 @@ class ReplayBoardViewController: UIViewController {
   
   @IBOutlet private weak var replayGrid: UIView! { didSet {
     viewModel.assignGridView(replayGrid)
+    replayGrid.widthAnchor.constraint(equalTo: borderView.gameboardLocation.widthAnchor).isActive = true
+    replayGrid.heightAnchor.constraint(equalTo: borderView.gameboardLocation.heightAnchor).isActive = true
+    replayGrid.centerXAnchor.constraint(equalTo: borderView.gameboardLocation.centerXAnchor).isActive = true
+    replayGrid.centerYAnchor.constraint(equalTo: borderView.gameboardLocation.centerYAnchor).isActive = true
   }}
   
   @IBOutlet private weak var gradientHeight: NSLayoutConstraint! { didSet {

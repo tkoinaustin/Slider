@@ -29,11 +29,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view tag="18" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yAP-35-pAC" customClass="BorderView" customModule="Slider" customModuleProvider="target">
+                            <view tag="18" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yAP-35-pAC" customClass="BorderView" customModule="Slider" customModuleProvider="target">
                                 <rect key="frame" x="16" y="101" width="343" height="424"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vsR-tg-oBY">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vsR-tg-oBY">
                                 <rect key="frame" x="26" y="111" width="323" height="404"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -43,15 +43,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="yAP-35-pAC" firstAttribute="bottom" secondItem="vsR-tg-oBY" secondAttribute="bottom" constant="10" id="4Kw-Ii-xbP"/>
-                            <constraint firstItem="yAP-35-pAC" firstAttribute="leading" secondItem="vsR-tg-oBY" secondAttribute="leading" constant="-10" id="6pU-oY-5PB"/>
                             <constraint firstItem="iQy-bj-uP7" firstAttribute="top" secondItem="wtD-gz-AXS" secondAttribute="bottom" constant="8" id="QcF-I9-Xu8"/>
                             <constraint firstItem="yAP-35-pAC" firstAttribute="top" secondItem="wtD-gz-AXS" secondAttribute="bottom" constant="37" id="Uzx-Uq-j3i"/>
                             <constraint firstItem="yAP-35-pAC" firstAttribute="centerX" secondItem="Vi9-gJ-Fft" secondAttribute="centerX" id="ZNS-Sv-tdP"/>
                             <constraint firstItem="yAP-35-pAC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Vi9-gJ-Fft" secondAttribute="leadingMargin" id="ZlN-A0-dJz"/>
-                            <constraint firstItem="yAP-35-pAC" firstAttribute="top" secondItem="vsR-tg-oBY" secondAttribute="top" constant="-10" id="jVL-Tc-G1J"/>
                             <constraint firstItem="yAP-35-pAC" firstAttribute="leading" secondItem="Vi9-gJ-Fft" secondAttribute="leadingMargin" priority="250" id="pug-My-JcK"/>
-                            <constraint firstItem="yAP-35-pAC" firstAttribute="trailing" secondItem="vsR-tg-oBY" secondAttribute="trailing" constant="10" id="yKh-uV-bs7"/>
                             <constraint firstItem="iQy-bj-uP7" firstAttribute="centerX" secondItem="Vi9-gJ-Fft" secondAttribute="centerX" id="z15-9V-ibF"/>
                         </constraints>
                     </view>
