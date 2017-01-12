@@ -224,7 +224,7 @@ class GameboardViewModel {
     replayViewModel.updateCounter = { index in
       self.controlBar.moveNumber = index - 1
     }
-    replayViewModel.dismiss = {
+    replayViewModel.onCompletion = {
       self.winnerAlert(.replay)
     }
     replayViewModel.loadBlocks()

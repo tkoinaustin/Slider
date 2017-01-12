@@ -50,10 +50,6 @@ class ReplayBoardViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.title = "Game \(index! + 1)"
-    
-    viewModel.dismiss = {
-      self.dismiss(animated: true, completion: nil)
-    }
   }
   
   override func viewWillDisappear(_ animated: Bool) {

@@ -20,7 +20,7 @@ class ReplayViewModel {
     grid = game.move(index: 0)?.grid
     }}
   
-  var dismiss: (() -> ())  = { }
+  var onCompletion: (() -> ())  = { }
   var updateCounter: ((Int) -> ()) = { _ in }
   
   var count: Int {
@@ -88,7 +88,10 @@ class ReplayViewModel {
       for block in self.blockViews { block.moveOffBoard() }
       delay = 5.0
     }
-    Delay.by(delay) { self.gridView.parentViewController?.navigationController?.popViewController(animated: true) }
+    Delay.by(delay) {
+      self.gridView.parentViewController?.navigationController?.popViewController(animated: true)
+      self.onCompletion()
+    }
   }
   
   fileprivate func nextMove() {
