@@ -543,7 +543,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "TKO Solutions";
 				TargetAttributes = {
 					834CDDAF1D9B6A62002CB6DD = {
@@ -806,6 +806,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FBB8FB1D2BF6E068E8500308 /* Pods-Slider-SliderTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = SliderTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -820,6 +821,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 49088D34201AD22636D3F1FC /* Pods-Slider-SliderTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = SliderTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -929,6 +931,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 70D0EF3B887B77B70BE67A7B /* Pods-Slider.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = H4UQYGEL4C;
 				INFOPLIST_FILE = Slider/Info.plist;
@@ -944,6 +947,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BC5B84D619DC575A9C97E07F /* Pods-Slider.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = H4UQYGEL4C;
 				INFOPLIST_FILE = Slider/Info.plist;
