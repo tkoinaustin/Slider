@@ -23,7 +23,7 @@ class IntroViewController: UIViewController {
     let height = view.frame.height
     
     switch height {
-    case 1024...10000: gameSize = .large
+    case 1024...CGFloat.greatestFiniteMagnitude: gameSize = .large
     case 667...1023: gameSize = .medium
     default: gameSize = .small
     }

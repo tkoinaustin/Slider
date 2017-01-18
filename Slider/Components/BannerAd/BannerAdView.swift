@@ -22,9 +22,11 @@ class BannerAdView: GADBannerView, XibLoadable, GADBannerViewDelegate {
     bannerAd.delegate = self
   }
   
-  func start(_ viewController: UIViewController) {
-    bannerAd.rootViewController = viewController
-    bannerAd.load(GADRequest())
+  func start() {
+    bannerAd.rootViewController = parentViewController
+    let request = GADRequest()
+    request.testDevices = ["9c7a2d5b6a1929703dafec01e4e60605229dc5a6"]
+    bannerAd.load(request)
   }
   
   

@@ -33,6 +33,7 @@
 		CB56F7041E28210800798C20 /* BannerAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB56F7031E28210800798C20 /* BannerAdView.xib */; };
 		CB56F7061E28214600798C20 /* BannerAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB56F7051E28214600798C20 /* BannerAdView.swift */; };
 		CB56F7091E284A7B00798C20 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB56F7081E284A7B00798C20 /* Alerts.swift */; };
+		CB56F70C1E29422E00798C20 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB56F70B1E29422E00798C20 /* StoreKit.framework */; };
 		CB9C60261DF067610011F65F /* klotski.txt in Resources */ = {isa = PBXBuildFile; fileRef = CB9C60251DF067610011F65F /* klotski.txt */; };
 		CB9F9AF81E204F32009FF7C2 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9F9AF71E204F32009FF7C2 /* UIView.swift */; };
 		CBA63BF91DA9D8F4004C0EE6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA63BF81DA9D8F4004C0EE6 /* Constants.swift */; };
@@ -113,6 +114,7 @@
 		CB56F7031E28210800798C20 /* BannerAdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BannerAdView.xib; path = Components/BannerAd/BannerAdView.xib; sourceTree = "<group>"; };
 		CB56F7051E28214600798C20 /* BannerAdView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BannerAdView.swift; path = Components/BannerAd/BannerAdView.swift; sourceTree = "<group>"; };
 		CB56F7081E284A7B00798C20 /* Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Alerts.swift; path = Views/GameBoard/enums/Alerts.swift; sourceTree = "<group>"; };
+		CB56F70B1E29422E00798C20 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		CB9C60251DF067610011F65F /* klotski.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = klotski.txt; path = Resources/klotski.txt; sourceTree = "<group>"; };
 		CB9F9AF71E204F32009FF7C2 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIView.swift; path = Extensions/UIView.swift; sourceTree = "<group>"; };
 		CBA63BF81DA9D8F4004C0EE6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilities/Constants.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14A719E0799017184F795BDC /* Pods_Slider.framework in Frameworks */,
+				CB56F70C1E29422E00798C20 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,6 +484,7 @@
 		F7D0EBE64F0DF3544820B961 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CB56F70B1E29422E00798C20 /* StoreKit.framework */,
 				37EBB68CCC3F36F5BC342702 /* Pods_Slider.framework */,
 				E87AEA41F862378B334E6C3D /* Pods_Slider_SliderTests.framework */,
 			);
@@ -551,6 +555,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = H4UQYGEL4C;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -925,7 +934,7 @@
 				INFOPLIST_FILE = Slider/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "tko-solutions.Slider";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tko-solutions.slider";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -940,7 +949,7 @@
 				INFOPLIST_FILE = Slider/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "tko-solutions.Slider";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tko-solutions.slider";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

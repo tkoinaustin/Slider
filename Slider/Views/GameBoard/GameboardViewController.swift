@@ -12,11 +12,8 @@ class GameboardViewController: UIViewController {
   
   var viewModel = GameboardViewModel()
 
-  @IBOutlet weak var bannerAdView: BannerAdView! { didSet {
-    bannerAdView.start(self)
-  }}
-
-  @IBOutlet weak var borderView: BorderView! { didSet {
+  @IBOutlet private weak var bannerAdView: BannerAdView!
+  @IBOutlet private weak var borderView: BorderView! { didSet {
     borderView.borderColor = Color.lightPurple
   }}
   
@@ -38,5 +35,6 @@ class GameboardViewController: UIViewController {
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     viewModel.startGame()
+    bannerAdView.start()
   }
 }
