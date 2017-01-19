@@ -25,11 +25,11 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background image" translatesAutoresizingMaskIntoConstraints="NO" id="CK8-mD-Lcw" userLabel="background image">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background gradient" translatesAutoresizingMaskIntoConstraints="NO" id="DTY-HE-AXT" userLabel="background gradient">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background gradient90" translatesAutoresizingMaskIntoConstraints="NO" id="DTY-HE-AXT" userLabel="background gradient">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <view tag="13" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ds-Bj-rJn" userLabel="control bar" customClass="ControlBarView" customModule="Slider" customModuleProvider="target">
-                                <rect key="frame" x="16" y="582" width="343" height="65"/>
+                                <rect key="frame" x="16" y="562" width="343" height="85"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view tag="42" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="37R-IU-CTZ" customClass="BannerAdView" customModule="Slider" customModuleProvider="target">
@@ -89,7 +89,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="background gradient" width="444" height="635"/>
+        <image name="background gradient90" width="444" height="635"/>
         <image name="background image" width="399" height="587"/>
     </resources>
 </document>

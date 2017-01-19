@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BBC-B3-eRq">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BBC-B3-eRq">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -19,23 +19,29 @@
                         <viewControllerLayoutGuide type="top" id="wtD-gz-AXS"/>
                         <viewControllerLayoutGuide type="bottom" id="dom-Yu-TJV"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Vi9-gJ-Fft">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="Vi9-gJ-Fft">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="background image" translatesAutoresizingMaskIntoConstraints="NO" id="K6v-YY-dWM">
+                                <rect key="frame" x="67" y="269" width="240" height="128"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="background gradient90" translatesAutoresizingMaskIntoConstraints="NO" id="NYk-xG-DPe">
+                                <rect key="frame" x="67" y="269" width="240" height="128"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQy-bj-uP7">
-                                <rect key="frame" x="166.5" y="72" width="42" height="21"/>
+                                <rect key="frame" x="167" y="72" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view tag="18" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yAP-35-pAC" customClass="BorderView" customModule="Slider" customModuleProvider="target">
                                 <rect key="frame" x="16" y="101" width="343" height="424"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vsR-tg-oBY">
                                 <rect key="frame" x="26" y="111" width="323" height="404"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="vsR-tg-oBY" secondAttribute="height" multiplier="4:5" id="eCg-60-kZG"/>
                                 </constraints>
@@ -43,11 +49,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="NYk-xG-DPe" firstAttribute="leading" secondItem="Vi9-gJ-Fft" secondAttribute="leading" id="1dZ-86-7Hd"/>
+                            <constraint firstItem="K6v-YY-dWM" firstAttribute="leading" secondItem="NYk-xG-DPe" secondAttribute="leading" id="5fb-nL-lDP"/>
+                            <constraint firstItem="K6v-YY-dWM" firstAttribute="trailing" secondItem="NYk-xG-DPe" secondAttribute="trailing" id="A9e-zM-ZrH"/>
                             <constraint firstItem="iQy-bj-uP7" firstAttribute="top" secondItem="wtD-gz-AXS" secondAttribute="bottom" constant="8" id="QcF-I9-Xu8"/>
                             <constraint firstItem="yAP-35-pAC" firstAttribute="top" secondItem="wtD-gz-AXS" secondAttribute="bottom" constant="37" id="Uzx-Uq-j3i"/>
+                            <constraint firstAttribute="bottom" secondItem="NYk-xG-DPe" secondAttribute="bottom" id="WIo-Rk-nCT"/>
+                            <constraint firstItem="K6v-YY-dWM" firstAttribute="top" secondItem="NYk-xG-DPe" secondAttribute="top" id="ZCk-gy-AXT"/>
                             <constraint firstItem="yAP-35-pAC" firstAttribute="centerX" secondItem="Vi9-gJ-Fft" secondAttribute="centerX" id="ZNS-Sv-tdP"/>
                             <constraint firstItem="yAP-35-pAC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Vi9-gJ-Fft" secondAttribute="leadingMargin" id="ZlN-A0-dJz"/>
+                            <constraint firstItem="K6v-YY-dWM" firstAttribute="bottom" secondItem="NYk-xG-DPe" secondAttribute="bottom" id="g4T-fO-WNa"/>
+                            <constraint firstAttribute="trailing" secondItem="NYk-xG-DPe" secondAttribute="trailing" id="hRW-fG-NXo"/>
                             <constraint firstItem="yAP-35-pAC" firstAttribute="leading" secondItem="Vi9-gJ-Fft" secondAttribute="leadingMargin" priority="250" id="pug-My-JcK"/>
+                            <constraint firstItem="NYk-xG-DPe" firstAttribute="top" secondItem="Vi9-gJ-Fft" secondAttribute="top" id="wcO-Nd-RhU"/>
                             <constraint firstItem="iQy-bj-uP7" firstAttribute="centerX" secondItem="Vi9-gJ-Fft" secondAttribute="centerX" id="z15-9V-ibF"/>
                         </constraints>
                     </view>
@@ -81,4 +95,8 @@
             <point key="canvasLocation" x="93.599999999999994" y="93.103448275862078"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="background gradient90" width="444" height="635"/>
+        <image name="background image" width="399" height="587"/>
+    </resources>
 </document>
