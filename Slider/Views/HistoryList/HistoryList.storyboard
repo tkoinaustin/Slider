@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wOI-h7-J0z">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wOI-h7-J0z">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -46,6 +46,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="2No-vR-Vc4" secondAttribute="bottom" id="A8a-7Y-Ncg"/>
                                         <constraint firstItem="2No-vR-Vc4" firstAttribute="leading" secondItem="xI0-Rp-TUZ" secondAttribute="leading" id="E4G-BX-FUS"/>
@@ -56,6 +57,7 @@
                                         <constraint firstItem="xc1-7y-67v" firstAttribute="leading" secondItem="xI0-Rp-TUZ" secondAttribute="leadingMargin" id="x81-3N-QX3"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="datePlayed" destination="xc1-7y-67v" id="unt-rH-DR1"/>
                                     <outlet property="moves" destination="6Mq-qR-GPD" id="ML7-pu-gkw"/>
