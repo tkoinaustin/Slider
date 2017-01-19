@@ -54,15 +54,15 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZFx-aW-e1F">
-                            <rect key="frame" x="0.0" y="42.5" width="374.5" height="37.5"/>
+                            <rect key="frame" x="0.0" y="42.5" width="375" height="37.5"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="7XP-9c-rcP">
-                                    <rect key="frame" x="0.0" y="0.0" width="95.5" height="37.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="96" height="37.5"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleAspectFit" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="onZ-R1-c7D">
                                             <rect key="frame" x="0.0" y="6" width="23" height="26"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <state key="normal" image="left"/>
+                                            <state key="normal" image="left18"/>
                                             <connections>
                                                 <action selector="backAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Ea5-Er-Xwh"/>
                                             </connections>
@@ -78,13 +78,13 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DvV-Y6-SRC">
-                                            <rect key="frame" x="73" y="6" width="22.5" height="26"/>
+                                            <rect key="frame" x="73" y="6" width="23" height="26"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="DvV-Y6-SRC" secondAttribute="height" multiplier="7:8" id="8qd-iy-jXj"/>
                                                 <constraint firstAttribute="height" constant="26" id="tMB-iD-1e5"/>
                                             </constraints>
-                                            <state key="normal" image="right"/>
+                                            <state key="normal" image="right18"/>
                                             <connections>
                                                 <action selector="forwardAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="YGt-Qt-aCg"/>
                                             </connections>
@@ -96,13 +96,13 @@
                                     </constraints>
                                 </stackView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Klotski 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m5l-Mn-YXD">
-                                    <rect key="frame" x="175" y="10" width="59.5" height="18"/>
+                                    <rect key="frame" x="175.5" y="10" width="59.5" height="18"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5uV-DI-a3d">
-                                    <rect key="frame" x="348.5" y="6" width="26" height="26"/>
+                                    <rect key="frame" x="349" y="6" width="26" height="26"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="5uV-DI-a3d" secondAttribute="height" multiplier="1:1" id="5r0-ov-Tnh"/>
@@ -155,8 +155,8 @@
         </view>
     </objects>
     <resources>
-        <image name="left" width="85" height="100"/>
-        <image name="right" width="85" height="100"/>
+        <image name="left18" width="198" height="236"/>
+        <image name="right18" width="198" height="236"/>
         <image name="settings" width="26" height="26"/>
     </resources>
 </document>

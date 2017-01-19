@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SkA-dQ-sES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SkA-dQ-sES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -22,6 +22,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background image" translatesAutoresizingMaskIntoConstraints="NO" id="CK8-mD-Lcw" userLabel="background image">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background gradient" translatesAutoresizingMaskIntoConstraints="NO" id="DTY-HE-AXT" userLabel="background gradient">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <view tag="13" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ds-Bj-rJn" userLabel="control bar" customClass="ControlBarView" customModule="Slider" customModuleProvider="target">
                                 <rect key="frame" x="16" y="582" width="343" height="65"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -48,17 +54,25 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="37R-IU-CTZ" firstAttribute="top" secondItem="f1l-yQ-djv" secondAttribute="bottom" id="76k-lC-TxG"/>
+                            <constraint firstItem="CK8-mD-Lcw" firstAttribute="leading" secondItem="tVV-JY-VtE" secondAttribute="leading" id="7d2-SP-YlS"/>
+                            <constraint firstItem="DTY-HE-AXT" firstAttribute="leading" secondItem="tVV-JY-VtE" secondAttribute="leading" id="81L-rx-Otk"/>
+                            <constraint firstAttribute="trailing" secondItem="DTY-HE-AXT" secondAttribute="trailing" id="AYv-jB-oPL"/>
                             <constraint firstItem="37R-IU-CTZ" firstAttribute="trailing" secondItem="tVV-JY-VtE" secondAttribute="trailingMargin" id="FnQ-g2-99H"/>
+                            <constraint firstItem="zGg-GE-j6X" firstAttribute="top" secondItem="CK8-mD-Lcw" secondAttribute="bottom" id="NQL-UN-a8x"/>
                             <constraint firstItem="fZ6-fn-By1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tVV-JY-VtE" secondAttribute="leadingMargin" id="QCH-KI-any"/>
                             <constraint firstItem="2Ds-Bj-rJn" firstAttribute="leading" secondItem="tVV-JY-VtE" secondAttribute="leadingMargin" id="SDu-So-N4E"/>
                             <constraint firstItem="bie-Xn-ZpF" firstAttribute="centerX" secondItem="tVV-JY-VtE" secondAttribute="centerX" id="WXL-8o-0IF"/>
+                            <constraint firstItem="CK8-mD-Lcw" firstAttribute="top" secondItem="tVV-JY-VtE" secondAttribute="top" id="XZH-pU-j1Z"/>
                             <constraint firstItem="zGg-GE-j6X" firstAttribute="top" secondItem="2Ds-Bj-rJn" secondAttribute="bottom" constant="20" id="XgJ-rt-86U"/>
                             <constraint firstItem="2Ds-Bj-rJn" firstAttribute="trailing" secondItem="tVV-JY-VtE" secondAttribute="trailingMargin" id="ZAc-Oa-gNC"/>
                             <constraint firstItem="2Ds-Bj-rJn" firstAttribute="top" secondItem="fZ6-fn-By1" secondAttribute="bottom" priority="250" constant="20" id="ZJb-6I-P7m"/>
                             <constraint firstItem="37R-IU-CTZ" firstAttribute="leading" secondItem="tVV-JY-VtE" secondAttribute="leadingMargin" id="bLK-gK-ZeS"/>
+                            <constraint firstItem="DTY-HE-AXT" firstAttribute="top" secondItem="tVV-JY-VtE" secondAttribute="top" id="d7P-sD-hb4"/>
                             <constraint firstItem="fZ6-fn-By1" firstAttribute="leading" secondItem="tVV-JY-VtE" secondAttribute="leadingMargin" priority="250" id="gbA-M6-GY9"/>
+                            <constraint firstAttribute="trailing" secondItem="CK8-mD-Lcw" secondAttribute="trailing" id="gug-Ba-4pn"/>
                             <constraint firstItem="2Ds-Bj-rJn" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fZ6-fn-By1" secondAttribute="bottom" id="hhA-T3-3LS"/>
                             <constraint firstItem="fZ6-fn-By1" firstAttribute="centerX" secondItem="tVV-JY-VtE" secondAttribute="centerX" id="nXW-7u-BEc"/>
+                            <constraint firstItem="zGg-GE-j6X" firstAttribute="top" secondItem="DTY-HE-AXT" secondAttribute="bottom" id="u8e-gL-7Cx"/>
                             <constraint firstItem="fZ6-fn-By1" firstAttribute="top" secondItem="37R-IU-CTZ" secondAttribute="bottom" constant="20" id="xKa-kk-yJV"/>
                         </constraints>
                     </view>
@@ -74,4 +88,8 @@
             <point key="canvasLocation" x="-434.39999999999998" y="35.532233883058474"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="background gradient" width="444" height="635"/>
+        <image name="background image" width="399" height="587"/>
+    </resources>
 </document>

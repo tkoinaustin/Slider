@@ -18,6 +18,8 @@ class TransitionLabel: UILabel {
     newLabel.font = displayFont
   }}
   
+  var newValue: String!
+  
   override var text: String? { didSet {
     if let text = text { setLabel(text) }
   }}
@@ -25,10 +27,11 @@ class TransitionLabel: UILabel {
   var newLabel = UILabel()
   
   func setLabel(_ text: String) {
+    newValue = text
     UIView.animate(withDuration: 0.25, animations: {
       self.newLabel.alpha = 0
     }, completion: { _ in
-      self.newLabel.text = text
+      self.newLabel.text = self.newValue
       self.newLabel.alpha = 1
     })
   }
@@ -46,7 +49,6 @@ class TransitionLabel: UILabel {
   func setup() {
     self.addSubview(newLabel)
     self.newLabel.textAlignment = self.textAlignment
-    newLabel.backgroundColor = UIColor.white
     newLabel.font = font
 
     newLabel.translatesAutoresizingMaskIntoConstraints = false
