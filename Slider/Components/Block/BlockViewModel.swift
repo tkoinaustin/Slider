@@ -37,12 +37,12 @@ class BlockViewModel {
     bounds = setBounds()
   }}
   
-  var updateBlockUI: ((TimeInterval) -> ()) = { _ in }
-  var nextStep: (() -> ()) = {}
-  var fadeIn: (() -> ()) = {}
-  var exitOffScreen: (() -> ()) = {}
-  var spinOffScreen: (() -> ()) = {}
-  var reset: (() -> ()) = {}
+  var updateBlockUI: ((TimeInterval) -> Void) = { _ in }
+  var nextStep: (() -> Void) = {}
+  var fadeIn: (() -> Void) = {}
+  var exitOffScreen: (() -> Void) = {}
+  var spinOffScreen: (() -> Void) = {}
+  var reset: (() -> Void) = {}
   
   var type: BlockType = .small { didSet {
     guard let _ = canvas else { return }

@@ -29,9 +29,9 @@ class GridModel {
   private var notThisDirection: Direction?
   private var board: Board = .moveOneSpace
   
-  var updateGameboardUI: (() -> ()) = { _ in }
-  var gameModelMoveFinished: ((_: GameMoveData) -> ()) = { move in }
-  var onWinning: ((_: Bool) -> ()) = { won in }
+  var updateGameboardUI: (() -> Void) = { _ in }
+  var gameModelMoveFinished: ((_: GameMoveData) -> Void) = { move in }
+  var onWinning: ((_: Bool) -> Void) = { won in }
   
   var gameWon: Bool = false { didSet {
 //    if gameWon != oldValue { print("game won is \(gameWon)") }

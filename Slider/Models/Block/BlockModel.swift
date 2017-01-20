@@ -43,9 +43,9 @@ class BlockModel: Hashable {
     return index
   }
 
-  var blockModelUpdateGrid: ((Board) -> ()) = {_ in }
+  var blockModelUpdateGrid: ((Board) -> Void) = {_ in }
   var blockModelBlockMovedBy: ((_: CGPoint, _: Int) -> (Direction?)) = { _, _ in return nil}
-  var blockModelMoveFinished: (() -> ()) = { }
+  var blockModelMoveFinished: (() -> Void) = { }
 
   init(index: Int) {
     self.index = index

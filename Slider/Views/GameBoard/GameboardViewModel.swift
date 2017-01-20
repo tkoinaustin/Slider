@@ -151,7 +151,8 @@ class GameboardViewModel {
     }
     
     controlBar.loadSettings = {
-      self.gridView.parentViewController?.performSegue(withIdentifier: "settingsSegue", sender: self)
+      self.gridView.parentViewController?.performSegue(withIdentifier: "settingsSegue",
+                                                       sender: self.controlBar.settingsButton)
     }
   }
   

@@ -20,8 +20,8 @@ class ReplayViewModel {
     grid = game.move(index: 0)?.grid
     }}
   
-  var onCompletion: (() -> ())  = { }
-  var updateCounter: ((Int) -> ()) = { _ in }
+  var onCompletion: (() -> Void)  = { }
+  var updateCounter: ((Int) -> Void) = { _ in }
   
   var count: Int {
     return blockViews.count

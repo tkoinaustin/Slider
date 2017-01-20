@@ -14,7 +14,7 @@ enum GameSize: String {
   case small, medium, large
   
   var font: UIFont {
-    switch self{
+    switch self {
     case .small: return UIFont(name: ".SFUIText", size: 15)!
     case .medium: return UIFont(name: ".SFUIText", size: 18)!
     case .large: return UIFont(name: ".SFUIText", size: 24)!
@@ -22,7 +22,7 @@ enum GameSize: String {
   }
   
   var corner: CGFloat {
-    switch self{
+    switch self {
     case .small: return 5
     case .medium: return 7
     case .large: return 10
@@ -30,7 +30,7 @@ enum GameSize: String {
   }
   
   var border: CGFloat {
-    switch self{
+    switch self {
     case .small: return 10
     case .medium: return 14
     case .large: return 20
@@ -77,4 +77,3 @@ enum GameSize: String {
     }
   }
 }
-

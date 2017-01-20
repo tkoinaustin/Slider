@@ -37,4 +37,8 @@ class GameboardViewController: UIViewController {
     viewModel.startGame()
     bannerAdView.start()
   }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if let view = sender as? UIButton { segue.destination.popoverPresentationController?.sourceView = view }
+  }
 }

@@ -14,7 +14,7 @@ class BannerAdView: GADBannerView, XibLoadable, GADBannerViewDelegate {
 
   var count = 0
   
-  @IBOutlet weak var bannerAd: GADBannerView!
+  @IBOutlet private weak var bannerAd: GADBannerView!
   
   func setup() {
     bannerAd.adSize = kGADAdSizeSmartBannerPortrait
@@ -28,7 +28,6 @@ class BannerAdView: GADBannerView, XibLoadable, GADBannerViewDelegate {
     request.testDevices = ["9c7a2d5b6a1929703dafec01e4e60605229dc5a6"]
     bannerAd.load(request)
   }
-  
   
   override func awakeAfter(using aDecoder: NSCoder) -> Any? {
     return customAwakeAfter(superAwakeAfter: { return super.awakeAfter(using: aDecoder) })

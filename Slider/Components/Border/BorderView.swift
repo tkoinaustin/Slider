@@ -19,9 +19,9 @@ class BorderView: UIView, XibLoadable {
       borderWidth.constant = gameSize.border
   }}
   
-  @IBOutlet private weak var sideBorderWidth: NSLayoutConstraint!{ didSet {
+  @IBOutlet private weak var sideBorderWidth: NSLayoutConstraint! { didSet {
     sideBorderWidth.constant = gameSize.border
-    }}
+  }}
 
   @IBOutlet private weak var bottomLeft: UIView! { didSet {
       bottomLeft.layer.cornerRadius = gameSize.corner
@@ -34,8 +34,7 @@ class BorderView: UIView, XibLoadable {
 
   @IBOutlet weak var gameboardLocation: UIView!
   
-  @IBOutlet var borders: [UIView]!
-  
+  @IBOutlet private var borders: [UIView]!
   
   func setup() {
     layer.cornerRadius = gameSize.corner
@@ -49,6 +48,4 @@ class BorderView: UIView, XibLoadable {
   override func prepareForInterfaceBuilder() {
     makeIBDesignable()
   }
-  
-
 }

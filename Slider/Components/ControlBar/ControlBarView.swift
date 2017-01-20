@@ -23,6 +23,10 @@ class ControlBarView: UIView, XibLoadable {
     buttonHeight.constant = gameSize.buttonSize
   }}
   
+  @IBOutlet private weak var settings: UIButton! { didSet {
+    viewModel.settingsButton = settings
+  }}
+
   @IBOutlet private weak var puzzle: UIButton!
   @IBOutlet private weak var reset: UIButton!
   @IBOutlet private weak var moveNumber: TransitionLabel!

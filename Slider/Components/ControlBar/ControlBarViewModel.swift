@@ -10,6 +10,7 @@ import UIKit
 
 class ControlBarViewModel: NSObject, NSCoding {
   var puzzleSource: CGRect!
+  var settingsButton: UIButton!
   var moveNumber: Int! { didSet {
     guard let _ = oldValue else { return }
     if moveNumber != oldValue {
@@ -59,18 +60,18 @@ class ControlBarViewModel: NSObject, NSCoding {
   var puzzleLabel: String = "Select Puzzle"
   var parentViewController: UIViewController!
   
-  var updateControlBarUI: (() -> ()) = { }
-  var updateTimerState: ((TimerState) -> ()) = { _ in }
-  var updateBlocksToMoveNumber: ((Int) -> ()) = { _ in }
+  var updateControlBarUI: (() -> Void) = { }
+  var updateTimerState: ((TimerState) -> Void) = { _ in }
+  var updateBlocksToMoveNumber: ((Int) -> Void) = { _ in }
   
-  var trimMoveData: ((Int) -> ()) = { _ in }
-  var puzzleToLoad: ((PuzzleModel?) -> ()) = { _ in }
-  var loadSettings: (() -> ()) = { }
+  var trimMoveData: ((Int) -> Void) = { _ in }
+  var puzzleToLoad: ((PuzzleModel?) -> Void) = { _ in }
+  var loadSettings: (() -> Void) = { }
   
-  var load: (() -> ()) = { }
-  var save: ((TimeInterval) -> ()) = { _ in }
-  var saveHistory: (() -> ()) = { }
-  var resetPuzzle: (() -> ()) = { }
+  var load: (() -> Void) = { }
+  var save: ((TimeInterval) -> Void) = { _ in }
+  var saveHistory: (() -> Void) = { }
+  var resetPuzzle: (() -> Void) = { }
 
   required convenience init?(coder aDecoder: NSCoder) {
     self.init()

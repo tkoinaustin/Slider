@@ -9,7 +9,7 @@
 import UIKit
 
 struct Delay {
-  static func by(_ amount: Double, completion: @escaping () -> ()) {
+  static func by(_ amount: Double, completion: @escaping () -> Void) {
     DispatchQueue.main.asyncAfter(deadline: .now() + amount) {
      completion()
     }

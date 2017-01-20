@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -152,6 +152,7 @@
                 <outlet property="puzzle" destination="dga-tm-gXZ" id="HSm-MW-BQQ"/>
                 <outlet property="puzzleName" destination="m5l-Mn-YXD" id="6ze-Ru-Zw5"/>
                 <outlet property="reset" destination="vxx-jY-pDs" id="xVB-II-mu9"/>
+                <outlet property="settings" destination="5uV-DI-a3d" id="gOe-Ip-Y00"/>
                 <outlet property="timerView" destination="LYi-Uc-MQ2" id="Dmt-AB-ac1"/>
             </connections>
             <point key="canvasLocation" x="-83.5" y="-228"/>
