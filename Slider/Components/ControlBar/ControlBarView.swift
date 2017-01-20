@@ -47,6 +47,10 @@ class ControlBarView: UIView, XibLoadable {
     viewModel.displayPuzzleList()
   }
   
+  @IBAction func settingsAction(_ sender: UIButton) {
+    viewModel.loadSettings()
+  }
+  
   @IBAction func resetAction(_ sender: UIButton) {
     viewModel.resetCurrentGame()
   }

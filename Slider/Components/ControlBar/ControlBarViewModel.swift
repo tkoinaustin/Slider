@@ -58,12 +58,13 @@ class ControlBarViewModel: NSObject, NSCoding {
   var puzzleLabel: String = "Select Puzzle"
   var parentViewController: UIViewController!
   
-  var updateControlBarUI: (() -> ()) = {}
-  var updateTimerState: ((TimerState) -> ()) = {_ in}
-  var updateBlocksToMoveNumber: ((Int) -> ()) = {_ in }
+  var updateControlBarUI: (() -> ()) = { }
+  var updateTimerState: ((TimerState) -> ()) = { _ in }
+  var updateBlocksToMoveNumber: ((Int) -> ()) = { _ in }
   
   var trimMoveData: ((Int) -> ()) = { _ in }
   var puzzleToLoad: ((PuzzleModel?) -> ()) = { _ in }
+  var loadSettings: (() -> ()) = { }
   
   var load: (() -> ()) = { }
   var save: ((TimeInterval) -> ()) = { _ in }

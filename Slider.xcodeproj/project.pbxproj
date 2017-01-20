@@ -69,6 +69,8 @@
 		CBC922941DB0304F00132C91 /* GameModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC922931DB0304F00132C91 /* GameModelTests.swift */; };
 		CBC922961DB03FCE00132C91 /* BlockModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC922951DB03FCE00132C91 /* BlockModelTests.swift */; };
 		CBC9229C1DB1422600132C91 /* BlockModelLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9229B1DB1422600132C91 /* BlockModelLogicTests.swift */; };
+		CBE1DFB91E31AB5900ED2DE6 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBE1DFB81E31AB5900ED2DE6 /* Settings.storyboard */; };
+		CBE1DFBB1E31AC2C00ED2DE6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE1DFBA1E31AC2C00ED2DE6 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +152,8 @@
 		CBC922931DB0304F00132C91 /* GameModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModelTests.swift; sourceTree = "<group>"; };
 		CBC922951DB03FCE00132C91 /* BlockModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockModelTests.swift; sourceTree = "<group>"; };
 		CBC9229B1DB1422600132C91 /* BlockModelLogicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockModelLogicTests.swift; sourceTree = "<group>"; };
+		CBE1DFB81E31AB5900ED2DE6 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Settings.storyboard; path = Views/Settings/Settings.storyboard; sourceTree = "<group>"; };
+		CBE1DFBA1E31AC2C00ED2DE6 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = Views/Settings/SettingsViewController.swift; sourceTree = "<group>"; };
 		E87AEA41F862378B334E6C3D /* Pods_Slider_SliderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Slider_SliderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBB8FB1D2BF6E068E8500308 /* Pods-Slider-SliderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slider-SliderTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Slider-SliderTests/Pods-Slider-SliderTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -236,6 +240,7 @@
 				CB5FA3491DC16439003B19E0 /* PuzzleList */,
 				CBC571311DFCBFF200633ED8 /* HistoryList */,
 				CB6CB6761E00BAE600FCB9B5 /* ReplayBoard */,
+				CBE1DFB71E31AA3900ED2DE6 /* Settings */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -470,6 +475,15 @@
 			name = Border;
 			sourceTree = "<group>";
 		};
+		CBE1DFB71E31AA3900ED2DE6 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				CBE1DFB81E31AB5900ED2DE6 /* Settings.storyboard */,
+				CBE1DFBA1E31AC2C00ED2DE6 /* SettingsViewController.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		EC1CD7408572E2BF31C54A2B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -597,6 +611,7 @@
 				CB9C60261DF067610011F65F /* klotski.txt in Resources */,
 				83AB626F1D97106D00E61AB7 /* LaunchScreen.storyboard in Resources */,
 				CBB7D3651E25B798000CC0D3 /* ControlBarView.xib in Resources */,
+				CBE1DFB91E31AB5900ED2DE6 /* Settings.storyboard in Resources */,
 				CBB7D34D1E25B741000CC0D3 /* HistoryList.storyboard in Resources */,
 				83AB626C1D97106D00E61AB7 /* Assets.xcassets in Resources */,
 				CBB7D33A1E25B712000CC0D3 /* Intro.storyboard in Resources */,
@@ -768,6 +783,7 @@
 				CBB7D34F1E25B741000CC0D3 /* HistoryListViewController.swift in Sources */,
 				CB56F7091E284A7B00798C20 /* Alerts.swift in Sources */,
 				CBB7D3671E25B798000CC0D3 /* TimerView.swift in Sources */,
+				CBE1DFBB1E31AC2C00ED2DE6 /* SettingsViewController.swift in Sources */,
 				CBB7D3411E25B722000CC0D3 /* GameboardViewModel.swift in Sources */,
 				83AB62651D97106D00E61AB7 /* AppDelegate.swift in Sources */,
 				CBB7D35A1E25B772000CC0D3 /* BlockViewModel.swift in Sources */,
