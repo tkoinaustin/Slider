@@ -9,6 +9,7 @@
 import UIKit
 
 class ControlBarViewModel: NSObject, NSCoding {
+  var puzzleSource: CGRect!
   var moveNumber: Int! { didSet {
     guard let _ = oldValue else { return }
     if moveNumber != oldValue {
@@ -173,7 +174,9 @@ class ControlBarViewModel: NSObject, NSCoding {
     
     let navController = UINavigationController(rootViewController: puzzleListViewController)
     navController.modalPresentationStyle = .popover
+    navController.popoverPresentationController?.sourceRect = puzzleSource
     navController.popoverPresentationController?.sourceView = parentViewController?.view
+    navController.popoverPresentationController?.permittedArrowDirections = .down
     navController.popoverPresentationController?.delegate = self
     
     parentViewController?.show(navController, sender: self)

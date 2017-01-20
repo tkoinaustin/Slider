@@ -149,10 +149,10 @@ class GameboardViewModel {
       self.placeAllBlocks()
       self.game.trim(0)
     }
+    
     controlBar.loadSettings = {
       self.gridView.parentViewController?.performSegue(withIdentifier: "settingsSegue", sender: self)
     }
-
   }
   
   func playAgain() {

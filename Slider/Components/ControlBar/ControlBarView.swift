@@ -74,6 +74,7 @@ class ControlBarView: UIView, XibLoadable {
   
   func updateUI() {
     print("update control bar UI")
+    viewModel.puzzleSource = convert(puzzle.frame, to: superview)
     back.isEnabled = viewModel.backEnabled
     forward.isEnabled = viewModel.forwardEnabled
     reset.isEnabled = viewModel.resetEnabled
