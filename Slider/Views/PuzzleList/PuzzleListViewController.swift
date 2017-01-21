@@ -30,7 +30,7 @@ class PuzzleListViewController: UITableViewController {
     dataProvider.assignParent(self)
     
     tableView.backgroundView = UIImageView(image: UIImage(named: "background gradient90"))
-    tableView.backgroundView?.addSubview(UIImageView(image: UIImage(named: "background image14")))
+    tableView.backgroundView?.addSubview(UIImageView(image: UIImage(named: "background image small tall")))
   }
   
   func dismissController() {

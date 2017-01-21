@@ -26,6 +26,9 @@ struct Color {
     return UIColor(hex: "686A86")
   }
   static var red: UIColor {
-    return UIColor(hex: "FF5252")
+    return UIColor(hex: "942027")
+  }
+  static var green: UIColor {
+    return UIColor(hex: "2D7F39")
   }
 }

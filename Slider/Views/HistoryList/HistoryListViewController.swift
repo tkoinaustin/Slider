@@ -18,9 +18,7 @@ class HistoryListViewController: UITableViewController {
     formatter.dateFormat = "EEE, MMM d "
 
     tableView.backgroundView = UIImageView(image: UIImage(named: "background gradient90"))
-    tableView.backgroundView?.addSubview(UIImageView(image: UIImage(named: "background image14")))
-//    tableView.backgroundView = UIImageView(image: UIImage(named: "background image"))
-//    tableView.backgroundView?.addSubview(UIImageView(image: UIImage(named: "background gradient90")))
+    tableView.backgroundView?.addSubview(UIImageView(image: UIImage(named: "background image small tall")))
 }
   
   override func numberOfSections(in tableView: UITableView) -> Int {

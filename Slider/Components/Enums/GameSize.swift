@@ -68,12 +68,12 @@ enum GameSize: String {
     case .large: return CGSize(width: 0, height: 2)
     }
   }
-
-  var gradient: UIImage? {
-    switch self {
-    case .small: return UIImage(named: "opaque gradient 10")
-    case .medium: return UIImage(named: "opaque gradient 14")
-    case .large: return UIImage(named: "opaque gradient 20")
-    }
-  }
+//
+//  var gradient: UIImage? {
+//    switch self {
+//    case .small: return UIImage(named: "opaque gradient 10")
+//    case .medium: return UIImage(named: "opaque gradient 14")
+//    case .large: return UIImage(named: "opaque gradient 20")
+//    }
+//  }
 }

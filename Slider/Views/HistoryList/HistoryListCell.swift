@@ -13,7 +13,7 @@ class HistoryListCell: UITableViewCell {
     let move = gameModel.moves == 1 ? "move" : "moves"
     moves.text = "\(gameModel.moves.description) \(move)"
     datePlayed.text = gameModel.displayDate
-    let winColor = gameModel.won ? UIColor.green : UIColor.red
+    let winColor = gameModel.won ? Color.green : Color.red
     wonStripe.backgroundColor = winColor
   }}
   

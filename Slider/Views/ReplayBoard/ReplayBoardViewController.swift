@@ -14,19 +14,14 @@ class ReplayBoardViewController: UIViewController {
   
   var replayText: String = ""
   var index: Int!
-
-  @IBOutlet private weak var gradientView: UIView! { didSet {
-    gradientView.backgroundColor = UIColor(patternImage: gameSize.gradient!)
-    gradientView.clipsToBounds = true
-  }}
   
   @IBOutlet private weak var replayLabel: UILabel! { didSet {
     replayLabel.text = replayText
   }}
   
   @IBOutlet private weak var borderView: BorderView! { didSet {
-      borderView.alpha = 0
-    borderView.borderColor = Color.red
+    borderView.alpha = 0
+    borderView.borderColor = Color.lightPurple
   }}
   
   @IBOutlet private weak var replayGrid: UIView! { didSet {
