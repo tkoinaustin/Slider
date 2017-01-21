@@ -10,13 +10,27 @@ import UIKit
 
 class IntroViewController: UIViewController {
   
-  @IBOutlet private weak var logoView: UIImageView!
   @IBOutlet private weak var continueButton: UIButton!
+  @IBOutlet private weak var logoLabel: UILabel!
+  
+  @IBAction func launchApp(_ sender: UIButton) {
+    if needFTUE() {
+      UserDefaults.standard.set(false, forKey: "FTUE")
+      performSegue(withIdentifier: "FTUESegue", sender: self)
+    } else {
+      performSegue(withIdentifier: "gameboardSegue", sender: nil)
+    }
+  }
   
   override func viewDidLoad() {
     let height = view.frame.height
     let transform = CGAffineTransform(translationX: 0, y: height)
     continueButton.transform = transform
+  }
+  
+  func needFTUE() -> Bool {
+    guard let _ = UserDefaults.standard.value(forKey: "FTUE") else { return true }
+    return false
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -31,7 +45,7 @@ class IntroViewController: UIViewController {
     let transform = CGAffineTransform(translationX: 0, y: -height)
     UIView.animate(withDuration: 1.5, animations: {
       self.continueButton.transform = CGAffineTransform.identity
-      self.logoView.transform = transform
+      self.logoLabel.transform = transform
     })
   }
   

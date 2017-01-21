@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="t83-vZ-Ygp">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="t83-vZ-Ygp">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,6 +12,7 @@
         <!--Intro View Controller-->
         <scene sceneID="O8h-mT-pfx">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yg0-Va-1pW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="t83-vZ-Ygp" customClass="IntroViewController" customModule="Slider" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xkk-5A-Z9R"/>
@@ -21,50 +22,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="superman" translatesAutoresizingMaskIntoConstraints="NO" id="1R1-BV-M0N">
-                                <rect key="frame" x="67.5" y="253.5" width="240" height="160"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="DtL-4R-64l"/>
-                                    <constraint firstAttribute="height" constant="160" id="w4I-eE-Anp"/>
-                                </constraints>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background gradient90" translatesAutoresizingMaskIntoConstraints="NO" id="LJr-bp-NvK">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="44J-51-1Kz">
-                                <rect key="frame" x="169" y="318.5" width="37" height="30"/>
-                                <state key="normal" title="Enter">
-                                    <color key="titleColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
+                                <rect key="frame" x="148" y="306" width="79" height="55"/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="36"/>
+                                <state key="normal" title="Enter"/>
                                 <connections>
-                                    <segue destination="lx3-cj-XZz" kind="custom" customClass="IntroSegue" customModule="Slider" customModuleProvider="target" id="ouX-Ll-J5O"/>
+                                    <action selector="launchApp:" destination="t83-vZ-Ygp" eventType="touchUpInside" id="kkA-hG-HWJ"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SLIDER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ImS-06-0Nv">
+                                <rect key="frame" x="68" y="295" width="253" height="69"/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="48"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="1R1-BV-M0N" firstAttribute="centerY" secondItem="jxc-6N-BhN" secondAttribute="centerY" id="7tY-JG-t2Z"/>
-                            <constraint firstItem="1R1-BV-M0N" firstAttribute="centerX" secondItem="jxc-6N-BhN" secondAttribute="centerX" id="NC3-12-2cZ"/>
+                            <constraint firstItem="ImS-06-0Nv" firstAttribute="centerX" secondItem="jxc-6N-BhN" secondAttribute="centerX" id="6wt-qY-t2l"/>
                             <constraint firstItem="44J-51-1Kz" firstAttribute="centerX" secondItem="jxc-6N-BhN" secondAttribute="centerX" id="Tgh-d4-8jD"/>
+                            <constraint firstItem="ImS-06-0Nv" firstAttribute="centerY" secondItem="jxc-6N-BhN" secondAttribute="centerY" id="rEj-JD-kId"/>
                             <constraint firstItem="44J-51-1Kz" firstAttribute="centerY" secondItem="jxc-6N-BhN" secondAttribute="centerY" id="z11-wq-why"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="continueButton" destination="44J-51-1Kz" id="GSi-3K-2KB"/>
-                        <outlet property="logoView" destination="1R1-BV-M0N" id="vcO-MY-A8Z"/>
+                        <outlet property="logoLabel" destination="ImS-06-0Nv" id="fQu-YN-Yrx"/>
+                        <segue destination="lx3-cj-XZz" kind="show" identifier="FTUESegue" id="5n8-Ld-0jd"/>
+                        <segue destination="4we-FW-A5N" kind="show" identifier="gameboardSegue" id="mS9-iO-H3I"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yg0-Va-1pW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="258" y="-4"/>
+            <point key="canvasLocation" x="256.80000000000001" y="-4.0479760119940034"/>
         </scene>
-        <!--Gameboard-->
+        <!--FTUE-->
         <scene sceneID="cEk-qB-HJT">
             <objects>
-                <viewControllerPlaceholder storyboardName="Gameboard" id="lx3-cj-XZz" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="FTUE" id="lx3-cj-XZz" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FEX-5p-tUx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="991" y="-4"/>
+            <point key="canvasLocation" x="990" y="-51"/>
+        </scene>
+        <!--Gameboard-->
+        <scene sceneID="jfT-7k-vMO">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Gameboard" id="4we-FW-A5N" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HsE-mG-Dg7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1021" y="55"/>
         </scene>
     </scenes>
     <resources>
-        <image name="superman" width="1174" height="734"/>
+        <image name="background gradient90" width="444" height="635"/>
     </resources>
 </document>

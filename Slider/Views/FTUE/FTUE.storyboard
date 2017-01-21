@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wuS-P1-g5h">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Circular-Bold.ttf">
+            <string>CircularTT-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="liY-Gm-ORv">
+            <objects>
+                <viewController id="wuS-P1-g5h" customClass="FTUEViewController" customModule="Slider" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kpQ-He-HXK"/>
+                        <viewControllerLayoutGuide type="bottom" id="S9K-oq-Lgx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4j4-yA-OOT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background gradient90" translatesAutoresizingMaskIntoConstraints="NO" id="3j1-gf-B4r">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" directionalLockEnabled="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wCW-O8-asW">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="feR-Gh-XS5">
+                                <rect key="frame" x="-5" y="630" width="380" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="XUx-bq-ITl"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="userPaged:" destination="wuS-P1-g5h" eventType="valueChanged" id="OXh-Tp-eqs"/>
+                                </connections>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3j1-gf-B4r" firstAttribute="leading" secondItem="4j4-yA-OOT" secondAttribute="leading" id="DN9-FJ-7ZM"/>
+                            <constraint firstItem="S9K-oq-Lgx" firstAttribute="top" secondItem="feR-Gh-XS5" secondAttribute="bottom" id="HUv-EM-dWG"/>
+                            <constraint firstItem="S9K-oq-Lgx" firstAttribute="top" secondItem="3j1-gf-B4r" secondAttribute="bottom" id="T8V-WL-y7r"/>
+                            <constraint firstItem="feR-Gh-XS5" firstAttribute="leading" secondItem="4j4-yA-OOT" secondAttribute="leading" id="cD6-vJ-wfc"/>
+                            <constraint firstAttribute="trailing" secondItem="3j1-gf-B4r" secondAttribute="trailing" id="gHN-RI-cOG"/>
+                            <constraint firstAttribute="trailing" secondItem="feR-Gh-XS5" secondAttribute="trailing" id="j9g-l1-S1t"/>
+                            <constraint firstItem="3j1-gf-B4r" firstAttribute="top" secondItem="4j4-yA-OOT" secondAttribute="top" id="z7B-GX-BrQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pageControl" destination="feR-Gh-XS5" id="Lz7-Hr-JJd"/>
+                        <outlet property="panelOne" destination="2gi-gk-z47" id="lws-Cs-flr"/>
+                        <outlet property="panelThree" destination="FiW-Lk-ddt" id="UC1-iy-ESt"/>
+                        <outlet property="panelTwo" destination="KcO-8D-Icg" id="lXc-mj-iGX"/>
+                        <outlet property="panelsView" destination="wCW-O8-asW" id="QHs-2D-dZn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gH8-Q0-lb7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="2gi-gk-z47" userLabel="Panel One">
+                    <rect key="frame" x="0.0" y="0.0" width="336" height="626"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Fp-X8-s2I">
+                            <rect key="frame" x="140" y="269" width="20" height="64"/>
+                            <fontDescription key="fontDescription" name="CircularTT-Bold" family="Circular TT" pointSize="50"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="1Fp-X8-s2I" firstAttribute="centerY" secondItem="2gi-gk-z47" secondAttribute="centerY" id="2uZ-7G-Bbz"/>
+                        <constraint firstItem="1Fp-X8-s2I" firstAttribute="centerX" secondItem="2gi-gk-z47" secondAttribute="centerX" id="f8Z-TM-WVV"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" id="KcO-8D-Icg">
+                    <rect key="frame" x="0.0" y="0.0" width="364" height="625"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wah-Ez-6vn">
+                            <rect key="frame" x="185" y="284" width="28" height="64"/>
+                            <fontDescription key="fontDescription" name="CircularTT-Bold" family="Circular TT" pointSize="50"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="wah-Ez-6vn" firstAttribute="centerY" secondItem="KcO-8D-Icg" secondAttribute="centerY" id="W9R-MP-0MT"/>
+                        <constraint firstItem="wah-Ez-6vn" firstAttribute="centerX" secondItem="KcO-8D-Icg" secondAttribute="centerX" id="t0y-tx-OGf"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" id="FiW-Lk-ddt">
+                    <rect key="frame" x="0.0" y="0.0" width="343" height="623"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UU6-52-Z19">
+                            <rect key="frame" x="155" y="285" width="28" height="64"/>
+                            <fontDescription key="fontDescription" name="CircularTT-Bold" family="Circular TT" pointSize="50"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="UU6-52-Z19" firstAttribute="centerY" secondItem="FiW-Lk-ddt" secondAttribute="centerY" id="6WM-QN-1Rd"/>
+                        <constraint firstItem="UU6-52-Z19" firstAttribute="centerX" secondItem="FiW-Lk-ddt" secondAttribute="centerX" id="P0y-Iw-ICC"/>
+                    </constraints>
+                </view>
+            </objects>
+            <point key="canvasLocation" x="16.800000000000001" y="178.56071964017991"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="background gradient90" width="444" height="635"/>
+    </resources>
+</document>

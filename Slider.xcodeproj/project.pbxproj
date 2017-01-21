@@ -71,6 +71,8 @@
 		CBC9229C1DB1422600132C91 /* BlockModelLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9229B1DB1422600132C91 /* BlockModelLogicTests.swift */; };
 		CBE1DFB91E31AB5900ED2DE6 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBE1DFB81E31AB5900ED2DE6 /* Settings.storyboard */; };
 		CBE1DFBB1E31AC2C00ED2DE6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE1DFBA1E31AC2C00ED2DE6 /* SettingsViewController.swift */; };
+		CBE1DFBE1E33E68C00ED2DE6 /* FTUE.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBE1DFBD1E33E68C00ED2DE6 /* FTUE.storyboard */; };
+		CBE1DFC01E33E6A600ED2DE6 /* FTUEViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE1DFBF1E33E6A600ED2DE6 /* FTUEViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +156,8 @@
 		CBC9229B1DB1422600132C91 /* BlockModelLogicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockModelLogicTests.swift; sourceTree = "<group>"; };
 		CBE1DFB81E31AB5900ED2DE6 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Settings.storyboard; path = Views/Settings/Settings.storyboard; sourceTree = "<group>"; };
 		CBE1DFBA1E31AC2C00ED2DE6 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = Views/Settings/SettingsViewController.swift; sourceTree = "<group>"; };
+		CBE1DFBD1E33E68C00ED2DE6 /* FTUE.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FTUE.storyboard; path = Views/FTUE/FTUE.storyboard; sourceTree = "<group>"; };
+		CBE1DFBF1E33E6A600ED2DE6 /* FTUEViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FTUEViewController.swift; path = Views/FTUE/FTUEViewController.swift; sourceTree = "<group>"; };
 		E87AEA41F862378B334E6C3D /* Pods_Slider_SliderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Slider_SliderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBB8FB1D2BF6E068E8500308 /* Pods-Slider-SliderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slider-SliderTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Slider-SliderTests/Pods-Slider-SliderTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -236,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				834CDD941D9B5A3B002CB6DD /* Intro */,
+				CBE1DFBC1E33E63D00ED2DE6 /* FTUE */,
 				8371374D1DD7E6E7003AD379 /* GameBoard */,
 				CB5FA3491DC16439003B19E0 /* PuzzleList */,
 				CBC571311DFCBFF200633ED8 /* HistoryList */,
@@ -484,6 +489,15 @@
 			name = Settings;
 			sourceTree = "<group>";
 		};
+		CBE1DFBC1E33E63D00ED2DE6 /* FTUE */ = {
+			isa = PBXGroup;
+			children = (
+				CBE1DFBD1E33E68C00ED2DE6 /* FTUE.storyboard */,
+				CBE1DFBF1E33E6A600ED2DE6 /* FTUEViewController.swift */,
+			);
+			name = FTUE;
+			sourceTree = "<group>";
+		};
 		EC1CD7408572E2BF31C54A2B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -612,6 +626,7 @@
 				83AB626F1D97106D00E61AB7 /* LaunchScreen.storyboard in Resources */,
 				CBB7D3651E25B798000CC0D3 /* ControlBarView.xib in Resources */,
 				CBE1DFB91E31AB5900ED2DE6 /* Settings.storyboard in Resources */,
+				CBE1DFBE1E33E68C00ED2DE6 /* FTUE.storyboard in Resources */,
 				CBB7D34D1E25B741000CC0D3 /* HistoryList.storyboard in Resources */,
 				83AB626C1D97106D00E61AB7 /* Assets.xcassets in Resources */,
 				CBB7D33A1E25B712000CC0D3 /* Intro.storyboard in Resources */,
@@ -760,6 +775,7 @@
 				837137761DD8A1F5003AD379 /* GridModel.swift in Sources */,
 				8371376F1DD89CED003AD379 /* BlockModelLogic.swift in Sources */,
 				8371377E1DD8E144003AD379 /* Archiver.swift in Sources */,
+				CBE1DFC01E33E6A600ED2DE6 /* FTUEViewController.swift in Sources */,
 				CBB7D3371E2562C2000CC0D3 /* Color.swift in Sources */,
 				CBB7D3661E25B798000CC0D3 /* ControlBarViewModel.swift in Sources */,
 				CB54C8C61E2320F0008F2A00 /* GameHistoryModel.swift in Sources */,
