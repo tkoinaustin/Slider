@@ -27,15 +27,25 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background image large" translatesAutoresizingMaskIntoConstraints="NO" id="nha-pW-T0t">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YQH-YL-gLU">
+                                <rect key="frame" x="126" y="318" width="123" height="30"/>
+                                <state key="normal" title="How To Play"/>
+                                <connections>
+                                    <action selector="instructionsAction:" destination="wZ3-td-p7H" eventType="touchUpInside" id="57U-kn-bgU"/>
+                                    <segue destination="lqF-UJ-PG0" kind="custom" customClass="IntroSegue" customModule="Slider" customModuleProvider="target" id="8JU-oD-Qzn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="e0D-gY-zyy" secondAttribute="trailing" id="6wu-HG-NU6"/>
+                            <constraint firstItem="YQH-YL-gLU" firstAttribute="centerY" secondItem="eOQ-Qs-oXd" secondAttribute="centerY" id="Ecu-M8-iRe"/>
                             <constraint firstItem="e0D-gY-zyy" firstAttribute="leading" secondItem="eOQ-Qs-oXd" secondAttribute="leading" id="Fr3-He-WlH"/>
                             <constraint firstItem="nha-pW-T0t" firstAttribute="leading" secondItem="eOQ-Qs-oXd" secondAttribute="leading" id="P1C-NQ-eqT"/>
                             <constraint firstAttribute="trailing" secondItem="nha-pW-T0t" secondAttribute="trailing" id="VWP-cS-PYR"/>
                             <constraint firstItem="nha-pW-T0t" firstAttribute="top" secondItem="eOQ-Qs-oXd" secondAttribute="top" id="VWT-Mm-sU4"/>
                             <constraint firstAttribute="bottom" secondItem="nha-pW-T0t" secondAttribute="bottom" id="bzM-qu-ZZR"/>
+                            <constraint firstItem="YQH-YL-gLU" firstAttribute="centerX" secondItem="eOQ-Qs-oXd" secondAttribute="centerX" id="feL-GK-edL"/>
                             <constraint firstAttribute="bottom" secondItem="e0D-gY-zyy" secondAttribute="bottom" id="gGx-Gh-RPy"/>
                             <constraint firstItem="e0D-gY-zyy" firstAttribute="top" secondItem="eOQ-Qs-oXd" secondAttribute="top" id="jeI-uV-PZk"/>
                         </constraints>
@@ -45,6 +55,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dbW-Gu-0El" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="736.79999999999995" y="80.50974512743629"/>
+        </scene>
+        <!--FTUE-->
+        <scene sceneID="JqD-TM-8wH">
+            <objects>
+                <viewControllerPlaceholder storyboardName="FTUE" id="lqF-UJ-PG0" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RCw-bS-QC8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1340" y="85"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="21r-MS-dnD">

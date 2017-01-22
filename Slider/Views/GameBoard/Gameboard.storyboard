@@ -35,7 +35,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view tag="42" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="37R-IU-CTZ" customClass="BannerAdView" customModule="Slider" customModuleProvider="target">
-                                <rect key="frame" x="16" y="20" width="343" height="50"/>
+                                <rect key="frame" x="16" y="28" width="343" height="50"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="S7H-Im-9fk"/>
@@ -45,7 +45,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view tag="18" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fZ6-fn-By1" customClass="BorderView" customModule="Slider" customModuleProvider="target">
-                                <rect key="frame" x="16" y="90" width="343" height="472"/>
+                                <rect key="frame" x="16" y="98" width="343" height="464"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bie-Xn-ZpF">
@@ -55,7 +55,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="37R-IU-CTZ" firstAttribute="top" secondItem="f1l-yQ-djv" secondAttribute="bottom" id="76k-lC-TxG"/>
+                            <constraint firstItem="37R-IU-CTZ" firstAttribute="top" secondItem="f1l-yQ-djv" secondAttribute="bottom" constant="8" id="76k-lC-TxG"/>
                             <constraint firstItem="CK8-mD-Lcw" firstAttribute="leading" secondItem="tVV-JY-VtE" secondAttribute="leading" id="7d2-SP-YlS"/>
                             <constraint firstItem="DTY-HE-AXT" firstAttribute="leading" secondItem="tVV-JY-VtE" secondAttribute="leading" id="81L-rx-Otk"/>
                             <constraint firstAttribute="trailing" secondItem="DTY-HE-AXT" secondAttribute="trailing" id="AYv-jB-oPL"/>

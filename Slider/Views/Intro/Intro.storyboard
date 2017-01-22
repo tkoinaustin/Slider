@@ -22,9 +22,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background gradient90" translatesAutoresizingMaskIntoConstraints="NO" id="LJr-bp-NvK">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background gradient90" translatesAutoresizingMaskIntoConstraints="NO" id="LJr-bp-NvK">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="44J-51-1Kz">
                                 <rect key="frame" x="148" y="306" width="79" height="55"/>
@@ -42,8 +41,12 @@
                             </label>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="LJr-bp-NvK" firstAttribute="top" secondItem="jxc-6N-BhN" secondAttribute="top" id="4v6-Le-HUJ"/>
                             <constraint firstItem="ImS-06-0Nv" firstAttribute="centerX" secondItem="jxc-6N-BhN" secondAttribute="centerX" id="6wt-qY-t2l"/>
+                            <constraint firstItem="LJr-bp-NvK" firstAttribute="leading" secondItem="jxc-6N-BhN" secondAttribute="leading" id="RRG-Ot-lpj"/>
                             <constraint firstItem="44J-51-1Kz" firstAttribute="centerX" secondItem="jxc-6N-BhN" secondAttribute="centerX" id="Tgh-d4-8jD"/>
+                            <constraint firstItem="KBA-Jv-TkA" firstAttribute="top" secondItem="LJr-bp-NvK" secondAttribute="bottom" id="Zx1-aP-FaA"/>
+                            <constraint firstAttribute="trailing" secondItem="LJr-bp-NvK" secondAttribute="trailing" id="feN-l8-h8z"/>
                             <constraint firstItem="ImS-06-0Nv" firstAttribute="centerY" secondItem="jxc-6N-BhN" secondAttribute="centerY" id="rEj-JD-kId"/>
                             <constraint firstItem="44J-51-1Kz" firstAttribute="centerY" secondItem="jxc-6N-BhN" secondAttribute="centerY" id="z11-wq-why"/>
                         </constraints>

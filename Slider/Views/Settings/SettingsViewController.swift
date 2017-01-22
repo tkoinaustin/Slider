@@ -18,6 +18,9 @@ class SettingsViewController: UIViewController {
                                                        target: self,
                                                        action: #selector(dismissController))
   }
+  @IBAction func instructionsAction(_ sender: UIButton) {
+    
+  }
   
   func dismissController() {
     dismiss(animated: true, completion: nil)
