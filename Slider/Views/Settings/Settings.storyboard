@@ -27,12 +27,12 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background image large" translatesAutoresizingMaskIntoConstraints="NO" id="nha-pW-T0t">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YQH-YL-gLU">
-                                <rect key="frame" x="126" y="318" width="123" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YQH-YL-gLU">
+                                <rect key="frame" x="145.5" y="318" width="84" height="30"/>
                                 <state key="normal" title="How To Play"/>
                                 <connections>
                                     <action selector="instructionsAction:" destination="wZ3-td-p7H" eventType="touchUpInside" id="57U-kn-bgU"/>
-                                    <segue destination="lqF-UJ-PG0" kind="custom" customClass="IntroSegue" customModule="Slider" customModuleProvider="target" id="8JU-oD-Qzn"/>
+                                    <segue destination="lqF-UJ-PG0" kind="custom" customClass="IntroSegue" customModule="Slider" customModuleProvider="target" id="p6m-z1-pGw"/>
                                 </connections>
                             </button>
                         </subviews>

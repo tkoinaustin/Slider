@@ -68,12 +68,13 @@ class GameboardViewModel {
     
     grid.onWinning = { won in
       guard won else { return }
+      
       self.game.won = true
       self.controlBar.gameOver = true
       self.saveHistory()
       for block in self.blocks { block.moveOffBoard() }
       
-      Delay.by(4) {
+      Delay.by(6) {
         self.winnerAlert(.winner)
       }
     }

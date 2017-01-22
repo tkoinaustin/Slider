@@ -19,7 +19,7 @@ class SettingsViewController: UIViewController {
                                                        action: #selector(dismissController))
   }
   @IBAction func instructionsAction(_ sender: UIButton) {
-    
+    navigationController?.setNavigationBarHidden(true, animated: true)
   }
   
   func dismissController() {

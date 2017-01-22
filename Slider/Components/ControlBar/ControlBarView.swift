@@ -88,11 +88,17 @@ class ControlBarView: UIView, XibLoadable {
     switch viewModel.timerState {
     case .start:
       timerView.start()
+      puzzle.isEnabled = true
+      settings.isEnabled = true
     case .stop:
       timerView.stop()
+      puzzle.isEnabled = false
+      settings.isEnabled = false
     case .reset:
       timerView.reset()
       viewModel.timerState = .start
+      puzzle.isEnabled = true
+      settings.isEnabled = true
     }
   }
 }
