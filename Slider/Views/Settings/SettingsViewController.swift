@@ -10,6 +10,8 @@ import UIKit
 
 class SettingsViewController: UIViewController {
   
+  var saveGame: (() -> Void) = { }
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -18,7 +20,9 @@ class SettingsViewController: UIViewController {
                                                        target: self,
                                                        action: #selector(dismissController))
   }
+  
   @IBAction func instructionsAction(_ sender: UIButton) {
+    saveGame()
     navigationController?.setNavigationBarHidden(true, animated: true)
   }
   

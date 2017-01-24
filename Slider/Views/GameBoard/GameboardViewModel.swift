@@ -213,7 +213,7 @@ class GameboardViewModel {
     return true
   }
   
-  fileprivate func saveGame() {
+  func saveGame() {
     _ = Archiver.store(data: game, model: .game)
     print("setting game to \(game.name)")
   }

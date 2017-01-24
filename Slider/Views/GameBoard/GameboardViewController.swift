@@ -39,6 +39,13 @@ class GameboardViewController: UIViewController {
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if let view = sender as? UIButton { segue.destination.popoverPresentationController?.sourceView = view }
+    guard segue.identifier == "settingsSegue" else { return }
+    segue.destination.popoverPresentationController?.sourceView = sender as? UIButton
+    let navController = segue.destination as? UINavigationController
+    let dest = navController?.viewControllers[0] as? SettingsViewController
+    dest?.saveGame = {
+      self.viewModel.game.gameTime = self.viewModel.controlBar.timerCount
+      self.viewModel.saveGame()
+    }
   }
 }
