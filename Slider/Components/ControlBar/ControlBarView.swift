@@ -52,7 +52,7 @@ class ControlBarView: UIView, XibLoadable {
   }
   
   @IBAction func settingsAction(_ sender: UIButton) {
-    viewModel.loadSettings()
+    viewModel.displaySettings()
   }
   
   @IBAction func resetAction(_ sender: UIButton) {

@@ -23,6 +23,9 @@ class GameboardViewController: UIViewController {
     gridView.heightAnchor.constraint(equalTo: borderView.gameboardLocation.heightAnchor).isActive = true
     gridView.centerXAnchor.constraint(equalTo: borderView.gameboardLocation.centerXAnchor).isActive = true
     gridView.centerYAnchor.constraint(equalTo: borderView.gameboardLocation.centerYAnchor).isActive = true
+    print("----- gridView didSet")
+    gridView.setNeedsLayout()
+    gridView.layoutIfNeeded()
   }}
   
   @IBOutlet private weak var controlBarView: ControlBarView! { didSet {
@@ -34,7 +37,8 @@ class GameboardViewController: UIViewController {
 
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    viewModel.startGame()
+    print("----- viewDidAppear")
+//    viewModel.startGame()
     bannerAdView.start()
   }
   
@@ -47,5 +51,16 @@ class GameboardViewController: UIViewController {
       self.viewModel.game.gameTime = self.viewModel.controlBar.timerCount
       self.viewModel.saveGame()
     }
+  }
+  
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+//    print("viewDidLayoutSubviews gridView frame: \(gridView.frame)")
+    viewModel.startGame()
+  }
+  
+  override func viewWillLayoutSubviews() {
+    super.viewWillLayoutSubviews()
+//    print("viewWillLayoutSubviews gridView frame: \(gridView.frame)")
   }
 }

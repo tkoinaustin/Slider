@@ -36,14 +36,14 @@ class FTUEViewController: UIViewController {
     super.viewDidLoad()
   }
   
-  func intro() -> UIViewController {
+  func gameboard() -> UIViewController {
     return UIStoryboard(name: "Gameboard", bundle: nil).instantiateInitialViewController()!
   }
   
   private func addPanels() {
     let width = UIScreen.main.bounds.width
     let height = UIScreen.main.bounds.height
-    let intro = self.intro()
+    let intro = self.gameboard()
     
     panelsView.frame = CGRect(x: 0, y: 0, width: width, height: height)
     panelOne.frame = CGRect(x: 0, y: 0, width: width, height: height)
@@ -76,7 +76,9 @@ class FTUEViewController: UIViewController {
     
     disableScrolling()
     hidePageControl(then: { [unowned self] in
-      UIApplication.shared.keyWindow?.rootViewController = self.intro()
+      guard let game = self.gameboard() as? GameboardViewController else { return }
+      UIApplication.shared.keyWindow?.rootViewController = game
+//      game.viewModel.startGame()
     })
   }
   

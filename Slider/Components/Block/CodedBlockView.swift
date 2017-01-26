@@ -55,7 +55,9 @@ class CodedBlockView: UIView {
     return get(block: block, parent: parent, index: index)
   }
   
-  static func getGameBlock(parent: UIView, game: GameboardViewModel, index: Int) -> CodedBlockView {
+  static func getGameBlock(parent: UIView,
+                           game: GameboardViewModel,
+                           index: Int) -> CodedBlockView {
     let block = CodedBlockView.init(frame: CGRect.zero)
     block.viewModel = game.block(index)
     
@@ -69,11 +71,13 @@ class CodedBlockView: UIView {
     if index == 1 { block.imageView.backgroundColor = Color.darkBlue }
     block.setBlockClosures(index)
     
-    block.alpha = 0
     parent.addSubview(block)
-    UIView.animate(withDuration: 1, animations: {
-      block.alpha = 1
-    })
+
+    block.alpha = 0
+
+//    UIView.animate(withDuration: 1, animations: {
+//      block.alpha = 1
+//    })
 
     return block
   }
@@ -141,7 +145,7 @@ class CodedBlockView: UIView {
     
     viewModel.fadeIn = { _ in
       self.alpha = 0
-      UIView.animate(withDuration: 0.3, animations: {
+      UIView.animate(withDuration: 2.3, animations: {
         self.alpha = 1
       })
     }

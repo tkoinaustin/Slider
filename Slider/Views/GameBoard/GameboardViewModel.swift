@@ -81,6 +81,7 @@ class GameboardViewModel {
   }
   
   func loadBlocks(_ gridView: UIView) {
+    print("----- self.size = gridView.frame.size")
     self.size = gridView.frame.size
     
     blocks.removeAll()
@@ -98,9 +99,15 @@ class GameboardViewModel {
     }
     
     for blockView in gridView.subviews { blockView.removeFromSuperview() }
+    
     for index in 1..<grid.blockCount {
       let _ = CodedBlockView.getGameBlock(parent: gridView, game: self, index: index)
     }
+    print("blocks loaded")
+    for index in 1..<grid.blockCount {
+      block(index).fadeIn()
+    }
+    print("blocks faded in")
   }
   
   // swiftlint:disable function_body_length
@@ -186,8 +193,9 @@ class GameboardViewModel {
       block.updateBlockUI(0.2)
     }
   }
-  
+
   func startGame() {
+//    print("----- startGame")
     guard initialLoad else { return }
     initialLoad = false
 
@@ -196,8 +204,9 @@ class GameboardViewModel {
       controlBar.newPuzzle(puzzleModel: puzzleModel)
     }
   }
-  
+
   func restoreGame() -> Bool {
+    print("----- restoreGame")
     guard let restoredGame = Archiver.retrieve(model: .game) as? GameModel else { return false }
     
     guard !restoredGame.won else { return false }

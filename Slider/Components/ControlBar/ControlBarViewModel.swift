@@ -14,14 +14,12 @@ class ControlBarViewModel: NSObject, NSCoding {
   var moveNumber: Int! { didSet {
     guard let _ = oldValue else { return }
     if moveNumber != oldValue {
-      print("moveNumber changed to \(moveNumber)")
       updateControlBarUI()
     }
   }}
   
   private(set) var moveDataCount: Int = 1 { didSet {
     if moveDataCount != oldValue {
-      print("moveDataCount changed to \(moveDataCount)")
     }
   }}
   
@@ -35,7 +33,6 @@ class ControlBarViewModel: NSObject, NSCoding {
     guard let _ = moveNumber else { return false }
     if gameOver { return false }
     
-    print("forwardEnabled: moveNumber: \(moveNumber), moveDataCount: \(moveDataCount)")
     return moveNumber < moveDataCount - 1
   }
   var resetEnabled: Bool {
@@ -121,6 +118,7 @@ class ControlBarViewModel: NSObject, NSCoding {
   }
   
   func increment(_ moveDataCount: Int) {
+    if timerState != .start { timerState = .start }
     self.moveDataCount = moveDataCount
     moveNumber = moveNumber ?? 0
     moveNumber! += 1
@@ -181,6 +179,11 @@ class ControlBarViewModel: NSObject, NSCoding {
     navController.popoverPresentationController?.delegate = self
     
     parentViewController?.show(navController, sender: self)
+  }
+  
+  func displaySettings() {
+    timerState = .stop
+    loadSettings()
   }
   
   @objc func becomeActive() {

@@ -14,6 +14,8 @@ class IntroViewController: UIViewController {
   @IBOutlet private weak var logoLabel: UILabel!
   
   @IBAction func launchApp(_ sender: UIButton) {
+    performSegue(withIdentifier: "FTUESegue", sender: self)
+    return
     if needFTUE() {
       UserDefaults.standard.set(false, forKey: "FTUE")
       performSegue(withIdentifier: "FTUESegue", sender: self)
@@ -53,6 +55,7 @@ class IntroViewController: UIViewController {
     if segue.identifier == "gameboardSegue" {
       let dest = segue.destination as? GameboardViewController
       let viewModel = dest?.viewModel
+//      viewModel?.startGame()
     }
     
     guard let historyStore = Archiver.retrieve(model: .historyStore)
