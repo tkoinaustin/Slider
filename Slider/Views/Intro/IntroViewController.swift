@@ -14,8 +14,8 @@ class IntroViewController: UIViewController {
   @IBOutlet private weak var logoLabel: UILabel!
   
   @IBAction func launchApp(_ sender: UIButton) {
-    performSegue(withIdentifier: "FTUESegue", sender: self)
-    return
+//    performSegue(withIdentifier: "FTUESegue", sender: self)
+//    return
     if needFTUE() {
       UserDefaults.standard.set(false, forKey: "FTUE")
       performSegue(withIdentifier: "FTUESegue", sender: self)

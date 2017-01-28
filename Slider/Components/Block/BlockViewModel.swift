@@ -43,6 +43,7 @@ class BlockViewModel {
   var exitOffScreen: (() -> Void) = {}
   var spinOffScreen: (() -> Void) = {}
   var reset: (() -> Void) = {}
+  var fadeOutAndRemove: (() -> Void) = {}
   
   var type: BlockType = .small { didSet {
     guard let _ = canvas else { return }
@@ -87,5 +88,9 @@ class BlockViewModel {
     case .small: break
     }
     return CGRect(x: 0, y: 0, width: wide, height: tall)
+  }
+  
+  func remove() {
+    fadeOutAndRemove()
   }
 }

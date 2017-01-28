@@ -10,15 +10,15 @@ import UIKit
 
 class FTUEViewController: UIViewController {
   
-  @IBOutlet var panelOne: UIView!
-  @IBOutlet var panelTwo: UIView!
-  @IBOutlet var panelThree: UIView!
+  @IBOutlet private var panelOne: UIView!
+  @IBOutlet private var panelTwo: UIView!
+  @IBOutlet private var panelThree: UIView!
   
-  @IBOutlet weak var panelsView: UIScrollView! { didSet {
+  @IBOutlet fileprivate weak var panelsView: UIScrollView! { didSet {
       panelsView.delegate = self
   }}
   
-  @IBOutlet weak var pageControl: UIPageControl! { didSet {
+  @IBOutlet fileprivate weak var pageControl: UIPageControl! { didSet {
     pageControl.numberOfPages = 4
     pageControl.currentPage = 0
   }}

@@ -83,7 +83,11 @@ class GameboardViewModel {
   func loadBlocks(_ gridView: UIView) {
     print("----- self.size = gridView.frame.size")
     self.size = gridView.frame.size
-    
+
+    for block in self.blocks {
+      block.fadeOutAndRemove()
+    }
+
     blocks.removeAll()
 
     for index in 0..<grid.blockCount {
@@ -98,16 +102,11 @@ class GameboardViewModel {
       }
     }
     
-    for blockView in gridView.subviews { blockView.removeFromSuperview() }
-    
-    for index in 1..<grid.blockCount {
-      let _ = CodedBlockView.getGameBlock(parent: gridView, game: self, index: index)
-    }
-    print("blocks loaded")
-    for index in 1..<grid.blockCount {
-      block(index).fadeIn()
-    }
-    print("blocks faded in")
+    Delay.by(1, completion: {
+      for index in 1..<self.grid.blockCount {
+        let _ = CodedBlockView.getGameBlock(parent: gridView, game: self, index: index)
+      }
+    })
   }
   
   // swiftlint:disable function_body_length

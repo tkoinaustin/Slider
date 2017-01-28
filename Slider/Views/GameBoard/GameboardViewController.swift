@@ -34,11 +34,16 @@ class GameboardViewController: UIViewController {
     viewModel.setControlBarClosure()
     viewModel.controlBar.parentViewController = self
   }}
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+//    print("viewWillAppear")
+  }
 
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    print("----- viewDidAppear")
-//    viewModel.startGame()
+//    print("----- viewDidAppear")
+    viewModel.startGame()
     bannerAdView.start()
   }
   
@@ -56,7 +61,7 @@ class GameboardViewController: UIViewController {
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
 //    print("viewDidLayoutSubviews gridView frame: \(gridView.frame)")
-    viewModel.startGame()
+//    viewModel.startGame()
   }
   
   override func viewWillLayoutSubviews() {

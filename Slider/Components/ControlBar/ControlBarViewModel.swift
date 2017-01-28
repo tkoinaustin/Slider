@@ -187,12 +187,12 @@ class ControlBarViewModel: NSObject, NSCoding {
   }
   
   @objc func becomeActive() {
-    print("----- become active  -----")
+//    print("----- become active  -----")
     timerState = .start
   }
   
   @objc func resignActive() {
-    print("----- resign active  -----")
+//    print("----- resign active  -----")
     saveIt()
   }
 }

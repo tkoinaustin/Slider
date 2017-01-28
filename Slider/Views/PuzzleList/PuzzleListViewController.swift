@@ -41,7 +41,9 @@ class PuzzleListViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     saveHistory()
     let puzzleModel = dataProvider.store[indexPath.row]
-    loadNewPuzzle(puzzleModel)
-    dismiss(animated: true, completion: nil )
+//    loadNewPuzzle(puzzleModel)
+    dismiss(animated: true, completion: {
+      self.loadNewPuzzle(puzzleModel)
+    })
   }
 }
