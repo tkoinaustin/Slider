@@ -62,38 +62,10 @@ class FTUEViewController: UIViewController {
     )
   }
 
-  private func isLastPage(_ currentPage: Int) -> Bool {
+  fileprivate func isLastPage(_ currentPage: Int) -> Bool {
     return currentPage == (pageControl.numberOfPages - 1)
   }
-  
-  private func disableScrolling() {
-    panelsView.isPagingEnabled = false
-    panelsView.isScrollEnabled = false
-  }
-  
-  fileprivate func handleLastPage() {
-    guard pageControl.currentPage == pageControl.numberOfPages - 1  else { return }
-    
-    disableScrolling()
-    hidePageControl(then: { [unowned self] in
-      guard let game = self.gameboard() as? GameboardViewController else { return }
-      UIApplication.shared.keyWindow?.rootViewController = game
-//      game.viewModel.startGame()
-    })
-  }
-  
-  private func hidePageControl(then completion: @escaping () -> Void) {
-    let fadeOut = UIViewPropertyAnimator(duration: 0.5, curve: .easeIn, animations: {
-      [unowned self] in
-      self.pageControl.alpha = 0
-    })
-    
-    fadeOut.addCompletion { _ in completion() }
-    
-    fadeOut.startAnimation()
-  }
 }
-
 
 extension FTUEViewController: UIScrollViewDelegate {
   func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -101,7 +73,22 @@ extension FTUEViewController: UIScrollViewDelegate {
     let page = floor(panelsView.contentOffset.x / width)
     pageControl.currentPage = Int(page)
     
-    handleLastPage()
-  }
+    guard isLastPage(pageControl.currentPage) else { return }
 
+    guard let gameboardViewController = self.gameboard() as? GameboardViewController else { return }
+    UIApplication.shared.keyWindow?.rootViewController = gameboardViewController
+    gameboardViewController.viewModel.FTUECompleted = true
+}
+  
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    var alpha: CGFloat
+    
+    switch panelsView.contentOffset.x {
+    case 801...CGFloat.greatestFiniteMagnitude: ()
+    case 640...800:
+      alpha = 1 - (panelsView.contentOffset.x - 640) / 160
+      pageControl.alpha = alpha
+    default: ()
+    }
+  }
 }

@@ -55,7 +55,7 @@ class IntroViewController: UIViewController {
     if segue.identifier == "gameboardSegue" {
       let dest = segue.destination as? GameboardViewController
       let viewModel = dest?.viewModel
-//      viewModel?.startGame()
+      viewModel?.FTUECompleted = true
     }
     
     guard let historyStore = Archiver.retrieve(model: .historyStore)

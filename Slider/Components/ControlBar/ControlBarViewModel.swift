@@ -84,19 +84,9 @@ class ControlBarViewModel: NSObject, NSCoding {
   
   func addNotifications() {
     NotificationCenter.default.addObserver( self,
-                                            selector: #selector(becomeActive),
-                                            name: .UIApplicationDidBecomeActive ,
-                                            object: nil)
-    
-    NotificationCenter.default.addObserver( self,
                                             selector: #selector(resignActive),
                                             name: .UIApplicationWillResignActive,
                                             object: nil)
-  }
-
-  func loadIt() {
-    timerState = .start
-    load()
   }
   
   func saveIt() {
@@ -145,13 +135,13 @@ class ControlBarViewModel: NSObject, NSCoding {
   }
   
   func newPuzzle(puzzleModel: PuzzleModel?) {
-    guard let puzzleModel = puzzleModel else { timerState = .start; return }
+    guard let puzzleModel = puzzleModel else { return }
     
     // save existing puzzle if there are any moves and the puzzle is 
     // different than the current puzzle
     if puzzleModel.name != puzzleLabel && moveNumber ?? 0 > 0 {
       //save history, not puzzle!!
-      saveIt()
+      load()
     }
     
     // load new puzzle
@@ -184,11 +174,6 @@ class ControlBarViewModel: NSObject, NSCoding {
   func displaySettings() {
     timerState = .stop
     loadSettings()
-  }
-  
-  @objc func becomeActive() {
-//    print("----- become active  -----")
-    timerState = .start
   }
   
   @objc func resignActive() {

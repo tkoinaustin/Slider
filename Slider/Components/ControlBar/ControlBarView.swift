@@ -96,7 +96,6 @@ class ControlBarView: UIView, XibLoadable {
       settings.isEnabled = false
     case .reset:
       timerView.reset()
-      viewModel.timerState = .start
       puzzle.isEnabled = true
       settings.isEnabled = true
     }

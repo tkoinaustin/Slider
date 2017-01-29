@@ -24,6 +24,7 @@ class GameboardViewModel {
   fileprivate(set) var controlBar = ControlBarViewModel()
   fileprivate let gradientLayer = CAGradientLayer()
   fileprivate var initialLoad = true
+  var FTUECompleted = false
 
   var count: Int {
     return blocks.count
@@ -194,10 +195,13 @@ class GameboardViewModel {
   }
 
   func startGame() {
-//    print("----- startGame")
+    print("----- startGame")
+    guard FTUECompleted else { return }
+    print("----- FTUECompleted")
     guard initialLoad else { return }
+    print("----- initialLoad")
     initialLoad = false
-
+    
     if !restoreGame() {
       let puzzleModel = Puzzles().klotski[0]
       controlBar.newPuzzle(puzzleModel: puzzleModel)
@@ -205,7 +209,6 @@ class GameboardViewModel {
   }
 
   func restoreGame() -> Bool {
-    print("----- restoreGame")
     guard let restoredGame = Archiver.retrieve(model: .game) as? GameModel else { return false }
     
     guard !restoredGame.won else { return false }

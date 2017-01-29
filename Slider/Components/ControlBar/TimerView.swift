@@ -75,11 +75,9 @@ class TimerView: UIView {
     stop()
     viewModel.timerCount = 0
     setDisplay(viewModel.timerCount)
-    start()
   }
   
   func fired() {
-    // do the timer thing
     viewModel.timerCount += 1
     setDisplay(viewModel.timerCount)
   }
