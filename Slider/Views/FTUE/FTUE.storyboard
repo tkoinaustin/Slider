@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wuS-P1-g5h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E144f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wuS-P1-g5h">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -57,6 +58,8 @@
                     </view>
                     <connections>
                         <outlet property="pageControl" destination="feR-Gh-XS5" id="Lz7-Hr-JJd"/>
+                        <outlet property="pageOneText" destination="CC3-EL-PZA" id="Gqq-6S-eug"/>
+                        <outlet property="pageOneWelcome" destination="dO8-KJ-6J5" id="OkG-0Y-bBx"/>
                         <outlet property="panelOne" destination="2gi-gk-z47" id="lws-Cs-flr"/>
                         <outlet property="panelThree" destination="FiW-Lk-ddt" id="UC1-iy-ESt"/>
                         <outlet property="panelTwo" destination="KcO-8D-Icg" id="lXc-mj-iGX"/>
@@ -68,17 +71,27 @@
                     <rect key="frame" x="0.0" y="0.0" width="336" height="626"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Fp-X8-s2I">
-                            <rect key="frame" x="140" y="269" width="20" height="64"/>
-                            <fontDescription key="fontDescription" name="CircularTT-Bold" family="Circular TT" pointSize="50"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Welcome to Slider" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dO8-KJ-6J5">
+                            <rect key="frame" x="99" y="135" width="139" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CC3-EL-PZA">
+                            <rect key="frame" x="79" y="181" width="178" height="265"/>
+                            <string key="text">Slider is a fun game based on the 4 by 5 sliding block puzzles first popularized by Lewis Hardy's century old Pennant Puzzle. Free the large block through the "Escape Area" at the bottom of the grid.</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="1Fp-X8-s2I" firstAttribute="centerY" secondItem="2gi-gk-z47" secondAttribute="centerY" id="2uZ-7G-Bbz"/>
-                        <constraint firstItem="1Fp-X8-s2I" firstAttribute="centerX" secondItem="2gi-gk-z47" secondAttribute="centerX" id="f8Z-TM-WVV"/>
+                        <constraint firstItem="CC3-EL-PZA" firstAttribute="centerY" secondItem="2gi-gk-z47" secondAttribute="centerY" id="5rd-EO-Jhd"/>
+                        <constraint firstItem="CC3-EL-PZA" firstAttribute="centerX" secondItem="2gi-gk-z47" secondAttribute="centerX" id="B9s-B1-TB3"/>
+                        <constraint firstItem="CC3-EL-PZA" firstAttribute="width" secondItem="2gi-gk-z47" secondAttribute="width" multiplier="0.75" id="E8G-5g-yJr"/>
+                        <constraint firstItem="CC3-EL-PZA" firstAttribute="top" secondItem="dO8-KJ-6J5" secondAttribute="bottom" constant="25" id="FkS-gS-Rpd"/>
+                        <constraint firstItem="dO8-KJ-6J5" firstAttribute="centerX" secondItem="2gi-gk-z47" secondAttribute="centerX" id="M82-YZ-Gfl"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" id="KcO-8D-Icg">

@@ -21,6 +21,14 @@ enum GameSize: String {
     }
   }
   
+  var largeFont: UIFont {
+    switch self {
+    case .small: return UIFont(name: ".SFUIText", size: 23)!
+    case .medium: return UIFont(name: ".SFUIText", size: 27)!
+    case .large: return UIFont(name: ".SFUIText", size: 36)!
+    }
+  }
+  
   var corner: CGFloat {
     switch self {
     case .small: return 5

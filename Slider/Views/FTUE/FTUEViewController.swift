@@ -14,6 +14,13 @@ class FTUEViewController: UIViewController {
   @IBOutlet private var panelTwo: UIView!
   @IBOutlet private var panelThree: UIView!
   
+  @IBOutlet weak var pageOneWelcome: UILabel! { didSet {
+    pageOneWelcome.font = gameSize.largeFont
+  }}
+  @IBOutlet weak var pageOneText: UILabel! { didSet {
+    pageOneText.font = gameSize.font
+  }}
+  
   @IBOutlet fileprivate weak var panelsView: UIScrollView! { didSet {
       panelsView.delegate = self
   }}
