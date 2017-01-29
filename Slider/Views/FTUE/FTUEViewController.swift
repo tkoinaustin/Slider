@@ -30,6 +30,9 @@ class FTUEViewController: UIViewController {
     panelsView.setContentOffset(point, animated: true)
   }
   
+  var offsetStart: CGFloat!
+  var offsetFinish: CGFloat!
+  
   override func viewDidLoad() {
     addPanels()
     
@@ -44,6 +47,8 @@ class FTUEViewController: UIViewController {
     let width = UIScreen.main.bounds.width
     let height = UIScreen.main.bounds.height
     let intro = self.gameboard()
+    offsetStart = 2 * width
+    offsetFinish = 2.5 * width + 1
     
     panelsView.frame = CGRect(x: 0, y: 0, width: width, height: height)
     panelOne.frame = CGRect(x: 0, y: 0, width: width, height: height)
@@ -82,11 +87,11 @@ extension FTUEViewController: UIScrollViewDelegate {
   
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
     var alpha: CGFloat
-    
+
     switch panelsView.contentOffset.x {
-    case 801...CGFloat.greatestFiniteMagnitude: ()
-    case 640...800:
-      alpha = 1 - (panelsView.contentOffset.x - 640) / 160
+    case offsetFinish...CGFloat.greatestFiniteMagnitude: pageControl.alpha = 0
+    case offsetStart..<offsetFinish:
+      alpha = 1 - (panelsView.contentOffset.x - offsetStart) / (offsetStart / 4)
       pageControl.alpha = alpha
     default: ()
     }
