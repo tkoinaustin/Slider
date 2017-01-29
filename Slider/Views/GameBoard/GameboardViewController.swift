@@ -12,7 +12,16 @@ class GameboardViewController: UIViewController {
   
   var viewModel = GameboardViewModel()
 
-  @IBOutlet private weak var bannerAdView: BannerAdView!
+  @IBOutlet private weak var bannerAdView: BannerAdView! { didSet {
+    switch viewModel.showBannerAds {
+    case true:
+      topLayoutToGridConstraint.isActive = false
+    case false:
+      bannerAdView.alpha = 0
+      bannerAdToGridConstraint.isActive = false
+    }
+  }}
+  
   @IBOutlet private weak var borderView: BorderView! { didSet {
     borderView.borderColor = Color.lightPurple
   }}
@@ -33,6 +42,9 @@ class GameboardViewController: UIViewController {
     viewModel.setControlBarClosure()
     viewModel.controlBar.parentViewController = self
   }}
+
+  @IBOutlet var bannerAdToGridConstraint: NSLayoutConstraint!
+  @IBOutlet var topLayoutToGridConstraint: NSLayoutConstraint!
 
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)

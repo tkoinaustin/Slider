@@ -44,7 +44,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="adUnitID" value="ca-app-pub-8254175664355700/5312339275"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view tag="18" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fZ6-fn-By1" customClass="BorderView" customModule="Slider" customModuleProvider="target">
+                            <view tag="18" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fZ6-fn-By1" customClass="BorderView" customModule="Slider" customModuleProvider="target">
                                 <rect key="frame" x="16" y="98" width="343" height="464"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -75,14 +75,17 @@
                             <constraint firstItem="2Ds-Bj-rJn" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fZ6-fn-By1" secondAttribute="bottom" id="hhA-T3-3LS"/>
                             <constraint firstItem="fZ6-fn-By1" firstAttribute="centerX" secondItem="tVV-JY-VtE" secondAttribute="centerX" id="nXW-7u-BEc"/>
                             <constraint firstItem="zGg-GE-j6X" firstAttribute="top" secondItem="DTY-HE-AXT" secondAttribute="bottom" id="u8e-gL-7Cx"/>
-                            <constraint firstItem="fZ6-fn-By1" firstAttribute="top" secondItem="37R-IU-CTZ" secondAttribute="bottom" constant="20" id="xKa-kk-yJV"/>
+                            <constraint firstItem="fZ6-fn-By1" firstAttribute="top" secondItem="37R-IU-CTZ" secondAttribute="bottom" priority="750" constant="20" id="xKa-kk-yJV"/>
+                            <constraint firstItem="fZ6-fn-By1" firstAttribute="top" secondItem="f1l-yQ-djv" secondAttribute="bottom" priority="750" constant="20" id="yxZ-Ex-Pus"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bannerAdToGridConstraint" destination="xKa-kk-yJV" id="kJY-Ws-hzc"/>
                         <outlet property="bannerAdView" destination="37R-IU-CTZ" id="mP1-FJ-PgB"/>
                         <outlet property="borderView" destination="fZ6-fn-By1" id="9Gi-WH-AhS"/>
                         <outlet property="controlBarView" destination="2Ds-Bj-rJn" id="NmK-YZ-ud1"/>
                         <outlet property="gridView" destination="bie-Xn-ZpF" id="76v-4Z-C8f"/>
+                        <outlet property="topLayoutToGridConstraint" destination="yxZ-Ex-Pus" id="M76-SG-Y6f"/>
                         <segue destination="HiC-94-WWj" kind="popoverPresentation" identifier="settingsSegue" popoverAnchorView="2Ds-Bj-rJn" id="f6h-dD-1Np">
                             <popoverArrowDirection key="popoverArrowDirection" down="YES"/>
                         </segue>
