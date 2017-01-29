@@ -11,6 +11,7 @@ import UIKit
 class SettingsViewController: UIViewController {
   
   var saveGame: (() -> Void) = { }
+  var showFTUE: (() -> Void) = { }
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -23,7 +24,14 @@ class SettingsViewController: UIViewController {
   
   @IBAction func instructionsAction(_ sender: UIButton) {
     saveGame()
-    navigationController?.setNavigationBarHidden(true, animated: true)
+    
+    switch UIDevice.current.userInterfaceIdiom {
+    case .pad:
+      dismissController()
+      showFTUE()
+    default:
+      navigationController?.setNavigationBarHidden(true, animated: true)
+    }
   }
   
   func dismissController() {

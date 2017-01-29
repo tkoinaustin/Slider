@@ -79,15 +79,15 @@ extension FTUEViewController: UIScrollViewDelegate {
     pageControl.currentPage = Int(page)
     
     guard isLastPage(pageControl.currentPage) else { return }
-
+    
     guard let gameboardViewController = self.gameboard() as? GameboardViewController else { return }
     UIApplication.shared.keyWindow?.rootViewController = gameboardViewController
     gameboardViewController.viewModel.FTUECompleted = true
-}
+  }
   
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
     var alpha: CGFloat
-
+    
     switch panelsView.contentOffset.x {
     case offsetFinish...CGFloat.greatestFiniteMagnitude: pageControl.alpha = 0
     case offsetStart..<offsetFinish:
