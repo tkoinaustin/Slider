@@ -137,10 +137,7 @@ class ControlBarViewModel: NSObject, NSCoding {
   func newPuzzle(puzzleModel: PuzzleModel?) {
     guard let puzzleModel = puzzleModel else { return }
     
-    // save existing puzzle if there are any moves and the puzzle is 
-    // different than the current puzzle
     if puzzleModel.name != puzzleLabel && moveNumber ?? 0 > 0 {
-      //save history, not puzzle!!
       saveIt()
     }
     
@@ -177,7 +174,6 @@ class ControlBarViewModel: NSObject, NSCoding {
   }
   
   @objc func resignActive() {
-//    print("----- resign active  -----")
     saveIt()
   }
 }

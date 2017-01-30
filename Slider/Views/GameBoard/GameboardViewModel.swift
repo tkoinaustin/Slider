@@ -196,11 +196,8 @@ class GameboardViewModel {
   }
 
   func startGame() {
-    print("----- startGame")
     guard FTUECompleted else { return }
-    print("----- FTUECompleted")
     guard initialLoad else { return }
-    print("----- initialLoad")
     initialLoad = false
     
     if !restoreGame() {

@@ -13,10 +13,6 @@ class CodedBlockView: UIView {
   var imageView = UIImageView()
   var viewModel: BlockViewModel!
   var color: UIColor { didSet { imageView.backgroundColor = color }}
-  override var alpha: CGFloat { didSet {
-    super.alpha = alpha
-//    print("alpha set to \(alpha)")
-  }}
 
   public override init(frame: CGRect) {
     color = Color.blue
@@ -80,7 +76,6 @@ class CodedBlockView: UIView {
     block.alpha = 0
 
     UIView.animate(withDuration: 2, animations: {
-//      print("----- CodedBlockView get animate alpha -----")
       block.alpha = 1
     })
     return block
@@ -93,28 +88,24 @@ class CodedBlockView: UIView {
     }
     
     viewModel.fadeOutAndRemove = { _ in
-//      print("CodedBlockView:\(self.viewModel.index!) fadeOutAndRemove")
       UIView.animate(withDuration: 0.5, animations: {
         self.alpha = 0
       })
     }
     
     viewModel.updateBlockUI = { duration in
-//      print("CodedBlockView:\(self.viewModel.index!) updateBlockUI")
       UIView.animate(withDuration: duration, animations: {
         self.center = self.viewModel.center
       })
     }
     
    viewModel.nextStep = { _ in
-//    print("CodedBlockView:\(self.viewModel.index!) nextStep")
       UIView.animate(withDuration: 0.4, animations: {
         self.center = self.viewModel.center
       })
     }
     
     viewModel.spinOffScreen = { _ in
-//      print("CodedBlockView:\(self.viewModel.index!) spinOffScreen")
       self.superview?.sendSubview(toBack: self)
       let delay: Double = 0.4 * Double(index)
       let scale: CGFloat = 1.2
@@ -145,7 +136,6 @@ class CodedBlockView: UIView {
     }
     
     self.viewModel.exitOffScreen = { _ in
-//      print("CodedBlockView:\(self.viewModel.index!) exitOffScreen")
       let transform = CGAffineTransform(scaleX: 1, y: 0.001)
       UIView.animate(
         withDuration: 0.5,
@@ -159,7 +149,6 @@ class CodedBlockView: UIView {
     )}
     
     viewModel.fadeIn = { _ in
-//      print("CodedBlockView:\(self.viewModel.index!) fadeIn")
       self.alpha = 0
       UIView.animate(withDuration: 0.5, animations: {
         self.alpha = 1
