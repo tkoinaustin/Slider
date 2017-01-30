@@ -141,7 +141,7 @@ class ControlBarViewModel: NSObject, NSCoding {
     // different than the current puzzle
     if puzzleModel.name != puzzleLabel && moveNumber ?? 0 > 0 {
       //save history, not puzzle!!
-      load()
+      saveIt()
     }
     
     // load new puzzle
