@@ -11,7 +11,7 @@ import UIKit
 class IntroSegue: UIStoryboardSegue {
   
   override func perform() {
-    let width = UIScreen.main.bounds.width
+//    let width = UIScreen.main.bounds.width
 //    let left = CGAffineTransform(translationX: -width, y: 0)
     let tiny = CGAffineTransform.identity.scaledBy(x: 0, y: 0)
     destination.view.transform = tiny

@@ -13,7 +13,7 @@ class PuzzleListDataProvider: NSObject, UITableViewDataSource {
   var store = Puzzles().klotski
   var allGames = HistoryStoreModel.shared
   var gameModels = [GameModel]()
-  private var parent: PuzzleListViewController!
+  private weak var parent: PuzzleListViewController!
 
   func assignParent(_ parent: PuzzleListViewController) {
     self.parent = parent

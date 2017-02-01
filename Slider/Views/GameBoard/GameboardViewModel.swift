@@ -58,17 +58,17 @@ class GameboardViewModel {
   // swiftlint:disable function_body_length
   fileprivate func setGridClosures() {
     // swiftlint:enable function_body_length
-    grid.updateGameboardUI = {
+    grid.updateGameboardUI = { [unowned self] _ in
       self.placeAllBlocks()
     }
     
-    grid.gameModelMoveFinished = { move in
+    grid.gameModelMoveFinished = { [unowned self] move in
       guard let moveNumber = self.controlBar.moveNumber else { return }
       self.game.push(move, moveNumber: moveNumber)
       self.controlBar.increment(self.game.moveData.count)
     }
     
-    grid.onWinning = { won in
+    grid.onWinning = { [unowned self] won in
       guard won else { return }
       
       self.game.won = true
@@ -114,7 +114,7 @@ class GameboardViewModel {
   // swiftlint:disable function_body_length
   func setControlBarClosure() {
     // swiftlint:enable function_body_length
-    controlBar.updateBlocksToMoveNumber = { index in
+    controlBar.updateBlocksToMoveNumber = { [unowned self] index in
       assert(index < self.game.moveData.count, "index higher than moveData count")
       guard index < self.game.moveData.count else { return }
       
@@ -124,22 +124,22 @@ class GameboardViewModel {
       self.grid.updateGameboardUI()
     }
     
-    controlBar.trimMoveData = { index in
+    controlBar.trimMoveData = { [unowned self] index in
       self.game.trim(index)
     }
     
-    controlBar.puzzleToLoad = { puzzleModel in
+    controlBar.puzzleToLoad = { [unowned self] puzzleModel in
       guard let puzzleModel = puzzleModel else { return }
       self.game.prepareForNewGame(puzzleModel)
       self.loadPuzzle(puzzleModel.grid)
       for block in self.blocks { block.swipeEnabled = true }
     }
     
-    controlBar.load = {
+    controlBar.load = { [unowned self] _ in
       let _ = self.restoreGame()
     }
     
-    controlBar.save = { counter in
+    controlBar.save = { [unowned self] counter in
       guard self.game.won == false else { return }
       self.game.gameTime = counter
       self.saveGame()
@@ -147,7 +147,7 @@ class GameboardViewModel {
     
     controlBar.saveHistory = saveHistory
     
-    controlBar.resetPuzzle = {
+    controlBar.resetPuzzle = { [unowned self] _ in
       print("resetPuzzle")
       guard !self.game.moveData.isEmpty else { return }
 
@@ -159,7 +159,7 @@ class GameboardViewModel {
       self.game.trim(0)
     }
     
-    controlBar.loadSettings = {
+    controlBar.loadSettings = { [unowned self] _ in
       self.gridView.parentViewController?.performSegue(withIdentifier: "settingsSegue",
                                                        sender: self.controlBar.settingsButton)
     }
@@ -236,10 +236,10 @@ class GameboardViewModel {
     controlBar.moveNumber = 0
     replayViewModel.game = self.game
     replayViewModel.assignGridView(gridView)
-    replayViewModel.updateCounter = { index in
+    replayViewModel.updateCounter = { [unowned self] index in
       self.controlBar.moveNumber = index - 1
     }
-    replayViewModel.onCompletion = {
+    replayViewModel.onCompletion = { [unowned self] _ in
       self.winnerAlert(.replay)
     }
     replayViewModel.loadBlocks()
@@ -251,15 +251,15 @@ class GameboardViewModel {
                                         preferredStyle: .alert)
     let okAction = UIAlertAction(title: "Next Puzzle",
                                  style: .cancel,
-                                 handler: { _ in self.nextPuzzle() })
+                                 handler: { [unowned self] _ in self.nextPuzzle() })
     notify.addAction(okAction)
     let replayAction = UIAlertAction(title: "Instant Replay",
                                      style: .default,
-                                     handler: { _ in self.replayGame() })
+                                     handler: { [unowned self] _ in self.replayGame() })
     notify.addAction(replayAction)
     let playAgainAction = UIAlertAction(title: "Play Again",
                                         style: .default,
-                                        handler: { _ in self.playAgain() })
+                                        handler: { [unowned self] _ in self.playAgain() })
     notify.addAction(playAgainAction)
     self.gridView.parentViewController?.present(notify,
                                                 animated: true,

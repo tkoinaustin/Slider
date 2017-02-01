@@ -37,8 +37,6 @@ class BlockModel: Hashable {
   fileprivate var minOffset = CGPoint(x:0, y:0)
   fileprivate var maxOffset = CGPoint(x:0, y:0)
   
-  fileprivate var blockLogic = BlockModelLogic()
-  
   var hashValue: Int {
     return index
   }
@@ -99,6 +97,7 @@ class BlockModel: Hashable {
   private func checkForDoubleMoveChange(_ direction: Direction) {
     guard let ppb = ppb else { return }
     var dblMove: Bool?, changedBoard: Board?
+    let blockLogic = BlockModelLogic()
     
     switch direction {
     case .up:

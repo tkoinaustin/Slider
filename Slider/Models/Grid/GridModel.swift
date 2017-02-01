@@ -71,16 +71,16 @@ class GridModel {
     direction = nil
   }
   
-  private func setClosures(_ block: BlockModel) {
-    block.blockModelUpdateGrid = { board in
+  private func setClosures( _ block: BlockModel) {
+    block.blockModelUpdateGrid = { [unowned self] board in
       self.updateGrid(board)
     }
     
-    block.blockModelBlockMovedBy = { amount, index -> Direction? in
+    block.blockModelBlockMovedBy = { [unowned self] amount, index -> Direction? in
       return self.moving(amount: amount, index: index)
     }
     
-    block.blockModelMoveFinished = { _ in
+    block.blockModelMoveFinished = { [unowned self] _ in
       guard self.direction != nil else {
         self.board = .moveOneSpace
         return

@@ -82,7 +82,7 @@ class CodedBlockView: UIView {
   }
   
   fileprivate func setBlockClosures(_ index: Int) {
-    viewModel.reset = {
+    viewModel.reset = { [unowned self] _ in
       self.alpha = 0
       self.transform = .identity
     }
@@ -93,19 +93,19 @@ class CodedBlockView: UIView {
       })
     }
     
-    viewModel.updateBlockUI = { duration in
+    viewModel.updateBlockUI = { [unowned self] duration in
       UIView.animate(withDuration: duration, animations: {
         self.center = self.viewModel.center
       })
     }
     
-   viewModel.nextStep = { _ in
+   viewModel.nextStep = { [unowned self] _ in
       UIView.animate(withDuration: 0.4, animations: {
         self.center = self.viewModel.center
       })
     }
     
-    viewModel.spinOffScreen = { _ in
+    viewModel.spinOffScreen = { [unowned self] _ in
       self.superview?.sendSubview(toBack: self)
       let delay: Double = 0.4 * Double(index)
       let scale: CGFloat = 1.2
@@ -135,7 +135,7 @@ class CodedBlockView: UIView {
       })
     }
     
-    self.viewModel.exitOffScreen = { _ in
+    self.viewModel.exitOffScreen = { [unowned self] _ in
       let transform = CGAffineTransform(scaleX: 1, y: 0.001)
       UIView.animate(
         withDuration: 0.5,
@@ -148,7 +148,7 @@ class CodedBlockView: UIView {
         completion: nil
     )}
     
-    viewModel.fadeIn = { _ in
+    viewModel.fadeIn = { [unowned self] _ in
       self.alpha = 0
       UIView.animate(withDuration: 0.5, animations: {
         self.alpha = 1

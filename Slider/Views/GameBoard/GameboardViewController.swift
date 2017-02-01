@@ -43,8 +43,8 @@ class GameboardViewController: UIViewController {
     viewModel.controlBar.parentViewController = self
   }}
 
-  @IBOutlet var bannerAdToGridConstraint: NSLayoutConstraint!
-  @IBOutlet var topLayoutToGridConstraint: NSLayoutConstraint!
+  @IBOutlet private var bannerAdToGridConstraint: NSLayoutConstraint!
+  @IBOutlet private var topLayoutToGridConstraint: NSLayoutConstraint!
 
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
@@ -59,11 +59,11 @@ class GameboardViewController: UIViewController {
     let navController = segue.destination as? UINavigationController
     let dest = navController?.viewControllers[0] as? SettingsViewController
     
-    dest?.saveGame = {
+    dest?.saveGame = { [unowned self] _ in
       self.viewModel.game.gameTime = self.viewModel.controlBar.timerCount
       self.viewModel.saveGame()
     }
-    dest?.showFTUE = {
+    dest?.showFTUE = { [unowned self] _ in
       self.performSegue(withIdentifier: "FTUESegue", sender: nil)
     }
   }

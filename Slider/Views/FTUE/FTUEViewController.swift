@@ -14,10 +14,10 @@ class FTUEViewController: UIViewController {
   @IBOutlet private var panelTwo: UIView!
   @IBOutlet private var panelThree: UIView!
   
-  @IBOutlet weak var pageOneWelcome: UILabel! { didSet {
+  @IBOutlet private weak var pageOneWelcome: UILabel! { didSet {
     pageOneWelcome.font = gameSize.largeFont
   }}
-  @IBOutlet weak var pageOneText: UILabel! { didSet {
+  @IBOutlet private weak var pageOneText: UILabel! { didSet {
     pageOneText.font = gameSize.font
   }}
   

@@ -41,25 +41,33 @@ class ReplayViewModel {
       let block = BlockViewModel(model: blockModels[index])
       
       block.canvas = size
-      block.placeBlock(point: GridConstants.blockCenter(row: block.model.origin.row,
-                                                        col: block.model.origin.col,
-                                                        type: block.type))
+      
+      block.placeBlock(
+        point: GridConstants.blockCenter(
+          row: block.model.origin.row,
+          col: block.model.origin.col,
+          type: block.type))
+      
       blockViews.append(block)
     }
     
     for blockView in gridView.subviews { blockView.removeFromSuperview() }
     
     for index in 1..<blockModels.count {
-      let _ = CodedBlockView.getReplayBlock(parent: gridView,
-                                            blockModel: blockViews[index],
-                                            index: index)
-    }
+      let _ = CodedBlockView.getReplayBlock(
+        parent: gridView,
+        blockModel: blockViews[index],
+        index: index
+      )}
+    
     placeAllBlocks()
-    moveTimer = Timer.scheduledTimer(timeInterval: 0.6,
-                                     target: self,
-                                     selector: #selector(moveBlocks),
-                                     userInfo: nil,
-                                     repeats: true)
+    
+    moveTimer = Timer.scheduledTimer(
+      timeInterval: 0.6,
+      target: self,
+      selector: #selector(moveBlocks),
+      userInfo: nil,
+      repeats: true)
   }
   
   func stopTimer() {
