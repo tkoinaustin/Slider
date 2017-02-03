@@ -12,6 +12,7 @@ class PuzzleListViewController: UITableViewController {
   var dataProvider = PuzzleListDataProvider()
   var loadNewPuzzle: ((PuzzleModel?) -> Void) = { _ in }
   var saveHistory: (() -> Void) = { }
+  var currentIndex: Int = 0
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -28,7 +29,9 @@ class PuzzleListViewController: UITableViewController {
 
     tableView.reloadData()
     dataProvider.assignParent(self)
-    
+    let idx: IndexPath = IndexPath.init(row: currentIndex, section: 0)
+    tableView.scrollToRow(at: idx, at: .top, animated: true)
+
     tableView.backgroundView = UIImageView(image: UIImage(named: "background gradient90"))
     tableView.backgroundView?.addSubview(UIImageView(image: UIImage(named: "background image small tall")))
   }

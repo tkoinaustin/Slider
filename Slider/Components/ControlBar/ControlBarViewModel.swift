@@ -113,6 +113,7 @@ class ControlBarViewModel: NSObject, NSCoding {
     moveNumber = moveNumber ?? 0
     moveNumber! += 1
   }
+  
   func restoreGame(_ game: GameModel) {
     puzzleLabel = "\(game.name)"
     timerCount = game.gameTime
@@ -157,6 +158,9 @@ class ControlBarViewModel: NSObject, NSCoding {
     puzzleListViewController.preferredContentSize = CGSize(width: 400, height: 3000)
     puzzleListViewController.loadNewPuzzle = newPuzzle
     puzzleListViewController.saveHistory = saveHistory
+    if let controller = parentViewController as? GameboardViewController {
+      puzzleListViewController.currentIndex = controller.viewModel.game.index
+    }
     
     let navController = UINavigationController(rootViewController: puzzleListViewController)
     navController.modalPresentationStyle = .popover
