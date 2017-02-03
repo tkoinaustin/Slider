@@ -13,13 +13,7 @@ class GameboardViewController: UIViewController {
   var viewModel = GameboardViewModel()
 
   @IBOutlet private weak var bannerAdView: BannerAdView! { didSet {
-    switch viewModel.showBannerAds {
-    case true:
-      topLayoutToGridConstraint.isActive = false
-    case false:
-      bannerAdView.alpha = 0
-      bannerAdToGridConstraint.isActive = false
-    }
+    if !viewModel.showBannerAds { bannerAdView.alpha = 0 }
   }}
   
   @IBOutlet private weak var borderView: BorderView! { didSet {
@@ -43,13 +37,18 @@ class GameboardViewController: UIViewController {
     viewModel.controlBar.parentViewController = self
   }}
 
-  @IBOutlet private var bannerAdToGridConstraint: NSLayoutConstraint!
-  @IBOutlet private var topLayoutToGridConstraint: NSLayoutConstraint!
+  @IBOutlet private var bannerAdToGridConstraint: NSLayoutConstraint! { didSet {
+    if !viewModel.showBannerAds { bannerAdToGridConstraint.isActive = false }
+  }}
+  
+  @IBOutlet private var topLayoutToGridConstraint: NSLayoutConstraint! { didSet {
+    if viewModel.showBannerAds { topLayoutToGridConstraint.isActive = false }
+  }}
 
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     viewModel.startGame()
-    bannerAdView.start()
+    if viewModel.showBannerAds { bannerAdView.start() }
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
