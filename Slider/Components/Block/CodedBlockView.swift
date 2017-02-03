@@ -29,7 +29,8 @@ class CodedBlockView: UIView {
     imageView.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: -gameSize.layout).isActive = true
     imageView.trailingAnchor.constraint(equalTo:margins.trailingAnchor, constant: gameSize.layout).isActive = true
     
-    imageView.image = UIImage()
+    imageView.image = UIImage(named: "block gradient")
+    imageView.contentMode = .scaleAspectFill
     imageView.backgroundColor = Color.blue
     imageView.layer.cornerRadius = gameSize.corner
     
