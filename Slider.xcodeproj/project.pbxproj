@@ -282,6 +282,9 @@
 		83AB62631D97106D00E61AB7 /* Slider */ = {
 			isa = PBXGroup;
 			children = (
+				83AB62641D97106D00E61AB7 /* AppDelegate.swift */,
+				83AB626B1D97106D00E61AB7 /* Assets.xcassets */,
+				83AB62701D97106D00E61AB7 /* Info.plist */,
 				CB9F9AF61E204EC2009FF7C2 /* Extensions */,
 				CB9C60241DF067510011F65F /* Resources */,
 				CBA63BF71DA9D7ED004C0EE6 /* Utilities */,
@@ -290,9 +293,6 @@
 				CB5870901DAEE53A00D1EEE9 /* Models */,
 				837137611DD89A21003AD379 /* Views */,
 				83BE867D1DB267EA00D51EA1 /* Components */,
-				83AB62641D97106D00E61AB7 /* AppDelegate.swift */,
-				83AB626B1D97106D00E61AB7 /* Assets.xcassets */,
-				83AB62701D97106D00E61AB7 /* Info.plist */,
 			);
 			path = Slider;
 			sourceTree = "<group>";
