@@ -167,7 +167,6 @@ class ControlBarViewModel: NSObject, NSCoding {
     navController.popoverPresentationController?.sourceRect = puzzleSource
     navController.popoverPresentationController?.sourceView = parentViewController?.view
     navController.popoverPresentationController?.permittedArrowDirections = .down
-    navController.popoverPresentationController?.delegate = self
     
     parentViewController?.show(navController, sender: self)
   }
@@ -180,12 +179,4 @@ class ControlBarViewModel: NSObject, NSCoding {
   @objc func resignActive() {
     saveIt()
   }
-}
-
-extension ControlBarViewModel: UIPopoverPresentationControllerDelegate {
-  // swiftlint:disable line_length
-  func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
-    timerState = .start
-  }
-  // swiftlint:enable line_length
 }
