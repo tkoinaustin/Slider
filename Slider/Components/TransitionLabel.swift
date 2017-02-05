@@ -28,7 +28,7 @@ class TransitionLabel: UILabel {
   
   func setLabel(_ text: String) {
     newValue = text
-    UIView.animate(withDuration: 0.25, animations: {
+    UIView.animate(withDuration: 0.05, animations: {
       self.newLabel.alpha = 0
     }, completion: { _ in
       self.newLabel.text = self.newValue
