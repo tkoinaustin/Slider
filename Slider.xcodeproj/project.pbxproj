@@ -34,6 +34,8 @@
 		CB56F7061E28214600798C20 /* BannerAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB56F7051E28214600798C20 /* BannerAdView.swift */; };
 		CB56F7091E284A7B00798C20 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB56F7081E284A7B00798C20 /* Alerts.swift */; };
 		CB56F70C1E29422E00798C20 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB56F70B1E29422E00798C20 /* StoreKit.framework */; };
+		CB8386821E463D10005451DD /* InAppPurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8386811E463D10005451DD /* InAppPurchase.swift */; };
+		CB8386841E4646F4005451DD /* Gratuity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8386831E4646F4005451DD /* Gratuity.swift */; };
 		CB9C60261DF067610011F65F /* klotski.txt in Resources */ = {isa = PBXBuildFile; fileRef = CB9C60251DF067610011F65F /* klotski.txt */; };
 		CB9F9AF81E204F32009FF7C2 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9F9AF71E204F32009FF7C2 /* UIView.swift */; };
 		CBA63BF91DA9D8F4004C0EE6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA63BF81DA9D8F4004C0EE6 /* Constants.swift */; };
@@ -119,6 +121,8 @@
 		CB56F7051E28214600798C20 /* BannerAdView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BannerAdView.swift; path = Components/BannerAd/BannerAdView.swift; sourceTree = "<group>"; };
 		CB56F7081E284A7B00798C20 /* Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Alerts.swift; path = Views/GameBoard/enums/Alerts.swift; sourceTree = "<group>"; };
 		CB56F70B1E29422E00798C20 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		CB8386811E463D10005451DD /* InAppPurchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InAppPurchase.swift; path = Models/InAppPurchase.swift; sourceTree = "<group>"; };
+		CB8386831E4646F4005451DD /* Gratuity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Gratuity.swift; path = Store/Gratuity.swift; sourceTree = "<group>"; };
 		CB9C60251DF067610011F65F /* klotski.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = klotski.txt; path = Resources/klotski.txt; sourceTree = "<group>"; };
 		CB9F9AF71E204F32009FF7C2 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIView.swift; path = Extensions/UIView.swift; sourceTree = "<group>"; };
 		CBA63BF81DA9D8F4004C0EE6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilities/Constants.swift; sourceTree = "<group>"; };
@@ -255,6 +259,7 @@
 			children = (
 				8371377D1DD8E144003AD379 /* Archiver.swift */,
 				CBB7D3361E2562C2000CC0D3 /* Color.swift */,
+				CB8386831E4646F4005451DD /* Gratuity.swift */,
 			);
 			name = Store;
 			sourceTree = "<group>";
@@ -384,6 +389,7 @@
 				CB04A41D1DD4C990007BE787 /* Grid */,
 				CBC5712A1DEB2E9600633ED8 /* Game */,
 				CB54C8C81E232125008F2A00 /* Puzzles */,
+				CB8386811E463D10005451DD /* InAppPurchase.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -782,6 +788,7 @@
 				CBB7D3491E25B734000CC0D3 /* PuzzleListViewController.swift in Sources */,
 				CBB7D33B1E25B712000CC0D3 /* IntroViewController.swift in Sources */,
 				CB54C8CA1E2321C3008F2A00 /* Puzzles.swift in Sources */,
+				CB8386841E4646F4005451DD /* Gratuity.swift in Sources */,
 				CBC5712C1DEB2F0700633ED8 /* GameModel.swift in Sources */,
 				CBB7D3401E25B722000CC0D3 /* GameboardViewController.swift in Sources */,
 				CB54C8C71E2320F0008F2A00 /* HistoryStoreModel.swift in Sources */,
@@ -809,6 +816,7 @@
 				CBC5712E1DEB2F3A00633ED8 /* GameMoveData.swift in Sources */,
 				837137771DD8A1F5003AD379 /* GridModelInitialization.swift in Sources */,
 				CBB7D3531E25B752000CC0D3 /* ReplayBoardViewController.swift in Sources */,
+				CB8386821E463D10005451DD /* InAppPurchase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

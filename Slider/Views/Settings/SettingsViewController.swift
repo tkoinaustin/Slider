@@ -13,6 +13,9 @@ class SettingsViewController: UIViewController {
   var saveGame: (() -> Void) = { }
   var showFTUE: (() -> Void) = { }
 
+  @IBOutlet var gratuityButton: UIButton!
+  @IBOutlet var gratuityLabel: UILabel!
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -20,6 +23,8 @@ class SettingsViewController: UIViewController {
     navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel,
                                                        target: self,
                                                        action: #selector(dismissController))
+    
+    if !Gratuity.store.showBannerAds { loadThankYou() }
   }
   
   @IBAction func instructionsAction(_ sender: UIButton) {
@@ -32,6 +37,19 @@ class SettingsViewController: UIViewController {
     default:
       navigationController?.setNavigationBarHidden(true, animated: true)
     }
+  }
+  
+  @IBAction func gratuityAction(_ sender: UIButton) {
+    Gratuity.store.buyProduct()
+  }
+  
+  @IBAction func restoreAction(_ sender: UIButton) {
+    Gratuity.store.restorePurchases()
+  }
+  
+  func loadThankYou() {
+    gratuityLabel.text = "Thank you for supporting indie development"
+    gratuityButton.alpha = 0
   }
   
   func dismissController() {

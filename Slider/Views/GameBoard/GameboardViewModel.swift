@@ -24,7 +24,7 @@ class GameboardViewModel {
   fileprivate(set) var controlBar = ControlBarViewModel()
   fileprivate let gradientLayer = CAGradientLayer()
   fileprivate var initialLoad = true
-  var showBannerAds: Bool = false
+  var showBannerAds: Bool = Gratuity.store.showBannerAds
   var FTUECompleted = false
 
   var count: Int {
@@ -236,12 +236,15 @@ class GameboardViewModel {
     controlBar.moveNumber = 0
     replayViewModel.game = self.game
     replayViewModel.assignGridView(gridView)
+    
     replayViewModel.updateCounter = { [unowned self] index in
       self.controlBar.moveNumber = index - 1
     }
+    
     replayViewModel.onCompletion = { [unowned self] _ in
       self.winnerAlert(.replay)
     }
+    
     replayViewModel.loadBlocks()
   }
   

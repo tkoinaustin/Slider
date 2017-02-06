@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="myz-M9-IVC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E144f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="myz-M9-IVC">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -27,30 +27,74 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background image large" translatesAutoresizingMaskIntoConstraints="NO" id="nha-pW-T0t">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YQH-YL-gLU">
-                                <rect key="frame" x="145.5" y="318" width="84" height="30"/>
-                                <state key="normal" title="How To Play"/>
-                                <connections>
-                                    <action selector="instructionsAction:" destination="wZ3-td-p7H" eventType="touchUpInside" id="57U-kn-bgU"/>
-                                    <segue destination="lqF-UJ-PG0" kind="custom" customClass="IntroSegue" customModule="Slider" customModuleProvider="target" id="p6m-z1-pGw"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="C1r-pu-fus">
+                                <rect key="frame" x="50" y="128" width="275" height="480"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Slider is brought to you by TKO Solutions, making iOS applications since 2009." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYf-78-RfZ">
+                                        <rect key="frame" x="3.5" y="0.0" width="268" height="61"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YQH-YL-gLU">
+                                        <rect key="frame" x="95.5" y="86" width="84" height="30"/>
+                                        <state key="normal" title="How To Play"/>
+                                        <connections>
+                                            <action selector="instructionsAction:" destination="wZ3-td-p7H" eventType="touchUpInside" id="57U-kn-bgU"/>
+                                            <segue destination="lqF-UJ-PG0" kind="custom" customClass="IntroSegue" customModule="Slider" customModuleProvider="target" id="p6m-z1-pGw"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6s-Xb-dTO">
+                                        <rect key="frame" x="0.0" y="141" width="275" height="142.5"/>
+                                        <string key="text">Do you like the game? Would you like to support indie developers? If so, why not contribute a small gratuity of $0.99. Doing so will provide you with good karma, a sense of well being, and remove the banner ads from the program.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F4B-rn-Yln">
+                                        <rect key="frame" x="87.5" y="308.5" width="100" height="30"/>
+                                        <state key="normal" title="$0.99 Gratuity"/>
+                                        <connections>
+                                            <action selector="gratuityAction:" destination="wZ3-td-p7H" eventType="touchUpInside" id="cQm-4B-k7S"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Did you already provide a gratuity from another device. Restore it on this device, just click retore gratuity" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wi1-Ed-rbu">
+                                        <rect key="frame" x="2" y="363.5" width="271.5" height="61"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jR4-cm-PqI">
+                                        <rect key="frame" x="81.5" y="449.5" width="112" height="30"/>
+                                        <state key="normal" title="Restore Gratuity"/>
+                                        <connections>
+                                            <action selector="restoreAction:" destination="wZ3-td-p7H" eventType="touchUpInside" id="KTM-sM-8nV"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="C1r-pu-fus" secondAttribute="trailing" constant="50" id="3sE-iS-S7l"/>
                             <constraint firstAttribute="trailing" secondItem="e0D-gY-zyy" secondAttribute="trailing" id="6wu-HG-NU6"/>
-                            <constraint firstItem="YQH-YL-gLU" firstAttribute="centerY" secondItem="eOQ-Qs-oXd" secondAttribute="centerY" id="Ecu-M8-iRe"/>
                             <constraint firstItem="e0D-gY-zyy" firstAttribute="leading" secondItem="eOQ-Qs-oXd" secondAttribute="leading" id="Fr3-He-WlH"/>
                             <constraint firstItem="nha-pW-T0t" firstAttribute="leading" secondItem="eOQ-Qs-oXd" secondAttribute="leading" id="P1C-NQ-eqT"/>
+                            <constraint firstItem="C1r-pu-fus" firstAttribute="centerX" secondItem="eOQ-Qs-oXd" secondAttribute="centerX" id="RhI-eo-wFB"/>
                             <constraint firstAttribute="trailing" secondItem="nha-pW-T0t" secondAttribute="trailing" id="VWP-cS-PYR"/>
                             <constraint firstItem="nha-pW-T0t" firstAttribute="top" secondItem="eOQ-Qs-oXd" secondAttribute="top" id="VWT-Mm-sU4"/>
                             <constraint firstAttribute="bottom" secondItem="nha-pW-T0t" secondAttribute="bottom" id="bzM-qu-ZZR"/>
-                            <constraint firstItem="YQH-YL-gLU" firstAttribute="centerX" secondItem="eOQ-Qs-oXd" secondAttribute="centerX" id="feL-GK-edL"/>
                             <constraint firstAttribute="bottom" secondItem="e0D-gY-zyy" secondAttribute="bottom" id="gGx-Gh-RPy"/>
+                            <constraint firstItem="C1r-pu-fus" firstAttribute="centerY" secondItem="eOQ-Qs-oXd" secondAttribute="centerY" id="gh5-is-R9q"/>
                             <constraint firstItem="e0D-gY-zyy" firstAttribute="top" secondItem="eOQ-Qs-oXd" secondAttribute="top" id="jeI-uV-PZk"/>
+                            <constraint firstItem="C1r-pu-fus" firstAttribute="leading" secondItem="eOQ-Qs-oXd" secondAttribute="leading" constant="50" id="zVw-bu-ehQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Agd-Zd-AAU"/>
+                    <connections>
+                        <outlet property="gratuityButton" destination="F4B-rn-Yln" id="hV2-uT-480"/>
+                        <outlet property="gratuityLabel" destination="x6s-Xb-dTO" id="F0s-KT-OUb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dbW-Gu-0El" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -62,7 +106,7 @@
                 <viewControllerPlaceholder storyboardName="FTUE" id="lqF-UJ-PG0" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RCw-bS-QC8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1340" y="85"/>
+            <point key="canvasLocation" x="1339" y="80"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="21r-MS-dnD">

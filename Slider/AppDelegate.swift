@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ) -> Bool {
 //    Fabric.with([Crashlytics.self])
     GADMobileAds.configure(withApplicationID: "ca-app-pub-8254175664355700~3835606073")
+    Gratuity.store.checkForGratuity() { _, _ in }
     return true
   }
   
