@@ -8,21 +8,17 @@
 
 import StoreKit
 
-protocol  IAPDelegate {
-  func updateUI()
-}
-
 public typealias ProductIdentifier = String
-//public typealias ProductsRequestCompletionHandler = (_ success: Bool, _ products: [SKProduct]?) -> Void
 
 open class InAppPurchase : NSObject  {
-  var delegate: IAPDelegate?
   static let InAppPurchaseNotification = "InAppPurchaseNotification"
-  fileprivate var product: SKProduct!
+  fileprivate var smallDonationProduct: SKProduct!
   
   fileprivate let productIdentifiers: Set<ProductIdentifier>
   fileprivate var appStoreProductIdentifiers = Set<ProductIdentifier>()
+  
   fileprivate var purchasedProductIdentifiers = Set<ProductIdentifier>()
+  
   fileprivate var productsRequest: SKProductsRequest?
   fileprivate var productsRequestCompletionHandler: (_ success: Bool, _ products: [SKProduct]?) -> Void =  { _, _ in }
   
@@ -46,19 +42,19 @@ open class InAppPurchase : NSObject  {
   }
 
   public func checkForGratuity(completionHandler: @escaping (_ success: Bool, _ products: [SKProduct]?) -> Void) {
+    print("checkForGratuity() { _, _ in }")
     productsRequest?.cancel()
+    
     productsRequestCompletionHandler = completionHandler
-    
-//    if purchasedProductIdentifiers.contains(Gratuity.smallGratuity) { return }
-    
     productsRequest = SKProductsRequest(productIdentifiers: productIdentifiers)
+    
     productsRequest!.delegate = self
     productsRequest!.start()
   }
   
   public func buyProduct() {
-    print("Buying \(product.productIdentifier)...")
-    let payment = SKPayment(product: product)
+    print("Buying \(smallDonationProduct.productIdentifier)...")
+    let payment = SKPayment(product: smallDonationProduct)
 //    SKPaymentQueue.default().add(payment)
   }
   
@@ -78,7 +74,7 @@ open class InAppPurchase : NSObject  {
 extension InAppPurchase: SKProductsRequestDelegate {
   
   public func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
-    product = response.products[0]
+    smallDonationProduct = response.products[0]
 
     let products = response.products
     let productIds = products.map { $0.productIdentifier }

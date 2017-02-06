@@ -24,7 +24,6 @@ class GameboardViewModel {
   fileprivate(set) var controlBar = ControlBarViewModel()
   fileprivate let gradientLayer = CAGradientLayer()
   fileprivate var initialLoad = true
-  var showBannerAds: Bool = Gratuity.store.showBannerAds
   var FTUECompleted = false
 
   var count: Int {

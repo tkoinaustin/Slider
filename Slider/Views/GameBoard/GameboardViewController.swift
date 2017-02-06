@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameboardViewController: UIViewController, IAPDelegate {
+class GameboardViewController: UIViewController {
   
   var viewModel = GameboardViewModel()
 
@@ -37,7 +37,11 @@ class GameboardViewController: UIViewController, IAPDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    Gratuity.store.delegate = self
+    addObserver()
+  }
+  
+  deinit {
+    NotificationCenter.default.removeObserver(self)
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -48,7 +52,7 @@ class GameboardViewController: UIViewController, IAPDelegate {
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     viewModel.startGame()
-    if viewModel.showBannerAds { bannerAdView.start() }
+    if Gratuity.store.showBannerAds { bannerAdView.start() }
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -67,11 +71,19 @@ class GameboardViewController: UIViewController, IAPDelegate {
       self.performSegue(withIdentifier: "FTUESegue", sender: nil)
     }
   }
+  
+  func addObserver() {
+    NotificationCenter.default.addObserver( self,
+                                            selector: #selector(updateUI),
+                                            name: NSNotification.Name(rawValue: InAppPurchase.InAppPurchaseNotification),
+                                            object: nil)
+  }
 
   func updateUI() {
-    bannerAdToGridConstraint.isActive = viewModel.showBannerAds
-    topLayoutToGridConstraint.isActive = !viewModel.showBannerAds
-    bannerAdView.alpha = viewModel.showBannerAds ? 1 : 0
+    let showBannerAds = Gratuity.store.showBannerAds
+    bannerAdView.alpha = showBannerAds ? 1 : 0
+    bannerAdToGridConstraint.isActive = showBannerAds
+    topLayoutToGridConstraint.isActive = !showBannerAds
     
     gridView.setNeedsLayout()
     gridView.layoutIfNeeded()
