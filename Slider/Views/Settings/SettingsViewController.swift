@@ -40,10 +40,12 @@ class SettingsViewController: UIViewController {
   }
   
   @IBAction func gratuityAction(_ sender: UIButton) {
+    dismissController()
     Gratuity.store.buyProduct()
   }
   
   @IBAction func restoreAction(_ sender: UIButton) {
+    dismissController()
     Gratuity.store.restorePurchases()
   }
   

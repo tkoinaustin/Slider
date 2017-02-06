@@ -41,8 +41,8 @@ open class InAppPurchase : NSObject  {
     return !purchasedProductIdentifiers.contains(Gratuity.smallGratuity)
   }
 
-  public func checkForGratuity(completionHandler: @escaping (_ success: Bool, _ products: [SKProduct]?) -> Void) {
-    print("checkForGratuity() { _, _ in }")
+  public func retrieveProducts(completionHandler: @escaping (_ success: Bool, _ products: [SKProduct]?) -> Void) {
+    print("checkForProducts() { _, _ in }")
     productsRequest?.cancel()
     
     productsRequestCompletionHandler = completionHandler
@@ -55,7 +55,7 @@ open class InAppPurchase : NSObject  {
   public func buyProduct() {
     print("Buying \(smallDonationProduct.productIdentifier)...")
     let payment = SKPayment(product: smallDonationProduct)
-//    SKPaymentQueue.default().add(payment)
+    SKPaymentQueue.default().add(payment)
   }
   
   public func isProductPurchased(_ productIdentifier: ProductIdentifier) -> Bool {

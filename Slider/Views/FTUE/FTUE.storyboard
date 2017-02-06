@@ -9,11 +9,6 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Circular-Bold.ttf">
-            <string>CircularTT-Bold</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="liY-Gm-ORv">
@@ -98,34 +93,38 @@
                     <rect key="frame" x="0.0" y="0.0" width="364" height="625"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wah-Ez-6vn">
-                            <rect key="frame" x="185" y="284" width="28" height="64"/>
-                            <fontDescription key="fontDescription" name="CircularTT-Bold" family="Circular TT" pointSize="50"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QL4-ha-9Qq">
+                            <rect key="frame" x="109" y="186" width="178" height="265"/>
+                            <string key="text">There are many puzzles to play, starting with the trivially simple and eventually working your way up to the full Pennent Puzzle, which has a very high degree of difficulty.</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="wah-Ez-6vn" firstAttribute="centerY" secondItem="KcO-8D-Icg" secondAttribute="centerY" id="W9R-MP-0MT"/>
-                        <constraint firstItem="wah-Ez-6vn" firstAttribute="centerX" secondItem="KcO-8D-Icg" secondAttribute="centerX" id="t0y-tx-OGf"/>
+                        <constraint firstItem="QL4-ha-9Qq" firstAttribute="centerY" secondItem="KcO-8D-Icg" secondAttribute="centerY" id="33e-2r-A44"/>
+                        <constraint firstItem="QL4-ha-9Qq" firstAttribute="centerX" secondItem="KcO-8D-Icg" secondAttribute="centerX" id="cAb-iU-6l2"/>
+                        <constraint firstItem="QL4-ha-9Qq" firstAttribute="width" secondItem="KcO-8D-Icg" secondAttribute="width" multiplier="0.75" id="oha-IJ-RYg"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" id="FiW-Lk-ddt">
                     <rect key="frame" x="0.0" y="0.0" width="343" height="623"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UU6-52-Z19">
-                            <rect key="frame" x="155" y="285" width="28" height="64"/>
-                            <fontDescription key="fontDescription" name="CircularTT-Bold" family="Circular TT" pointSize="50"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xUP-uq-hRe">
+                            <rect key="frame" x="82" y="179" width="178" height="265"/>
+                            <string key="text">When you open the game, it will always start where you last left it, it remembers the current state of your puzzle.  In fact, it will store all your old attempts so you can replay any game from your game history.</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="UU6-52-Z19" firstAttribute="centerY" secondItem="FiW-Lk-ddt" secondAttribute="centerY" id="6WM-QN-1Rd"/>
-                        <constraint firstItem="UU6-52-Z19" firstAttribute="centerX" secondItem="FiW-Lk-ddt" secondAttribute="centerX" id="P0y-Iw-ICC"/>
+                        <constraint firstItem="xUP-uq-hRe" firstAttribute="centerY" secondItem="FiW-Lk-ddt" secondAttribute="centerY" id="mUY-2a-z3A"/>
+                        <constraint firstItem="xUP-uq-hRe" firstAttribute="centerX" secondItem="FiW-Lk-ddt" secondAttribute="centerX" id="qu6-8Z-MLS"/>
+                        <constraint firstItem="xUP-uq-hRe" firstAttribute="width" secondItem="FiW-Lk-ddt" secondAttribute="width" multiplier="0.75" id="v7C-yP-eIB"/>
                     </constraints>
                 </view>
             </objects>

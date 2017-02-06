@@ -27,17 +27,17 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background image large" translatesAutoresizingMaskIntoConstraints="NO" id="nha-pW-T0t">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="C1r-pu-fus">
-                                <rect key="frame" x="50" y="128" width="275" height="480"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="C1r-pu-fus">
+                                <rect key="frame" x="50" y="128" width="335" height="262"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Slider is brought to you by TKO Solutions, making iOS applications since 2009." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYf-78-RfZ">
-                                        <rect key="frame" x="3.5" y="0.0" width="268" height="61"/>
+                                        <rect key="frame" x="6.5" y="0.0" width="322" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YQH-YL-gLU">
-                                        <rect key="frame" x="95.5" y="86" width="84" height="30"/>
+                                        <rect key="frame" x="125.5" y="54" width="84" height="30"/>
                                         <state key="normal" title="How To Play"/>
                                         <connections>
                                             <action selector="instructionsAction:" destination="wZ3-td-p7H" eventType="touchUpInside" id="57U-kn-bgU"/>
@@ -45,30 +45,17 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6s-Xb-dTO">
-                                        <rect key="frame" x="0.0" y="141" width="275" height="142.5"/>
+                                        <rect key="frame" x="0.0" y="97" width="335" height="122"/>
                                         <string key="text">Do you like the game? Would you like to support indie developers? If so, why not contribute a small gratuity of $0.99. Doing so will provide you with good karma, a sense of well being, and remove the banner ads from the program.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F4B-rn-Yln">
-                                        <rect key="frame" x="87.5" y="308.5" width="100" height="30"/>
+                                        <rect key="frame" x="117.5" y="232" width="100" height="30"/>
                                         <state key="normal" title="$0.99 Gratuity"/>
                                         <connections>
                                             <action selector="gratuityAction:" destination="wZ3-td-p7H" eventType="touchUpInside" id="cQm-4B-k7S"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Did you already provide a gratuity from another device. Restore it on this device, just click retore gratuity" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wi1-Ed-rbu">
-                                        <rect key="frame" x="2" y="363.5" width="271.5" height="61"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jR4-cm-PqI">
-                                        <rect key="frame" x="81.5" y="449.5" width="112" height="30"/>
-                                        <state key="normal" title="Restore Gratuity"/>
-                                        <connections>
-                                            <action selector="restoreAction:" destination="wZ3-td-p7H" eventType="touchUpInside" id="KTM-sM-8nV"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -76,18 +63,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="C1r-pu-fus" secondAttribute="trailing" constant="50" id="3sE-iS-S7l"/>
+                            <constraint firstAttribute="trailing" secondItem="C1r-pu-fus" secondAttribute="trailing" constant="20" id="3sE-iS-S7l"/>
                             <constraint firstAttribute="trailing" secondItem="e0D-gY-zyy" secondAttribute="trailing" id="6wu-HG-NU6"/>
                             <constraint firstItem="e0D-gY-zyy" firstAttribute="leading" secondItem="eOQ-Qs-oXd" secondAttribute="leading" id="Fr3-He-WlH"/>
+                            <constraint firstItem="C1r-pu-fus" firstAttribute="centerY" secondItem="eOQ-Qs-oXd" secondAttribute="centerY" id="Mo2-QW-g3Q"/>
                             <constraint firstItem="nha-pW-T0t" firstAttribute="leading" secondItem="eOQ-Qs-oXd" secondAttribute="leading" id="P1C-NQ-eqT"/>
                             <constraint firstItem="C1r-pu-fus" firstAttribute="centerX" secondItem="eOQ-Qs-oXd" secondAttribute="centerX" id="RhI-eo-wFB"/>
                             <constraint firstAttribute="trailing" secondItem="nha-pW-T0t" secondAttribute="trailing" id="VWP-cS-PYR"/>
                             <constraint firstItem="nha-pW-T0t" firstAttribute="top" secondItem="eOQ-Qs-oXd" secondAttribute="top" id="VWT-Mm-sU4"/>
                             <constraint firstAttribute="bottom" secondItem="nha-pW-T0t" secondAttribute="bottom" id="bzM-qu-ZZR"/>
                             <constraint firstAttribute="bottom" secondItem="e0D-gY-zyy" secondAttribute="bottom" id="gGx-Gh-RPy"/>
-                            <constraint firstItem="C1r-pu-fus" firstAttribute="centerY" secondItem="eOQ-Qs-oXd" secondAttribute="centerY" id="gh5-is-R9q"/>
                             <constraint firstItem="e0D-gY-zyy" firstAttribute="top" secondItem="eOQ-Qs-oXd" secondAttribute="top" id="jeI-uV-PZk"/>
-                            <constraint firstItem="C1r-pu-fus" firstAttribute="leading" secondItem="eOQ-Qs-oXd" secondAttribute="leading" constant="50" id="zVw-bu-ehQ"/>
+                            <constraint firstItem="C1r-pu-fus" firstAttribute="leading" secondItem="eOQ-Qs-oXd" secondAttribute="leading" constant="20" id="zVw-bu-ehQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Agd-Zd-AAU"/>
