@@ -88,10 +88,6 @@ extension InAppPurchase: SKProductsRequestDelegate {
     for product in products {
       print("Found product: \(product.productIdentifier) - \(product.localizedTitle) - \(product.price.floatValue)\n")
     }
-    
-    if showBannerAds {
-      self.restorePurchases()
-    }
   }
   
   public func request(_ request: SKRequest, didFailWithError error: Error) {

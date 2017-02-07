@@ -56,7 +56,7 @@ class ControlBarView: UIView, XibLoadable {
   }
   
   @IBAction func resetAction(_ sender: UIButton) {
-    let notify = UIAlertController.init(title: "Are you sure?",
+    let notify = UIAlertController.init(title: "Reset",
                                         message: "This will erase the history for this game",
                                         preferredStyle: .alert)
     let okAction = UIAlertAction(title: "OK",

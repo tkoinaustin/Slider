@@ -28,7 +28,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="C1r-pu-fus">
-                                <rect key="frame" x="50" y="128" width="335" height="262"/>
+                                <rect key="frame" x="19" y="128" width="335" height="359"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Slider is brought to you by TKO Solutions, making iOS applications since 2009." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYf-78-RfZ">
                                         <rect key="frame" x="6.5" y="0.0" width="322" height="41"/>
@@ -58,6 +58,19 @@
                                             <action selector="gratuityAction:" destination="wZ3-td-p7H" eventType="touchUpInside" id="cQm-4B-k7S"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already gave a tip. Go ahead and restore it on this device to remove the ads." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fh0-Rj-71c">
+                                        <rect key="frame" x="3.5" y="275" width="328.5" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IE8-ps-TY2">
+                                        <rect key="frame" x="107" y="329" width="121" height="30"/>
+                                        <state key="normal" title="Restore Purchase"/>
+                                        <connections>
+                                            <action selector="restoreAction:" destination="wZ3-td-p7H" eventType="touchUpInside" id="aym-ez-iJP"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -81,6 +94,8 @@
                     <connections>
                         <outlet property="gratuityButton" destination="F4B-rn-Yln" id="hV2-uT-480"/>
                         <outlet property="gratuityLabel" destination="x6s-Xb-dTO" id="F0s-KT-OUb"/>
+                        <outlet property="restoreButton" destination="IE8-ps-TY2" id="Woc-vy-SzN"/>
+                        <outlet property="restoreLabel" destination="fh0-Rj-71c" id="5b3-7u-5c9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dbW-Gu-0El" userLabel="First Responder" sceneMemberID="firstResponder"/>

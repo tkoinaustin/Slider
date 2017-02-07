@@ -15,7 +15,9 @@ class SettingsViewController: UIViewController {
 
   @IBOutlet var gratuityButton: UIButton!
   @IBOutlet var gratuityLabel: UILabel!
-
+  @IBOutlet var restoreLabel: UILabel!
+  @IBOutlet var restoreButton: UIButton!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -50,8 +52,10 @@ class SettingsViewController: UIViewController {
   }
   
   func loadThankYou() {
-    gratuityLabel.text = "Thank you for supporting indie development"
+    gratuityLabel.text = "Your gratuity is appreciated. Thank you for supporting indie development"
     gratuityButton.alpha = 0
+    restoreLabel.text = ""
+    restoreButton.alpha = 0
   }
   
   func dismissController() {
