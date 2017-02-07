@@ -56,7 +56,20 @@ class ControlBarView: UIView, XibLoadable {
   }
   
   @IBAction func resetAction(_ sender: UIButton) {
-    viewModel.resetCurrentGame()
+    let notify = UIAlertController.init(title: "Are you sure?",
+                                        message: "This will erase the history for this game",
+                                        preferredStyle: .alert)
+    let okAction = UIAlertAction(title: "OK",
+                                 style: .default,
+                                 handler: { [unowned self] _ in
+                                  self.viewModel.resetCurrentGame() })
+    notify.addAction(okAction)
+    let cancelAction = UIAlertAction(title: "Cancel",
+                                     style: .cancel)
+    notify.addAction(cancelAction)
+    self.parentViewController?.present(notify,
+                                       animated: true,
+                                       completion: nil)
   }
   
   func setup() {
