@@ -55,6 +55,8 @@
                         <outlet property="pageControl" destination="feR-Gh-XS5" id="Lz7-Hr-JJd"/>
                         <outlet property="pageOneText" destination="CC3-EL-PZA" id="Gqq-6S-eug"/>
                         <outlet property="pageOneWelcome" destination="dO8-KJ-6J5" id="OkG-0Y-bBx"/>
+                        <outlet property="pageThreeText" destination="xUP-uq-hRe" id="WkI-hL-Px9"/>
+                        <outlet property="pageTwoText" destination="QL4-ha-9Qq" id="Ykl-Iw-kQk"/>
                         <outlet property="panelOne" destination="2gi-gk-z47" id="lws-Cs-flr"/>
                         <outlet property="panelThree" destination="FiW-Lk-ddt" id="UC1-iy-ESt"/>
                         <outlet property="panelTwo" destination="KcO-8D-Icg" id="lXc-mj-iGX"/>

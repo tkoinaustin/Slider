@@ -20,11 +20,16 @@ class FTUEViewController: UIViewController {
   @IBOutlet private weak var pageOneText: UILabel! { didSet {
     pageOneText.font = gameSize.font
   }}
-  
+  @IBOutlet private var pageTwoText: UILabel! { didSet {
+    pageTwoText.font = gameSize.font
+  }}
+  @IBOutlet private var pageThreeText: UILabel! { didSet {
+    pageThreeText.font = gameSize.font
+  }}
   @IBOutlet fileprivate weak var panelsView: UIScrollView! { didSet {
       panelsView.delegate = self
   }}
-  
+
   @IBOutlet fileprivate weak var pageControl: UIPageControl! { didSet {
     pageControl.numberOfPages = 4
     pageControl.currentPage = 0
