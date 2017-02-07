@@ -104,11 +104,11 @@ class GameboardViewModel {
       }
     }
     
-    Delay.by(1, completion: {
+    Delay.by(1) {
       for index in 1..<self.grid.blockCount {
         let _ = CodedBlockView.getGameBlock(parent: gridView, game: self, index: index)
       }
-    })
+    }
   }
   
   // swiftlint:disable function_body_length

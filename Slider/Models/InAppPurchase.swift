@@ -10,7 +10,7 @@ import StoreKit
 
 public typealias ProductIdentifier = String
 
-open class InAppPurchase : NSObject  {
+open class InAppPurchase: NSObject {
   static let InAppPurchaseNotification = "InAppPurchaseNotification"
   fileprivate var smallDonationProduct: SKProduct!
   
@@ -20,7 +20,7 @@ open class InAppPurchase : NSObject  {
   fileprivate var purchasedProductIdentifiers = Set<ProductIdentifier>()
   
   fileprivate var productsRequest: SKProductsRequest?
-  fileprivate var productsRequestCompletionHandler: (_ success: Bool, _ products: [SKProduct]?) -> Void =  { _, _ in }
+  fileprivate var productsRequestCompletionHandler: (_ success: Bool, _ products: [SKProduct]?) -> Void = { _, _ in }
   
   public init(productIds: Set<ProductIdentifier>) {
     productIdentifiers = productIds
@@ -104,7 +104,7 @@ extension InAppPurchase: SKPaymentTransactionObserver {
   
   public func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
     for transaction in transactions {
-      switch (transaction.transactionState) {
+      switch transaction.transactionState {
       case .purchased:
         complete(transaction: transaction)
         break
@@ -153,7 +153,8 @@ extension InAppPurchase: SKPaymentTransactionObserver {
     purchasedProductIdentifiers.insert(identifier)
     UserDefaults.standard.set(true, forKey: identifier)
     UserDefaults.standard.synchronize()
-    NotificationCenter.default.post(name: NSNotification.Name(rawValue: InAppPurchase.InAppPurchaseNotification), object: identifier)
+    NotificationCenter.default.post(
+      name: NSNotification.Name(rawValue: InAppPurchase.InAppPurchaseNotification),
+      object: identifier)
   }
 }
-

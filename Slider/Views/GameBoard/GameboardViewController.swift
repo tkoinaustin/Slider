@@ -73,10 +73,11 @@ class GameboardViewController: UIViewController {
   }
   
   func addObserver() {
-    NotificationCenter.default.addObserver( self,
-                                            selector: #selector(updateUI),
-                                            name: NSNotification.Name(rawValue: InAppPurchase.InAppPurchaseNotification),
-                                            object: nil)
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(updateUI),
+      name: NSNotification.Name(rawValue: InAppPurchase.InAppPurchaseNotification),
+      object: nil)
   }
 
   func updateUI() {

@@ -55,9 +55,9 @@ enum GameSize: String {
   
   var layout: CGFloat {
     switch self {
-    case .small: return 8 - 1
-    case .medium: return 8 - 1.5
-    case .large: return 8 - 2
+    case .small: return 1
+    case .medium: return 1.5
+    case .large: return 2
     }
   }
   

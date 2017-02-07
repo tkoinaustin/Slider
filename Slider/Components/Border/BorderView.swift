@@ -32,8 +32,10 @@ class BorderView: UIView, XibLoadable {
     bottomRight.clipsToBounds = true
   }}
 
+  // swiftlint:disable private_outlet
   @IBOutlet weak var gameboardLocation: UIView!
-  
+  // swiftlint:enable private_outlet
+
   @IBOutlet private var borders: [UIView]!
   
   func setup() {

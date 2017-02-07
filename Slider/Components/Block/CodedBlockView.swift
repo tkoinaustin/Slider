@@ -22,12 +22,11 @@ class CodedBlockView: UIView {
     
     self.addSubview(imageView)
     imageView.translatesAutoresizingMaskIntoConstraints = false
-    let margins = layoutMarginsGuide
     
-    imageView.topAnchor.constraint(equalTo: margins.topAnchor, constant: -gameSize.layout).isActive = true
-    imageView.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: gameSize.layout).isActive = true
-    imageView.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: -gameSize.layout).isActive = true
-    imageView.trailingAnchor.constraint(equalTo:margins.trailingAnchor, constant: gameSize.layout).isActive = true
+    imageView.topAnchor.constraint(equalTo: self.topAnchor, constant: gameSize.layout).isActive = true
+    imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -gameSize.layout).isActive = true
+    imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: gameSize.layout).isActive = true
+    imageView.trailingAnchor.constraint(equalTo:self.trailingAnchor, constant: -gameSize.layout).isActive = true
     
     imageView.image = UIImage(named: "block gradient")
     imageView.contentMode = .scaleAspectFill

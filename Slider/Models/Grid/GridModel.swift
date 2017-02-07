@@ -11,7 +11,6 @@ import UIKit
 let winningCoordinates = Coordinate(row:3, col:1)
 
 class GridModel {
-  
   private var gridBlocks = [BlockModel]()
 
   private(set) var currentGrid: [[Int]]!
@@ -33,14 +32,9 @@ class GridModel {
   var gameModelMoveFinished: ((_: GameMoveData) -> Void) = { move in }
   var onWinning: ((_: Bool) -> Void) = { won in }
   
-  var gameWon: Bool = false { didSet {
-//    if gameWon != oldValue { print("game won is \(gameWon)") }
-    onWinning(gameWon)
-  }}
+  var gameWon: Bool = false { didSet { onWinning(gameWon) }}
 
-  var blockCount: Int {
-    return gridBlocks.count
-  }
+  var blockCount: Int { return gridBlocks.count }
   
   func block(_ index: Int) -> BlockModel? {
     guard index >= 0 && index < gridBlocks.count else { return nil }
@@ -48,9 +42,7 @@ class GridModel {
     return gridBlocks[index]
   }
   
-  func allBlocks() -> [BlockModel] {
-    return gridBlocks
-  }
+  func allBlocks() -> [BlockModel] { return gridBlocks }
 
   init(_ grid: [[Int]]) {
     self.currentGrid = grid
@@ -59,9 +51,7 @@ class GridModel {
     for block in gridBlocks { setClosures(block) }
   }
   
-  func releaseBlocks() {
-    gridBlocks.removeAll()
-  }
+  func releaseBlocks() { gridBlocks.removeAll() }
   
   func setCurrentGrid(_ grid: [[Int]]) {
     currentGrid = grid
@@ -99,12 +89,10 @@ class GridModel {
   }
   
   func updateGrid(_ board: Board) {
-//    print("updateGrid \(board)")
     self.board = board
     switch board {
     case .moveTwoSpaces: movingBlocks = twoMoveBlocks
-    case .moveOneSpace,
-         .moveZeroSpaces: movingBlocks = oneMoveBlocks
+    case .moveOneSpace, .moveZeroSpaces: movingBlocks = oneMoveBlocks
     }
   }
   
@@ -186,12 +174,9 @@ class GridModel {
     }
   }
   
-  // Set the three grids, zero, one and two moveGrid
   private func setOutcomesForMove(_ direction: Direction, _ index: Int) -> Bool {
     guard self.direction == nil else { return true }
     guard notThisDirection != direction else { return false }
-
-//    print("setOutcomesForMove block \(index) \(direction)")
     
     zeroMoveBoard = currentGrid
     
@@ -200,18 +185,14 @@ class GridModel {
     self.oneMoveBoard = oneMoveBoard
     oneMoveBlocks = gameLogic.blocksThatMoved(startGrid: zeroMoveBoard, endGrid: oneMoveBoard)
     movingBlocks = oneMoveBlocks
-//    print("oneMoveBlocks \(oneMoveBlocks)")
     
     guard let twoMoveBoard = gameLogic.newGridForMove(oneMoveBoard, index, direction)
       else { return true }
     self.twoMoveBoard = twoMoveBoard
     twoMoveBlocks = gameLogic.blocksThatMoved(startGrid: oneMoveBoard, endGrid: twoMoveBoard)
-//    print("twoMoveBlocks \(twoMoveBlocks)")
 
     for index in twoMoveBlocks {
-      if oneMoveBlocks.contains(index) {
-        block(index)?.doubleMoveLegal = true
-      }
+      if oneMoveBlocks.contains(index) { block(index)?.doubleMoveLegal = true }
     }
     
     return true

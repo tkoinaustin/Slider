@@ -13,10 +13,10 @@ class SettingsViewController: UIViewController {
   var saveGame: (() -> Void) = { }
   var showFTUE: (() -> Void) = { }
 
-  @IBOutlet var gratuityButton: UIButton!
-  @IBOutlet var gratuityLabel: UILabel!
-  @IBOutlet var restoreLabel: UILabel!
-  @IBOutlet var restoreButton: UIButton!
+  @IBOutlet private var gratuityButton: UIButton!
+  @IBOutlet private var gratuityLabel: UILabel!
+  @IBOutlet private var restoreLabel: UILabel!
+  @IBOutlet private var restoreButton: UIButton!
   
   override func viewDidLoad() {
     super.viewDidLoad()

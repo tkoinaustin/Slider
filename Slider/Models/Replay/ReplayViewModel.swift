@@ -97,7 +97,7 @@ class ReplayViewModel {
       delay = 5.0
     }
     Delay.by(delay) {
-      self.gridView.parentViewController?.navigationController?.popViewController(animated: true)
+      _ = self.gridView.parentViewController?.navigationController?.popViewController(animated: true)
       self.onCompletion()
     }
   }

@@ -77,7 +77,7 @@ class TimerView: UIView {
     setDisplay(viewModel.timerCount)
   }
   
-  func initialize(){
+  func initialize() {
     setDisplay(viewModel.timerCount)
   }
   
