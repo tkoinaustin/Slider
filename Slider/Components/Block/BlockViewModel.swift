@@ -44,7 +44,8 @@ class BlockViewModel {
   var spinOffScreen: (() -> Void) = {}
   var reset: (() -> Void) = {}
   var fadeOutAndRemove: (() -> Void) = {}
-  
+  var blockMoveStarted: (() -> Void) = {}
+
   var type: BlockType = .small { didSet {
     guard let _ = canvas else { return }
     bounds = setBounds()

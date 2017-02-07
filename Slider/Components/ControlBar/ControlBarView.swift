@@ -86,8 +86,7 @@ class ControlBarView: UIView, XibLoadable {
     if let move = viewModel.moveNumber { moveNumber.text = move.description }
     
     switch viewModel.timerState {
-    case .start:
-      timerView.start()
+    case .start, .initialize:
       puzzle.isEnabled = true
       settings.isEnabled = true
     case .stop:

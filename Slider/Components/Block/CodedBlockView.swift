@@ -165,7 +165,7 @@ class CodedBlockView: UIView {
     
     switch panRecognizer.state {
     case .began:
-      break
+      viewModel.blockMoveStarted()
     case .changed:
       viewModel.model.blockMovedBy(translation)
     case .ended:

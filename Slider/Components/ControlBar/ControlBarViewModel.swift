@@ -42,9 +42,8 @@ class ControlBarViewModel: NSObject, NSCoding {
     return moveNumber > 0
   }
   
-  var timerCount: TimeInterval = 0
-  
-  var timerState: TimerState = .start { didSet {
+  var timerCount: TimeInterval = 0   
+  var timerState: TimerState = .stop { didSet {
     if timerState != oldValue { updateTimerState(timerState) }
   }}
   
@@ -119,6 +118,7 @@ class ControlBarViewModel: NSObject, NSCoding {
     timerCount = game.gameTime
     moveNumber = game.moveData.count - 1
     moveDataCount = game.moveData.count
+    timerState = .initialize
     updateControlBarUI()
   }
   

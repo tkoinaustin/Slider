@@ -99,6 +99,7 @@ class GameboardViewModel {
         block.placeBlock(point: GridConstants.blockCenter(row: block.model.origin.row,
                                                           col: block.model.origin.col,
                                                           type: block.type))
+        block.blockMoveStarted = { self.controlBar.timerState = .start }
         blocks.append(block)
       }
     }

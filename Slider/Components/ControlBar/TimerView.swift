@@ -9,7 +9,7 @@
 import UIKit
 
 enum TimerState {
-  case start, stop, reset
+  case initialize, start, stop, reset
 }
 
 @IBDesignable
@@ -46,11 +46,11 @@ class TimerView: UIView {
     labelView.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: -8).isActive = true
     labelView.trailingAnchor.constraint(equalTo:margins.trailingAnchor, constant: 8).isActive = true
     labelView.text = "00:00"
-    start()
   }
   
   func updateForTimerState(_ state: TimerState) {
     switch state {
+    case .initialize: initialize()
     case .start: start()
     case .stop: stop()
     case .reset: reset()
@@ -74,6 +74,10 @@ class TimerView: UIView {
   func reset() {
     stop()
     viewModel.timerCount = 0
+    setDisplay(viewModel.timerCount)
+  }
+  
+  func initialize(){
     setDisplay(viewModel.timerCount)
   }
   
