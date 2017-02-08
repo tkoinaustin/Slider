@@ -10,10 +10,17 @@ import UIKit
 
 class IntroViewController: UIViewController {
   
+  var firstTimeThrough = true
   @IBOutlet private weak var continueButton: UIButton!
   @IBOutlet private weak var logoLabel: UILabel!
   
   @IBAction func launchApp(_ sender: UIButton) {
+    startNextSegue()
+  }
+  
+  func startNextSegue() {
+    guard firstTimeThrough else { return }
+    firstTimeThrough = false
     if needFTUE() {
       UserDefaults.standard.set(false, forKey: "FTUE")
       performSegue(withIdentifier: "FTUESegue", sender: self)
@@ -46,6 +53,10 @@ class IntroViewController: UIViewController {
     UIView.animate(withDuration: 1.5, animations: {
       self.continueButton.transform = CGAffineTransform.identity
       self.logoLabel.transform = transform
+    }, completion: { _ in
+      Delay.by(3) {
+        self.startNextSegue()
+      }
     })
   }
   
