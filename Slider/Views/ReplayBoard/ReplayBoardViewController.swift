@@ -38,8 +38,11 @@ class ReplayBoardViewController: UIViewController {
 
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    viewModel.loadBlocks()
-    UIView.animate(withDuration: 0.2, animations: { self.borderView.alpha = 1 })
+    UIView.animate(withDuration: 0.5, animations: {
+      self.borderView.alpha = 1
+    }, completion: { _ in
+      self.viewModel.loadBlocks()
+    })
   }
   
   override func viewDidLoad() {
