@@ -553,14 +553,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 83AB62731D97106D00E61AB7 /* Build configuration list for PBXNativeTarget "Slider" */;
 			buildPhases = (
-				CB8386871E4AC7A2005451DD /* Increment Build Number */,
 				0C1B77F44E5A16E8A9015A3F /* [CP] Check Pods Manifest.lock */,
+				CB8386871E4AC7A2005451DD /* Increment Build Number */,
 				83AB625D1D97106A00E61AB7 /* Sources */,
 				83AB625E1D97106A00E61AB7 /* Frameworks */,
 				83AB625F1D97106A00E61AB7 /* Resources */,
 				CB04A4191DD3E660007BE787 /* Swift Lint */,
 				8AF53EEFBDAF55D162F33A30 /* [CP] Embed Pods Frameworks */,
 				3188C3FDBEC3F9E12D6940F6 /* [CP] Copy Pods Resources */,
+				CB876D581E4D677900B50221 /* Fabric */,
 			);
 			buildRules = (
 			);
@@ -750,6 +751,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if [ $CONFIGURATION == Release ]; then\necho \"Bumping build number...\"\nplist=${PROJECT_DIR}/${INFOPLIST_FILE}\n\nbuildnum=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${plist}\")\nif [[ \"${buildnum}\" == \"\" ]]; then\necho \"No build number in $plist\"\nexit 2\nfi\n\nbuildnum=$(expr $buildnum + 1)\n/usr/libexec/Plistbuddy -c \"Set CFBundleVersion $buildnum\" \"${plist}\"\necho \"Bumped build number to $buildnum\"\n\nelse\necho $CONFIGURATION \" build - Not bumping build number.\"\nfi";
+		};
+		CB876D581E4D677900B50221 /* Fabric */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Fabric;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 49f9842c31ef92dc0968289bb044dd6b3285a1d5 fe44ed4c95adf62fc964d4b200e767d6a29c955265296e11455954bf84fdb64c";
 		};
 		D40D766B58F33063363BB33B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -988,6 +1003,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = H4UQYGEL4C;
 				INFOPLIST_FILE = Slider/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
