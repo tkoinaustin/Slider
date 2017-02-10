@@ -116,7 +116,7 @@
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xUP-uq-hRe">
                             <rect key="frame" x="82" y="179" width="178" height="265"/>
-                            <string key="text">When you open the game, it will always start where you last left it, it remembers the current state of your puzzle.  In fact, it will store all your old attempts so you can replay any game from your game history.</string>
+                            <string key="text">When you open the game, it will always start where you last left it, it remembers the current state of your puzzle.  In fact, it will store all your old attempts so you can replay any game from your game history.   Ready to have some fun?</string>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
