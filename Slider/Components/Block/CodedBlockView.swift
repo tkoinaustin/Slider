@@ -15,7 +15,7 @@ class CodedBlockView: UIView {
   var color: UIColor { didSet { imageView.backgroundColor = color }}
 
   public override init(frame: CGRect) {
-    color = Color.blue
+    color = Color.aqua
     super.init(frame: frame)
     let pan = UIPanGestureRecognizer(target: self, action: #selector(pan(_:)))
     self.addGestureRecognizer(pan)
@@ -30,11 +30,11 @@ class CodedBlockView: UIView {
     
     imageView.image = UIImage(named: "block gradient")
     imageView.contentMode = .scaleAspectFill
-    imageView.backgroundColor = Color.blue
+    imageView.backgroundColor = Color.aqua
     imageView.layer.cornerRadius = gameSize.corner
     
     imageView.layer.borderWidth = 0.5
-    imageView.layer.borderColor = Color.purple.cgColor
+    imageView.layer.borderColor = Color.tungsten.cgColor
     
     imageView.layer.shadowColor = UIColor.black.cgColor
     imageView.layer.shadowOpacity = 0.6
@@ -68,7 +68,7 @@ class CodedBlockView: UIView {
   static func get(block: CodedBlockView, parent: UIView, index: Int, fade: Double? = 1) -> CodedBlockView {
     block.center = block.viewModel.center
     block.bounds = block.viewModel.bounds
-    if index == 1 { block.imageView.backgroundColor = Color.darkBlue }
+    if index == 1 { block.imageView.backgroundColor = Color.ocean }
     block.setBlockClosures(index)
     
     parent.addSubview(block)

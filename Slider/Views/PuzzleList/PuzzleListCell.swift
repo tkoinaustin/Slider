@@ -59,12 +59,12 @@ class PuzzleListCell: UITableViewCell {
   }
   
   func won() {
-    bottomBorder.backgroundColor = Color.green.cgColor
+    bottomBorder.backgroundColor = Color.moss.cgColor
     historyButton.isEnabled = true
   }
   
   func notWon() {
-    bottomBorder.backgroundColor = Color.red.cgColor
+    bottomBorder.backgroundColor = Color.cayenne.cgColor
     historyButton.isEnabled = true
   }
 

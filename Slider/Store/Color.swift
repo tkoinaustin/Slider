@@ -10,25 +10,25 @@ import UIKit
 import Hue
 
 struct Color {
-  static var lightBlue: UIColor {
+  static var sky: UIColor {
     return UIColor(hex: "5795D2")
   }
-  static var blue: UIColor {
+  static var aqua: UIColor {
     return UIColor(hex: "4679AB")
   }
-  static var darkBlue: UIColor {
+  static var ocean: UIColor {
     return UIColor(hex: "396590")
   }
-  static var purple: UIColor {
+  static var tungsten: UIColor {
     return UIColor(hex: "2D2E40")
   }
-  static var lightPurple: UIColor {
+  static var steel: UIColor {
     return UIColor(hex: "686A86")
   }
-  static var red: UIColor {
+  static var cayenne: UIColor {
     return UIColor(hex: "942027")
   }
-  static var green: UIColor {
+  static var moss: UIColor {
     return UIColor(hex: "2D7F39")
   }
 }
