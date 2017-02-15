@@ -23,7 +23,7 @@ class GridModel {
   private var twoMoveBlocks = [Int]()
   private var movingBlocks = [Int]()
   
-  private var gameLogic = GridModelLogic()
+  private var gridLogic = GridModelLogic()
   private var direction: Direction?
   private var notThisDirection: Direction?
   private var board: Board = .moveOneSpace
@@ -102,7 +102,7 @@ class GridModel {
       
       return direction
     } else { // set game boards and direction
-      if let dir = gameLogic.setDirection(x: amount.x, y: amount.y) {
+      if let dir = gridLogic.setDirection(x: amount.x, y: amount.y) {
         if setGameplayForDirection(dir, index) {
           self.direction = dir
           
@@ -180,16 +180,16 @@ class GridModel {
     
     zeroMoveBoard = currentGrid
     
-    guard let oneMoveBoard = gameLogic.newGridForMove(zeroMoveBoard, index, direction)
+    guard let oneMoveBoard = gridLogic.newGridForMove(zeroMoveBoard, index, direction)
       else { return false}
     self.oneMoveBoard = oneMoveBoard
-    oneMoveBlocks = gameLogic.blocksThatMoved(startGrid: zeroMoveBoard, endGrid: oneMoveBoard)
+    oneMoveBlocks = gridLogic.blocksThatMoved(startGrid: zeroMoveBoard, endGrid: oneMoveBoard)
     movingBlocks = oneMoveBlocks
     
-    guard let twoMoveBoard = gameLogic.newGridForMove(oneMoveBoard, index, direction)
+    guard let twoMoveBoard = gridLogic.newGridForMove(oneMoveBoard, index, direction)
       else { return true }
     self.twoMoveBoard = twoMoveBoard
-    twoMoveBlocks = gameLogic.blocksThatMoved(startGrid: oneMoveBoard, endGrid: twoMoveBoard)
+    twoMoveBlocks = gridLogic.blocksThatMoved(startGrid: oneMoveBoard, endGrid: twoMoveBoard)
 
     for index in twoMoveBlocks {
       if oneMoveBlocks.contains(index) { block(index)?.doubleMoveLegal = true }

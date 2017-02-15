@@ -65,6 +65,7 @@ class BlockModel: Hashable {
     updateCurrentOffset(direction, amount)
     viewModel.setCenter(newCenter: currentOffset)
   }
+  
   // swiftlint:disable function_body_length
   func setMinMaxMove(_ direction: Direction) {
     // swiftlint:enable function_body_length
