@@ -23,8 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ]?
     ) -> Bool {
     Fabric.with([Answers.self, Crashlytics.self])
-    GADMobileAds.configure(withApplicationID: "ca-app-pub-8254175664355700~3835606073")
-    Gratuity.store.retrieveProducts { _, _ in }
     return true
   }
   

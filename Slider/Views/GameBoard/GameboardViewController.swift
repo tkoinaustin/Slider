@@ -32,27 +32,11 @@ class GameboardViewController: UIViewController {
     viewModel.controlBar.parentViewController = self
   }}
 
-  @IBOutlet private var bannerAdToGridConstraint: NSLayoutConstraint!
   @IBOutlet private var topLayoutToGridConstraint: NSLayoutConstraint!
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    addObserver()
-  }
-  
-  deinit {
-    NotificationCenter.default.removeObserver(self)
-  }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    updateUI()
-  }
 
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     viewModel.startGame()
-    if Gratuity.store.showBannerAds { bannerAdView.start() }
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -70,23 +54,5 @@ class GameboardViewController: UIViewController {
     settingsViewController?.showFTUE = { [unowned self] _ in
       self.performSegue(withIdentifier: "FTUESegue", sender: nil)
     }
-  }
-  
-  func addObserver() {
-    NotificationCenter.default.addObserver(
-      self,
-      selector: #selector(updateUI),
-      name: NSNotification.Name(rawValue: InAppPurchase.InAppPurchaseNotification),
-      object: nil)
-  }
-
-  func updateUI() {
-    let showBannerAds = Gratuity.store.showBannerAds
-    bannerAdView.alpha = showBannerAds ? 1 : 0
-    bannerAdToGridConstraint.isActive = showBannerAds
-    topLayoutToGridConstraint.isActive = !showBannerAds
-    
-    gridView.setNeedsLayout()
-    gridView.layoutIfNeeded()
   }
 }

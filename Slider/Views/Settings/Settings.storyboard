@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E144f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="myz-M9-IVC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G8c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="myz-M9-IVC">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -27,8 +27,8 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background image large" translatesAutoresizingMaskIntoConstraints="NO" id="nha-pW-T0t">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="C1r-pu-fus">
-                                <rect key="frame" x="19" y="128" width="335" height="359"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="C1r-pu-fus">
+                                <rect key="frame" x="20" y="291.5" width="335" height="84"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Slider is brought to you by TKO Solutions, making iOS applications since 2009." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYf-78-RfZ">
                                         <rect key="frame" x="6.5" y="0.0" width="322" height="41"/>
@@ -42,33 +42,6 @@
                                         <connections>
                                             <action selector="instructionsAction:" destination="wZ3-td-p7H" eventType="touchUpInside" id="57U-kn-bgU"/>
                                             <segue destination="lqF-UJ-PG0" kind="custom" customClass="IntroSegue" customModule="Slider" customModuleProvider="target" id="p6m-z1-pGw"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6s-Xb-dTO">
-                                        <rect key="frame" x="0.0" y="97" width="335" height="122"/>
-                                        <string key="text">Do you like the game? Would you like to support indie developers? If so, why not contribute a small gratuity of $0.99. Doing so will provide you with good karma, a sense of well being, and remove the banner ads from the program.</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F4B-rn-Yln">
-                                        <rect key="frame" x="117.5" y="232" width="100" height="30"/>
-                                        <state key="normal" title="$0.99 Gratuity"/>
-                                        <connections>
-                                            <action selector="gratuityAction:" destination="wZ3-td-p7H" eventType="touchUpInside" id="cQm-4B-k7S"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already gave a tip. Go ahead and restore it on this device to remove the ads." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fh0-Rj-71c">
-                                        <rect key="frame" x="3.5" y="275" width="328.5" height="41"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IE8-ps-TY2">
-                                        <rect key="frame" x="107" y="329" width="121" height="30"/>
-                                        <state key="normal" title="Restore Purchase"/>
-                                        <connections>
-                                            <action selector="restoreAction:" destination="wZ3-td-p7H" eventType="touchUpInside" id="aym-ez-iJP"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -91,12 +64,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Agd-Zd-AAU"/>
-                    <connections>
-                        <outlet property="gratuityButton" destination="F4B-rn-Yln" id="hV2-uT-480"/>
-                        <outlet property="gratuityLabel" destination="x6s-Xb-dTO" id="F0s-KT-OUb"/>
-                        <outlet property="restoreButton" destination="IE8-ps-TY2" id="Woc-vy-SzN"/>
-                        <outlet property="restoreLabel" destination="fh0-Rj-71c" id="5b3-7u-5c9"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dbW-Gu-0El" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

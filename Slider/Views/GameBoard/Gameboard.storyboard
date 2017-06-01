@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16F43c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SkA-dQ-sES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G8c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SkA-dQ-sES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,32 +34,20 @@
                                 <rect key="frame" x="16" y="582" width="343" height="65"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view tag="42" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="37R-IU-CTZ" customClass="BannerAdView" customModule="Slider" customModuleProvider="target">
-                                <rect key="frame" x="16" y="28" width="343" height="50"/>
-                                <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="S7H-Im-9fk"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="adUnitID" value="ca-app-pub-8254175664355700/5312339275"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                             <view tag="18" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fZ6-fn-By1" customClass="BorderView" customModule="Slider" customModuleProvider="target">
-                                <rect key="frame" x="16" y="98" width="343" height="464"/>
+                                <rect key="frame" x="16" y="40" width="343" height="509"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bie-Xn-ZpF">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bie-Xn-ZpF">
                                 <rect key="frame" x="36" y="118" width="303" height="379"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="37R-IU-CTZ" firstAttribute="top" secondItem="f1l-yQ-djv" secondAttribute="bottom" constant="8" id="76k-lC-TxG"/>
                             <constraint firstItem="CK8-mD-Lcw" firstAttribute="leading" secondItem="tVV-JY-VtE" secondAttribute="leading" id="7d2-SP-YlS"/>
                             <constraint firstItem="DTY-HE-AXT" firstAttribute="leading" secondItem="tVV-JY-VtE" secondAttribute="leading" id="81L-rx-Otk"/>
                             <constraint firstAttribute="trailing" secondItem="DTY-HE-AXT" secondAttribute="trailing" id="AYv-jB-oPL"/>
-                            <constraint firstItem="37R-IU-CTZ" firstAttribute="trailing" secondItem="tVV-JY-VtE" secondAttribute="trailingMargin" id="FnQ-g2-99H"/>
                             <constraint firstItem="zGg-GE-j6X" firstAttribute="top" secondItem="CK8-mD-Lcw" secondAttribute="bottom" id="NQL-UN-a8x"/>
                             <constraint firstItem="fZ6-fn-By1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tVV-JY-VtE" secondAttribute="leadingMargin" id="QCH-KI-any"/>
                             <constraint firstItem="2Ds-Bj-rJn" firstAttribute="leading" secondItem="tVV-JY-VtE" secondAttribute="leadingMargin" id="SDu-So-N4E"/>
@@ -67,21 +55,15 @@
                             <constraint firstItem="CK8-mD-Lcw" firstAttribute="top" secondItem="tVV-JY-VtE" secondAttribute="top" id="XZH-pU-j1Z"/>
                             <constraint firstItem="zGg-GE-j6X" firstAttribute="top" secondItem="2Ds-Bj-rJn" secondAttribute="bottom" constant="20" id="XgJ-rt-86U"/>
                             <constraint firstItem="2Ds-Bj-rJn" firstAttribute="trailing" secondItem="tVV-JY-VtE" secondAttribute="trailingMargin" id="ZAc-Oa-gNC"/>
-                            <constraint firstItem="2Ds-Bj-rJn" firstAttribute="top" secondItem="fZ6-fn-By1" secondAttribute="bottom" priority="250" constant="20" id="ZJb-6I-P7m"/>
-                            <constraint firstItem="37R-IU-CTZ" firstAttribute="leading" secondItem="tVV-JY-VtE" secondAttribute="leadingMargin" id="bLK-gK-ZeS"/>
                             <constraint firstItem="DTY-HE-AXT" firstAttribute="top" secondItem="tVV-JY-VtE" secondAttribute="top" id="d7P-sD-hb4"/>
                             <constraint firstItem="fZ6-fn-By1" firstAttribute="leading" secondItem="tVV-JY-VtE" secondAttribute="leadingMargin" priority="250" id="gbA-M6-GY9"/>
                             <constraint firstAttribute="trailing" secondItem="CK8-mD-Lcw" secondAttribute="trailing" id="gug-Ba-4pn"/>
-                            <constraint firstItem="2Ds-Bj-rJn" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fZ6-fn-By1" secondAttribute="bottom" id="hhA-T3-3LS"/>
                             <constraint firstItem="fZ6-fn-By1" firstAttribute="centerX" secondItem="tVV-JY-VtE" secondAttribute="centerX" id="nXW-7u-BEc"/>
                             <constraint firstItem="zGg-GE-j6X" firstAttribute="top" secondItem="DTY-HE-AXT" secondAttribute="bottom" id="u8e-gL-7Cx"/>
-                            <constraint firstItem="fZ6-fn-By1" firstAttribute="top" secondItem="37R-IU-CTZ" secondAttribute="bottom" priority="750" constant="20" id="xKa-kk-yJV"/>
-                            <constraint firstItem="fZ6-fn-By1" firstAttribute="top" secondItem="f1l-yQ-djv" secondAttribute="bottom" priority="750" constant="20" id="yxZ-Ex-Pus"/>
+                            <constraint firstItem="fZ6-fn-By1" firstAttribute="top" secondItem="f1l-yQ-djv" secondAttribute="bottom" constant="20" id="yxZ-Ex-Pus"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="bannerAdToGridConstraint" destination="xKa-kk-yJV" id="kJY-Ws-hzc"/>
-                        <outlet property="bannerAdView" destination="37R-IU-CTZ" id="mP1-FJ-PgB"/>
                         <outlet property="borderView" destination="fZ6-fn-By1" id="9Gi-WH-AhS"/>
                         <outlet property="controlBarView" destination="2Ds-Bj-rJn" id="NmK-YZ-ud1"/>
                         <outlet property="gridView" destination="bie-Xn-ZpF" id="76v-4Z-C8f"/>
@@ -94,7 +76,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vBl-Y0-wiX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-434.39999999999998" y="35.532233883058474"/>
+            <point key="canvasLocation" x="-434.5" y="35.5"/>
         </scene>
         <!--Settings-->
         <scene sceneID="Dwb-P1-VYZ">
