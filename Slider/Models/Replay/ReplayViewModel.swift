@@ -31,6 +31,7 @@ class ReplayViewModel {
     self.gridView = gridView
   }
   
+  //swiftlint:disable function_body_length
   func loadBlocks() {
     self.size = gridView.frame.size
     blockModels = GridModelInitialization().initBlocks(grid: grid)
@@ -54,7 +55,7 @@ class ReplayViewModel {
     for blockView in gridView.subviews { blockView.removeFromSuperview() }
     
     for index in 1..<blockModels.count {
-      let _ = CodedBlockView.getReplayBlock(
+      _ = CodedBlockView.getReplayBlock(
         parent: gridView,
         blockModel: blockViews[index],
         index: index
@@ -71,7 +72,7 @@ class ReplayViewModel {
   }
   
   func stopTimer() {
-    if let _ = moveTimer {
+    if moveTimer != nil {
       moveTimer.invalidate()
       moveTimer = nil
     }

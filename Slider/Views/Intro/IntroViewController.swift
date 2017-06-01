@@ -36,7 +36,7 @@ class IntroViewController: UIViewController {
   }
   
   func needFTUE() -> Bool {
-    guard let _ = UserDefaults.standard.value(forKey: "FTUE") else { return true }
+    guard UserDefaults.standard.value(forKey: "FTUE") != nil else { return true }
     return false
   }
   

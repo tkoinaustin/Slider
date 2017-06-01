@@ -12,7 +12,7 @@ class ControlBarViewModel: NSObject, NSCoding {
   var puzzleSource: CGRect!
   var settingsButton: UIButton!
   var moveNumber: Int! { didSet {
-    guard let _ = oldValue else { return }
+    guard oldValue != nil else { return }
     if moveNumber != oldValue {
       updateControlBarUI()
     }
@@ -24,19 +24,19 @@ class ControlBarViewModel: NSObject, NSCoding {
   }}
   
   var backEnabled: Bool {
-    guard let _ = moveNumber else { return false }
+    guard moveNumber != nil else { return false }
     if gameOver { return false }
 
     return moveNumber > 0
   }
   var forwardEnabled: Bool {
-    guard let _ = moveNumber else { return false }
+    guard moveNumber != nil else { return false }
     if gameOver { return false }
     
     return moveNumber < moveDataCount - 1
   }
   var resetEnabled: Bool {
-    guard let _ = moveNumber else { return false }
+    guard moveNumber != nil else { return false }
     if gameOver { return false }
 
     return moveNumber > 0
@@ -53,7 +53,7 @@ class ControlBarViewModel: NSObject, NSCoding {
       updateControlBarUI()
     }
   }}
-  var puzzleLabel: String = "Select Puzzle"
+  var puzzleLabel: String = ""
   var parentViewController: UIViewController!
   
   var updateControlBarUI: (() -> Void) = { }

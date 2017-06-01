@@ -57,32 +57,31 @@ extension XibLoadable where Self: UIView {
       from.translatesAutoresizingMaskIntoConstraints
     
     for constraint in from.constraints {
-      var firstItem: AnyObject {
-        if let item = constraint.firstItem as? NSObject, item == from { return realView }
-        else { return constraint.firstItem }
-      }
+      var firstItem: AnyObject
+      var secondItem: AnyObject?
       
-      var secondItem: AnyObject? {
-        if let item = constraint.secondItem as? NSObject, item == from { return realView }
-        else { return constraint.secondItem }
-      }
+        if constraint.firstItem as? NSObject == from { firstItem = realView }
+        else { firstItem = constraint.firstItem }
       
-      realView.addConstraint(
-        NSLayoutConstraint(
-          item: firstItem,
-          attribute: constraint.firstAttribute,
-          relatedBy: constraint.relation,
-          toItem: secondItem,
-          attribute: constraint.secondAttribute,
-          multiplier: constraint.multiplier,
-          constant: constraint.constant
-        )
+        if let item = constraint.secondItem as? NSObject, item == from { secondItem = realView }
+        else { secondItem = constraint.secondItem }
+      
+      let newConstraint = NSLayoutConstraint(
+        item: firstItem,
+        attribute: constraint.firstAttribute,
+        relatedBy: constraint.relation,
+        toItem: secondItem,
+        attribute: constraint.secondAttribute,
+        multiplier: constraint.multiplier,
+        constant: constraint.constant
       )
+      
+      NSLayoutConstraint.activate([newConstraint])
     }
-    
+  
     return realView
   }
-  
+
   func customAwakeAfter(superAwakeAfter: () -> Any?) -> Any? {
     if self.tag == ibTag { return type(of: self).getAndConfigure(from: self) }
     

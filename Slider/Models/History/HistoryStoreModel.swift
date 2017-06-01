@@ -55,13 +55,9 @@ class HistoryStoreModel: NSObject, NSCoding {
   
   func contains(_ game: GameModel) -> Bool {
     let games = self.history(for: game.name)
-    for gameHistory in games.history {
-      if game.datePlayed == gameHistory.datePlayed {
-//        print("----- does contain this game")
+    for gameHistory in games.history where game.datePlayed == gameHistory.datePlayed {
         return true
-      }
     }
-//    print("----- does NOT contain this game")
     return false
   }
 }

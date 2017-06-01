@@ -16,7 +16,7 @@ class GridModelInitialization {
     for row in 0..<Rows {
       for col in 0..<Columns {
         let block = blocks[(grid[row][col])]
-        if let _ = block.type { continue }
+        if block.type != nil { continue }
         
         var wide = false
         var tall = false

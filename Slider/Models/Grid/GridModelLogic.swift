@@ -12,10 +12,8 @@ class GridModelLogic {
   func blocksThatMoved(startGrid: [[Int]], endGrid: [[Int]]) -> [Int] {
     var indices = Set<Int>()
     for row in 0..<Rows {
-      for col in 0..<Columns {
-        if startGrid[row][col] != endGrid[row][col] {
-          indices.insert(endGrid[row][col])
-        }
+      for col in 0..<Columns where startGrid[row][col] != endGrid[row][col] {
+        indices.insert(endGrid[row][col])
       }
     }
     indices.remove(0)
@@ -28,10 +26,8 @@ class GridModelLogic {
     var blockCoords = [Coordinate]()
     
     for row in 0..<Rows {
-      for col in 0..<Columns {
-        if grid[row][col] == block {
-          blockCoords.append(Coordinate(row: row, col: col))
-        }
+      for col in 0..<Columns where grid[row][col] == block {
+        blockCoords.append(Coordinate(row: row, col: col))
       }
     }
     let startingCoords = findStart(blockCoords, direction)

@@ -9,8 +9,9 @@
 import UIKit
 
 enum Direction: Int {
+  //swiftlint:disable identifier_name
   case up = 0, right, down, left
-  
+  //swiftlint:enable identifier_name
   func opposite() -> Direction {
     switch self {
     case .up: return .down
@@ -47,7 +48,7 @@ class BlockViewModel {
   var blockMoveStarted: (() -> Void) = {}
 
   var type: BlockType = .small { didSet {
-    guard let _ = canvas else { return }
+    guard canvas != nil else { return }
     bounds = setBounds()
   }}
   

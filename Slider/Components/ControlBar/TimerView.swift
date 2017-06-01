@@ -58,7 +58,7 @@ class TimerView: UIView {
   }
   
   func start() {
-    if let _ = timer { return }
+    if timer != nil { return }
     timer = Timer.scheduledTimer(timeInterval: 1,
                                  target: self,
                                  selector: #selector(fired),

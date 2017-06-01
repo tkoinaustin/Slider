@@ -106,7 +106,7 @@ class GameboardViewModel {
     
     Delay.by(1) {
       for index in 1..<self.grid.blockCount {
-        let _ = CodedBlockView.getGameBlock(parent: gridView, game: self, index: index)
+        _ = CodedBlockView.getGameBlock(parent: gridView, game: self, index: index)
       }
     }
   }
@@ -136,7 +136,7 @@ class GameboardViewModel {
     }
     
     controlBar.load = { [unowned self] _ in
-      let _ = self.restoreGame()
+      _ = self.restoreGame()
     }
     
     controlBar.save = { [unowned self] counter in
