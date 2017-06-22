@@ -196,8 +196,8 @@
 			isa = PBXGroup;
 			children = (
 				83AB626D1D97106D00E61AB7 /* LaunchScreen.storyboard */,
-				CBB7D3381E25B712000CC0D3 /* Intro.storyboard */,
 				CBB7D3391E25B712000CC0D3 /* IntroViewController.swift */,
+				CBB7D3381E25B712000CC0D3 /* Intro.storyboard */,
 			);
 			name = Intro;
 			sourceTree = "<group>";
@@ -492,8 +492,8 @@
 		CBE1DFBC1E33E63D00ED2DE6 /* FTUE */ = {
 			isa = PBXGroup;
 			children = (
-				CBE1DFBD1E33E68C00ED2DE6 /* FTUE.storyboard */,
 				CBE1DFBF1E33E6A600ED2DE6 /* FTUEViewController.swift */,
+				CBE1DFBD1E33E68C00ED2DE6 /* FTUE.storyboard */,
 			);
 			name = FTUE;
 			sourceTree = "<group>";
