@@ -30,49 +30,49 @@
 		CB54C8C71E2320F0008F2A00 /* HistoryStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB54C8C51E2320F0008F2A00 /* HistoryStoreModel.swift */; };
 		CB54C8CA1E2321C3008F2A00 /* Puzzles.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB54C8C91E2321C3008F2A00 /* Puzzles.swift */; };
 		CB54C8CC1E232257008F2A00 /* PuzzleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB54C8CB1E232257008F2A00 /* PuzzleModel.swift */; };
-		CB56F7041E28210800798C20 /* BannerAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB56F7031E28210800798C20 /* BannerAdView.xib */; };
-		CB56F7061E28214600798C20 /* BannerAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB56F7051E28214600798C20 /* BannerAdView.swift */; };
-		CB56F7091E284A7B00798C20 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB56F7081E284A7B00798C20 /* Alerts.swift */; };
 		CB56F70C1E29422E00798C20 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB56F70B1E29422E00798C20 /* StoreKit.framework */; };
+		CB5908281EFC155400D77DB5 /* FTUE.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB59080E1EFC155400D77DB5 /* FTUE.storyboard */; };
+		CB5908291EFC155400D77DB5 /* FTUEViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB59080F1EFC155400D77DB5 /* FTUEViewController.swift */; };
+		CB59082A1EFC155400D77DB5 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5908121EFC155400D77DB5 /* Alerts.swift */; };
+		CB59082B1EFC155400D77DB5 /* Gameboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB5908131EFC155400D77DB5 /* Gameboard.storyboard */; };
+		CB59082C1EFC155400D77DB5 /* GameboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5908141EFC155400D77DB5 /* GameboardViewController.swift */; };
+		CB59082D1EFC155400D77DB5 /* GameboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5908151EFC155400D77DB5 /* GameboardViewModel.swift */; };
+		CB59082E1EFC155400D77DB5 /* HistoryList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB5908171EFC155400D77DB5 /* HistoryList.storyboard */; };
+		CB59082F1EFC155400D77DB5 /* HistoryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5908181EFC155400D77DB5 /* HistoryListCell.swift */; };
+		CB5908301EFC155400D77DB5 /* HistoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5908191EFC155400D77DB5 /* HistoryListViewController.swift */; };
+		CB5908311EFC155400D77DB5 /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB59081B1EFC155400D77DB5 /* Intro.storyboard */; };
+		CB5908321EFC155400D77DB5 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB59081C1EFC155400D77DB5 /* IntroViewController.swift */; };
+		CB5908331EFC155400D77DB5 /* PuzzleList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB59081E1EFC155400D77DB5 /* PuzzleList.storyboard */; };
+		CB5908341EFC155400D77DB5 /* PuzzleListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB59081F1EFC155400D77DB5 /* PuzzleListCell.swift */; };
+		CB5908351EFC155400D77DB5 /* PuzzleListDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5908201EFC155400D77DB5 /* PuzzleListDataProvider.swift */; };
+		CB5908361EFC155400D77DB5 /* PuzzleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5908211EFC155400D77DB5 /* PuzzleListViewController.swift */; };
+		CB5908371EFC155400D77DB5 /* ReplayBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB5908231EFC155400D77DB5 /* ReplayBoard.storyboard */; };
+		CB5908381EFC155400D77DB5 /* ReplayBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5908241EFC155400D77DB5 /* ReplayBoardViewController.swift */; };
+		CB5908391EFC155400D77DB5 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB5908261EFC155400D77DB5 /* Settings.storyboard */; };
+		CB59083A1EFC155400D77DB5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5908271EFC155400D77DB5 /* SettingsViewController.swift */; };
+		CB59084D1EFC156000D77DB5 /* BannerAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB59083C1EFC156000D77DB5 /* BannerAdView.swift */; };
+		CB59084E1EFC156000D77DB5 /* BannerAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB59083D1EFC156000D77DB5 /* BannerAdView.xib */; };
+		CB59084F1EFC156000D77DB5 /* BlockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB59083F1EFC156000D77DB5 /* BlockViewModel.swift */; };
+		CB5908501EFC156000D77DB5 /* CodedBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5908401EFC156000D77DB5 /* CodedBlockView.swift */; };
+		CB5908511EFC156000D77DB5 /* BorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5908421EFC156000D77DB5 /* BorderView.swift */; };
+		CB5908521EFC156000D77DB5 /* BorderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB5908431EFC156000D77DB5 /* BorderView.xib */; };
+		CB5908531EFC156000D77DB5 /* ControlBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5908451EFC156000D77DB5 /* ControlBarView.swift */; };
+		CB5908541EFC156000D77DB5 /* ControlBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB5908461EFC156000D77DB5 /* ControlBarView.xib */; };
+		CB5908551EFC156000D77DB5 /* ControlBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5908471EFC156000D77DB5 /* ControlBarViewModel.swift */; };
+		CB5908561EFC156000D77DB5 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5908481EFC156000D77DB5 /* TimerView.swift */; };
+		CB5908571EFC156000D77DB5 /* GameSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB59084A1EFC156000D77DB5 /* GameSize.swift */; };
+		CB5908581EFC156000D77DB5 /* TransitionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB59084B1EFC156000D77DB5 /* TransitionLabel.swift */; };
+		CB5908591EFC156000D77DB5 /* XibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB59084C1EFC156000D77DB5 /* XibLoadable.swift */; };
 		CB9C60261DF067610011F65F /* klotski.txt in Resources */ = {isa = PBXBuildFile; fileRef = CB9C60251DF067610011F65F /* klotski.txt */; };
 		CB9F9AF81E204F32009FF7C2 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9F9AF71E204F32009FF7C2 /* UIView.swift */; };
 		CBA63BF91DA9D8F4004C0EE6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA63BF81DA9D8F4004C0EE6 /* Constants.swift */; };
 		CBA63BFB1DA9E73F004C0EE6 /* ConstantsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA63BFA1DA9E73F004C0EE6 /* ConstantsTests.swift */; };
 		CBB7D3371E2562C2000CC0D3 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D3361E2562C2000CC0D3 /* Color.swift */; };
-		CBB7D33A1E25B712000CC0D3 /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBB7D3381E25B712000CC0D3 /* Intro.storyboard */; };
-		CBB7D33B1E25B712000CC0D3 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D3391E25B712000CC0D3 /* IntroViewController.swift */; };
-		CBB7D33F1E25B722000CC0D3 /* Gameboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBB7D33C1E25B722000CC0D3 /* Gameboard.storyboard */; };
-		CBB7D3401E25B722000CC0D3 /* GameboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D33D1E25B722000CC0D3 /* GameboardViewController.swift */; };
-		CBB7D3411E25B722000CC0D3 /* GameboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D33E1E25B722000CC0D3 /* GameboardViewModel.swift */; };
-		CBB7D3461E25B734000CC0D3 /* PuzzleList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBB7D3421E25B734000CC0D3 /* PuzzleList.storyboard */; };
-		CBB7D3471E25B734000CC0D3 /* PuzzleListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D3431E25B734000CC0D3 /* PuzzleListCell.swift */; };
-		CBB7D3481E25B734000CC0D3 /* PuzzleListDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D3441E25B734000CC0D3 /* PuzzleListDataProvider.swift */; };
-		CBB7D3491E25B734000CC0D3 /* PuzzleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D3451E25B734000CC0D3 /* PuzzleListViewController.swift */; };
-		CBB7D34D1E25B741000CC0D3 /* HistoryList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBB7D34A1E25B741000CC0D3 /* HistoryList.storyboard */; };
-		CBB7D34E1E25B741000CC0D3 /* HistoryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D34B1E25B741000CC0D3 /* HistoryListCell.swift */; };
-		CBB7D34F1E25B741000CC0D3 /* HistoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D34C1E25B741000CC0D3 /* HistoryListViewController.swift */; };
-		CBB7D3521E25B751000CC0D3 /* ReplayBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBB7D3501E25B751000CC0D3 /* ReplayBoard.storyboard */; };
-		CBB7D3531E25B752000CC0D3 /* ReplayBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D3511E25B751000CC0D3 /* ReplayBoardViewController.swift */; };
-		CBB7D3561E25B763000CC0D3 /* TransitionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D3541E25B763000CC0D3 /* TransitionLabel.swift */; };
-		CBB7D3571E25B763000CC0D3 /* XibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D3551E25B763000CC0D3 /* XibLoadable.swift */; };
-		CBB7D35A1E25B772000CC0D3 /* BlockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D3581E25B772000CC0D3 /* BlockViewModel.swift */; };
-		CBB7D35B1E25B772000CC0D3 /* CodedBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D3591E25B772000CC0D3 /* CodedBlockView.swift */; };
-		CBB7D35E1E25B77D000CC0D3 /* BorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D35C1E25B77D000CC0D3 /* BorderView.swift */; };
-		CBB7D35F1E25B77D000CC0D3 /* BorderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBB7D35D1E25B77D000CC0D3 /* BorderView.xib */; };
-		CBB7D3641E25B798000CC0D3 /* ControlBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D3601E25B798000CC0D3 /* ControlBarView.swift */; };
-		CBB7D3651E25B798000CC0D3 /* ControlBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBB7D3611E25B798000CC0D3 /* ControlBarView.xib */; };
-		CBB7D3661E25B798000CC0D3 /* ControlBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D3621E25B798000CC0D3 /* ControlBarViewModel.swift */; };
-		CBB7D3671E25B798000CC0D3 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D3631E25B798000CC0D3 /* TimerView.swift */; };
-		CBB7D36A1E25B898000CC0D3 /* GameSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D3691E25B898000CC0D3 /* GameSize.swift */; };
 		CBC5712C1DEB2F0700633ED8 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC5712B1DEB2F0700633ED8 /* GameModel.swift */; };
 		CBC5712E1DEB2F3A00633ED8 /* GameMoveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC5712D1DEB2F3A00633ED8 /* GameMoveData.swift */; };
 		CBC922941DB0304F00132C91 /* GameModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC922931DB0304F00132C91 /* GameModelTests.swift */; };
 		CBC922961DB03FCE00132C91 /* BlockModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC922951DB03FCE00132C91 /* BlockModelTests.swift */; };
 		CBC9229C1DB1422600132C91 /* BlockModelLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9229B1DB1422600132C91 /* BlockModelLogicTests.swift */; };
-		CBE1DFB91E31AB5900ED2DE6 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBE1DFB81E31AB5900ED2DE6 /* Settings.storyboard */; };
-		CBE1DFBB1E31AC2C00ED2DE6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE1DFBA1E31AC2C00ED2DE6 /* SettingsViewController.swift */; };
-		CBE1DFBE1E33E68C00ED2DE6 /* FTUE.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBE1DFBD1E33E68C00ED2DE6 /* FTUE.storyboard */; };
-		CBE1DFC01E33E6A600ED2DE6 /* FTUEViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE1DFBF1E33E6A600ED2DE6 /* FTUEViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,49 +115,49 @@
 		CB54C8C51E2320F0008F2A00 /* HistoryStoreModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryStoreModel.swift; path = Models/History/HistoryStoreModel.swift; sourceTree = "<group>"; };
 		CB54C8C91E2321C3008F2A00 /* Puzzles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Puzzles.swift; path = Models/Puzzles/Puzzles.swift; sourceTree = "<group>"; };
 		CB54C8CB1E232257008F2A00 /* PuzzleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PuzzleModel.swift; path = Models/Puzzles/PuzzleModel.swift; sourceTree = "<group>"; };
-		CB56F7031E28210800798C20 /* BannerAdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BannerAdView.xib; path = Components/BannerAd/BannerAdView.xib; sourceTree = "<group>"; };
-		CB56F7051E28214600798C20 /* BannerAdView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BannerAdView.swift; path = Components/BannerAd/BannerAdView.swift; sourceTree = "<group>"; };
-		CB56F7081E284A7B00798C20 /* Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Alerts.swift; path = Views/GameBoard/enums/Alerts.swift; sourceTree = "<group>"; };
 		CB56F70B1E29422E00798C20 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		CB59080E1EFC155400D77DB5 /* FTUE.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FTUE.storyboard; sourceTree = "<group>"; };
+		CB59080F1EFC155400D77DB5 /* FTUEViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTUEViewController.swift; sourceTree = "<group>"; };
+		CB5908121EFC155400D77DB5 /* Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
+		CB5908131EFC155400D77DB5 /* Gameboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Gameboard.storyboard; sourceTree = "<group>"; };
+		CB5908141EFC155400D77DB5 /* GameboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameboardViewController.swift; sourceTree = "<group>"; };
+		CB5908151EFC155400D77DB5 /* GameboardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameboardViewModel.swift; sourceTree = "<group>"; };
+		CB5908171EFC155400D77DB5 /* HistoryList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HistoryList.storyboard; sourceTree = "<group>"; };
+		CB5908181EFC155400D77DB5 /* HistoryListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryListCell.swift; sourceTree = "<group>"; };
+		CB5908191EFC155400D77DB5 /* HistoryListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryListViewController.swift; sourceTree = "<group>"; };
+		CB59081B1EFC155400D77DB5 /* Intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
+		CB59081C1EFC155400D77DB5 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		CB59081E1EFC155400D77DB5 /* PuzzleList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PuzzleList.storyboard; sourceTree = "<group>"; };
+		CB59081F1EFC155400D77DB5 /* PuzzleListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleListCell.swift; sourceTree = "<group>"; };
+		CB5908201EFC155400D77DB5 /* PuzzleListDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleListDataProvider.swift; sourceTree = "<group>"; };
+		CB5908211EFC155400D77DB5 /* PuzzleListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleListViewController.swift; sourceTree = "<group>"; };
+		CB5908231EFC155400D77DB5 /* ReplayBoard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ReplayBoard.storyboard; sourceTree = "<group>"; };
+		CB5908241EFC155400D77DB5 /* ReplayBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplayBoardViewController.swift; sourceTree = "<group>"; };
+		CB5908261EFC155400D77DB5 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		CB5908271EFC155400D77DB5 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		CB59083C1EFC156000D77DB5 /* BannerAdView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerAdView.swift; sourceTree = "<group>"; };
+		CB59083D1EFC156000D77DB5 /* BannerAdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BannerAdView.xib; sourceTree = "<group>"; };
+		CB59083F1EFC156000D77DB5 /* BlockViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockViewModel.swift; sourceTree = "<group>"; };
+		CB5908401EFC156000D77DB5 /* CodedBlockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodedBlockView.swift; sourceTree = "<group>"; };
+		CB5908421EFC156000D77DB5 /* BorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderView.swift; sourceTree = "<group>"; };
+		CB5908431EFC156000D77DB5 /* BorderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BorderView.xib; sourceTree = "<group>"; };
+		CB5908451EFC156000D77DB5 /* ControlBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlBarView.swift; sourceTree = "<group>"; };
+		CB5908461EFC156000D77DB5 /* ControlBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ControlBarView.xib; sourceTree = "<group>"; };
+		CB5908471EFC156000D77DB5 /* ControlBarViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlBarViewModel.swift; sourceTree = "<group>"; };
+		CB5908481EFC156000D77DB5 /* TimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		CB59084A1EFC156000D77DB5 /* GameSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSize.swift; sourceTree = "<group>"; };
+		CB59084B1EFC156000D77DB5 /* TransitionLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransitionLabel.swift; path = Views/TransitionLabel.swift; sourceTree = "<group>"; };
+		CB59084C1EFC156000D77DB5 /* XibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XibLoadable.swift; path = Views/XibLoadable.swift; sourceTree = "<group>"; };
 		CB9C60251DF067610011F65F /* klotski.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = klotski.txt; path = Resources/klotski.txt; sourceTree = "<group>"; };
 		CB9F9AF71E204F32009FF7C2 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIView.swift; path = Extensions/UIView.swift; sourceTree = "<group>"; };
 		CBA63BF81DA9D8F4004C0EE6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilities/Constants.swift; sourceTree = "<group>"; };
 		CBA63BFA1DA9E73F004C0EE6 /* ConstantsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstantsTests.swift; sourceTree = "<group>"; };
 		CBB7D3361E2562C2000CC0D3 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Color.swift; path = Store/Color.swift; sourceTree = "<group>"; };
-		CBB7D3381E25B712000CC0D3 /* Intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Intro.storyboard; path = Views/Intro/Intro.storyboard; sourceTree = "<group>"; };
-		CBB7D3391E25B712000CC0D3 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntroViewController.swift; path = Views/Intro/IntroViewController.swift; sourceTree = "<group>"; };
-		CBB7D33C1E25B722000CC0D3 /* Gameboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Gameboard.storyboard; path = Views/GameBoard/Gameboard.storyboard; sourceTree = "<group>"; };
-		CBB7D33D1E25B722000CC0D3 /* GameboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameboardViewController.swift; path = Views/GameBoard/GameboardViewController.swift; sourceTree = "<group>"; };
-		CBB7D33E1E25B722000CC0D3 /* GameboardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameboardViewModel.swift; path = Views/GameBoard/GameboardViewModel.swift; sourceTree = "<group>"; };
-		CBB7D3421E25B734000CC0D3 /* PuzzleList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = PuzzleList.storyboard; path = Views/PuzzleList/PuzzleList.storyboard; sourceTree = "<group>"; };
-		CBB7D3431E25B734000CC0D3 /* PuzzleListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PuzzleListCell.swift; path = Views/PuzzleList/PuzzleListCell.swift; sourceTree = "<group>"; };
-		CBB7D3441E25B734000CC0D3 /* PuzzleListDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PuzzleListDataProvider.swift; path = Views/PuzzleList/PuzzleListDataProvider.swift; sourceTree = "<group>"; };
-		CBB7D3451E25B734000CC0D3 /* PuzzleListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PuzzleListViewController.swift; path = Views/PuzzleList/PuzzleListViewController.swift; sourceTree = "<group>"; };
-		CBB7D34A1E25B741000CC0D3 /* HistoryList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = HistoryList.storyboard; path = Views/HistoryList/HistoryList.storyboard; sourceTree = "<group>"; };
-		CBB7D34B1E25B741000CC0D3 /* HistoryListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryListCell.swift; path = Views/HistoryList/HistoryListCell.swift; sourceTree = "<group>"; };
-		CBB7D34C1E25B741000CC0D3 /* HistoryListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryListViewController.swift; path = Views/HistoryList/HistoryListViewController.swift; sourceTree = "<group>"; };
-		CBB7D3501E25B751000CC0D3 /* ReplayBoard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ReplayBoard.storyboard; path = Views/ReplayBoard/ReplayBoard.storyboard; sourceTree = "<group>"; };
-		CBB7D3511E25B751000CC0D3 /* ReplayBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReplayBoardViewController.swift; path = Views/ReplayBoard/ReplayBoardViewController.swift; sourceTree = "<group>"; };
-		CBB7D3541E25B763000CC0D3 /* TransitionLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransitionLabel.swift; path = Components/TransitionLabel.swift; sourceTree = "<group>"; };
-		CBB7D3551E25B763000CC0D3 /* XibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XibLoadable.swift; path = Components/XibLoadable.swift; sourceTree = "<group>"; };
-		CBB7D3581E25B772000CC0D3 /* BlockViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlockViewModel.swift; path = Components/Block/BlockViewModel.swift; sourceTree = "<group>"; };
-		CBB7D3591E25B772000CC0D3 /* CodedBlockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CodedBlockView.swift; path = Components/Block/CodedBlockView.swift; sourceTree = "<group>"; };
-		CBB7D35C1E25B77D000CC0D3 /* BorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BorderView.swift; path = Components/Border/BorderView.swift; sourceTree = "<group>"; };
-		CBB7D35D1E25B77D000CC0D3 /* BorderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BorderView.xib; path = Components/Border/BorderView.xib; sourceTree = "<group>"; };
-		CBB7D3601E25B798000CC0D3 /* ControlBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ControlBarView.swift; path = Components/ControlBar/ControlBarView.swift; sourceTree = "<group>"; };
-		CBB7D3611E25B798000CC0D3 /* ControlBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ControlBarView.xib; path = Components/ControlBar/ControlBarView.xib; sourceTree = "<group>"; };
-		CBB7D3621E25B798000CC0D3 /* ControlBarViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ControlBarViewModel.swift; path = Components/ControlBar/ControlBarViewModel.swift; sourceTree = "<group>"; };
-		CBB7D3631E25B798000CC0D3 /* TimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimerView.swift; path = Components/ControlBar/TimerView.swift; sourceTree = "<group>"; };
-		CBB7D3691E25B898000CC0D3 /* GameSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameSize.swift; path = Components/Enums/GameSize.swift; sourceTree = "<group>"; };
 		CBC5712B1DEB2F0700633ED8 /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameModel.swift; path = Models/Game/GameModel.swift; sourceTree = "<group>"; };
 		CBC5712D1DEB2F3A00633ED8 /* GameMoveData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameMoveData.swift; path = Models/Game/GameMoveData.swift; sourceTree = "<group>"; };
 		CBC922931DB0304F00132C91 /* GameModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModelTests.swift; sourceTree = "<group>"; };
 		CBC922951DB03FCE00132C91 /* BlockModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockModelTests.swift; sourceTree = "<group>"; };
 		CBC9229B1DB1422600132C91 /* BlockModelLogicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockModelLogicTests.swift; sourceTree = "<group>"; };
-		CBE1DFB81E31AB5900ED2DE6 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Settings.storyboard; path = Views/Settings/Settings.storyboard; sourceTree = "<group>"; };
-		CBE1DFBA1E31AC2C00ED2DE6 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = Views/Settings/SettingsViewController.swift; sourceTree = "<group>"; };
-		CBE1DFBD1E33E68C00ED2DE6 /* FTUE.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FTUE.storyboard; path = Views/FTUE/FTUE.storyboard; sourceTree = "<group>"; };
-		CBE1DFBF1E33E6A600ED2DE6 /* FTUEViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FTUEViewController.swift; path = Views/FTUE/FTUEViewController.swift; sourceTree = "<group>"; };
 		E87AEA41F862378B334E6C3D /* Pods_Slider_SliderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Slider_SliderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBB8FB1D2BF6E068E8500308 /* Pods-Slider-SliderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slider-SliderTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Slider-SliderTests/Pods-Slider-SliderTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -183,25 +183,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		834CDD921D9B5A1A002CB6DD /* Block */ = {
-			isa = PBXGroup;
-			children = (
-				CBB7D3581E25B772000CC0D3 /* BlockViewModel.swift */,
-				CBB7D3591E25B772000CC0D3 /* CodedBlockView.swift */,
-			);
-			name = Block;
-			sourceTree = "<group>";
-		};
-		834CDD941D9B5A3B002CB6DD /* Intro */ = {
-			isa = PBXGroup;
-			children = (
-				83AB626D1D97106D00E61AB7 /* LaunchScreen.storyboard */,
-				CBB7D3391E25B712000CC0D3 /* IntroViewController.swift */,
-				CBB7D3381E25B712000CC0D3 /* Intro.storyboard */,
-			);
-			name = Intro;
-			sourceTree = "<group>";
-		};
 		834CDDB11D9B6A64002CB6DD /* SliderTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,17 +197,6 @@
 			path = SliderTests;
 			sourceTree = "<group>";
 		};
-		8371374D1DD7E6E7003AD379 /* GameBoard */ = {
-			isa = PBXGroup;
-			children = (
-				CB56F7071E284A4500798C20 /* enums */,
-				CBB7D33E1E25B722000CC0D3 /* GameboardViewModel.swift */,
-				CBB7D33D1E25B722000CC0D3 /* GameboardViewController.swift */,
-				CBB7D33C1E25B722000CC0D3 /* Gameboard.storyboard */,
-			);
-			name = GameBoard;
-			sourceTree = "<group>";
-		};
 		837137541DD897A2003AD379 /* Block */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,18 +206,18 @@
 			name = Block;
 			sourceTree = "<group>";
 		};
-		837137611DD89A21003AD379 /* Views */ = {
+		837137611DD89A21003AD379 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				834CDD941D9B5A3B002CB6DD /* Intro */,
-				CBE1DFBC1E33E63D00ED2DE6 /* FTUE */,
-				8371374D1DD7E6E7003AD379 /* GameBoard */,
-				CB5FA3491DC16439003B19E0 /* PuzzleList */,
-				CBC571311DFCBFF200633ED8 /* HistoryList */,
-				CB6CB6761E00BAE600FCB9B5 /* ReplayBoard */,
-				CBE1DFB71E31AA3900ED2DE6 /* Settings */,
+				CB59080D1EFC155400D77DB5 /* FTUE */,
+				CB5908101EFC155400D77DB5 /* GameBoard */,
+				CB5908161EFC155400D77DB5 /* HistoryList */,
+				CB59081A1EFC155400D77DB5 /* Intro */,
+				CB59081D1EFC155400D77DB5 /* PuzzleList */,
+				CB5908221EFC155400D77DB5 /* ReplayBoard */,
+				CB5908251EFC155400D77DB5 /* Settings */,
 			);
-			name = Views;
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 		8371377C1DD8E11A003AD379 /* Store */ = {
@@ -291,24 +261,24 @@
 				CB04CA201E17F0990056A600 /* Segues */,
 				8371377C1DD8E11A003AD379 /* Store */,
 				CB5870901DAEE53A00D1EEE9 /* Models */,
-				837137611DD89A21003AD379 /* Views */,
-				83BE867D1DB267EA00D51EA1 /* Components */,
+				837137611DD89A21003AD379 /* ViewControllers */,
+				83BE867D1DB267EA00D51EA1 /* Views */,
 			);
 			path = Slider;
 			sourceTree = "<group>";
 		};
-		83BE867D1DB267EA00D51EA1 /* Components */ = {
+		83BE867D1DB267EA00D51EA1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CBB7D3681E25B80B000CC0D3 /* Enums */,
-				CBB7D3541E25B763000CC0D3 /* TransitionLabel.swift */,
-				CBB7D3551E25B763000CC0D3 /* XibLoadable.swift */,
-				CB56F7021E28209800798C20 /* BannerAd */,
-				834CDD921D9B5A1A002CB6DD /* Block */,
-				CBD253071E250FD300E2DC14 /* Border */,
-				CBAFA38D1DCA43B000534AEC /* ControlBar */,
+				CB59083B1EFC156000D77DB5 /* BannerAd */,
+				CB59083E1EFC156000D77DB5 /* Block */,
+				CB5908411EFC156000D77DB5 /* Border */,
+				CB5908441EFC156000D77DB5 /* ControlBar */,
+				CB5908491EFC156000D77DB5 /* Enums */,
+				CB59084B1EFC156000D77DB5 /* TransitionLabel.swift */,
+				CB59084C1EFC156000D77DB5 /* XibLoadable.swift */,
 			);
-			name = Components;
+			name = Views;
 			sourceTree = "<group>";
 		};
 		CB04A41D1DD4C990007BE787 /* Grid */ = {
@@ -358,23 +328,6 @@
 			name = Puzzles;
 			sourceTree = "<group>";
 		};
-		CB56F7021E28209800798C20 /* BannerAd */ = {
-			isa = PBXGroup;
-			children = (
-				CB56F7031E28210800798C20 /* BannerAdView.xib */,
-				CB56F7051E28214600798C20 /* BannerAdView.swift */,
-			);
-			name = BannerAd;
-			sourceTree = "<group>";
-		};
-		CB56F7071E284A4500798C20 /* enums */ = {
-			isa = PBXGroup;
-			children = (
-				CB56F7081E284A7B00798C20 /* Alerts.swift */,
-			);
-			name = enums;
-			sourceTree = "<group>";
-		};
 		CB5870901DAEE53A00D1EEE9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -388,24 +341,139 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		CB5FA3491DC16439003B19E0 /* PuzzleList */ = {
+		CB59080D1EFC155400D77DB5 /* FTUE */ = {
 			isa = PBXGroup;
 			children = (
-				CBB7D3421E25B734000CC0D3 /* PuzzleList.storyboard */,
-				CBB7D3451E25B734000CC0D3 /* PuzzleListViewController.swift */,
-				CBB7D3441E25B734000CC0D3 /* PuzzleListDataProvider.swift */,
-				CBB7D3431E25B734000CC0D3 /* PuzzleListCell.swift */,
+				CB59080E1EFC155400D77DB5 /* FTUE.storyboard */,
+				CB59080F1EFC155400D77DB5 /* FTUEViewController.swift */,
 			);
-			name = PuzzleList;
+			name = FTUE;
+			path = ViewControllers/FTUE;
 			sourceTree = "<group>";
 		};
-		CB6CB6761E00BAE600FCB9B5 /* ReplayBoard */ = {
+		CB5908101EFC155400D77DB5 /* GameBoard */ = {
 			isa = PBXGroup;
 			children = (
-				CBB7D3501E25B751000CC0D3 /* ReplayBoard.storyboard */,
-				CBB7D3511E25B751000CC0D3 /* ReplayBoardViewController.swift */,
+				CB5908111EFC155400D77DB5 /* enums */,
+				CB5908131EFC155400D77DB5 /* Gameboard.storyboard */,
+				CB5908141EFC155400D77DB5 /* GameboardViewController.swift */,
+				CB5908151EFC155400D77DB5 /* GameboardViewModel.swift */,
+			);
+			name = GameBoard;
+			path = ViewControllers/GameBoard;
+			sourceTree = "<group>";
+		};
+		CB5908111EFC155400D77DB5 /* enums */ = {
+			isa = PBXGroup;
+			children = (
+				CB5908121EFC155400D77DB5 /* Alerts.swift */,
+			);
+			path = enums;
+			sourceTree = "<group>";
+		};
+		CB5908161EFC155400D77DB5 /* HistoryList */ = {
+			isa = PBXGroup;
+			children = (
+				CB5908171EFC155400D77DB5 /* HistoryList.storyboard */,
+				CB5908181EFC155400D77DB5 /* HistoryListCell.swift */,
+				CB5908191EFC155400D77DB5 /* HistoryListViewController.swift */,
+			);
+			name = HistoryList;
+			path = ViewControllers/HistoryList;
+			sourceTree = "<group>";
+		};
+		CB59081A1EFC155400D77DB5 /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				83AB626D1D97106D00E61AB7 /* LaunchScreen.storyboard */,
+				CB59081B1EFC155400D77DB5 /* Intro.storyboard */,
+				CB59081C1EFC155400D77DB5 /* IntroViewController.swift */,
+			);
+			name = Intro;
+			path = ViewControllers/Intro;
+			sourceTree = "<group>";
+		};
+		CB59081D1EFC155400D77DB5 /* PuzzleList */ = {
+			isa = PBXGroup;
+			children = (
+				CB59081E1EFC155400D77DB5 /* PuzzleList.storyboard */,
+				CB59081F1EFC155400D77DB5 /* PuzzleListCell.swift */,
+				CB5908201EFC155400D77DB5 /* PuzzleListDataProvider.swift */,
+				CB5908211EFC155400D77DB5 /* PuzzleListViewController.swift */,
+			);
+			name = PuzzleList;
+			path = ViewControllers/PuzzleList;
+			sourceTree = "<group>";
+		};
+		CB5908221EFC155400D77DB5 /* ReplayBoard */ = {
+			isa = PBXGroup;
+			children = (
+				CB5908231EFC155400D77DB5 /* ReplayBoard.storyboard */,
+				CB5908241EFC155400D77DB5 /* ReplayBoardViewController.swift */,
 			);
 			name = ReplayBoard;
+			path = ViewControllers/ReplayBoard;
+			sourceTree = "<group>";
+		};
+		CB5908251EFC155400D77DB5 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				CB5908261EFC155400D77DB5 /* Settings.storyboard */,
+				CB5908271EFC155400D77DB5 /* SettingsViewController.swift */,
+			);
+			name = Settings;
+			path = ViewControllers/Settings;
+			sourceTree = "<group>";
+		};
+		CB59083B1EFC156000D77DB5 /* BannerAd */ = {
+			isa = PBXGroup;
+			children = (
+				CB59083C1EFC156000D77DB5 /* BannerAdView.swift */,
+				CB59083D1EFC156000D77DB5 /* BannerAdView.xib */,
+			);
+			name = BannerAd;
+			path = Views/BannerAd;
+			sourceTree = "<group>";
+		};
+		CB59083E1EFC156000D77DB5 /* Block */ = {
+			isa = PBXGroup;
+			children = (
+				CB59083F1EFC156000D77DB5 /* BlockViewModel.swift */,
+				CB5908401EFC156000D77DB5 /* CodedBlockView.swift */,
+			);
+			name = Block;
+			path = Views/Block;
+			sourceTree = "<group>";
+		};
+		CB5908411EFC156000D77DB5 /* Border */ = {
+			isa = PBXGroup;
+			children = (
+				CB5908421EFC156000D77DB5 /* BorderView.swift */,
+				CB5908431EFC156000D77DB5 /* BorderView.xib */,
+			);
+			name = Border;
+			path = Views/Border;
+			sourceTree = "<group>";
+		};
+		CB5908441EFC156000D77DB5 /* ControlBar */ = {
+			isa = PBXGroup;
+			children = (
+				CB5908451EFC156000D77DB5 /* ControlBarView.swift */,
+				CB5908461EFC156000D77DB5 /* ControlBarView.xib */,
+				CB5908471EFC156000D77DB5 /* ControlBarViewModel.swift */,
+				CB5908481EFC156000D77DB5 /* TimerView.swift */,
+			);
+			name = ControlBar;
+			path = Views/ControlBar;
+			sourceTree = "<group>";
+		};
+		CB5908491EFC156000D77DB5 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				CB59084A1EFC156000D77DB5 /* GameSize.swift */,
+			);
+			name = Enums;
+			path = Views/Enums;
 			sourceTree = "<group>";
 		};
 		CB9C60241DF067510011F65F /* Resources */ = {
@@ -433,25 +501,6 @@
 			name = Utilities;
 			sourceTree = "<group>";
 		};
-		CBAFA38D1DCA43B000534AEC /* ControlBar */ = {
-			isa = PBXGroup;
-			children = (
-				CBB7D3611E25B798000CC0D3 /* ControlBarView.xib */,
-				CBB7D3601E25B798000CC0D3 /* ControlBarView.swift */,
-				CBB7D3621E25B798000CC0D3 /* ControlBarViewModel.swift */,
-				CBB7D3631E25B798000CC0D3 /* TimerView.swift */,
-			);
-			name = ControlBar;
-			sourceTree = "<group>";
-		};
-		CBB7D3681E25B80B000CC0D3 /* Enums */ = {
-			isa = PBXGroup;
-			children = (
-				CBB7D3691E25B898000CC0D3 /* GameSize.swift */,
-			);
-			name = Enums;
-			sourceTree = "<group>";
-		};
 		CBC5712A1DEB2E9600633ED8 /* Game */ = {
 			isa = PBXGroup;
 			children = (
@@ -459,43 +508,6 @@
 				CBC5712D1DEB2F3A00633ED8 /* GameMoveData.swift */,
 			);
 			name = Game;
-			sourceTree = "<group>";
-		};
-		CBC571311DFCBFF200633ED8 /* HistoryList */ = {
-			isa = PBXGroup;
-			children = (
-				CBB7D34A1E25B741000CC0D3 /* HistoryList.storyboard */,
-				CBB7D34C1E25B741000CC0D3 /* HistoryListViewController.swift */,
-				CBB7D34B1E25B741000CC0D3 /* HistoryListCell.swift */,
-			);
-			name = HistoryList;
-			sourceTree = "<group>";
-		};
-		CBD253071E250FD300E2DC14 /* Border */ = {
-			isa = PBXGroup;
-			children = (
-				CBB7D35D1E25B77D000CC0D3 /* BorderView.xib */,
-				CBB7D35C1E25B77D000CC0D3 /* BorderView.swift */,
-			);
-			name = Border;
-			sourceTree = "<group>";
-		};
-		CBE1DFB71E31AA3900ED2DE6 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				CBE1DFB81E31AB5900ED2DE6 /* Settings.storyboard */,
-				CBE1DFBA1E31AC2C00ED2DE6 /* SettingsViewController.swift */,
-			);
-			name = Settings;
-			sourceTree = "<group>";
-		};
-		CBE1DFBC1E33E63D00ED2DE6 /* FTUE */ = {
-			isa = PBXGroup;
-			children = (
-				CBE1DFBF1E33E6A600ED2DE6 /* FTUEViewController.swift */,
-				CBE1DFBD1E33E68C00ED2DE6 /* FTUE.storyboard */,
-			);
-			name = FTUE;
 			sourceTree = "<group>";
 		};
 		EC1CD7408572E2BF31C54A2B /* Pods */ = {
@@ -626,17 +638,17 @@
 			files = (
 				CB9C60261DF067610011F65F /* klotski.txt in Resources */,
 				83AB626F1D97106D00E61AB7 /* LaunchScreen.storyboard in Resources */,
-				CBB7D3651E25B798000CC0D3 /* ControlBarView.xib in Resources */,
-				CBE1DFB91E31AB5900ED2DE6 /* Settings.storyboard in Resources */,
-				CBE1DFBE1E33E68C00ED2DE6 /* FTUE.storyboard in Resources */,
-				CBB7D34D1E25B741000CC0D3 /* HistoryList.storyboard in Resources */,
+				CB5908331EFC155400D77DB5 /* PuzzleList.storyboard in Resources */,
+				CB5908281EFC155400D77DB5 /* FTUE.storyboard in Resources */,
+				CB5908521EFC156000D77DB5 /* BorderView.xib in Resources */,
 				83AB626C1D97106D00E61AB7 /* Assets.xcassets in Resources */,
-				CBB7D33A1E25B712000CC0D3 /* Intro.storyboard in Resources */,
-				CBB7D3461E25B734000CC0D3 /* PuzzleList.storyboard in Resources */,
-				CB56F7041E28210800798C20 /* BannerAdView.xib in Resources */,
-				CBB7D3521E25B751000CC0D3 /* ReplayBoard.storyboard in Resources */,
-				CBB7D35F1E25B77D000CC0D3 /* BorderView.xib in Resources */,
-				CBB7D33F1E25B722000CC0D3 /* Gameboard.storyboard in Resources */,
+				CB59082B1EFC155400D77DB5 /* Gameboard.storyboard in Resources */,
+				CB5908541EFC156000D77DB5 /* ControlBarView.xib in Resources */,
+				CB5908311EFC155400D77DB5 /* Intro.storyboard in Resources */,
+				CB59084E1EFC156000D77DB5 /* BannerAdView.xib in Resources */,
+				CB5908371EFC155400D77DB5 /* ReplayBoard.storyboard in Resources */,
+				CB59082E1EFC155400D77DB5 /* HistoryList.storyboard in Resources */,
+				CB5908391EFC155400D77DB5 /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,7 +667,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		3188C3FDBEC3F9E12D6940F6 /* [CP] Copy Pods Resources */ = {
@@ -685,7 +697,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		8AF53EEFBDAF55D162F33A30 /* [CP] Embed Pods Frameworks */ = {
@@ -795,50 +807,50 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB5908571EFC156000D77DB5 /* GameSize.swift in Sources */,
 				CBA63BF91DA9D8F4004C0EE6 /* Constants.swift in Sources */,
 				CB04CA221E17F1C50056A600 /* IntroSegue.swift in Sources */,
+				CB5908501EFC156000D77DB5 /* CodedBlockView.swift in Sources */,
 				CB04CA1F1E16AB060056A600 /* Delay.swift in Sources */,
-				CB56F7061E28214600798C20 /* BannerAdView.swift in Sources */,
-				CBB7D36A1E25B898000CC0D3 /* GameSize.swift in Sources */,
-				CBB7D3481E25B734000CC0D3 /* PuzzleListDataProvider.swift in Sources */,
 				CB9F9AF81E204F32009FF7C2 /* UIView.swift in Sources */,
+				CB5908581EFC156000D77DB5 /* TransitionLabel.swift in Sources */,
 				837137761DD8A1F5003AD379 /* GridModel.swift in Sources */,
+				CB5908551EFC156000D77DB5 /* ControlBarViewModel.swift in Sources */,
+				CB5908321EFC155400D77DB5 /* IntroViewController.swift in Sources */,
 				8371376F1DD89CED003AD379 /* BlockModelLogic.swift in Sources */,
+				CB5908511EFC156000D77DB5 /* BorderView.swift in Sources */,
 				8371377E1DD8E144003AD379 /* Archiver.swift in Sources */,
-				CBE1DFC01E33E6A600ED2DE6 /* FTUEViewController.swift in Sources */,
 				CBB7D3371E2562C2000CC0D3 /* Color.swift in Sources */,
-				CBB7D3661E25B798000CC0D3 /* ControlBarViewModel.swift in Sources */,
 				CB54C8C61E2320F0008F2A00 /* GameHistoryModel.swift in Sources */,
-				CBB7D3491E25B734000CC0D3 /* PuzzleListViewController.swift in Sources */,
-				CBB7D33B1E25B712000CC0D3 /* IntroViewController.swift in Sources */,
 				CB54C8CA1E2321C3008F2A00 /* Puzzles.swift in Sources */,
+				CB59082C1EFC155400D77DB5 /* GameboardViewController.swift in Sources */,
+				CB59082A1EFC155400D77DB5 /* Alerts.swift in Sources */,
 				CBC5712C1DEB2F0700633ED8 /* GameModel.swift in Sources */,
-				CBB7D3401E25B722000CC0D3 /* GameboardViewController.swift in Sources */,
+				CB5908591EFC156000D77DB5 /* XibLoadable.swift in Sources */,
 				CB54C8C71E2320F0008F2A00 /* HistoryStoreModel.swift in Sources */,
 				CB04CA241E17F7670056A600 /* TabShowSegue.swift in Sources */,
-				CBB7D35B1E25B772000CC0D3 /* CodedBlockView.swift in Sources */,
+				CB59082F1EFC155400D77DB5 /* HistoryListCell.swift in Sources */,
+				CB5908351EFC155400D77DB5 /* PuzzleListDataProvider.swift in Sources */,
 				CB54C8C21E22DF88008F2A00 /* ReplayViewModel.swift in Sources */,
 				CB54C8CC1E232257008F2A00 /* PuzzleModel.swift in Sources */,
 				8371376E1DD89CED003AD379 /* BlockModel.swift in Sources */,
 				837137781DD8A1F5003AD379 /* GridModelLogic.swift in Sources */,
-				CBB7D3571E25B763000CC0D3 /* XibLoadable.swift in Sources */,
-				CBB7D34E1E25B741000CC0D3 /* HistoryListCell.swift in Sources */,
-				CBB7D35E1E25B77D000CC0D3 /* BorderView.swift in Sources */,
-				CBB7D3641E25B798000CC0D3 /* ControlBarView.swift in Sources */,
-				CBB7D3561E25B763000CC0D3 /* TransitionLabel.swift in Sources */,
-				CBB7D34F1E25B741000CC0D3 /* HistoryListViewController.swift in Sources */,
-				CB56F7091E284A7B00798C20 /* Alerts.swift in Sources */,
-				CBB7D3671E25B798000CC0D3 /* TimerView.swift in Sources */,
-				CBE1DFBB1E31AC2C00ED2DE6 /* SettingsViewController.swift in Sources */,
-				CBB7D3411E25B722000CC0D3 /* GameboardViewModel.swift in Sources */,
+				CB5908341EFC155400D77DB5 /* PuzzleListCell.swift in Sources */,
+				CB5908291EFC155400D77DB5 /* FTUEViewController.swift in Sources */,
 				83AB62651D97106D00E61AB7 /* AppDelegate.swift in Sources */,
-				CBB7D35A1E25B772000CC0D3 /* BlockViewModel.swift in Sources */,
 				837137791DD8A1F5003AD379 /* GridModelUtility.swift in Sources */,
-				CBB7D3471E25B734000CC0D3 /* PuzzleListCell.swift in Sources */,
+				CB5908301EFC155400D77DB5 /* HistoryListViewController.swift in Sources */,
 				837137751DD8A1F5003AD379 /* Coordinate.swift in Sources */,
+				CB5908381EFC155400D77DB5 /* ReplayBoardViewController.swift in Sources */,
+				CB59083A1EFC155400D77DB5 /* SettingsViewController.swift in Sources */,
+				CB5908531EFC156000D77DB5 /* ControlBarView.swift in Sources */,
 				CBC5712E1DEB2F3A00633ED8 /* GameMoveData.swift in Sources */,
+				CB59084D1EFC156000D77DB5 /* BannerAdView.swift in Sources */,
 				837137771DD8A1F5003AD379 /* GridModelInitialization.swift in Sources */,
-				CBB7D3531E25B752000CC0D3 /* ReplayBoardViewController.swift in Sources */,
+				CB5908361EFC155400D77DB5 /* PuzzleListViewController.swift in Sources */,
+				CB59084F1EFC156000D77DB5 /* BlockViewModel.swift in Sources */,
+				CB5908561EFC156000D77DB5 /* TimerView.swift in Sources */,
+				CB59082D1EFC155400D77DB5 /* GameboardViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -859,6 +871,7 @@
 				83AB626E1D97106D00E61AB7 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
