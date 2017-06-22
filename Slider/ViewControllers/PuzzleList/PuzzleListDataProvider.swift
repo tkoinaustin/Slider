@@ -62,15 +62,15 @@ class PuzzleListDataProvider: NSObject, UITableViewDataSource {
     let historyModel = allGames.history(for: name)
     gameModels = historyModel.history
 
-    // swiftlint:disable force_cast
     let storyboard = UIStoryboard(name: "HistoryList", bundle: Bundle.main)
     
-    let navController: UINavigationController =
+    guard let navController: UINavigationController =
       storyboard.instantiateViewController(withIdentifier: "historyListNavController")
-        as! UINavigationController
+        as? UINavigationController else { return }
     
-    let historyListViewController: HistoryListViewController = navController.viewControllers[0]
-      as! HistoryListViewController
+    guard let historyListViewController: HistoryListViewController = navController.viewControllers[0]
+      as? HistoryListViewController else { return }
+    
     historyListViewController.data = gameModels
 
     parent.navigationController?.pushViewController(historyListViewController, animated: true)

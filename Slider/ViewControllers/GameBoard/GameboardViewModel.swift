@@ -54,9 +54,7 @@ class GameboardViewModel {
     game.setInitialGrid(gameMoveData)
   }
   
-  // swiftlint:disable function_body_length
   fileprivate func setGridClosures() {
-    // swiftlint:enable function_body_length
     grid.updateGameboardUI = { [unowned self] _ in
       self.placeAllBlocks()
     }

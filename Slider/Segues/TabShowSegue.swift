@@ -10,9 +10,8 @@ import UIKit
 
 class TabShowSegue: UIStoryboardSegue {
   override func perform() {
-    let nav = source.navigationController!
-    // swiftlint:disable force_cast
-    let dest = destination as! UINavigationController
+    guard let nav = source.navigationController else { return }
+    guard let dest = destination as? UINavigationController else { return }
     
     nav.pushViewController(dest.viewControllers[0], animated: true)
   }

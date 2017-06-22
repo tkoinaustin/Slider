@@ -25,7 +25,7 @@ class GameModelTests: XCTestCase {
     
     for i in 0..<game.blockCount {
       XCTAssertEqual(i, game.block(i)?.index,
-                     "Block \(game.block(i)?.index) not in correct order, it is at index \(i)")
+                     "Block \(String(describing: game.block(i)?.index)) not in correct order, it is at index \(i)")
     }
   }
   

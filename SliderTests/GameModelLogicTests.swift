@@ -22,12 +22,6 @@ class GameModelLogicTests: XCTestCase {
     game = GridModel(gameLayout)
   }
   
-  //  [2, 2,  3, 4]
-  //  [1, 1,  0, 4]
-  //  [1, 1,  8, 0]
-  //  [5, 7,  9, 11]
-  //  [5, 10, 6, 6]
-  
   func testNewGridForUpMove4() {
     let newGame =  logic.newGridForMove(gameLayout, 1, .up)
     XCTAssertNil(newGame)
