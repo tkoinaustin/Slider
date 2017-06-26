@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
 
 class FTUEViewController: UIViewController {
   
   @IBOutlet private var panelOne: UIView!
   @IBOutlet private var panelTwo: UIView!
+  @IBOutlet private weak var videoView: UIView!
   @IBOutlet private var panelThree: UIView!
   
   @IBOutlet private weak var pageOneWelcome: UILabel! { didSet {
@@ -82,6 +85,20 @@ class FTUEViewController: UIViewController {
   fileprivate func isLastPage(_ currentPage: Int) -> Bool {
     return currentPage == (pageControl.numberOfPages - 1)
   }
+  
+  func playVideo() {
+    videoView.alpha = 1
+    guard let videoURL = Bundle.main.url(forResource: "Slider2", withExtension: "mov") else { return }
+    let player = AVPlayer(url: videoURL)
+    let playerLayer = AVPlayerLayer(player: player)
+    playerLayer.frame = self.videoView!.bounds
+    self.videoView!.layer.addSublayer(playerLayer)
+    player.play()
+    
+    UIView.animate(withDuration: 0.5, delay: 9, options: [], animations: {
+      self.videoView.alpha = 0
+    }, completion: nil)
+  }
 }
 
 extension FTUEViewController: UIScrollViewDelegate {
@@ -89,6 +106,8 @@ extension FTUEViewController: UIScrollViewDelegate {
     let width = UIScreen.main.bounds.width
     let page = floor(panelsView.contentOffset.x / width)
     pageControl.currentPage = Int(page)
+    
+    if pageControl.currentPage == 1 { self.playVideo() }
     
     guard isLastPage(pageControl.currentPage) else { return }
     

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E144f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wuS-P1-g5h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G8c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wuS-P1-g5h">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -56,11 +56,11 @@
                         <outlet property="pageOneText" destination="CC3-EL-PZA" id="Gqq-6S-eug"/>
                         <outlet property="pageOneWelcome" destination="dO8-KJ-6J5" id="OkG-0Y-bBx"/>
                         <outlet property="pageThreeText" destination="xUP-uq-hRe" id="WkI-hL-Px9"/>
-                        <outlet property="pageTwoText" destination="QL4-ha-9Qq" id="Ykl-Iw-kQk"/>
                         <outlet property="panelOne" destination="2gi-gk-z47" id="lws-Cs-flr"/>
                         <outlet property="panelThree" destination="FiW-Lk-ddt" id="UC1-iy-ESt"/>
                         <outlet property="panelTwo" destination="KcO-8D-Icg" id="lXc-mj-iGX"/>
                         <outlet property="panelsView" destination="wCW-O8-asW" id="QHs-2D-dZn"/>
+                        <outlet property="videoView" destination="DmU-sp-lOf" id="Jba-xS-ZRy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gH8-Q0-lb7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -68,54 +68,72 @@
                     <rect key="frame" x="0.0" y="0.0" width="336" height="626"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Welcome to Slider" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dO8-KJ-6J5">
-                            <rect key="frame" x="99" y="135" width="139" height="20.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CC3-EL-PZA">
-                            <rect key="frame" x="79" y="181" width="178" height="265"/>
-                            <string key="text">Slider is a fun game based on the 4 by 5 sliding block puzzles first popularized by Lewis Hardy's century old Pennant Puzzle. Free the large block through the "Escape Area" at the bottom of the grid.</string>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="gJg-on-eu3">
+                            <rect key="frame" x="42" y="146" width="252" height="335"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Slider" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dO8-KJ-6J5">
+                                    <rect key="frame" x="56.5" y="0.0" width="139" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CC3-EL-PZA">
+                                    <rect key="frame" x="0.0" y="45.5" width="252" height="142.5"/>
+                                    <string key="text">Slider is a fun game based on the 4 by 5 sliding block puzzles first popularized by Lewis Hardy's century old Pennant Puzzle. Free the large block through the "Escape Area" at the bottom of the grid.</string>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIJ-kc-R9X">
+                                    <rect key="frame" x="0.0" y="213" width="252" height="122"/>
+                                    <string key="text">There are many puzzles to play, starting with the trivially simple and eventually working your way up to the full Pennent Puzzle, which has a very high degree of difficulty.</string>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="CC3-EL-PZA" firstAttribute="centerY" secondItem="2gi-gk-z47" secondAttribute="centerY" id="5rd-EO-Jhd"/>
-                        <constraint firstItem="CC3-EL-PZA" firstAttribute="centerX" secondItem="2gi-gk-z47" secondAttribute="centerX" id="B9s-B1-TB3"/>
-                        <constraint firstItem="CC3-EL-PZA" firstAttribute="width" secondItem="2gi-gk-z47" secondAttribute="width" multiplier="0.75" id="E8G-5g-yJr"/>
-                        <constraint firstItem="CC3-EL-PZA" firstAttribute="top" secondItem="dO8-KJ-6J5" secondAttribute="bottom" constant="25" id="FkS-gS-Rpd"/>
-                        <constraint firstItem="dO8-KJ-6J5" firstAttribute="centerX" secondItem="2gi-gk-z47" secondAttribute="centerX" id="M82-YZ-Gfl"/>
+                        <constraint firstItem="gJg-on-eu3" firstAttribute="width" secondItem="2gi-gk-z47" secondAttribute="width" multiplier="0.75" id="JkZ-ky-mby"/>
+                        <constraint firstItem="gJg-on-eu3" firstAttribute="centerY" secondItem="2gi-gk-z47" secondAttribute="centerY" id="eC8-GT-EJi"/>
+                        <constraint firstItem="gJg-on-eu3" firstAttribute="centerX" secondItem="2gi-gk-z47" secondAttribute="centerX" id="r0x-Go-pWn"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" id="KcO-8D-Icg">
                     <rect key="frame" x="0.0" y="0.0" width="364" height="625"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QL4-ha-9Qq">
-                            <rect key="frame" x="109" y="186" width="178" height="265"/>
-                            <string key="text">There are many puzzles to play, starting with the trivially simple and eventually working your way up to the full Pennent Puzzle, which has a very high degree of difficulty.</string>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2jk-NI-dRa">
+                            <rect key="frame" x="45" y="302" width="273" height="20.5"/>
+                            <string key="text">As you just saw, slide the interfering blocks out of the way so you can get the large block to the exit path at the bottom of the gameboard.</string>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="DmU-sp-lOf">
+                            <rect key="frame" x="45.5" y="78" width="273" height="469"/>
+                            <color key="backgroundColor" red="0.69322818517684937" green="0.73646820253796053" blue="0.83917002545462716" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="QL4-ha-9Qq" firstAttribute="centerY" secondItem="KcO-8D-Icg" secondAttribute="centerY" id="33e-2r-A44"/>
-                        <constraint firstItem="QL4-ha-9Qq" firstAttribute="centerX" secondItem="KcO-8D-Icg" secondAttribute="centerX" id="cAb-iU-6l2"/>
-                        <constraint firstItem="QL4-ha-9Qq" firstAttribute="width" secondItem="KcO-8D-Icg" secondAttribute="width" multiplier="0.75" id="oha-IJ-RYg"/>
+                        <constraint firstItem="DmU-sp-lOf" firstAttribute="height" secondItem="KcO-8D-Icg" secondAttribute="height" multiplier="0.75" id="3o0-4y-xa4"/>
+                        <constraint firstItem="DmU-sp-lOf" firstAttribute="centerY" secondItem="KcO-8D-Icg" secondAttribute="centerY" id="7Y6-BH-gAE"/>
+                        <constraint firstItem="DmU-sp-lOf" firstAttribute="width" secondItem="KcO-8D-Icg" secondAttribute="width" multiplier="0.75" id="Evh-oh-Wwk"/>
+                        <constraint firstItem="DmU-sp-lOf" firstAttribute="centerX" secondItem="KcO-8D-Icg" secondAttribute="centerX" id="JZA-c1-5T3"/>
+                        <constraint firstItem="2jk-NI-dRa" firstAttribute="centerY" secondItem="KcO-8D-Icg" secondAttribute="centerY" id="QV3-EY-i9z"/>
+                        <constraint firstItem="2jk-NI-dRa" firstAttribute="centerX" secondItem="KcO-8D-Icg" secondAttribute="centerX" id="Xab-eI-W7X"/>
+                        <constraint firstItem="2jk-NI-dRa" firstAttribute="width" secondItem="KcO-8D-Icg" secondAttribute="width" multiplier="0.75" id="fdL-4m-Mhd"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" id="FiW-Lk-ddt">
                     <rect key="frame" x="0.0" y="0.0" width="343" height="623"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xUP-uq-hRe">
-                            <rect key="frame" x="82" y="179" width="178" height="265"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xUP-uq-hRe">
+                            <rect key="frame" x="43" y="220" width="257" height="183"/>
                             <string key="text">When you open the game, it will always start where you last left it, it remembers the current state of your puzzle.  In fact, it will store all your old attempts so you can replay any game from your game history.   Ready to have some fun?</string>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>

@@ -63,10 +63,11 @@
 		CB5908571EFC156000D77DB5 /* GameSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB59084A1EFC156000D77DB5 /* GameSize.swift */; };
 		CB5908581EFC156000D77DB5 /* TransitionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB59084B1EFC156000D77DB5 /* TransitionLabel.swift */; };
 		CB5908591EFC156000D77DB5 /* XibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB59084C1EFC156000D77DB5 /* XibLoadable.swift */; };
-		CB9C60261DF067610011F65F /* klotski.txt in Resources */ = {isa = PBXBuildFile; fileRef = CB9C60251DF067610011F65F /* klotski.txt */; };
 		CB9F9AF81E204F32009FF7C2 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9F9AF71E204F32009FF7C2 /* UIView.swift */; };
 		CBA63BF91DA9D8F4004C0EE6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA63BF81DA9D8F4004C0EE6 /* Constants.swift */; };
 		CBA63BFB1DA9E73F004C0EE6 /* ConstantsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA63BFA1DA9E73F004C0EE6 /* ConstantsTests.swift */; };
+		CBB064B41F00904600B2EF1D /* klotski.txt in Resources */ = {isa = PBXBuildFile; fileRef = CBB064B21F00904600B2EF1D /* klotski.txt */; };
+		CBB064B51F00904600B2EF1D /* Slider2.mov in Resources */ = {isa = PBXBuildFile; fileRef = CBB064B31F00904600B2EF1D /* Slider2.mov */; };
 		CBB7D3371E2562C2000CC0D3 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7D3361E2562C2000CC0D3 /* Color.swift */; };
 		CBC5712C1DEB2F0700633ED8 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC5712B1DEB2F0700633ED8 /* GameModel.swift */; };
 		CBC5712E1DEB2F3A00633ED8 /* GameMoveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC5712D1DEB2F3A00633ED8 /* GameMoveData.swift */; };
@@ -148,10 +149,11 @@
 		CB59084A1EFC156000D77DB5 /* GameSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSize.swift; sourceTree = "<group>"; };
 		CB59084B1EFC156000D77DB5 /* TransitionLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransitionLabel.swift; path = Views/TransitionLabel.swift; sourceTree = "<group>"; };
 		CB59084C1EFC156000D77DB5 /* XibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XibLoadable.swift; path = Views/XibLoadable.swift; sourceTree = "<group>"; };
-		CB9C60251DF067610011F65F /* klotski.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = klotski.txt; path = Resources/klotski.txt; sourceTree = "<group>"; };
 		CB9F9AF71E204F32009FF7C2 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIView.swift; path = Extensions/UIView.swift; sourceTree = "<group>"; };
 		CBA63BF81DA9D8F4004C0EE6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilities/Constants.swift; sourceTree = "<group>"; };
 		CBA63BFA1DA9E73F004C0EE6 /* ConstantsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstantsTests.swift; sourceTree = "<group>"; };
+		CBB064B21F00904600B2EF1D /* klotski.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = klotski.txt; path = Resources/klotski.txt; sourceTree = "<group>"; };
+		CBB064B31F00904600B2EF1D /* Slider2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = Slider2.mov; path = Resources/Slider2.mov; sourceTree = "<group>"; };
 		CBB7D3361E2562C2000CC0D3 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Color.swift; path = Store/Color.swift; sourceTree = "<group>"; };
 		CBC5712B1DEB2F0700633ED8 /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameModel.swift; path = Models/Game/GameModel.swift; sourceTree = "<group>"; };
 		CBC5712D1DEB2F3A00633ED8 /* GameMoveData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameMoveData.swift; path = Models/Game/GameMoveData.swift; sourceTree = "<group>"; };
@@ -479,7 +481,8 @@
 		CB9C60241DF067510011F65F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				CB9C60251DF067610011F65F /* klotski.txt */,
+				CBB064B21F00904600B2EF1D /* klotski.txt */,
+				CBB064B31F00904600B2EF1D /* Slider2.mov */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -636,11 +639,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB9C60261DF067610011F65F /* klotski.txt in Resources */,
+				CBB064B41F00904600B2EF1D /* klotski.txt in Resources */,
 				83AB626F1D97106D00E61AB7 /* LaunchScreen.storyboard in Resources */,
 				CB5908331EFC155400D77DB5 /* PuzzleList.storyboard in Resources */,
 				CB5908281EFC155400D77DB5 /* FTUE.storyboard in Resources */,
 				CB5908521EFC156000D77DB5 /* BorderView.xib in Resources */,
+				CBB064B51F00904600B2EF1D /* Slider2.mov in Resources */,
 				83AB626C1D97106D00E61AB7 /* Assets.xcassets in Resources */,
 				CB59082B1EFC155400D77DB5 /* Gameboard.storyboard in Resources */,
 				CB5908541EFC156000D77DB5 /* ControlBarView.xib in Resources */,
