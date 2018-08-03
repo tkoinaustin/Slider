@@ -7,8 +7,8 @@ disabled_rules:
   - statement_position
   - closing_brace
 file_length:
-  warning: 200
-  error: 225
+  warning: 400
+  error: 625
 function_body_length:
   warning: 20
   error: 30

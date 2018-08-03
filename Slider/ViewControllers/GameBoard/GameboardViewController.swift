@@ -12,7 +12,7 @@ class GameboardViewController: UIViewController {
   
   var viewModel = GameboardViewModel()
 
-  @IBOutlet private weak var bannerAdView: BannerAdView!
+//  @IBOutlet private weak var bannerAdView: BannerAdView!
   @IBOutlet private weak var borderView: BorderView! { didSet {
     borderView.borderColor = Color.steel
   }}

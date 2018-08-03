@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G8c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wuS-P1-g5h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14269.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wuS-P1-g5h">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14252.5"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -44,7 +43,7 @@
                         <constraints>
                             <constraint firstItem="3j1-gf-B4r" firstAttribute="leading" secondItem="4j4-yA-OOT" secondAttribute="leading" id="DN9-FJ-7ZM"/>
                             <constraint firstItem="S9K-oq-Lgx" firstAttribute="top" secondItem="feR-Gh-XS5" secondAttribute="bottom" id="HUv-EM-dWG"/>
-                            <constraint firstItem="S9K-oq-Lgx" firstAttribute="top" secondItem="3j1-gf-B4r" secondAttribute="bottom" id="T8V-WL-y7r"/>
+                            <constraint firstAttribute="bottom" secondItem="3j1-gf-B4r" secondAttribute="bottom" id="T8V-WL-y7r"/>
                             <constraint firstItem="feR-Gh-XS5" firstAttribute="leading" secondItem="4j4-yA-OOT" secondAttribute="leading" id="cD6-vJ-wfc"/>
                             <constraint firstAttribute="trailing" secondItem="3j1-gf-B4r" secondAttribute="trailing" id="gHN-RI-cOG"/>
                             <constraint firstAttribute="trailing" secondItem="feR-Gh-XS5" secondAttribute="trailing" id="j9g-l1-S1t"/>
@@ -69,7 +68,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="gJg-on-eu3">
-                            <rect key="frame" x="42" y="146" width="252" height="335"/>
+                            <rect key="frame" x="42" y="145.5" width="252" height="335"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Slider" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dO8-KJ-6J5">
                                     <rect key="frame" x="56.5" y="0.0" width="139" height="20.5"/>
@@ -106,7 +105,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2jk-NI-dRa">
-                            <rect key="frame" x="45" y="302" width="273" height="20.5"/>
+                            <rect key="frame" x="45.5" y="262" width="273" height="101.5"/>
                             <string key="text">As you just saw, slide the interfering blocks out of the way so you can get the large block to the exit path at the bottom of the gameboard.</string>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>

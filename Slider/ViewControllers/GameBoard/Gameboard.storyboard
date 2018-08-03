@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SkA-dQ-sES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14269.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SkA-dQ-sES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14252.5"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -59,7 +58,7 @@
                             <constraint firstItem="fZ6-fn-By1" firstAttribute="leading" secondItem="tVV-JY-VtE" secondAttribute="leadingMargin" priority="250" id="gbA-M6-GY9"/>
                             <constraint firstAttribute="trailing" secondItem="CK8-mD-Lcw" secondAttribute="trailing" id="gug-Ba-4pn"/>
                             <constraint firstItem="fZ6-fn-By1" firstAttribute="centerX" secondItem="tVV-JY-VtE" secondAttribute="centerX" id="nXW-7u-BEc"/>
-                            <constraint firstItem="zGg-GE-j6X" firstAttribute="top" secondItem="DTY-HE-AXT" secondAttribute="bottom" id="u8e-gL-7Cx"/>
+                            <constraint firstAttribute="bottom" secondItem="DTY-HE-AXT" secondAttribute="bottom" id="u8e-gL-7Cx"/>
                             <constraint firstItem="fZ6-fn-By1" firstAttribute="top" secondItem="f1l-yQ-djv" secondAttribute="bottom" constant="20" id="yxZ-Ex-Pus"/>
                         </constraints>
                     </view>

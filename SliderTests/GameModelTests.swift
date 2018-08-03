@@ -23,9 +23,9 @@ class GameModelTests: XCTestCase {
   func testBlockOrder() {
     let game = GridModel(gridLayout)
     
-    for i in 0..<game.blockCount {
-      XCTAssertEqual(i, game.block(i)?.index,
-                     "Block \(String(describing: game.block(i)?.index)) not in correct order, it is at index \(i)")
+    for idx in 0..<game.blockCount {
+      XCTAssertEqual(idx, game.block(idx)?.index,
+                     "Block \(String(describing: game.block(idx)?.index)) not in correct order, it is at index \(idx)")
     }
   }
   

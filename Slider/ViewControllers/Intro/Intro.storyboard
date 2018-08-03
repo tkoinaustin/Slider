@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="t83-vZ-Ygp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14269.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="t83-vZ-Ygp">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14252.5"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -25,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="44J-51-1Kz">
-                                <rect key="frame" x="107" y="258" width="163" height="151"/>
+                                <rect key="frame" x="106" y="258" width="163" height="151"/>
                                 <state key="normal" image="EnterButton"/>
                                 <connections>
                                     <action selector="launchApp:" destination="t83-vZ-Ygp" eventType="touchUpInside" id="kkA-hG-HWJ"/>
@@ -43,7 +43,7 @@
                             <constraint firstItem="ImS-06-0Nv" firstAttribute="centerX" secondItem="jxc-6N-BhN" secondAttribute="centerX" id="6wt-qY-t2l"/>
                             <constraint firstItem="LJr-bp-NvK" firstAttribute="leading" secondItem="jxc-6N-BhN" secondAttribute="leading" id="RRG-Ot-lpj"/>
                             <constraint firstItem="44J-51-1Kz" firstAttribute="centerX" secondItem="jxc-6N-BhN" secondAttribute="centerX" id="Tgh-d4-8jD"/>
-                            <constraint firstItem="KBA-Jv-TkA" firstAttribute="top" secondItem="LJr-bp-NvK" secondAttribute="bottom" id="Zx1-aP-FaA"/>
+                            <constraint firstAttribute="bottom" secondItem="LJr-bp-NvK" secondAttribute="bottom" id="Zx1-aP-FaA"/>
                             <constraint firstAttribute="trailing" secondItem="LJr-bp-NvK" secondAttribute="trailing" id="feN-l8-h8z"/>
                             <constraint firstItem="ImS-06-0Nv" firstAttribute="centerY" secondItem="jxc-6N-BhN" secondAttribute="centerY" id="rEj-JD-kId"/>
                             <constraint firstItem="44J-51-1Kz" firstAttribute="centerY" secondItem="jxc-6N-BhN" secondAttribute="centerY" id="z11-wq-why"/>

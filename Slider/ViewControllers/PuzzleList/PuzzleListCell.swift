@@ -29,7 +29,7 @@ class PuzzleListCell: UITableViewCell {
     bottomBorder = CALayer()
     
     super.init(style: style, reuseIdentifier: reuseIdentifier)
-    backgroundColor = UIColor.white.alpha(0.25)
+    backgroundColor = UIColor.white.withAlphaComponent(0.25)
 
     self.layer.addSublayer(bottomBorder)
     bottomBorder.frame = CGRect(x: 0,

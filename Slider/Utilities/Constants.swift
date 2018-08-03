@@ -19,20 +19,20 @@ class GridConstants {
   static private let rowCenters: [CGFloat] = [0.1, 0.3, 0.5, 0.7, 0.9]
   
   static func blockCenter(row: Int, col: Int, type: BlockType) -> CGPoint {
-    var x = colCenters[col]
-    var y = rowCenters[row]
+    var xCol = colCenters[col]
+    var yRow = rowCenters[row]
     
     switch type {
     case .small:
       break
     case .wide:
-      x += 0.125
+      xCol += 0.125
     case .tall:
-      y += 0.1
+      yRow += 0.1
     case .big:
-      x += 0.125
-      y += 0.1
+      xCol += 0.125
+      yRow += 0.1
     }
-    return CGPoint(x: x, y: y)
+    return CGPoint(x: xCol, y: yRow)
   }
 }

@@ -9,7 +9,7 @@
 import UIKit
 import Fabric
 import Crashlytics
-import GoogleMobileAds
+//import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
