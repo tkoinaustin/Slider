@@ -153,7 +153,7 @@ class GameboardViewModel {
       self.game.datePlayed = Date()
       self.grid.setCurrentGrid((self.game.moveData.first?.grid)!)
       self.grid.updateBlockOriginsForBoard(self.grid.currentGrid)
-      self.placeAllBlocks()
+      self.placeAllBlocks(1.5)
       self.game.trim(0)
     }
     
@@ -184,12 +184,12 @@ class GameboardViewModel {
     return blocks[index]
   }
   
-  func placeAllBlocks() {
+  func placeAllBlocks(_ time: Double = 0.2) {
     for block in blocks {
       block.placeBlock(point: GridConstants.blockCenter(row: block.model.origin.row,
                                                         col: block.model.origin.col,
                                                         type: block.type))
-      block.updateBlockUI(0.2)
+      block.updateBlockUI(time)
     }
   }
 

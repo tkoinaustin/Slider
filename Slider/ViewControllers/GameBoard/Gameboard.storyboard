@@ -58,8 +58,9 @@
                             <constraint firstItem="fZ6-fn-By1" firstAttribute="leading" secondItem="tVV-JY-VtE" secondAttribute="leadingMargin" priority="250" id="gbA-M6-GY9"/>
                             <constraint firstAttribute="trailing" secondItem="CK8-mD-Lcw" secondAttribute="trailing" id="gug-Ba-4pn"/>
                             <constraint firstItem="fZ6-fn-By1" firstAttribute="centerX" secondItem="tVV-JY-VtE" secondAttribute="centerX" id="nXW-7u-BEc"/>
+                            <constraint firstItem="fZ6-fn-By1" firstAttribute="centerY" secondItem="tVV-JY-VtE" secondAttribute="centerY" constant="-40" id="qkQ-2i-ZJf"/>
                             <constraint firstAttribute="bottom" secondItem="DTY-HE-AXT" secondAttribute="bottom" id="u8e-gL-7Cx"/>
-                            <constraint firstItem="fZ6-fn-By1" firstAttribute="top" secondItem="f1l-yQ-djv" secondAttribute="bottom" constant="20" id="yxZ-Ex-Pus"/>
+                            <constraint firstItem="fZ6-fn-By1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="f1l-yQ-djv" secondAttribute="bottom" constant="20" id="yxZ-Ex-Pus"/>
                         </constraints>
                     </view>
                     <connections>
