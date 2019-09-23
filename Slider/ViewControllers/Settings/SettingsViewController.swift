@@ -39,7 +39,7 @@ class SettingsViewController: UIViewController {
     }
   }
   
-  func dismissController() {
+    @objc func dismissController() {
     dismiss(animated: true, completion: nil)
   }
 

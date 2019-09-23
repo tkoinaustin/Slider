@@ -28,7 +28,7 @@ class GridModel {
   private var notThisDirection: Direction?
   private var board: Board = .moveOneSpace
   
-  var updateGameboardUI: (() -> Void) = { _ in }
+  var updateGameboardUI: (() -> Void) = { }
   var gameModelMoveFinished: ((_: GameMoveData) -> Void) = { move in }
   var onWinning: ((_: Bool) -> Void) = { won in }
   
@@ -70,7 +70,7 @@ class GridModel {
       return self.moving(amount: amount, index: index)
     }
     
-    block.blockModelMoveFinished = { [unowned self] _ in
+    block.blockModelMoveFinished = { //[unowned self] _ in
       guard self.direction != nil else {
         self.board = .moveOneSpace
         return

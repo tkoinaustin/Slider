@@ -82,12 +82,12 @@ class CodedBlockView: UIView {
   }
   
   fileprivate func setBlockClosures(_ index: Int) {
-    viewModel.reset = { [unowned self] _ in
+    viewModel.reset = { //[unowned self] _ in
       self.alpha = 0
       self.transform = .identity
     }
     
-    viewModel.fadeOutAndRemove = { _ in
+    viewModel.fadeOutAndRemove = { //_ in
       UIView.animate(withDuration: 0.5, animations: {
         self.alpha = 0
       })
@@ -99,13 +99,13 @@ class CodedBlockView: UIView {
       })
     }
     
-   viewModel.nextStep = { [unowned self] _ in
+   viewModel.nextStep = { //[unowned self] _ in
       UIView.animate(withDuration: 0.4, animations: {
         self.center = self.viewModel.center
       })
     }
     
-    viewModel.spinOffScreen = { [unowned self] _ in
+    viewModel.spinOffScreen = { //[unowned self] _ in
       self.superview?.sendSubview(toBack: self)
       let delay: Double = 0.4 * Double(index)
       let scale: CGFloat = 1.2
@@ -135,7 +135,7 @@ class CodedBlockView: UIView {
       })
     }
     
-    self.viewModel.exitOffScreen = { [unowned self] _ in
+    self.viewModel.exitOffScreen = { //[unowned self] _ in
       let transform = CGAffineTransform(scaleX: 1, y: 0.001)
       UIView.animate(
         withDuration: 0.5,
@@ -148,7 +148,7 @@ class CodedBlockView: UIView {
         completion: nil
     )}
     
-    viewModel.fadeIn = { [unowned self] _ in
+    viewModel.fadeIn = { //[unowned self] _ in
       self.alpha = 0
       UIView.animate(withDuration: 0.5, animations: {
         self.alpha = 1
@@ -157,7 +157,7 @@ class CodedBlockView: UIView {
   }
   // swiftlint:enable function_body_length
 
-  func pan(_ panRecognizer: UIPanGestureRecognizer) {
+    @objc func pan(_ panRecognizer: UIPanGestureRecognizer) {
     guard viewModel.swipeEnabled else { return }
     
     let translation = panRecognizer.translation(in: superview)

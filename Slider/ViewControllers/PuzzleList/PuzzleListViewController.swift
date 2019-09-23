@@ -36,7 +36,7 @@ class PuzzleListViewController: UITableViewController {
     tableView.backgroundView?.addSubview(UIImageView(image: UIImage(named: "background image small tall")))
   }
   
-  func dismissController() {
+    @objc func dismissController() {
     loadNewPuzzle(nil)
     dismiss(animated: true, completion: nil)
   }

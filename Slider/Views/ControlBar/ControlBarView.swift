@@ -73,7 +73,7 @@ class ControlBarView: UIView, XibLoadable {
   }
   
   func setup() {
-    viewModel.updateControlBarUI = { [unowned self] _ in
+    viewModel.updateControlBarUI = { //[unowned self] _ in
       self.updateUI()
     }
     

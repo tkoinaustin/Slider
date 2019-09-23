@@ -56,7 +56,7 @@ class PuzzleListDataProvider: NSObject, UITableViewDataSource {
     return cell
   }
   
-  func  buttonAction(sender: UIButton) {
+    @objc func  buttonAction(sender: UIButton) {
     let row = sender.tag
     let name = store[row].name
     let historyModel = allGames.history(for: name)

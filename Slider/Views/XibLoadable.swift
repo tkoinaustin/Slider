@@ -61,7 +61,7 @@ extension XibLoadable where Self: UIView {
       var secondItem: AnyObject?
       
         if constraint.firstItem as? NSObject == from { firstItem = realView }
-        else { firstItem = constraint.firstItem }
+        else { firstItem = constraint.firstItem! }
       
         if let item = constraint.secondItem as? NSObject, item == from { secondItem = realView }
         else { secondItem = constraint.secondItem }
