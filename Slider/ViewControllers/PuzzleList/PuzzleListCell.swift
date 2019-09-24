@@ -19,7 +19,7 @@ class PuzzleListCell: UITableViewCell {
     super.awakeFromNib()
   }
   
-  override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     puzzleLabel = UILabel()
     puzzleLabel.translatesAutoresizingMaskIntoConstraints = false
     
@@ -38,10 +38,10 @@ class PuzzleListCell: UITableViewCell {
                                 height: bottomBorderHeight)
     
     self.selectionStyle = .none
-    puzzleLabel.font = .systemFont(ofSize: 18)
-    historyButton.setTitleColor(UIColor.black, for: .normal)
-    historyButton.setTitleColor(UIColor.lightGray, for: .disabled)
-    historyButton.setTitleColor(UIColor.lightGray, for: .highlighted)
+    puzzleLabel.font = UIFont.preferredFont(forTextStyle: .body)
+    historyButton.setTitleColor(UIColor.label, for: .normal)
+    historyButton.setTitleColor(UIColor.secondaryLabel, for: .disabled)
+    historyButton.setTitleColor(UIColor.secondaryLabel, for: .highlighted)
 
     addSubview(puzzleLabel)
     addSubview(historyButton)
@@ -69,7 +69,7 @@ class PuzzleListCell: UITableViewCell {
   }
 
   func neverPlayed() {
-    bottomBorder.backgroundColor = UIColor.lightGray.cgColor
+    bottomBorder.backgroundColor = UIColor.tertiaryLabel.cgColor
     historyButton.isEnabled = false
   }
 

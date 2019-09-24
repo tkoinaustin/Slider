@@ -106,7 +106,7 @@ class CodedBlockView: UIView {
     }
     
     viewModel.spinOffScreen = { //[unowned self] _ in
-      self.superview?.sendSubview(toBack: self)
+        self.superview?.sendSubviewToBack(self)
       let delay: Double = 0.4 * Double(index)
       let scale: CGFloat = 1.2
       let enlarge = CGAffineTransform(scaleX: scale, y: scale)

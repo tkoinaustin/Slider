@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14269.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="t83-vZ-Ygp">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14865.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="t83-vZ-Ygp">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14252.5"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14819.2"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -52,8 +50,8 @@
                     <connections>
                         <outlet property="continueButton" destination="44J-51-1Kz" id="GSi-3K-2KB"/>
                         <outlet property="logoLabel" destination="ImS-06-0Nv" id="fQu-YN-Yrx"/>
-                        <segue destination="lx3-cj-XZz" kind="show" identifier="FTUESegue" id="5n8-Ld-0jd"/>
-                        <segue destination="4we-FW-A5N" kind="show" identifier="gameboardSegue" id="mS9-iO-H3I"/>
+                        <segue destination="lx3-cj-XZz" kind="showDetail" identifier="FTUESegue" id="5n8-Ld-0jd"/>
+                        <segue destination="4we-FW-A5N" kind="showDetail" identifier="gameboardSegue" id="mS9-iO-H3I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yg0-Va-1pW" userLabel="First Responder" sceneMemberID="firstResponder"/>

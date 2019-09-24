@@ -18,7 +18,7 @@ class IntroSegue: UIStoryboardSegue {
     UIView.transition(
       with: UIApplication.shared.keyWindow!,
       duration: 0.75,
-      options: UIViewAnimationOptions(),
+      options: UIView.AnimationOptions(),
       animations: {
         self.destination.view.transform = CGAffineTransform.identity
     },

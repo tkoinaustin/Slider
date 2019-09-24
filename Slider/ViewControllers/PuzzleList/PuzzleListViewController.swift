@@ -32,8 +32,8 @@ class PuzzleListViewController: UITableViewController {
     let idx: IndexPath = IndexPath.init(row: currentIndex, section: 0)
     tableView.scrollToRow(at: idx, at: .top, animated: true)
 
-    tableView.backgroundView = UIImageView(image: UIImage(named: "background gradient90"))
-    tableView.backgroundView?.addSubview(UIImageView(image: UIImage(named: "background image small tall")))
+//    tableView.backgroundView = UIImageView(image: UIImage(named: "background gradient90"))
+//    tableView.backgroundView?.addSubview(UIImageView(image: UIImage(named: "background image small tall")))
   }
   
     @objc func dismissController() {

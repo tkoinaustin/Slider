@@ -23,9 +23,16 @@ class ControlBarView: UIView, XibLoadable {
     buttonHeight.constant = gameSize.buttonSize
   }}
   
-  @IBOutlet private weak var settings: UIButton! { didSet {
-    viewModel.settingsButton = settings
-  }}
+    @IBOutlet weak var backgroundView: UIView! { didSet {
+        if #available(iOS 13.0, *) {
+            backgroundView.backgroundColor = .secondarySystemBackground
+        } else {
+            // Fallback on earlier versions
+        }
+    }}
+    @IBOutlet private weak var settings: UIButton! { didSet {
+        viewModel.settingsButton = settings
+    }}
 
   @IBOutlet private weak var puzzle: UIButton!
   @IBOutlet private weak var reset: UIButton!

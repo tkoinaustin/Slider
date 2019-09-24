@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14269.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SkA-dQ-sES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14865.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SkA-dQ-sES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14252.5"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14819.2"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,17 +19,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background gradient90" translatesAutoresizingMaskIntoConstraints="NO" id="DTY-HE-AXT" userLabel="background gradient">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" red="0.58039215686274503" green="0.12549019607843137" blue="0.15294117647058825" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background image large" translatesAutoresizingMaskIntoConstraints="NO" id="CK8-mD-Lcw" userLabel="background image">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </imageView>
                             <view tag="13" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ds-Bj-rJn" userLabel="control bar" customClass="ControlBarView" customModule="Slider" customModuleProvider="target">
                                 <rect key="frame" x="16" y="582" width="343" height="65"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view tag="18" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fZ6-fn-By1" customClass="BorderView" customModule="Slider" customModuleProvider="target">
                                 <rect key="frame" x="16" y="40" width="343" height="509"/>
@@ -42,24 +31,16 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="CK8-mD-Lcw" firstAttribute="leading" secondItem="tVV-JY-VtE" secondAttribute="leading" id="7d2-SP-YlS"/>
-                            <constraint firstItem="DTY-HE-AXT" firstAttribute="leading" secondItem="tVV-JY-VtE" secondAttribute="leading" id="81L-rx-Otk"/>
-                            <constraint firstAttribute="trailing" secondItem="DTY-HE-AXT" secondAttribute="trailing" id="AYv-jB-oPL"/>
-                            <constraint firstItem="zGg-GE-j6X" firstAttribute="top" secondItem="CK8-mD-Lcw" secondAttribute="bottom" id="NQL-UN-a8x"/>
                             <constraint firstItem="fZ6-fn-By1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tVV-JY-VtE" secondAttribute="leadingMargin" id="QCH-KI-any"/>
                             <constraint firstItem="2Ds-Bj-rJn" firstAttribute="leading" secondItem="tVV-JY-VtE" secondAttribute="leadingMargin" id="SDu-So-N4E"/>
                             <constraint firstItem="bie-Xn-ZpF" firstAttribute="centerX" secondItem="tVV-JY-VtE" secondAttribute="centerX" id="WXL-8o-0IF"/>
-                            <constraint firstItem="CK8-mD-Lcw" firstAttribute="top" secondItem="tVV-JY-VtE" secondAttribute="top" id="XZH-pU-j1Z"/>
                             <constraint firstItem="zGg-GE-j6X" firstAttribute="top" secondItem="2Ds-Bj-rJn" secondAttribute="bottom" constant="20" id="XgJ-rt-86U"/>
                             <constraint firstItem="2Ds-Bj-rJn" firstAttribute="trailing" secondItem="tVV-JY-VtE" secondAttribute="trailingMargin" id="ZAc-Oa-gNC"/>
-                            <constraint firstItem="DTY-HE-AXT" firstAttribute="top" secondItem="tVV-JY-VtE" secondAttribute="top" id="d7P-sD-hb4"/>
                             <constraint firstItem="fZ6-fn-By1" firstAttribute="leading" secondItem="tVV-JY-VtE" secondAttribute="leadingMargin" priority="250" id="gbA-M6-GY9"/>
-                            <constraint firstAttribute="trailing" secondItem="CK8-mD-Lcw" secondAttribute="trailing" id="gug-Ba-4pn"/>
                             <constraint firstItem="fZ6-fn-By1" firstAttribute="centerX" secondItem="tVV-JY-VtE" secondAttribute="centerX" id="nXW-7u-BEc"/>
                             <constraint firstItem="fZ6-fn-By1" firstAttribute="centerY" secondItem="tVV-JY-VtE" secondAttribute="centerY" constant="-40" id="qkQ-2i-ZJf"/>
-                            <constraint firstAttribute="bottom" secondItem="DTY-HE-AXT" secondAttribute="bottom" id="u8e-gL-7Cx"/>
                             <constraint firstItem="fZ6-fn-By1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="f1l-yQ-djv" secondAttribute="bottom" constant="20" id="yxZ-Ex-Pus"/>
                         </constraints>
                     </view>
@@ -95,8 +76,4 @@
             <point key="canvasLocation" x="254" y="80"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="background gradient90" width="444" height="635"/>
-        <image name="background image large" width="1855" height="2422"/>
-    </resources>
 </document>

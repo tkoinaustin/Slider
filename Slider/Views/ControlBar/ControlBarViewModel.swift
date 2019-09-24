@@ -84,7 +84,7 @@ class ControlBarViewModel: NSObject, NSCoding {
   func addNotifications() {
     NotificationCenter.default.addObserver( self,
                                             selector: #selector(resignActive),
-                                            name: .UIApplicationWillResignActive,
+                                            name: UIApplication.willResignActiveNotification,
                                             object: nil)
   }
   

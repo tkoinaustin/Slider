@@ -40,7 +40,7 @@ class PuzzleListDataProvider: NSObject, UITableViewDataSource {
       cell.historyButton.isEnabled = true
       cell.historyButton.addTarget(self,
                                    action: #selector(buttonAction(sender:)),
-                                   for: UIControlEvents.touchUpInside)
+                                   for: UIControl.Event.touchUpInside)
       cell.historyButton.tag = indexPath.row
       
       switch allGames.history(for: name).state {
