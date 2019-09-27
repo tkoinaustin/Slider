@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14269.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wuS-P1-g5h">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14865.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wuS-P1-g5h">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14252.5"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14819.2"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background gradient90" translatesAutoresizingMaskIntoConstraints="NO" id="3j1-gf-B4r">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3j1-gf-B4r">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" directionalLockEnabled="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wCW-O8-asW">
@@ -39,7 +36,7 @@
                                 </connections>
                             </pageControl>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="3j1-gf-B4r" firstAttribute="leading" secondItem="4j4-yA-OOT" secondAttribute="leading" id="DN9-FJ-7ZM"/>
                             <constraint firstItem="S9K-oq-Lgx" firstAttribute="top" secondItem="feR-Gh-XS5" secondAttribute="bottom" id="HUv-EM-dWG"/>
@@ -68,32 +65,32 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="gJg-on-eu3">
-                            <rect key="frame" x="42" y="145.5" width="252" height="335"/>
+                            <rect key="frame" x="42" y="134.5" width="252" height="357"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Slider" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dO8-KJ-6J5">
-                                    <rect key="frame" x="56.5" y="0.0" width="139" height="20.5"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <rect key="frame" x="47.5" y="0.0" width="157" height="24"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CC3-EL-PZA">
-                                    <rect key="frame" x="0.0" y="45.5" width="252" height="142.5"/>
+                                    <rect key="frame" x="0.0" y="49" width="252" height="152.5"/>
                                     <string key="text">Slider is a fun game based on the 4 by 5 sliding block puzzles first popularized by Lewis Hardy's century old Pennant Puzzle. Free the large block through the "Escape Area" at the bottom of the grid.</string>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIJ-kc-R9X">
-                                    <rect key="frame" x="0.0" y="213" width="252" height="122"/>
+                                    <rect key="frame" x="0.0" y="226.5" width="252" height="130.5"/>
                                     <string key="text">There are many puzzles to play, starting with the trivially simple and eventually working your way up to the full Pennent Puzzle, which has a very high degree of difficulty.</string>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                         </stackView>
                     </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
                         <constraint firstItem="gJg-on-eu3" firstAttribute="width" secondItem="2gi-gk-z47" secondAttribute="width" multiplier="0.75" id="JkZ-ky-mby"/>
                         <constraint firstItem="gJg-on-eu3" firstAttribute="centerY" secondItem="2gi-gk-z47" secondAttribute="centerY" id="eC8-GT-EJi"/>
@@ -105,9 +102,9 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2jk-NI-dRa">
-                            <rect key="frame" x="45.5" y="262" width="273" height="101.5"/>
+                            <rect key="frame" x="45.5" y="258.5" width="273" height="108.5"/>
                             <string key="text">As you just saw, slide the interfering blocks out of the way so you can get the large block to the exit path at the bottom of the gameboard.</string>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -116,7 +113,6 @@
                             <color key="backgroundColor" red="0.69322818517684937" green="0.73646820253796053" blue="0.83917002545462716" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="DmU-sp-lOf" firstAttribute="height" secondItem="KcO-8D-Icg" secondAttribute="height" multiplier="0.75" id="3o0-4y-xa4"/>
                         <constraint firstItem="DmU-sp-lOf" firstAttribute="centerY" secondItem="KcO-8D-Icg" secondAttribute="centerY" id="7Y6-BH-gAE"/>
@@ -132,14 +128,13 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xUP-uq-hRe">
-                            <rect key="frame" x="43" y="220" width="257" height="183"/>
+                            <rect key="frame" x="43" y="213.5" width="257" height="196.5"/>
                             <string key="text">When you open the game, it will always start where you last left it, it remembers the current state of your puzzle.  In fact, it will store all your old attempts so you can replay any game from your game history.   Ready to have some fun?</string>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="xUP-uq-hRe" firstAttribute="centerY" secondItem="FiW-Lk-ddt" secondAttribute="centerY" id="mUY-2a-z3A"/>
                         <constraint firstItem="xUP-uq-hRe" firstAttribute="centerX" secondItem="FiW-Lk-ddt" secondAttribute="centerX" id="qu6-8Z-MLS"/>
@@ -150,7 +145,4 @@
             <point key="canvasLocation" x="16.800000000000001" y="178.56071964017991"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="background gradient90" width="444" height="635"/>
-    </resources>
 </document>

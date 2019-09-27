@@ -34,7 +34,7 @@ class SettingsViewController: UIViewController {
     case .pad:
       dismissController()
       showFTUE()
-    default:
+    default: ()
       navigationController?.setNavigationBarHidden(true, animated: true)
     }
   }

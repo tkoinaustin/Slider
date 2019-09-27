@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background gradient90" translatesAutoresizingMaskIntoConstraints="NO" id="LJr-bp-NvK">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LJr-bp-NvK">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="44J-51-1Kz">
@@ -36,6 +36,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="LJr-bp-NvK" firstAttribute="top" secondItem="jxc-6N-BhN" secondAttribute="top" id="4v6-Le-HUJ"/>
                             <constraint firstItem="ImS-06-0Nv" firstAttribute="centerX" secondItem="jxc-6N-BhN" secondAttribute="centerX" id="6wt-qY-t2l"/>
@@ -47,16 +48,17 @@
                             <constraint firstItem="44J-51-1Kz" firstAttribute="centerY" secondItem="jxc-6N-BhN" secondAttribute="centerY" id="z11-wq-why"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="ygg-tX-OLn"/>
                     <connections>
                         <outlet property="continueButton" destination="44J-51-1Kz" id="GSi-3K-2KB"/>
                         <outlet property="logoLabel" destination="ImS-06-0Nv" id="fQu-YN-Yrx"/>
                         <segue destination="lx3-cj-XZz" kind="showDetail" identifier="FTUESegue" id="5n8-Ld-0jd"/>
-                        <segue destination="4we-FW-A5N" kind="showDetail" identifier="gameboardSegue" id="mS9-iO-H3I"/>
+                        <segue destination="4we-FW-A5N" kind="showDetail" identifier="gameboardSegue" customClass="IntroSegue" customModule="Slider" customModuleProvider="target" id="mS9-iO-H3I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yg0-Va-1pW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="256.80000000000001" y="-4.0479760119940034"/>
+            <point key="canvasLocation" x="1196" y="-4.0479760119940034"/>
         </scene>
         <!--FTUE-->
         <scene sceneID="cEk-qB-HJT">
@@ -64,7 +66,7 @@
                 <viewControllerPlaceholder storyboardName="FTUE" id="lx3-cj-XZz" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FEX-5p-tUx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="990" y="-51"/>
+            <point key="canvasLocation" x="1928" y="-51.27436281859071"/>
         </scene>
         <!--Gameboard-->
         <scene sceneID="jfT-7k-vMO">
@@ -72,11 +74,10 @@
                 <viewControllerPlaceholder storyboardName="Gameboard" id="4we-FW-A5N" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HsE-mG-Dg7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1021" y="55"/>
+            <point key="canvasLocation" x="1960" y="54.872563718140931"/>
         </scene>
     </scenes>
     <resources>
         <image name="EnterButton" width="163" height="151"/>
-        <image name="background gradient90" width="444" height="635"/>
     </resources>
 </document>

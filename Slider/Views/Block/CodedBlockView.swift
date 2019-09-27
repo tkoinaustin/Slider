@@ -13,6 +13,7 @@ class CodedBlockView: UIView {
   var imageView = UIImageView()
   var viewModel: BlockViewModel!
   var color: UIColor { didSet { imageView.backgroundColor = color }}
+    let blockAlpha = 0.7
 
   public override init(frame: CGRect) {
     color = Color.aqua
@@ -82,12 +83,12 @@ class CodedBlockView: UIView {
   }
   
   fileprivate func setBlockClosures(_ index: Int) {
-    viewModel.reset = { //[unowned self] _ in
+    viewModel.reset = {
       self.alpha = 0
       self.transform = .identity
     }
     
-    viewModel.fadeOutAndRemove = { //_ in
+    viewModel.fadeOutAndRemove = {
       UIView.animate(withDuration: 0.5, animations: {
         self.alpha = 0
       })
@@ -99,7 +100,7 @@ class CodedBlockView: UIView {
       })
     }
     
-   viewModel.nextStep = { //[unowned self] _ in
+   viewModel.nextStep = {
       UIView.animate(withDuration: 0.4, animations: {
         self.center = self.viewModel.center
       })

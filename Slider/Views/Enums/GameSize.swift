@@ -15,9 +15,9 @@ enum GameSize: String {
   
   var font: UIFont {
     switch self {
-    case .small: return UIFont(name: ".SFUIText", size: 15)!
-    case .medium: return UIFont(name: ".SFUIText", size: 18)!
-    case .large: return UIFont(name: ".SFUIText", size: 24)!
+    case .small: return UIFont.preferredFont(forTextStyle: .subheadline)
+    case .medium: return UIFont.preferredFont(forTextStyle: .body)
+    case .large: return UIFont.preferredFont(forTextStyle: .title1)
     }
   }
   

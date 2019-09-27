@@ -14,7 +14,7 @@ class GameboardViewController: UIViewController {
 
 //  @IBOutlet private weak var bannerAdView: BannerAdView!
   @IBOutlet private weak var borderView: BorderView! { didSet {
-    borderView.borderColor = Color.steel
+    borderView.borderColor = UIColor.systemGray4
   }}
   
   @IBOutlet private weak var gridView: UIView! { didSet {

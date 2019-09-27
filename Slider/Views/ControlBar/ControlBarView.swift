@@ -24,11 +24,12 @@ class ControlBarView: UIView, XibLoadable {
   }}
   
     @IBOutlet weak var backgroundView: UIView! { didSet {
-        if #available(iOS 13.0, *) {
-            backgroundView.backgroundColor = .secondarySystemBackground
-        } else {
-            // Fallback on earlier versions
-        }
+//        self.backgroundView.backgroundColor = .secondarySystemBackground
+        self.backgroundView.backgroundColor = .systemBackground
+        self.backgroundView.layer.borderWidth = 0.5
+        self.backgroundView.layer.cornerRadius = 10
+        self.backgroundView.layer.masksToBounds = true
+        self.backgroundView.layer.borderColor = UIColor.systemGray2.cgColor
     }}
     @IBOutlet private weak var settings: UIButton! { didSet {
         viewModel.settingsButton = settings

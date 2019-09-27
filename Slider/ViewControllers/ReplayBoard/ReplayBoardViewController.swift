@@ -21,7 +21,7 @@ class ReplayBoardViewController: UIViewController {
   
   @IBOutlet private weak var borderView: BorderView! { didSet {
     borderView.alpha = 0
-    borderView.borderColor = Color.steel
+    borderView.borderColor = UIColor.systemGray4
   }}
   
   @IBOutlet private weak var replayGrid: UIView! { didSet {
