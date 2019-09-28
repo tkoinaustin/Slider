@@ -55,7 +55,7 @@ class GameboardViewModel {
   }
   
   fileprivate func setGridClosures() {
-    grid.updateGameboardUI = { //[unowned self] _ in
+    grid.updateGameboardUI = { 
       self.placeAllBlocks()
     }
     
@@ -71,7 +71,7 @@ class GameboardViewModel {
       self.game.won = true
       self.controlBar.gameOver = true
       self.saveHistory()
-      for block in self.blocks { block.moveOffBoard() }
+      for block in self.blocks { block.moveOffBoardInitialWin() }
       
       Delay.by(6) {
         self.winnerAlert(.winner)
@@ -133,7 +133,7 @@ class GameboardViewModel {
       for block in self.blocks { block.swipeEnabled = true }
     }
     
-    controlBar.load = { //[unowned self] _ in
+    controlBar.load = {
       _ = self.restoreGame()
     }
     
@@ -145,7 +145,7 @@ class GameboardViewModel {
     
     controlBar.saveHistory = saveHistory
     
-    controlBar.resetPuzzle = { //[unowned self] _ in
+    controlBar.resetPuzzle = {
       print("resetPuzzle")
       guard !self.game.moveData.isEmpty else { return }
 
@@ -157,7 +157,7 @@ class GameboardViewModel {
       self.game.trim(0)
     }
     
-    controlBar.loadSettings = { //[unowned self] _ in
+    controlBar.loadSettings = {
       self.gridView.parentViewController?.performSegue(withIdentifier: "settingsSegue",
                                                        sender: self.controlBar.settingsButton)
     }
@@ -239,7 +239,7 @@ class GameboardViewModel {
       self.controlBar.moveNumber = index - 1
     }
     
-    replayViewModel.onCompletion = { //[unowned self] _ in
+    replayViewModel.onCompletion = {
       self.winnerAlert(.replay)
     }
     

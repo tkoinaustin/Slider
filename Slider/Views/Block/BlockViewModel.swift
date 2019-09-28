@@ -43,6 +43,7 @@ class BlockViewModel {
   var fadeIn: (() -> Void) = {}
   var exitOffScreen: (() -> Void) = {}
   var spinOffScreen: (() -> Void) = {}
+  var fadeOffScreen: (() -> Void) = {}
   var reset: (() -> Void) = {}
   var fadeOutAndRemove: (() -> Void) = {}
   var blockMoveStarted: (() -> Void) = {}
@@ -62,13 +63,23 @@ class BlockViewModel {
   func moveOffBoard() {
     swipeEnabled = false
     if index == 1 {
-    placeBlock(point: CGPoint(x: 0.5, y: 1.0))
-    self.exitOffScreen()
+        placeBlock(point: CGPoint(x: 0.5, y: 1.0))
+        self.exitOffScreen()
     } else {
-      self.spinOffScreen()
+        self.fadeOffScreen()
     }
   }
-  
+    
+    func moveOffBoardInitialWin() {
+      swipeEnabled = false
+      if index == 1 {
+          placeBlock(point: CGPoint(x: 0.5, y: 1.0))
+          self.exitOffScreen()
+      } else {
+          self.spinOffScreen()
+      }
+    }
+
   func placeBlock(point: CGPoint) {
     center = CGPoint(x: point.x * canvas.width, y: point.y * canvas.height)
   }

@@ -13,14 +13,14 @@ enum Alerts {
   
   var title: String {
     switch self {
-    case .winner: return "Winner, winner, chicken dinner!"
-    case .replay: return "You just never get tired of that game, do you?"
+    case .winner: return Quotes.winner
+    case .replay: return Quotes.replay
     }
   }
   
   var message: String {
     switch self {
-    case .winner: return "Good job"
+    case .winner: return Quotes.congrats
     case .replay: return ""
     }
   }

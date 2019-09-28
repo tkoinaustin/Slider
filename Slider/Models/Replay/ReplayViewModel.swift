@@ -95,7 +95,7 @@ class ReplayViewModel {
     
     if game.won {
       for block in self.blockViews { block.moveOffBoard() }
-      delay = 5.0
+        delay = 2.5
     }
     Delay.by(delay) {
       _ = self.gridView.parentViewController?.navigationController?.popViewController(animated: true)

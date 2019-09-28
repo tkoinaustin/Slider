@@ -66,6 +66,7 @@
 		CBA63BFB1DA9E73F004C0EE6 /* ConstantsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA63BFA1DA9E73F004C0EE6 /* ConstantsTests.swift */; };
 		CBB064B41F00904600B2EF1D /* klotski.txt in Resources */ = {isa = PBXBuildFile; fileRef = CBB064B21F00904600B2EF1D /* klotski.txt */; };
 		CBB064B51F00904600B2EF1D /* Slider2.mov in Resources */ = {isa = PBXBuildFile; fileRef = CBB064B31F00904600B2EF1D /* Slider2.mov */; };
+		CBB0D811233FC2B100893E14 /* Quotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB0D810233FC2B100893E14 /* Quotes.swift */; };
 		CBC5712C1DEB2F0700633ED8 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC5712B1DEB2F0700633ED8 /* GameModel.swift */; };
 		CBC5712E1DEB2F3A00633ED8 /* GameMoveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC5712D1DEB2F3A00633ED8 /* GameMoveData.swift */; };
 		CBC922941DB0304F00132C91 /* GameModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC922931DB0304F00132C91 /* GameModelTests.swift */; };
@@ -147,6 +148,7 @@
 		CBA63BFA1DA9E73F004C0EE6 /* ConstantsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstantsTests.swift; sourceTree = "<group>"; };
 		CBB064B21F00904600B2EF1D /* klotski.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = klotski.txt; path = Resources/klotski.txt; sourceTree = "<group>"; };
 		CBB064B31F00904600B2EF1D /* Slider2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = Slider2.mov; path = Resources/Slider2.mov; sourceTree = "<group>"; };
+		CBB0D810233FC2B100893E14 /* Quotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Quotes.swift; path = Resources/Quotes.swift; sourceTree = "<group>"; };
 		CBC5712B1DEB2F0700633ED8 /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameModel.swift; path = Models/Game/GameModel.swift; sourceTree = "<group>"; };
 		CBC5712D1DEB2F3A00633ED8 /* GameMoveData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameMoveData.swift; path = Models/Game/GameMoveData.swift; sourceTree = "<group>"; };
 		CBC922931DB0304F00132C91 /* GameModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModelTests.swift; sourceTree = "<group>"; };
@@ -460,6 +462,7 @@
 			children = (
 				CBB064B21F00904600B2EF1D /* klotski.txt */,
 				CBB064B31F00904600B2EF1D /* Slider2.mov */,
+				CBB0D810233FC2B100893E14 /* Quotes.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -762,6 +765,7 @@
 				837137791DD8A1F5003AD379 /* GridModelUtility.swift in Sources */,
 				CB5908301EFC155400D77DB5 /* HistoryListViewController.swift in Sources */,
 				837137751DD8A1F5003AD379 /* Coordinate.swift in Sources */,
+				CBB0D811233FC2B100893E14 /* Quotes.swift in Sources */,
 				CB5908381EFC155400D77DB5 /* ReplayBoardViewController.swift in Sources */,
 				CB59083A1EFC155400D77DB5 /* SettingsViewController.swift in Sources */,
 				CB5908531EFC156000D77DB5 /* ControlBarView.swift in Sources */,

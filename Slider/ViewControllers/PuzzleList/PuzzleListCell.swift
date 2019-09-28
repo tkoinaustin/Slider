@@ -45,6 +45,7 @@ class PuzzleListCell: UITableViewCell {
 
     self.selectionStyle = .none
     puzzleLabel.font = UIFont.preferredFont(forTextStyle: .body)
+    historyButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
     historyButton.setTitleColor(UIColor.label, for: .normal)
     historyButton.setTitleColor(UIColor.quaternaryLabel, for: .disabled)
     historyButton.setTitleColor(UIColor.secondaryLabel, for: .highlighted)
@@ -54,7 +55,7 @@ class PuzzleListCell: UITableViewCell {
     addSubview(historyButton)
     setupConstraints()
   }
-  
+
   private func setupConstraints() {
 
     historyButton.centerYAnchor.constraint(equalTo:self.centerYAnchor).isActive = true
@@ -64,6 +65,18 @@ class PuzzleListCell: UITableViewCell {
     puzzleLabel.centerYAnchor.constraint(equalTo:self.centerYAnchor).isActive = true
     puzzleLabel.leadingAnchor.constraint(equalTo:self.leadingAnchor, constant: 16).isActive = true
   }
+    
+    func deselected() {
+        self.contentView.backgroundColor = UIColor.systemBackground
+    }
+    
+    func selected() {
+        self.contentView.backgroundColor = UIColor.secondarySystemBackground
+    }
+    
+    override func prepareForReuse() {
+        self.contentView.backgroundColor = UIColor.systemBackground
+    }
   
   func won() {
     sideBorder.backgroundColor = UIColor.systemGreen.cgColor

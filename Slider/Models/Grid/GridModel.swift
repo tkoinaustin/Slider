@@ -70,7 +70,7 @@ class GridModel {
       return self.moving(amount: amount, index: index)
     }
     
-    block.blockModelMoveFinished = { //[unowned self] _ in
+    block.blockModelMoveFinished = { 
       guard self.direction != nil else {
         self.board = .moveOneSpace
         return

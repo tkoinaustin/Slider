@@ -46,12 +46,12 @@ class GameboardViewController: UIViewController {
     let navController = segue.destination as? UINavigationController
     let settingsViewController = navController?.viewControllers[0] as? SettingsViewController
     
-    settingsViewController?.saveGame = { //[unowned self] _ in
+    settingsViewController?.saveGame = { 
       self.viewModel.game.gameTime = self.viewModel.controlBar.timerCount
       self.viewModel.saveGame()
     }
     
-    settingsViewController?.showFTUE = { //[unowned self] _ in
+    settingsViewController?.showFTUE = { 
       self.performSegue(withIdentifier: "FTUESegue", sender: nil)
     }
   }

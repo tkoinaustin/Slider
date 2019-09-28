@@ -38,6 +38,7 @@ class PuzzleListDataProvider: NSObject, UITableViewDataSource {
       cell.puzzleLabel?.text = name
       cell.historyButton.setTitle("History", for: .normal)
       cell.historyButton.isEnabled = true
+      if indexPath.row == parent.currentIndex { cell.selected() }
       cell.historyButton.addTarget(self,
                                    action: #selector(buttonAction(sender:)),
                                    for: UIControl.Event.touchUpInside)

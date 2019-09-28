@@ -105,7 +105,23 @@ class CodedBlockView: UIView {
       })
     }
     
-    viewModel.spinOffScreen = { //[unowned self] _ in
+    viewModel.fadeOffScreen = {
+        let delay: Double = 0.05 * Double(index)
+        var offScreen = CGAffineTransform.identity
+        offScreen = offScreen.scaledBy(x: 0.01, y: 0.01)
+
+        UIView.animate(
+          withDuration: 0.5,
+          delay: 0.5 + delay,
+          options: .curveEaseIn,
+          animations: {
+            self.transform = offScreen
+        }, completion: { _ in
+          self.alpha = 0
+        })
+    }
+    
+    viewModel.spinOffScreen = { 
       self.superview?.sendSubviewToBack(self)
       let delay: Double = 0.4 * Double(index)
       let scale: CGFloat = 1.2
@@ -135,7 +151,7 @@ class CodedBlockView: UIView {
       })
     }
     
-    self.viewModel.exitOffScreen = { //[unowned self] _ in
+    self.viewModel.exitOffScreen = { 
       let transform = CGAffineTransform(scaleX: 1, y: 0.001)
       UIView.animate(
         withDuration: 0.5,
@@ -148,7 +164,7 @@ class CodedBlockView: UIView {
         completion: nil
     )}
     
-    viewModel.fadeIn = { //[unowned self] _ in
+    viewModel.fadeIn = { 
       self.alpha = 0
       UIView.animate(withDuration: 0.5, animations: {
         self.alpha = 1
