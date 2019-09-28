@@ -20,7 +20,7 @@ class PuzzleListDataProvider: NSObject, UITableViewDataSource {
   }
 
   func registerCellsForTableView(_ tableView: UITableView) {
-    tableView.register(PuzzleListCell.self, forCellReuseIdentifier: "cell")
+    tableView.register(PuzzleListCell.self, forCellReuseIdentifier: "puzzleListReuseIdentifier")
   }
 
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -30,7 +30,7 @@ class PuzzleListDataProvider: NSObject, UITableViewDataSource {
   func tableView(_ tableView: UITableView,
                  cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
-    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+    let cell = tableView.dequeueReusableCell(withIdentifier: "puzzleListReuseIdentifier", for: indexPath)
     
     if let cell = cell as? PuzzleListCell {
       let gameModel = store[indexPath.row]

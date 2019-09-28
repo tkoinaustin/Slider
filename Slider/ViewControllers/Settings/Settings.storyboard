@@ -3,6 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14819.2"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -36,6 +37,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YQH-YL-gLU">
                                         <rect key="frame" x="125.5" y="55.5" width="84" height="30"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                        <color key="tintColor" name="smallBlock"/>
                                         <state key="normal" title="How To Play"/>
                                         <connections>
                                             <action selector="instructionsAction:" destination="wZ3-td-p7H" eventType="touchUpInside" id="57U-kn-bgU"/>
@@ -94,4 +96,9 @@
             <point key="canvasLocation" x="-202.40000000000001" y="80.50974512743629"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="smallBlock">
+            <color red="0.23529411764705882" green="0.396078431372549" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

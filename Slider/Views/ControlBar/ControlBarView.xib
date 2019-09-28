@@ -3,6 +3,7 @@
     <device id="retina3_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14819.2"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -28,6 +29,7 @@
                                         <constraint firstAttribute="width" constant="120" id="Eyg-FP-7vL"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                    <color key="tintColor" name="smallBlock"/>
                                     <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
                                     <state key="normal" title="Puzzles"/>
                                     <variation key="default">
@@ -42,6 +44,7 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vxx-jY-pDs">
                                     <rect key="frame" x="146.5" y="0.0" width="79" height="50"/>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                    <color key="tintColor" name="smallBlock"/>
                                     <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
                                     <state key="normal" title="Reset"/>
                                     <connections>
@@ -67,6 +70,7 @@
                                                 <constraint firstAttribute="height" constant="46" id="1yd-Nj-QIO"/>
                                                 <constraint firstAttribute="width" constant="43" id="LfE-c4-Pjp"/>
                                             </constraints>
+                                            <color key="tintColor" name="smallBlock"/>
                                             <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                             <state key="normal" image="left18"/>
                                             <connections>
@@ -91,6 +95,7 @@
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="46" id="aSU-Bn-Gzu"/>
                                                 <constraint firstAttribute="height" constant="26" id="tMB-iD-1e5"/>
                                             </constraints>
+                                            <color key="tintColor" name="smallBlock"/>
                                             <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                             <state key="normal" image="right18"/>
                                             <connections>
@@ -115,6 +120,7 @@
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="5uV-DI-a3d" secondAttribute="height" multiplier="1:1" id="5r0-ov-Tnh"/>
                                     </constraints>
+                                    <color key="tintColor" name="smallBlock"/>
                                     <state key="normal" image="settings"/>
                                     <connections>
                                         <action selector="settingsAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="vgt-Wp-LPh"/>
@@ -180,5 +186,8 @@
         <image name="left18" width="198" height="236"/>
         <image name="right18" width="198" height="236"/>
         <image name="settings" width="26" height="26"/>
+        <namedColor name="smallBlock">
+            <color red="0.23529411764705882" green="0.396078431372549" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

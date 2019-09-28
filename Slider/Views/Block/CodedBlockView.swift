@@ -12,13 +12,12 @@ class CodedBlockView: UIView {
   
   var imageView = UIImageView()
   var viewModel: BlockViewModel!
-  var color: UIColor { didSet { imageView.backgroundColor = color }}
-    let blockAlpha = 0.7
+  let blockAlpha = 0.7
 
   public override init(frame: CGRect) {
-    color = Color.aqua
     super.init(frame: frame)
     let pan = UIPanGestureRecognizer(target: self, action: #selector(pan(_:)))
+    let smallBlock = UIColor(named: "smallBlock")
     self.addGestureRecognizer(pan)
     
     self.addSubview(imageView)
@@ -31,11 +30,11 @@ class CodedBlockView: UIView {
     
     imageView.image = UIImage(named: "block gradient")
     imageView.contentMode = .scaleAspectFill
-    imageView.backgroundColor = Color.aqua
+    imageView.backgroundColor = smallBlock
     imageView.layer.cornerRadius = gameSize.corner
     
     imageView.layer.borderWidth = 0.5
-    imageView.layer.borderColor = Color.tungsten.cgColor
+    imageView.layer.borderColor = UIColor.systemGray2.cgColor
     
     imageView.layer.shadowColor = UIColor.black.cgColor
     imageView.layer.shadowOpacity = 0.6
@@ -69,7 +68,7 @@ class CodedBlockView: UIView {
   static func get(block: CodedBlockView, parent: UIView, index: Int, fade: Double? = 1) -> CodedBlockView {
     block.center = block.viewModel.center
     block.bounds = block.viewModel.bounds
-    if index == 1 { block.imageView.backgroundColor = Color.ocean }
+    if index == 1 { block.imageView.backgroundColor = UIColor(named: "bigBlock") }
     block.setBlockClosures(index)
     
     parent.addSubview(block)
@@ -107,7 +106,7 @@ class CodedBlockView: UIView {
     }
     
     viewModel.spinOffScreen = { //[unowned self] _ in
-        self.superview?.sendSubviewToBack(self)
+      self.superview?.sendSubviewToBack(self)
       let delay: Double = 0.4 * Double(index)
       let scale: CGFloat = 1.2
       let enlarge = CGAffineTransform(scaleX: scale, y: scale)

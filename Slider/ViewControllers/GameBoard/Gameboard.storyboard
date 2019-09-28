@@ -3,6 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14819.2"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -26,11 +27,33 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bie-Xn-ZpF">
-                                <rect key="frame" x="16" y="118" width="343" height="379"/>
+                                <rect key="frame" x="-740" y="118" width="1855" height="379"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="background image large" translatesAutoresizingMaskIntoConstraints="NO" id="aIb-aU-WlL">
+                                        <rect key="frame" x="0.0" y="0.0" width="1855" height="770"/>
+                                        <color key="tintColor" name="smallBlock"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="aIb-aU-WlL" secondAttribute="bottom" id="O4d-LM-94G"/>
+                                    <constraint firstItem="aIb-aU-WlL" firstAttribute="leading" secondItem="bie-Xn-ZpF" secondAttribute="leading" id="k5f-sI-fGy"/>
+                                    <constraint firstAttribute="trailing" secondItem="aIb-aU-WlL" secondAttribute="trailing" id="tsN-8e-xnj"/>
+                                    <constraint firstItem="aIb-aU-WlL" firstAttribute="top" secondItem="bie-Xn-ZpF" secondAttribute="top" id="xe9-gm-mE4"/>
+                                </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Slider" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1JE-jc-pSd">
+                                <rect key="frame" x="151" y="8" width="73.5" height="32"/>
+                                <color key="tintColor" name="aqua"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <color key="textColor" name="smallBlock"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="fZ6-fn-By1" firstAttribute="top" secondItem="1JE-jc-pSd" secondAttribute="bottom" constant="12" id="7IL-hb-acF"/>
+                            <constraint firstItem="1JE-jc-pSd" firstAttribute="centerX" secondItem="tVV-JY-VtE" secondAttribute="centerX" id="OTJ-YQ-c89"/>
                             <constraint firstItem="fZ6-fn-By1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tVV-JY-VtE" secondAttribute="leadingMargin" id="QCH-KI-any"/>
                             <constraint firstItem="2Ds-Bj-rJn" firstAttribute="leading" secondItem="tVV-JY-VtE" secondAttribute="leadingMargin" id="SDu-So-N4E"/>
                             <constraint firstItem="bie-Xn-ZpF" firstAttribute="centerX" secondItem="tVV-JY-VtE" secondAttribute="centerX" id="WXL-8o-0IF"/>
@@ -75,4 +98,13 @@
             <point key="canvasLocation" x="1192" y="79.160419790104953"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="background image large" width="927.5" height="1211"/>
+        <namedColor name="aqua">
+            <color red="0.27450980392156865" green="0.60392156862745094" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="smallBlock">
+            <color red="0.27450980392156865" green="0.60392156862745094" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

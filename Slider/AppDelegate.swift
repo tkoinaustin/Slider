@@ -16,13 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   var window: UIWindow?
 
-  func application(
-    _ application: UIApplication,
-    didFinishLaunchingWithOptions launchOptions: [
-    UIApplication.LaunchOptionsKey: Any
-    ]?
-    ) -> Bool {
+  func application(_ application: UIApplication,
+                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     Fabric.with([Answers.self, Crashlytics.self])
+    UINavigationBar.appearance().tintColor = UIColor(named: "smallBlock")
+
     return true
   }
   

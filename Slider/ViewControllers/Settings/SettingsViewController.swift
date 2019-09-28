@@ -25,6 +25,7 @@ class SettingsViewController: UIViewController {
     navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel,
                                                        target: self,
                                                        action: #selector(dismissController))
+    navigationItem.leftBarButtonItem?.tintColor = UIColor(named: "smallBlock")
   }
   
   @IBAction func instructionsAction(_ sender: UIButton) {

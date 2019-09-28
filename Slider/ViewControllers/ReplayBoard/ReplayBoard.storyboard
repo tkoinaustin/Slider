@@ -94,6 +94,6 @@
     </scenes>
     <resources>
         <image name="background gradient90" width="444" height="635"/>
-        <image name="background image large" width="1855" height="2422"/>
+        <image name="background image large" width="927.5" height="1211"/>
     </resources>
 </document>

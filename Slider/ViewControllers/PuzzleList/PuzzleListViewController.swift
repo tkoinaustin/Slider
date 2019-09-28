@@ -22,6 +22,7 @@ class PuzzleListViewController: UITableViewController {
     navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel,
                                                        target: self,
                                                        action: #selector(dismissController))
+    navigationItem.leftBarButtonItem?.tintColor = UIColor(named: "smallBlock")
 
     tableView.separatorStyle = .none
     tableView.dataSource = dataProvider

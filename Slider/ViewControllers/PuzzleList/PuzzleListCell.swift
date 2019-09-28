@@ -14,7 +14,8 @@ class PuzzleListCell: UITableViewCell {
   let historyButton: UIButton!
   let bottomBorderHeight: CGFloat = 2.0
   let bottomBorder: CALayer
-  
+  let sideBorder: CALayer
+
   override func awakeFromNib() {
     super.awakeFromNib()
   }
@@ -27,21 +28,27 @@ class PuzzleListCell: UITableViewCell {
     historyButton.translatesAutoresizingMaskIntoConstraints = false
     
     bottomBorder = CALayer()
-    
+    sideBorder = CALayer()
+
     super.init(style: style, reuseIdentifier: reuseIdentifier)
-    backgroundColor = UIColor.white.withAlphaComponent(0.25)
 
     self.layer.addSublayer(bottomBorder)
+    self.layer.addSublayer(sideBorder)
     bottomBorder.frame = CGRect(x: 0,
                                 y: self.frame.height - bottomBorderHeight,
                                 width: UIScreen.main.bounds.width,
                                 height: bottomBorderHeight)
-    
+    sideBorder.frame = CGRect(x: 0,
+                                y: 2,
+                                width: 8,
+                                height: self.frame.height - 6)
+
     self.selectionStyle = .none
     puzzleLabel.font = UIFont.preferredFont(forTextStyle: .body)
     historyButton.setTitleColor(UIColor.label, for: .normal)
-    historyButton.setTitleColor(UIColor.secondaryLabel, for: .disabled)
+    historyButton.setTitleColor(UIColor.quaternaryLabel, for: .disabled)
     historyButton.setTitleColor(UIColor.secondaryLabel, for: .highlighted)
+    bottomBorder.backgroundColor = UIColor.tertiaryLabel.cgColor
 
     addSubview(puzzleLabel)
     addSubview(historyButton)
@@ -55,21 +62,21 @@ class PuzzleListCell: UITableViewCell {
       .isActive = true
 
     puzzleLabel.centerYAnchor.constraint(equalTo:self.centerYAnchor).isActive = true
-    puzzleLabel.leadingAnchor.constraint(equalTo:self.leadingAnchor, constant: 8).isActive = true
+    puzzleLabel.leadingAnchor.constraint(equalTo:self.leadingAnchor, constant: 16).isActive = true
   }
   
   func won() {
-    bottomBorder.backgroundColor = Color.moss.cgColor
+    sideBorder.backgroundColor = UIColor.systemGreen.cgColor
     historyButton.isEnabled = true
   }
   
   func notWon() {
-    bottomBorder.backgroundColor = Color.cayenne.cgColor
+    sideBorder.backgroundColor = UIColor.systemRed.cgColor
     historyButton.isEnabled = true
   }
 
   func neverPlayed() {
-    bottomBorder.backgroundColor = UIColor.tertiaryLabel.cgColor
+    sideBorder.backgroundColor = UIColor.clear.cgColor
     historyButton.isEnabled = false
   }
 

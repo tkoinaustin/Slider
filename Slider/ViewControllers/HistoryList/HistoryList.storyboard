@@ -3,6 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14819.2"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,11 +23,18 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2No-vR-Vc4">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zrI-2Z-BYR">
                                             <rect key="frame" x="0.0" y="42" width="375" height="2"/>
+                                            <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="2" id="NNw-M7-jSv"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2No-vR-Vc4">
+                                            <rect key="frame" x="0.0" y="2" width="8" height="38"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="2" id="gOB-1v-GF2"/>
+                                                <constraint firstAttribute="width" constant="8" id="1a6-TU-1os"/>
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xc1-7y-67v">
@@ -43,15 +51,19 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="2No-vR-Vc4" secondAttribute="bottom" id="A8a-7Y-Ncg"/>
+                                        <constraint firstAttribute="bottom" secondItem="2No-vR-Vc4" secondAttribute="bottom" constant="4" id="A8a-7Y-Ncg"/>
+                                        <constraint firstItem="2No-vR-Vc4" firstAttribute="top" secondItem="xI0-Rp-TUZ" secondAttribute="top" constant="2" id="Be2-1o-Nnu"/>
+                                        <constraint firstAttribute="bottom" secondItem="zrI-2Z-BYR" secondAttribute="bottom" id="DTS-G9-8hD"/>
                                         <constraint firstItem="2No-vR-Vc4" firstAttribute="leading" secondItem="xI0-Rp-TUZ" secondAttribute="leading" id="E4G-BX-FUS"/>
                                         <constraint firstItem="6Mq-qR-GPD" firstAttribute="centerY" secondItem="xI0-Rp-TUZ" secondAttribute="centerY" id="Gcq-CS-oBg"/>
                                         <constraint firstItem="xc1-7y-67v" firstAttribute="centerY" secondItem="xI0-Rp-TUZ" secondAttribute="centerY" id="H44-8N-No2"/>
-                                        <constraint firstAttribute="trailing" secondItem="2No-vR-Vc4" secondAttribute="trailing" id="bGn-Xn-hdA"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="6Mq-qR-GPD" secondAttribute="trailing" constant="8" id="fAh-xZ-JBq"/>
-                                        <constraint firstItem="xc1-7y-67v" firstAttribute="leading" secondItem="xI0-Rp-TUZ" secondAttribute="leadingMargin" id="x81-3N-QX3"/>
+                                        <constraint firstAttribute="trailing" secondItem="zrI-2Z-BYR" secondAttribute="trailing" id="uUJ-y3-B2L"/>
+                                        <constraint firstItem="zrI-2Z-BYR" firstAttribute="leading" secondItem="xI0-Rp-TUZ" secondAttribute="leading" id="wcv-Lz-tya"/>
+                                        <constraint firstItem="xc1-7y-67v" firstAttribute="leading" secondItem="xI0-Rp-TUZ" secondAttribute="leading" constant="16" id="x81-3N-QX3"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="tintColor" name="smallBlock"/>
                                 <connections>
                                     <outlet property="datePlayed" destination="xc1-7y-67v" id="unt-rH-DR1"/>
                                     <outlet property="moves" destination="6Mq-qR-GPD" id="ML7-pu-gkw"/>
@@ -100,4 +112,9 @@
             <point key="canvasLocation" x="-23.199999999999999" y="56.221889055472268"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="smallBlock">
+            <color red="0.23529411764705882" green="0.396078431372549" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
