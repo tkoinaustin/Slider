@@ -169,6 +169,7 @@ class GameboardViewModel {
     self.game.trim(0)
     self.game.datePlayed = Date()
     self.loadPuzzle(self.game.moveData.first?.grid)
+    self.controlBar.enableControls()
   }
   
   func nextPuzzle() {
@@ -176,6 +177,7 @@ class GameboardViewModel {
     if idx >= Puzzles().klotski.count { idx -= 1 }
     let puzzleModel = Puzzles().klotski[idx]
     controlBar.newPuzzle(puzzleModel: puzzleModel)
+    self.controlBar.enableControls()
   }
   
   func block(_ index: Int) -> BlockViewModel {
@@ -245,7 +247,12 @@ class GameboardViewModel {
     
     replayViewModel.loadBlocks()
   }
-  
+    
+  func displayPuzzleList() {
+    self.controlBar.updateControlBarUI()
+    self.controlBar.displayPuzzleList()
+  }
+
   func winnerAlert(_ type: Alerts) {
     let notify = UIAlertController.init(title: type.title,
                                         message: type.message,
@@ -258,10 +265,11 @@ class GameboardViewModel {
                                      style: .default,
                                      handler: { [unowned self] _ in self.replayGame() })
     notify.addAction(replayAction)
-    let playAgainAction = UIAlertAction(title: "Play Again",
+    let puzzleListAction = UIAlertAction(title: "Puzzle List",
                                         style: .default,
-                                        handler: { [unowned self] _ in self.playAgain() })
-    notify.addAction(playAgainAction)
+                                        handler: { [unowned self] _ in self.displayPuzzleList() })
+    notify.addAction(puzzleListAction)
+
     self.gridView.parentViewController?.present(notify,
                                                 animated: true,
                                                 completion: nil)

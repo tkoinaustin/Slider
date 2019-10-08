@@ -28,11 +28,13 @@ class TransitionLabel: UILabel {
   
   func setLabel(_ text: String) {
     newValue = text
-    UIView.animate(withDuration: 0.05, animations: {
+    UIView.animate(withDuration: 0.00, animations: {
       self.newLabel.alpha = 0
     }, completion: { _ in
       self.newLabel.text = self.newValue
-      self.newLabel.alpha = 1
+        UIView.animate(withDuration: 0.00, animations: {
+            self.newLabel.alpha = 1
+        })
     })
   }
   
@@ -47,9 +49,12 @@ class TransitionLabel: UILabel {
   }
   
   func setup() {
+    self.textColor = UIColor.clear
+
     self.addSubview(newLabel)
     self.newLabel.textAlignment = self.textAlignment
-    newLabel.font = font
+    self.newLabel.font = font
+    self.newLabel.textColor = UIColor.secondaryLabel
 
     newLabel.translatesAutoresizingMaskIntoConstraints = false
     let margins = layoutMarginsGuide
@@ -59,5 +64,4 @@ class TransitionLabel: UILabel {
     newLabel.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: -8).isActive = true
     newLabel.trailingAnchor.constraint(equalTo:margins.trailingAnchor, constant: 8).isActive = true
   }
-
 }

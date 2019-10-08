@@ -43,7 +43,7 @@ class PuzzleListDataProvider: NSObject, UITableViewDataSource {
                                    action: #selector(buttonAction(sender:)),
                                    for: UIControl.Event.touchUpInside)
       cell.historyButton.tag = indexPath.row
-      
+
       switch allGames.history(for: name).state {
       case .neverPlayed:
         cell.neverPlayed()
@@ -57,7 +57,7 @@ class PuzzleListDataProvider: NSObject, UITableViewDataSource {
     return cell
   }
   
-    @objc func  buttonAction(sender: UIButton) {
+  @objc func  buttonAction(sender: UIButton) {
     let row = sender.tag
     let name = store[row].name
     let historyModel = allGames.history(for: name)

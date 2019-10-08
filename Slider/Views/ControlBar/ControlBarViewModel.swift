@@ -135,7 +135,14 @@ class ControlBarViewModel: NSObject, NSCoding {
     updateControlBarUI()
   }
   
+    func enableControls() {
+        self.timerState = .enableControls
+        updateControlBarUI()
+    }
+    
   func newPuzzle(puzzleModel: PuzzleModel?) {
+    timerState = .reset
+    updateControlBarUI()
     guard let puzzleModel = puzzleModel else { return }
     
     if puzzleModel.name != puzzleLabel && moveNumber ?? 0 > 0 {
@@ -145,7 +152,10 @@ class ControlBarViewModel: NSObject, NSCoding {
     // load new puzzle
     gameOver = false
     puzzleLabel = "\(puzzleModel.name)"
-    timerState = .reset
+    if puzzleModel != nil {
+        timerState = .enableControls
+    }
+//    timerState = .reset
     moveDataCount = 1
     moveNumber = 0
     updateControlBarUI()
@@ -158,6 +168,7 @@ class ControlBarViewModel: NSObject, NSCoding {
     puzzleListViewController.preferredContentSize = CGSize(width: 400, height: 3000)
     puzzleListViewController.loadNewPuzzle = newPuzzle
     puzzleListViewController.saveHistory = saveHistory
+    puzzleListViewController.updateControlBarUI = self.updateControlBarUI
     if let controller = parentViewController as? GameboardViewController {
       puzzleListViewController.currentIndex = controller.viewModel.game.index
     }

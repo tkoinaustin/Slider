@@ -9,7 +9,7 @@
 import UIKit
 
 enum TimerState {
-  case initialize, start, stop, reset
+  case initialize, start, stop, reset, enableControls
 }
 
 @IBDesignable
@@ -38,22 +38,23 @@ class TimerView: UIView {
     labelView = TransitionLabel(frame: frame)
     
     self.addSubview(labelView)
-    labelView.translatesAutoresizingMaskIntoConstraints = false
+    self.labelView.translatesAutoresizingMaskIntoConstraints = false
     let margins = layoutMarginsGuide
     
-    labelView.topAnchor.constraint(equalTo: margins.topAnchor, constant: -8).isActive = true
-    labelView.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: 8).isActive = true
-    labelView.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: -8).isActive = true
-    labelView.trailingAnchor.constraint(equalTo:margins.trailingAnchor, constant: 8).isActive = true
-    labelView.text = "00:00"
+    self.labelView.topAnchor.constraint(equalTo: margins.topAnchor, constant: -8).isActive = true
+    self.labelView.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: 8).isActive = true
+    self.labelView.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: -8).isActive = true
+    self.labelView.trailingAnchor.constraint(equalTo:margins.trailingAnchor, constant: 8).isActive = true
+    self.labelView.text = "00:00"
   }
   
   func updateForTimerState(_ state: TimerState) {
     switch state {
-    case .initialize: initialize()
-    case .start: start()
-    case .stop: stop()
-    case .reset: reset()
+        case .initialize: initialize()
+        case .start: start()
+        case .stop: stop()
+        case .reset: reset()
+        case .enableControls: ()
     }
   }
   

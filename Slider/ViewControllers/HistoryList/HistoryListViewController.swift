@@ -38,6 +38,8 @@ class HistoryListViewController: UITableViewController {
       cell.gameModel = gameModel
     }
     
+    cell.selectionStyle = .default
+    
     return cell
   }
   

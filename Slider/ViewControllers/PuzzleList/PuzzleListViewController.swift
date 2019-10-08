@@ -11,6 +11,7 @@ import UIKit
 class PuzzleListViewController: UITableViewController {
   var dataProvider = PuzzleListDataProvider()
   var loadNewPuzzle: ((PuzzleModel?) -> Void) = { _ in }
+  var updateControlBarUI: (() -> Void) = { }
   var saveHistory: (() -> Void) = { }
   var currentIndex: Int = 0
 
@@ -33,9 +34,14 @@ class PuzzleListViewController: UITableViewController {
     let indexPath = IndexPath(row: currentIndex, section: 0)
     tableView.scrollToRow(at: indexPath, at: .middle , animated: true)
   }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        loadNewPuzzle(nil)
+    }
   
-    @objc func dismissController() {
-    loadNewPuzzle(nil)
+  @objc func dismissController() {
+//    loadNewPuzzle(nil)
     dismiss(animated: true, completion: nil)
   }
 

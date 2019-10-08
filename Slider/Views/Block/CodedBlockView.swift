@@ -88,7 +88,7 @@ class CodedBlockView: UIView {
     }
     
     viewModel.fadeOutAndRemove = {
-      UIView.animate(withDuration: 0.5, animations: {
+      UIView.animate(withDuration: 0.33, animations: {
         self.alpha = 0
       })
     }
