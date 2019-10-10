@@ -7,37 +7,39 @@
 //
 
 import UIKit
-class TransitionLabel: UILabel {
+class TransitionLabel: UIView {
   
   var color: UIColor! { didSet {
-    newLabel.backgroundColor = color
+    self.underLabel.backgroundColor = color
+    self.overLabel.backgroundColor = color
   }}
   
   var displayFont: UIFont! { didSet {
-    self.font = displayFont
-    newLabel.font = displayFont
+    self.underLabel.font = displayFont
+    self.overLabel.font = displayFont
   }}
   
   var newValue: String!
   
-  override var text: String? { didSet {
+  var text: String? { didSet {
     if let text = text { setLabel(text) }
   }}
   
-  var newLabel = UILabel()
-  
+  var underLabel = UILabel()
+  var overLabel = UILabel()
+
   func setLabel(_ text: String) {
-    newValue = text
-    UIView.animate(withDuration: 0.00, animations: {
-      self.newLabel.alpha = 0
+    self.underLabel.text = text
+    UIView.animate(withDuration: 0.33, animations: {
+      self.overLabel.alpha = 0
+      self.underLabel.alpha = 1
     }, completion: { _ in
-      self.newLabel.text = self.newValue
-        UIView.animate(withDuration: 0.00, animations: {
-            self.newLabel.alpha = 1
-        })
+      self.overLabel.text = text
+      self.overLabel.alpha = 1
+      self.underLabel.alpha = 0
     })
   }
-  
+
   override init(frame: CGRect) {
     super.init(frame: frame)
     setup()
@@ -49,19 +51,24 @@ class TransitionLabel: UILabel {
   }
   
   func setup() {
-    self.textColor = UIColor.clear
+    self.addSubview(underLabel)
+    self.addSubview(overLabel)
+    self.underLabel.textColor = UIColor.secondaryLabel
+    self.overLabel.textColor = UIColor.secondaryLabel
+    self.underLabel.textAlignment = .center
+    self.overLabel.textAlignment = .center
 
-    self.addSubview(newLabel)
-    self.newLabel.textAlignment = self.textAlignment
-    self.newLabel.font = font
-    self.newLabel.textColor = UIColor.secondaryLabel
-
-    newLabel.translatesAutoresizingMaskIntoConstraints = false
+    underLabel.translatesAutoresizingMaskIntoConstraints = false
+    overLabel.translatesAutoresizingMaskIntoConstraints = false
     let margins = layoutMarginsGuide
     
-    newLabel.topAnchor.constraint(equalTo: margins.topAnchor, constant: -8).isActive = true
-    newLabel.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: 8).isActive = true
-    newLabel.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: -8).isActive = true
-    newLabel.trailingAnchor.constraint(equalTo:margins.trailingAnchor, constant: 8).isActive = true
+    underLabel.topAnchor.constraint(equalTo: margins.topAnchor, constant: -8).isActive = true
+    underLabel.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: 8).isActive = true
+    underLabel.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: -8).isActive = true
+    underLabel.trailingAnchor.constraint(equalTo:margins.trailingAnchor, constant: 8).isActive = true
+    overLabel.topAnchor.constraint(equalTo: margins.topAnchor, constant: -8).isActive = true
+    overLabel.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: 8).isActive = true
+    overLabel.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: -8).isActive = true
+    overLabel.trailingAnchor.constraint(equalTo:margins.trailingAnchor, constant: 8).isActive = true
   }
 }

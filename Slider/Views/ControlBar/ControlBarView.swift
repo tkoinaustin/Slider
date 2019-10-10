@@ -19,12 +19,11 @@ class ControlBarView: UIView, XibLoadable {
     reset.titleLabel?.font = size.font
     puzzleName.font = size.font
     moveNumber.displayFont = size.font
-    timerView.labelView.displayFont = size.font
+    timerView.displayFont = size.font
     buttonHeight.constant = gameSize.buttonSize
   }}
   
     @IBOutlet weak var backgroundView: UIView! { didSet {
-//        self.backgroundView.backgroundColor = .secondarySystemBackground
         self.backgroundView.backgroundColor = .systemBackground
         self.backgroundView.layer.borderWidth = 0.5
         self.backgroundView.layer.cornerRadius = 10
