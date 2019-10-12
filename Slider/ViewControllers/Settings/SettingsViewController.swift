@@ -21,13 +21,18 @@ class SettingsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    self.title = "Settings"
+    self.title = "About"
     navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel,
                                                        target: self,
                                                        action: #selector(dismissController))
     navigationItem.leftBarButtonItem?.tintColor = UIColor(named: "smallBlock")
   }
-  
+    @IBAction func goToAppStore(_ sender: UIButton) {
+        guard let writeReviewURL = URL(string: "https://itunes.apple.com/app/id1194851350?action=write-review")
+            else { fatalError("Expected a valid URL") }
+        UIApplication.shared.open(writeReviewURL, options: [:], completionHandler: nil)
+    }
+    
   @IBAction func instructionsAction(_ sender: UIButton) {
     saveGame()
     

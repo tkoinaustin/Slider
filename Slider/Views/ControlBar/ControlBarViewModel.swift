@@ -141,8 +141,6 @@ class ControlBarViewModel: NSObject, NSCoding {
     }
     
   func newPuzzle(puzzleModel: PuzzleModel?) {
-    timerState = .reset
-    updateControlBarUI()
     guard let puzzleModel = puzzleModel else { return }
     
     if puzzleModel.name != puzzleLabel && moveNumber ?? 0 > 0 {
@@ -152,10 +150,7 @@ class ControlBarViewModel: NSObject, NSCoding {
     // load new puzzle
     gameOver = false
     puzzleLabel = "\(puzzleModel.name)"
-    if puzzleModel != nil {
-        timerState = .enableControls
-    }
-//    timerState = .reset
+    timerState = .reset
     moveDataCount = 1
     moveNumber = 0
     updateControlBarUI()

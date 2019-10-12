@@ -81,8 +81,8 @@ class TimerView: UIView {
       self.minutesUnderLabel.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: -8).isActive = true
       self.secondsLabel.trailingAnchor.constraint(equalTo:margins.trailingAnchor, constant: 8).isActive = true
       self.secondsUnderLabel.trailingAnchor.constraint(equalTo:margins.trailingAnchor, constant: 8).isActive = true
-      self.secondsLabel.widthAnchor.constraint(equalToConstant: 35).isActive = true
-      self.secondsUnderLabel.widthAnchor.constraint(equalToConstant: 35).isActive = true
+      self.secondsLabel.widthAnchor.constraint(equalToConstant: 40).isActive = true
+      self.secondsUnderLabel.widthAnchor.constraint(equalToConstant: 40).isActive = true
       self.secondsUnderLabel.alpha = 0
       self.minutesUnderLabel.alpha = 0
       self.secondsLabel.text = "00"

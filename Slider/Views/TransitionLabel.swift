@@ -18,9 +18,7 @@ class TransitionLabel: UIView {
     self.underLabel.font = displayFont
     self.overLabel.font = displayFont
   }}
-  
-  var newValue: String!
-  
+    
   var text: String? { didSet {
     if let text = text { setLabel(text) }
   }}
@@ -28,7 +26,7 @@ class TransitionLabel: UIView {
   var underLabel = UILabel()
   var overLabel = UILabel()
 
-  func setLabel(_ text: String) {
+  private func setLabel(_ text: String) {
     self.underLabel.text = text
     UIView.animate(withDuration: 0.33, animations: {
       self.overLabel.alpha = 0
