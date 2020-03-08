@@ -22,13 +22,3 @@ Normally I would have a full suite of API classes to support data retrival. For 
 ## Installation
 
 Clone the project using the 'Clone or Download' link
-
-## Dependencies
-
-You will need Cocoapods install on your development computer, see: [Cocoapods](https://cocoapods.org)
-
-Then run the usual 'pod install' to install the required modules. You need to close the project and open the workspace from now on.
-
-## Clean up your act
-
-I use SwiftLint to enforce good hygene. If you do not have SwiftLint installed it skips the check. To get SwiftLint go [here](https://github.com/realm/SwiftLint) and follow the instructions.

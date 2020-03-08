@@ -533,7 +533,6 @@
 				83AB625D1D97106A00E61AB7 /* Sources */,
 				83AB625E1D97106A00E61AB7 /* Frameworks */,
 				83AB625F1D97106A00E61AB7 /* Resources */,
-				CB04A4191DD3E660007BE787 /* Swift Lint */,
 				CB876D581E4D677900B50221 /* Fabric */,
 			);
 			buildRules = (
@@ -651,20 +650,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Slider-SliderTests/Pods-Slider-SliderTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		CB04A4191DD3E660007BE787 /* Swift Lint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Swift Lint";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "#if which swiftlint >/dev/null; then\n#  swiftlint\n#else\n#  echo \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\n#fi\n";
 		};
 		CB8386871E4AC7A2005451DD /* Increment Build Number */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -808,7 +793,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "tko-solutions.SliderTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Slider.app/Slider";
 			};
 			name = Debug;
@@ -822,7 +807,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "tko-solutions.SliderTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Slider.app/Slider";
 			};
 			name = Release;
